@@ -1,0 +1,10 @@
+.grid button {
+  transition: all 0.3s ease;
+  background-color: #51786e;
+  height: 40px;
+}
+.grid button:hover {
+  background-color: #faf7f2;
+  color: black;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
