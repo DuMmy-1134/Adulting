@@ -8,7 +8,20 @@
       name="description"
       content="Password management tips, common scam patterns, privacy basics and safe online habits for students."
     />
-    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <link rel="stylesheet" href="../assets/css/fonts.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              heading: ["Fraunces", "Georgia", "serif"],
+              body: ["Nunito Sans", "system-ui", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
   </head>
   <body class="bg-[#faf7f2] font-body text-[#2f3e46] antialiased">
     <header class="sticky top-0 z-50 bg-white shadow-sm will-change-transform">
