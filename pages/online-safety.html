@@ -1,39 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Online Safety — Level Up Life!</title>
     <meta
       name="description"
       content="Password management tips, common scam patterns, privacy basics and safe online habits for students."
-    />
-    <link rel="stylesheet" href="../assets/css/fonts.css" />
+    >
+    <link rel="stylesheet" href="../assets/css/fonts.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              heading: ["Fraunces", "Georgia", "serif"],
-              body: ["Nunito Sans", "system-ui", "sans-serif"],
-            },
-          },
-        },
-      };
-    </script>
+    <script src="../assets/js/tailwind-config.js"></script>
+    <script src="../assets/js/online-safety.js" defer></script>
+    <script src="../assets/js/nav-toggle.js" defer></script>
   </head>
   <body class="bg-[#faf7f2] font-body text-[#2f3e46] antialiased">
     <header class="sticky top-0 z-50 bg-white shadow-sm will-change-transform">
-      <div class="max-w-6xl mx-auto px-10 py-4 flex items-center justify-between">
+      <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 py-4 flex items-center justify-between">
         <a href="../index.html" class="font-heading font-bold text-xl text-[#52796f]">Level Up Life!</a>
-        <nav aria-label="Main">
+        <nav aria-label="Main" class="hidden lg:flex">
           <ul class="flex items-center gap-8 list-none">
             <li class="relative group">
               <a href="#" class="font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">Home Skills <span aria-hidden="true">▾</span></a>
               <div class="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity absolute left-0 top-full min-w-[190px] bg-white rounded-xl shadow-lg p-4">
                 <ul class="list-none">
-                  <li><a href="#" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Quick Meals</a></li>
+                  <li><a href="quick-meal.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Quick Meals</a></li>
                   <li><a href="#" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Laundry Basics</a></li>
                   <li><a href="#" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Room Organization</a></li>
                 </ul>
@@ -53,9 +44,8 @@
               <div class="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity absolute left-0 top-full min-w-[190px] bg-white rounded-xl shadow-lg p-4">
                 <ul class="list-none">
                   <li><a href="#" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Communication Skills</a></li>
-                  <!-- Locked eventual targets (D-15): pages/online-safety.html, pages/emergency-preparedness.html -->
                   <li><a href="online-safety.html" aria-current="page" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Online Safety</a></li>
-                  <li><a href="#" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Emergency Preparedness</a></li>
+                  <li><a href="emergency-preparedness.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Emergency Preparedness</a></li>
                 </ul>
               </div>
             </li>
@@ -71,17 +61,75 @@
             </li>
           </ul>
         </nav>
+        <button type="button" id="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu" class="flex lg:hidden items-center justify-center w-11 h-11 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#52796f] focus-visible:ring-offset-2">
+          <svg data-nav-icon="bars" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2f3e46" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false">
+            <line x1="4" y1="7" x2="20" y2="7"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="17" x2="20" y2="17"></line>
+          </svg>
+          <svg data-nav-icon="close" class="hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2f3e46" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false">
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+          </svg>
+        </button>
       </div>
+      <nav id="mobile-nav" hidden aria-label="Mobile" class="lg:hidden bg-white p-4">
+        <ul class="list-none">
+          <li class="border-b border-[#f0ece3]">
+            <button type="button" data-nav-group aria-expanded="false" aria-controls="mobile-nav-home-skills" class="w-full min-h-[44px] flex justify-between items-center px-4 font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">
+              <span>Home Skills</span>
+              <span data-nav-chevron aria-hidden="true" class="transition-transform">▾</span>
+            </button>
+            <ul id="mobile-nav-home-skills" hidden class="list-none">
+              <li><a href="quick-meal.html" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Quick Meals</a></li>
+              <li><a href="#" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Laundry Basics</a></li>
+              <li><a href="#" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Room Organization</a></li>
+            </ul>
+          </li>
+          <li class="border-b border-[#f0ece3]">
+            <button type="button" data-nav-group aria-expanded="false" aria-controls="mobile-nav-money-time" class="w-full min-h-[44px] flex justify-between items-center px-4 font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">
+              <span>Money &amp; Time</span>
+              <span data-nav-chevron aria-hidden="true" class="transition-transform">▾</span>
+            </button>
+            <ul id="mobile-nav-money-time" hidden class="list-none">
+              <li><a href="#" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Money Basics</a></li>
+              <li><a href="#" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Time Management</a></li>
+            </ul>
+          </li>
+          <li class="border-b border-[#f0ece3]">
+            <button type="button" data-nav-group aria-expanded="false" aria-controls="mobile-nav-people-safety" class="w-full min-h-[44px] flex justify-between items-center px-4 font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">
+              <span>People &amp; Safety</span>
+              <span data-nav-chevron aria-hidden="true" class="transition-transform">▾</span>
+            </button>
+            <ul id="mobile-nav-people-safety" hidden class="list-none">
+              <li><a href="#" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Communication Skills</a></li>
+              <li><a href="online-safety.html" aria-current="page" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Online Safety</a></li>
+              <li><a href="emergency-preparedness.html" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Emergency Preparedness</a></li>
+            </ul>
+          </li>
+          <li>
+            <button type="button" data-nav-group aria-expanded="false" aria-controls="mobile-nav-practice-growth" class="w-full min-h-[44px] flex justify-between items-center px-4 font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">
+              <span>Practice &amp; Growth</span>
+              <span data-nav-chevron aria-hidden="true" class="transition-transform">▾</span>
+            </button>
+            <ul id="mobile-nav-practice-growth" hidden class="list-none">
+              <li><a href="#" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Weekly Challenges</a></li>
+              <li><a href="#" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Life Readiness Quiz</a></li>
+              <li><a href="#" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Submit a Tip</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
     </header>
     <main>
-      <section class="bg-[#2f3e46] text-white px-10 pt-14 pb-16">
+      <section class="bg-[#2f3e46] text-white px-4 md:px-6 lg:px-10 pt-14 pb-16">
         <div class="max-w-6xl mx-auto">
           <h1 class="font-heading font-bold text-[40px] leading-tight mb-3">Online Safety</h1>
           <p class="font-body text-base opacity-85 max-w-[540px]">Passwords, scams, and privacy &mdash; the stuff that keeps your accounts (and wallet) safe.</p>
         </div>
       </section>
 
-      <section class="max-w-6xl mx-auto px-10 pt-14">
+      <section class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pt-14">
         <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-3.5">Password management</h2>
         <p class="font-body text-[15px] text-[#5b6b70] leading-relaxed mb-4 max-w-[760px]">A strong, unique password is still your first line of defence. Here&rsquo;s what actually matters.</p>
         <ul class="list-none flex flex-col gap-2.5">
@@ -92,29 +140,49 @@
         </ul>
       </section>
 
-      <section class="max-w-6xl mx-auto px-10 pt-12">
-        <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-5">Common scam patterns</h2>
-        <div class="grid grid-cols-2 gap-4">
-          <div class="bg-white rounded-2xl shadow-sm p-6">
-            <h3 class="font-body font-bold text-[14.5px] text-[#2f3e46] mb-1.5">Phishing emails</h3>
-            <p class="font-body text-[13px] text-[#5b6b70] leading-normal">Urgent messages asking you to click a link and &lsquo;verify&rsquo; your account.</p>
-          </div>
-          <div class="bg-white rounded-2xl shadow-sm p-6">
-            <h3 class="font-body font-bold text-[14.5px] text-[#2f3e46] mb-1.5">Fake job or scholarship offers</h3>
-            <p class="font-body text-[13px] text-[#5b6b70] leading-normal">Offers that ask for money upfront before you have even started.</p>
-          </div>
-          <div class="bg-white rounded-2xl shadow-sm p-6">
-            <h3 class="font-body font-bold text-[14.5px] text-[#2f3e46] mb-1.5">Too-good-to-be-true deals</h3>
-            <p class="font-body text-[13px] text-[#5b6b70] leading-normal">Prices so low they are designed to make you act before you think.</p>
-          </div>
-          <div class="bg-white rounded-2xl shadow-sm p-6">
-            <h3 class="font-body font-bold text-[14.5px] text-[#2f3e46] mb-1.5">Impersonation calls</h3>
-            <p class="font-body text-[13px] text-[#5b6b70] leading-normal">Callers pretending to be your school, bank, or even a friend in trouble.</p>
+      <section class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pt-12">
+        <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-3.5">Try it yourself</h2>
+        <p class="font-body text-[15px] text-[#5b6b70] leading-relaxed mb-4 max-w-[760px]">See how the password rules above play out. Type a password below for instant feedback &mdash; nothing you type here is saved or sent anywhere.</p>
+        <div class="max-w-[420px]">
+          <label for="password-strength-input" class="block font-body font-semibold text-[13.5px] text-[#2f3e46] mb-2">Test a password</label>
+          <input type="password" id="password-strength-input" name="password-strength-input" autocomplete="new-password" spellcheck="false" placeholder="Type a password to test" class="w-full font-body text-[14.5px] text-[#2f3e46] bg-white border-2 border-[#7c9d96] rounded-lg px-4 py-2.5 focus:outline-none focus:border-[#52796f]">
+          <div class="mt-3 flex items-center gap-3">
+            <div id="password-strength-track" class="flex-1 h-2 rounded-full bg-[#f0ece3] overflow-hidden">
+              <div id="password-strength-fill" class="h-full rounded-full bg-[#f0ece3] transition-all duration-200 ease-out w-0"></div>
+            </div>
+            <p id="password-strength-label" class="font-body font-semibold text-[13px] text-[#5b6b70] w-16 shrink-0" aria-live="polite"></p>
           </div>
         </div>
       </section>
 
-      <section class="max-w-6xl mx-auto px-10 pt-12">
+      <section class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pt-12">
+        <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-5">Common scam patterns</h2>
+        <div id="scam-carousel" class="flex flex-col gap-4">
+          <div class="bg-white rounded-2xl shadow-sm p-6" data-scam-card>
+            <h3 class="font-body font-bold text-[14.5px] text-[#2f3e46] mb-1.5">Phishing emails</h3>
+            <p class="font-body text-[13px] text-[#5b6b70] leading-normal">Urgent messages asking you to click a link and &lsquo;verify&rsquo; your account.</p>
+          </div>
+          <div class="bg-white rounded-2xl shadow-sm p-6" data-scam-card>
+            <h3 class="font-body font-bold text-[14.5px] text-[#2f3e46] mb-1.5">Fake job or scholarship offers</h3>
+            <p class="font-body text-[13px] text-[#5b6b70] leading-normal">Offers that ask for money upfront before you have even started.</p>
+          </div>
+          <div class="bg-white rounded-2xl shadow-sm p-6" data-scam-card>
+            <h3 class="font-body font-bold text-[14.5px] text-[#2f3e46] mb-1.5">Too-good-to-be-true deals</h3>
+            <p class="font-body text-[13px] text-[#5b6b70] leading-normal">Prices so low they are designed to make you act before you think.</p>
+          </div>
+          <div class="bg-white rounded-2xl shadow-sm p-6" data-scam-card>
+            <h3 class="font-body font-bold text-[14.5px] text-[#2f3e46] mb-1.5">Impersonation calls</h3>
+            <p class="font-body text-[13px] text-[#5b6b70] leading-normal">Callers pretending to be your school, bank, or even a friend in trouble.</p>
+          </div>
+        </div>
+        <div class="flex items-center justify-center gap-4 mt-5">
+          <button type="button" id="scam-carousel-prev" aria-label="Previous scam pattern" class="font-body font-semibold text-[13.5px] text-[#52796f] border-2 border-[#52796f] rounded-lg px-5 py-2 hover:bg-[#eef3f1] transition-colors">Prev</button>
+          <span id="scam-carousel-status" aria-live="polite" class="font-body text-[13px] text-[#5b6b70] w-14 text-center">1 / 4</span>
+          <button type="button" id="scam-carousel-next" aria-label="Next scam pattern" class="font-body font-semibold text-[13.5px] text-[#52796f] border-2 border-[#52796f] rounded-lg px-5 py-2 hover:bg-[#eef3f1] transition-colors">Next</button>
+        </div>
+      </section>
+
+      <section class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pt-12">
         <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-3.5">Why privacy matters</h2>
         <p class="font-body text-[15px] text-[#5b6b70] leading-relaxed mb-4 max-w-[760px]">Every account and app collects a little more about you than the last. On its own that&rsquo;s harmless &mdash; combined, it&rsquo;s a profile scammers and advertisers can use against you.</p>
         <ul class="list-none flex flex-col gap-2.5">
@@ -124,7 +192,7 @@
         </ul>
       </section>
 
-      <section class="max-w-6xl mx-auto px-10 pt-12">
+      <section class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pt-12">
         <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-1.5">Safe actions checklist</h2>
         <p class="font-body text-sm text-[#5b6b70] mb-4">Habits worth building &mdash; use this as a reference while you tidy up your accounts.</p>
         <div class="bg-white rounded-2xl shadow-sm px-6">
@@ -147,7 +215,7 @@
         </div>
       </section>
 
-      <section class="max-w-6xl mx-auto px-10 pt-12 pb-16">
+      <section class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pt-12 pb-16">
         <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-4">Scam protection tips</h2>
         <div class="flex flex-col gap-2">
           <details class="group bg-white rounded-2xl shadow-sm p-5">
@@ -177,8 +245,8 @@
         </div>
       </section>
     </main>
-    <footer class="bg-[#2f3e46] text-[#faf7f2] px-10 pt-14 pb-6">
-      <div class="max-w-6xl mx-auto grid grid-cols-[1.4fr_1fr_1fr] gap-10">
+    <footer class="bg-[#2f3e46] text-[#faf7f2] px-4 md:px-6 lg:px-10 pt-14 pb-6">
+      <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
         <div>
           <div class="font-heading font-bold text-xl mb-3">Level Up Life!</div>
           <p class="text-sm opacity-70 max-w-[260px] leading-relaxed">A website that aims to teach beginner life skills, let visitors assess their readiness, complete challenges and submit useful tips for other students.</p>
@@ -202,7 +270,7 @@
           </ul>
         </div>
       </div>
-      <div class="max-w-6xl mx-auto mt-9 text-xs opacity-55">&copy; 2026 Level Up Life!</div>
+      <div class="max-w-6xl mx-auto mt-9 text-xs opacity-70">&copy; 2026 Level Up Life!</div>
     </footer>
   </body>
 </html>
