@@ -1,176 +1,127 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Quick Meals — Level Up Life!</title>
     <meta
       name="description"
-      content="Password management tips, common scam patterns, privacy basics and safe online habits for students."
-    />
-    <link rel="stylesheet" href="../assets/css/fonts.css" />
-    <link rel="stylesheet" href="../assets/css/quick-meal.css" />
+      content="Find simple meals by time, difficulty, or meal type — quick recipes for busy students."
+    >
+    <link rel="stylesheet" href="../assets/css/fonts.css">
+    <link rel="stylesheet" href="../assets/css/quick-meal.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              heading: ["Fraunces", "Georgia", "serif"],
-              body: ["Nunito Sans", "system-ui", "sans-serif"],
-            },
-          },
-        },
-      };
-    </script>
+    <script src="../assets/js/tailwind-config.js"></script>
+    <script src="../assets/js/nav-toggle.js" defer></script>
   </head>
   <body class="bg-[#faf7f2] font-body text-[#2f3e46] antialiased">
     <header class="sticky top-0 z-50 bg-white shadow-sm will-change-transform">
-      <div
-        class="max-w-6xl mx-auto px-10 py-4 flex items-center justify-between"
-      >
-        <a
-          href="../index.html"
-          class="font-heading font-bold text-xl text-[#52796f]"
-          >Level Up Life!</a
-        >
-        <nav aria-label="Main">
+      <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 py-4 flex items-center justify-between">
+        <a href="../index.html" class="font-heading font-bold text-xl text-[#52796f]">Level Up Life!</a>
+        <nav aria-label="Main" class="hidden lg:flex">
           <ul class="flex items-center gap-8 list-none">
             <li class="relative group">
-              <a
-                href="#"
-                class="font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer"
-                >Home Skills <span aria-hidden="true">▾</span></a
-              >
-              <div
-                class="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity absolute left-0 top-full min-w-[190px] bg-white rounded-xl shadow-lg p-4"
-              >
+              <a href="#" class="font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">Home Skills <span aria-hidden="true">▾</span></a>
+              <div class="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity absolute left-0 top-full min-w-[190px] bg-white rounded-xl shadow-lg p-4">
                 <ul class="list-none">
-                  <li>
-                    <a
-                      href="#"
-                      class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap"
-                      >Quick Meals</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap"
-                      >Laundry Basics</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap"
-                      >Room Organization</a
-                    >
-                  </li>
+                  <li><a href="quick-meal.html" aria-current="page" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Quick Meals</a></li>
+                  <li><a href="#" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Laundry Basics</a></li>
+                  <li><a href="#" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Room Organization</a></li>
                 </ul>
               </div>
             </li>
             <li class="relative group">
-              <a
-                href="#"
-                class="font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer"
-                >Money &amp; Time <span aria-hidden="true">▾</span></a
-              >
-              <div
-                class="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity absolute left-0 top-full min-w-[190px] bg-white rounded-xl shadow-lg p-4"
-              >
+              <a href="#" class="font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">Money &amp; Time <span aria-hidden="true">▾</span></a>
+              <div class="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity absolute left-0 top-full min-w-[190px] bg-white rounded-xl shadow-lg p-4">
                 <ul class="list-none">
-                  <li>
-                    <a
-                      href="#"
-                      class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap"
-                      >Money Basics</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap"
-                      >Time Management</a
-                    >
-                  </li>
+                  <li><a href="#" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Money Basics</a></li>
+                  <li><a href="#" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Time Management</a></li>
                 </ul>
               </div>
             </li>
             <li class="relative group">
-              <a
-                href="#"
-                class="font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer"
-                >People &amp; Safety <span aria-hidden="true">▾</span></a
-              >
-              <div
-                class="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity absolute left-0 top-full min-w-[190px] bg-white rounded-xl shadow-lg p-4"
-              >
+              <a href="#" class="font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">People &amp; Safety <span aria-hidden="true">▾</span></a>
+              <div class="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity absolute left-0 top-full min-w-[190px] bg-white rounded-xl shadow-lg p-4">
                 <ul class="list-none">
-                  <li>
-                    <a
-                      href="#"
-                      class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap"
-                      >Communication Skills</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="online-safety.html"
-                      class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap"
-                      >Online Safety</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="emergency-preparedness.html"
-                      aria-current="page"
-                      class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap"
-                      >Emergency Preparedness</a
-                    >
-                  </li>
+                  <li><a href="#" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Communication Skills</a></li>
+                  <li><a href="online-safety.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Online Safety</a></li>
+                  <li><a href="emergency-preparedness.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Emergency Preparedness</a></li>
                 </ul>
               </div>
             </li>
             <li class="relative group">
-              <a
-                href="#"
-                class="font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer"
-                >Practice &amp; Growth <span aria-hidden="true">▾</span></a
-              >
-              <div
-                class="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity absolute left-0 top-full min-w-[190px] bg-white rounded-xl shadow-lg p-4"
-              >
+              <a href="#" class="font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">Practice &amp; Growth <span aria-hidden="true">▾</span></a>
+              <div class="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity absolute left-0 top-full min-w-[190px] bg-white rounded-xl shadow-lg p-4">
                 <ul class="list-none">
-                  <li>
-                    <a
-                      href="#"
-                      class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap"
-                      >Weekly Challenges</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap"
-                      >Life Readiness Quiz</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap"
-                      >Submit a Tip</a
-                    >
-                  </li>
+                  <li><a href="#" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Weekly Challenges</a></li>
+                  <li><a href="#" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Life Readiness Quiz</a></li>
+                  <li><a href="#" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Submit a Tip</a></li>
                 </ul>
               </div>
             </li>
           </ul>
         </nav>
+        <button type="button" id="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu" class="flex lg:hidden items-center justify-center w-11 h-11 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#52796f] focus-visible:ring-offset-2">
+          <svg data-nav-icon="bars" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2f3e46" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false">
+            <line x1="4" y1="7" x2="20" y2="7"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="17" x2="20" y2="17"></line>
+          </svg>
+          <svg data-nav-icon="close" class="hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2f3e46" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false">
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+          </svg>
+        </button>
       </div>
+      <nav id="mobile-nav" hidden aria-label="Mobile" class="lg:hidden bg-white p-4">
+        <ul class="list-none">
+          <li class="border-b border-[#f0ece3]">
+            <button type="button" data-nav-group aria-expanded="false" aria-controls="mobile-nav-home-skills" class="w-full min-h-[44px] flex justify-between items-center px-4 font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">
+              <span>Home Skills</span>
+              <span data-nav-chevron aria-hidden="true" class="transition-transform">▾</span>
+            </button>
+            <ul id="mobile-nav-home-skills" hidden class="list-none">
+              <li><a href="quick-meal.html" aria-current="page" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Quick Meals</a></li>
+              <li><a href="#" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Laundry Basics</a></li>
+              <li><a href="#" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Room Organization</a></li>
+            </ul>
+          </li>
+          <li class="border-b border-[#f0ece3]">
+            <button type="button" data-nav-group aria-expanded="false" aria-controls="mobile-nav-money-time" class="w-full min-h-[44px] flex justify-between items-center px-4 font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">
+              <span>Money &amp; Time</span>
+              <span data-nav-chevron aria-hidden="true" class="transition-transform">▾</span>
+            </button>
+            <ul id="mobile-nav-money-time" hidden class="list-none">
+              <li><a href="#" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Money Basics</a></li>
+              <li><a href="#" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Time Management</a></li>
+            </ul>
+          </li>
+          <li class="border-b border-[#f0ece3]">
+            <button type="button" data-nav-group aria-expanded="false" aria-controls="mobile-nav-people-safety" class="w-full min-h-[44px] flex justify-between items-center px-4 font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">
+              <span>People &amp; Safety</span>
+              <span data-nav-chevron aria-hidden="true" class="transition-transform">▾</span>
+            </button>
+            <ul id="mobile-nav-people-safety" hidden class="list-none">
+              <li><a href="#" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Communication Skills</a></li>
+              <li><a href="online-safety.html" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Online Safety</a></li>
+              <li><a href="emergency-preparedness.html" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Emergency Preparedness</a></li>
+            </ul>
+          </li>
+          <li>
+            <button type="button" data-nav-group aria-expanded="false" aria-controls="mobile-nav-practice-growth" class="w-full min-h-[44px] flex justify-between items-center px-4 font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">
+              <span>Practice &amp; Growth</span>
+              <span data-nav-chevron aria-hidden="true" class="transition-transform">▾</span>
+            </button>
+            <ul id="mobile-nav-practice-growth" hidden class="list-none">
+              <li><a href="#" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Weekly Challenges</a></li>
+              <li><a href="#" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Life Readiness Quiz</a></li>
+              <li><a href="#" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Submit a Tip</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
     </header>
-    <section class="site-features max-w-6xl mx-auto px-10 py-4">
+    <section class="site-features max-w-6xl mx-auto px-4 md:px-6 lg:px-10 py-4">
       <h1 class="font-heading font-bold text-2xl text-[#2f3e46] mb-2.5">
         Quick Meals
       </h1>
@@ -183,7 +134,7 @@
         type="text"
         name="username"
         placeholder="Search"
-        class="col-span-2 mb-4 border-1 px-10 block min-w-0 grow w-full bg-transparent py-1.5 pr-3 pl-1 text-base text-white Coming Soon:text-gray-500 focus:outline-none sm:text-sm/6 rounded-full border-black"
+        class="col-span-2 mb-4 border-1 px-10 block min-w-0 grow w-full bg-transparent py-1.5 pr-3 pl-1 text-base text-white placeholder:text-gray-500 focus:outline-none sm:text-sm/6 rounded-full border-black"
       />
       <div class="functions-group grid grid-cols-3 gap-6 mb-4 mt-4">
         <button
@@ -227,44 +178,32 @@
         </a>
       </div>
     </section>
+    <footer class="bg-[#2f3e46] text-[#faf7f2] px-4 md:px-6 lg:px-10 pt-14 pb-6">
+      <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+        <div>
+          <div class="font-heading font-bold text-xl mb-3">Level Up Life!</div>
+          <p class="text-sm opacity-70 max-w-[260px] leading-relaxed">A website that aims to teach beginner life skills, let visitors assess their readiness, complete challenges and submit useful tips for other students.</p>
+        </div>
+        <div>
+          <h2 class="text-xs font-bold uppercase tracking-wider opacity-60 mb-3">Explore</h2>
+          <ul class="list-none">
+            <li class="text-sm opacity-85 py-1">Home Skills</li>
+            <li class="text-sm opacity-85 py-1">Money &amp; Time</li>
+            <li class="text-sm opacity-85 py-1">People &amp; Safety</li>
+            <li class="text-sm opacity-85 py-1">Practice &amp; Growth</li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="text-xs font-bold uppercase tracking-wider opacity-60 mb-3">Created By</h2>
+          <ul class="list-none">
+            <li class="text-sm opacity-85 py-1">NGUYEN KHAC MING (P2621030)</li>
+            <li class="text-sm opacity-85 py-1">MYINT MYAT MIN (P2634142)</li>
+            <li class="text-sm opacity-85 py-1">NURHAKIM BIN MONIR (P2237855)</li>
+            <li class="text-sm opacity-85 py-1">DANNALA NIKHILESH KUMAR (P2621379)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="max-w-6xl mx-auto mt-9 text-xs opacity-70">&copy; 2026 Level Up Life!</div>
+    </footer>
   </body>
-  <footer class="bg-[#2f3e46] text-[#faf7f2] px-10 pt-14 pb-6">
-    <div class="max-w-6xl mx-auto grid grid-cols-[1.4fr_1fr_1fr] gap-10">
-      <div>
-        <div class="font-heading font-bold text-xl mb-3">Level Up Life!</div>
-        <p class="text-sm opacity-70 max-w-[260px] leading-relaxed">
-          A website that aims to teach beginner life skills, let visitors assess
-          their readiness, complete challenges and submit useful tips for other
-          students.
-        </p>
-      </div>
-      <div>
-        <h2 class="text-xs font-bold uppercase tracking-wider opacity-60 mb-3">
-          Explore
-        </h2>
-        <ul class="list-none">
-          <li class="text-sm opacity-85 py-1">Home Skills</li>
-          <li class="text-sm opacity-85 py-1">Money &amp; Time</li>
-          <li class="text-sm opacity-85 py-1">People &amp; Safety</li>
-          <li class="text-sm opacity-85 py-1">Practice &amp; Growth</li>
-        </ul>
-      </div>
-      <div>
-        <h2 class="text-xs font-bold uppercase tracking-wider opacity-60 mb-3">
-          Created By
-        </h2>
-        <ul class="list-none">
-          <li class="text-sm opacity-85 py-1">NGUYEN KHAC MING (P2621030)</li>
-          <li class="text-sm opacity-85 py-1">MYINT MYAT MIN (P2634142)</li>
-          <li class="text-sm opacity-85 py-1">NURHAKIM BIN MONIR (P2237855)</li>
-          <li class="text-sm opacity-85 py-1">
-            DANNALA NIKHILESH KUMAR (P2621379)
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="max-w-6xl mx-auto mt-9 text-xs opacity-55">
-      &copy; 2026 Level Up Life!
-    </div>
-  </footer>
 </html>
