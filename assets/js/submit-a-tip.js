@@ -52,14 +52,14 @@ const SEED_TIPS = [
     category: "home-skills",
     title: "Cook double, freeze half",
     text: "Whenever you cook rice or a curry, make double the amount and freeze half in a container. Future you gets a free meal on a busy day.",
-    name: "Jia Wei",
+    name: "Min",
     date: "12 Jul 2026",
   },
   {
     category: "money-time",
     title: "Pay yourself first",
     text: "The moment your allowance or pay comes in, move a fixed amount straight into a separate savings account before you spend on anything else.",
-    name: "Priya",
+    name: "Ming",
     date: "18 Jul 2026",
   },
   {
@@ -73,7 +73,7 @@ const SEED_TIPS = [
     category: "practice-growth",
     title: "One line a day is enough",
     text: "You don't need a full journal entry. Write a single line each night about what went well — it adds up to a useful record after a month.",
-    name: "Marcus",
+    name: "Hakim",
     date: "27 Jul 2026",
   },
 ];
