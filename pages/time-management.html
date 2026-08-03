@@ -8,8 +8,14 @@
       name="description"
       content="Plan your week with an editable planner, sort tasks by priority with the Eisenhower matrix, and try focused study techniques including a Pomodoro timer."
     />
-    <!-- Same shared stylesheet every page on the site uses, so fonts,
-         colours and spacing all stay consistent. -->
+    <!-- Fonts + Tailwind Play CDN, same pattern used by index.html,
+         online-safety.html, emergency-preparedness.html and
+         quick-meal.html, plus this page's own custom CSS for the bits
+         Tailwind utilities can't already do (form fields, planner
+         table, mobile nav). -->
+    <link rel="stylesheet" href="../assets/css/fonts.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../assets/js/tailwind-config.js"></script>
     <link rel="stylesheet" href="../assets/css/styles.css" />
   </head>
   <body class="bg-[#faf7f2] font-body text-[#2f3e46] antialiased">
