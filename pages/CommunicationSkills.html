@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Communication Skills - Level Up Life</title>
+  <link rel="stylesheet" href="../assets/css/fonts.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../assets/js/tailwind-config.js" defer></script>
+</head>
+<body class="bg-white">
+  <!-- Navigation -->
+  <header class="bg-white border-b border-gray-200">
+    <nav class="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
+      <a href="../index.html" class="text-2xl font-bold text-[#52796f]" style="font-family: 'Fraunces', serif;">Level Up Life!</a>
+      
+      <!-- Desktop Nav -->
+      <ul class="hidden md:flex gap-12 text-base font-semibold">
+        <!-- Home Skills Dropdown -->
+        <li class="relative group">
+          <button class="text-gray-700 hover:text-[#d97757] transition flex items-center gap-1">
+            Home Skills <span>▼</span>
+          </button>
+          <div class="absolute left-0 mt-2 w-48 bg-[#eef3f1] rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-10">
+            <a href="#" class="block px-6 py-3 text-gray-700 hover:text-[#d97757] first:rounded-t-lg font-medium">Quick Meals</a>
+            <a href="LaundryBasics.html" class="block px-6 py-3 text-gray-700 hover:text-[#d97757] font-medium">Laundry Basics</a>
+            <a href="RoomOrganisation.html" class="block px-6 py-3 text-gray-700 hover:text-[#d97757] last:rounded-b-lg font-medium">Room Organization</a>
+          </div>
+        </li>
+
+        <!-- Money & Time Dropdown -->
+        <li class="relative group">
+          <button class="text-gray-700 hover:text-[#d97757] transition flex items-center gap-1">
+            Money & Time <span>▼</span>
+          </button>
+          <div class="absolute left-0 mt-2 w-48 bg-[#eef3f1] rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-10">
+            <a href="#" class="block px-6 py-3 text-gray-700 hover:text-[#d97757] first:rounded-t-lg font-medium">Money Basics</a>
+            <a href="#" class="block px-6 py-3 text-gray-700 hover:text-[#d97757] last:rounded-b-lg font-medium">Time Management</a>
+          </div>
+        </li>
+
+        <!-- People & Safety Dropdown -->
+        <li class="relative group">
+          <button class="text-gray-700 hover:text-[#d97757] transition flex items-center gap-1">
+            People & Safety <span>▼</span>
+          </button>
+          <div class="absolute left-0 mt-2 w-48 bg-[#eef3f1] rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-10">
+            <a href="#" class="block px-6 py-3 text-gray-700 hover:text-[#d97757] first:rounded-t-lg font-medium">Communication Skills</a>
+            <a href="#" class="block px-6 py-3 text-gray-700 hover:text-[#d97757] font-medium">Online Safety</a>
+            <a href="#" class="block px-6 py-3 text-gray-700 hover:text-[#d97757] last:rounded-b-lg font-medium">Emergency Preparedness</a>
+          </div>
+        </li>
+
+        <!-- Practice & Growth Dropdown -->
+        <li class="relative group">
+          <button class="text-gray-700 hover:text-[#d97757] transition flex items-center gap-1">
+            Practice & Growth <span>▼</span>
+          </button>
+          <div class="absolute left-0 mt-2 w-48 bg-[#eef3f1] rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-10">
+            <a href="#" class="block px-6 py-3 text-gray-700 hover:text-[#d97757] first:rounded-t-lg font-medium">Weekly Challenges</a>
+            <a href="#" class="block px-6 py-3 text-gray-700 hover:text-[#d97757] font-medium">Life Readiness Quiz</a>
+            <a href="#" class="block px-6 py-3 text-gray-700 hover:text-[#d97757] last:rounded-b-lg font-medium">Submit a Tip</a>
+          </div>
+        </li>
+      </ul>
+
+      <!-- Mobile Nav Toggle -->
+      <button id="nav-toggle" class="md:hidden p-2 hover:bg-[#eef3f1] rounded" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <svg data-nav-icon="bars" class="w-6 h-6 text-[#52796f]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <svg data-nav-icon="close" class="w-6 h-6 text-[#52796f] hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Mobile Nav -->
+    <div id="mobile-nav" class="md:hidden hidden bg-white border-t border-gray-200">
+      <div class="px-6 py-4 space-y-2">
+        <a href="#" class="block py-3 text-gray-700 hover:text-[#d97757] font-medium">Quick Meals</a>
+        <a href="LaundryBasics.html" class="block py-3 text-gray-700 hover:text-[#d97757] font-medium">Laundry Basics</a>
+        <a href="RoomOrganisation.html" class="block py-3 text-gray-700 hover:text-[#d97757] font-medium">Room Organization</a>
+        <a href="#" class="block py-3 text-gray-700 hover:text-[#d97757] font-medium">Money & Time</a>
+        <a href="#" class="block py-3 text-gray-700 hover:text-[#d97757] font-medium">People & Safety</a>
+        <a href="#" class="block py-3 text-gray-700 hover:text-[#d97757] font-medium">Practice & Growth</a>
+      </div>
+    </div>
+  </header>
+
+<!-- Hero Section -->
+  <section class="bg-[#eef3f1] py-12 md:py-20">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10">
+      <div class="max-w-[600px]">
+        <p class="text-[#52796f] text-sm mb-4">People & Safety</p>
+        <h1 class="text-5xl md:text-6xl font-bold text-[#2f3e46] mb-6" style="font-family: 'Fraunces', serif;">Communication skills that matter.</h1>
+        <p class="text-lg text-[#5b6b70] mb-8 leading-relaxed">Learn how to communicate effectively in different situations. From group projects to personal messages, master the art of clear and respectful communication.</p>
+        <div class="flex gap-4">
+          <button class="bg-[#d97757] text-white px-8 py-3 rounded-lg font-medium hover:bg-[#c96649] transition">Start learning</button>
+          <button class="border-2 border-[#52796f] text-[#52796f] px-8 py-3 rounded-lg font-medium hover:bg-[#eef3f1] transition">View scenarios</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Significance Section -->
+  <section class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pb-10">
+    <div class="bg-[#eef3f1] rounded-2xl shadow-md p-10 border-2 border-[#52796f]">
+      <h2 class="font-heading font-bold text-[28px] text-[#52796f] mb-6">Why Communication Skills Matter</h2>
+      <p class="font-body text-[16px] text-[#2f3e46] leading-relaxed">Strong communication skills are essential for success in university, work, and personal relationships. Effective communication helps you express ideas clearly, resolve conflicts respectfully, and build meaningful connections with others. Whether navigating group projects, asking professors for help, or discussing sensitive topics with friends, good communication prevents misunderstandings and strengthens relationships. These skills boost confidence, enhance your ability to advocate for yourself, and create a foundation for professional success. Ultimately, mastering communication empowers you to influence others positively, achieve your goals, and thrive in any social or professional environment.</p>
+    </div>
+  </section>
+
+  <!-- Scenario Tabs Section -->
+  <section class="bg-gray-100 py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-gray-900 mb-12" style="font-family: 'Fraunces', serif;">Scenario tabs</h2>
+      
+      <!-- Tabs Navigation -->
+      <div class="flex flex-wrap gap-3 mb-12 border-b-2 border-gray-200">
+        <button class="px-6 py-3 font-semibold text-gray-700 hover:text-[#d97757] border-b-4 border-transparent hover:border-[#d97757] transition">
+          Group project
+        </button>
+        <button class="px-6 py-3 font-semibold text-gray-700 hover:text-[#d97757] border-b-4 border-transparent hover:border-[#d97757] transition">
+          Tutor
+        </button>
+        <button class="px-6 py-3 font-semibold text-gray-700 hover:text-[#d97757] border-b-4 border-transparent hover:border-[#d97757] transition">
+          Friend
+        </button>
+        <button class="px-6 py-3 font-semibold text-gray-700 hover:text-[#d97757] border-b-4 border-transparent hover:border-[#d97757] transition">
+          Online message
+        </button>
+      </div>
+
+      <!-- Scenario Content -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Selected Scenario -->
+        <div class="bg-white border-2 border-gray-300 p-8 rounded-lg">
+          <h3 class="text-2xl font-bold text-gray-900 mb-6" style="font-family: 'Fraunces', serif;">Selected scenario</h3>
+          
+          <div class="mb-6">
+            <div class="bg-[#eef3f1] p-6 rounded-lg mb-6">
+              <p class="text-gray-700 font-medium mb-4"><strong>Situation:</strong> Your group project partner hasn't contributed, and the deadline is in 2 days.</p>
+              <p class="text-gray-700"><strong>How would you respond?</strong></p>
+            </div>
+            <div class="space-y-3">
+              <label class="flex items-start gap-3 p-4 border-2 border-gray-200 rounded-lg hover:bg-[#eef3f1] cursor-pointer transition">
+                <input type="radio" name="response" class="mt-1">
+                <span class="text-gray-700">Send a friendly reminder message asking for updates on their part of the project.</span>
+              </label>
+              <label class="flex items-start gap-3 p-4 border-2 border-gray-200 rounded-lg hover:bg-[#eef3f1] cursor-pointer transition">
+                <input type="radio" name="response" class="mt-1">
+                <span class="text-gray-700">Tell the teacher immediately without giving them a chance to explain.</span>
+              </label>
+              <label class="flex items-start gap-3 p-4 border-2 border-gray-200 rounded-lg hover:bg-[#eef3f1] cursor-pointer transition">
+                <input type="radio" name="response" class="mt-1">
+                <span class="text-gray-700">Ignore it and do their part yourself to avoid conflict.</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Suggested Response -->
+        <div class="bg-gray-100 border-2 border-gray-300 p-8 rounded-lg">
+          <h3 class="text-2xl font-bold text-gray-900 mb-6" style="font-family: 'Fraunces', serif;">Suggested response</h3>
+          <div class="bg-white p-6 rounded-lg min-h-48 flex items-center justify-center">
+            <p class="text-gray-500 text-center">Select a response above to see detailed feedback</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Useful Phrases Section -->
+  <section class="bg-[#eef3f1] py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-gray-900 mb-12" style="font-family: 'Fraunces', serif;">Useful phrases for better communication</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-white border-2 border-gray-300 p-8 rounded-lg">
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Starting a difficult conversation</h3>
+          <ul class="space-y-3">
+            <li class="text-gray-700">• "I wanted to talk about something that's been on my mind..."</li>
+            <li class="text-gray-700">• "Can we discuss this? I'd like to understand your perspective..."</li>
+            <li class="text-gray-700">• "I need your help with something. Can we talk?"</li>
+            <li class="text-gray-700">• "I don't think we're on the same page. Let me explain my side..."</li>
+          </ul>
+        </div>
+
+        <div class="bg-white border-2 border-gray-300 p-8 rounded-lg">
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Expressing your feelings respectfully</h3>
+          <ul class="space-y-3">
+            <li class="text-gray-700">• "When you did that, I felt hurt because..."</li>
+            <li class="text-gray-700">• "I appreciate what you're saying, but I disagree because..."</li>
+            <li class="text-gray-700">• "I'm feeling overwhelmed and need some support..."</li>
+            <li class="text-gray-700">• "That comment made me uncomfortable. Can we talk about it?"</li>
+          </ul>
+        </div>
+
+        <div class="bg-white border-2 border-gray-300 p-8 rounded-lg">
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Asking for help or clarification</h3>
+          <ul class="space-y-3">
+            <li class="text-gray-700">• "Could you explain that a different way? I'm not sure I understand..."</li>
+            <li class="text-gray-700">• "Would you mind if I asked a question?"</li>
+            <li class="text-gray-700">• "I need your help with this. Do you have time?"</li>
+            <li class="text-gray-700">• "Could you give me an example? That would help me understand better."</li>
+          </ul>
+        </div>
+
+        <div class="bg-white border-2 border-gray-300 p-8 rounded-lg">
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Showing empathy and understanding</h3>
+          <ul class="space-y-3">
+            <li class="text-gray-700">• "I can see why you'd feel that way..."</li>
+            <li class="text-gray-700">• "That sounds really frustrating. How can I help?"</li>
+            <li class="text-gray-700">• "I hear what you're saying, and I want to understand more..."</li>
+            <li class="text-gray-700">• "Thank you for sharing that with me. I appreciate your honesty."</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Communication Etiquette Checklist -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-gray-900 mb-12" style="font-family: 'Fraunces', serif;">Communication etiquette checklist</h2>
+      
+      <div class="bg-white border-2 border-gray-300 p-8 rounded-lg">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="space-y-4">
+            <h3 class="text-lg font-bold text-gray-900 mb-6">In-person communication</h3>
+            <label class="flex items-start gap-3">
+              <input type="checkbox" class="w-5 h-5 accent-[#52796f] mt-1">
+              <span class="text-gray-700">Make eye contact with the speaker</span>
+            </label>
+            <label class="flex items-start gap-3">
+              <input type="checkbox" class="w-5 h-5 accent-[#52796f] mt-1">
+              <span class="text-gray-700">Listen without interrupting</span>
+            </label>
+            <label class="flex items-start gap-3">
+              <input type="checkbox" class="w-5 h-5 accent-[#52796f] mt-1">
+              <span class="text-gray-700">Use a respectful tone of voice</span>
+            </label>
+            <label class="flex items-start gap-3">
+              <input type="checkbox" class="w-5 h-5 accent-[#52796f] mt-1">
+              <span class="text-gray-700">Ask clarifying questions if needed</span>
+            </label>
+            <label class="flex items-start gap-3">
+              <input type="checkbox" class="w-5 h-5 accent-[#52796f] mt-1">
+              <span class="text-gray-700">Respect personal space</span>
+            </label>
+          </div>
+
+          <div class="space-y-4">
+            <h3 class="text-lg font-bold text-gray-900 mb-6">Online communication</h3>
+            <label class="flex items-start gap-3">
+              <input type="checkbox" class="w-5 h-5 accent-[#52796f] mt-1">
+              <span class="text-gray-700">Use proper grammar and spelling in formal messages</span>
+            </label>
+            <label class="flex items-start gap-3">
+              <input type="checkbox" class="w-5 h-5 accent-[#52796f] mt-1">
+              <span class="text-gray-700">Avoid sending messages when angry</span>
+            </label>
+            <label class="flex items-start gap-3">
+              <input type="checkbox" class="w-5 h-5 accent-[#52796f] mt-1">
+              <span class="text-gray-700">Be mindful of tone (it's easy to misinterpret text)</span>
+            </label>
+            <label class="flex items-start gap-3">
+              <input type="checkbox" class="w-5 h-5 accent-[#52796f] mt-1">
+              <span class="text-gray-700">Respect response time expectations</span>
+            </label>
+            <label class="flex items-start gap-3">
+              <input type="checkbox" class="w-5 h-5 accent-[#52796f] mt-1">
+              <span class="text-gray-700">Don't share sensitive information over public platforms</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="bg-[#52796f] py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <h2 class="text-4xl font-bold text-white mb-6" style="font-family: 'Fraunces', serif;">Ready to improve your communication?</h2>
+      <p class="text-lg text-[#eef3f1] mb-8">Practice these skills and watch your relationships improve in every area of your life.</p>
+      <button class="bg-[#d97757] text-white px-8 py-3 rounded-lg font-medium hover:bg-[#c96649] transition">Start practicing</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <h3 class="font-bold text-white mb-4">Quick links</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:text-white transition">Home</a></li>
+            <li><a href="#" class="hover:text-white transition">All skills</a></li>
+            <li><a href="CommunicationSkills.html" class="hover:text-white transition">Communication Skills</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-bold text-white mb-4">Learn</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:text-white transition">Home Skills</a></li>
+            <li><a href="#" class="hover:text-white transition">Money & Time</a></li>
+            <li><a href="#" class="hover:text-white transition">People & Safety</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-bold text-white mb-4">About</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:text-white transition">Our mission</a></li>
+            <li><a href="#" class="hover:text-white transition">Accessibility</a></li>
+            <li><a href="#" class="hover:text-white transition">Group information</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-bold text-white mb-4">Connect</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:text-white transition">Twitter</a></li>
+            <li><a href="#" class="hover:text-white transition">Instagram</a></li>
+            <li><a href="#" class="hover:text-white transition">Email</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-700 pt-8 text-center text-gray-500 text-sm">
+        <p>&copy; 2026 Level Up Life. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../assets/js/nav-toggle.js" defer></script>
+</body>
+</html>
