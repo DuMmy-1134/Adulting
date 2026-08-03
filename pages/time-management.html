@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Time Management — Level Up Life!</title>
+    <meta
+      name="description"
+      content="Plan your week with an editable planner, sort tasks by priority with the Eisenhower matrix, and try focused study techniques including a Pomodoro timer."
+    />
+    <!-- Same shared stylesheet every page on the site uses, so fonts,
+         colours and spacing all stay consistent. -->
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body class="bg-[#faf7f2] font-body text-[#2f3e46] antialiased">
+    <!-- ============================= HEADER ============================= -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm will-change-transform">
+      <div class="max-w-6xl mx-auto px-10 py-4 flex items-center justify-between relative">
+        <a href="../index.html" class="font-heading font-bold text-xl text-[#52796f]">Level Up Life!</a>
+
+        <!-- Hamburger button: only visible on narrow screens (see the
+             @media rule in styles.css). Clicking it runs nav-toggle.js,
+             which shows/hides the <nav> below. -->
+        <button type="button" id="nav-toggle-btn" class="nav-toggle-btn" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu">
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+        </button>
+
+        <nav aria-label="Main" id="main-nav" class="main-nav">
+          <ul class="flex items-center gap-8 list-none">
+            <li class="relative group">
+              <a href="#" class="font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">Home Skills <span aria-hidden="true">▾</span></a>
+              <div class="nav-dropdown-panel invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity absolute left-0 top-full min-w-[190px] bg-white rounded-xl shadow-lg p-4">
+                <ul class="list-none">
+                  <li><a href="#" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Quick Meals</a></li>
+                  <li><a href="#" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Laundry Basics</a></li>
+                  <li><a href="#" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Room Organization</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="relative group">
+              <a href="#" class="font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">Money &amp; Time <span aria-hidden="true">▾</span></a>
+              <div class="nav-dropdown-panel invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity absolute left-0 top-full min-w-[190px] bg-white rounded-xl shadow-lg p-4">
+                <ul class="list-none">
+                  <li><a href="#" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Money Basics</a></li>
+                  <li><a href="time-management.html" aria-current="page" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Time Management</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="relative group">
+              <a href="#" class="font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">People &amp; Safety <span aria-hidden="true">▾</span></a>
+              <div class="nav-dropdown-panel invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity absolute left-0 top-full min-w-[190px] bg-white rounded-xl shadow-lg p-4">
+                <ul class="list-none">
+                  <li><a href="#" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Communication Skills</a></li>
+                  <li><a href="online-safety.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Online Safety</a></li>
+                  <li><a href="emergency-preparedness.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Emergency Preparedness</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="relative group">
+              <a href="#" class="font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">Practice &amp; Growth <span aria-hidden="true">▾</span></a>
+              <div class="nav-dropdown-panel invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity absolute left-0 top-full min-w-[190px] bg-white rounded-xl shadow-lg p-4">
+                <ul class="list-none">
+                  <li><a href="#" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Weekly Challenges</a></li>
+                  <li><a href="life-readiness-quiz.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Life Readiness Quiz</a></li>
+                  <li><a href="submit-a-tip.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Submit a Tip</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- ============================= HERO ============================= -->
+      <section class="bg-[#2f3e46] text-white px-10 pt-14 pb-16">
+        <div class="max-w-6xl mx-auto">
+          <h1 class="font-heading font-bold text-[40px] leading-tight mb-3">Time Management</h1>
+          <p class="font-body text-base opacity-85 max-w-[540px]">Between lectures, group projects and everything else, time doesn&rsquo;t manage itself. Plan your week, sort out what actually matters, and try a focus timer below.</p>
+        </div>
+      </section>
+
+      <!-- ==================== WEEKLY TIMETABLE (HTML TABLE) ==================== -->
+      <section class="max-w-6xl mx-auto px-10 pt-14">
+        <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-1.5">Plan your week</h2>
+        <p class="font-body text-[15px] text-[#5b6b70] leading-relaxed mb-5 max-w-[760px]">A real hour-by-hour timetable, just like the one on your student portal. Add a task with a start time and a duration (or click straight into an empty slot) and it fills that exact block. Clashing times are caught automatically, so nothing overlaps by accident.</p>
+
+        <!-- novalidate: we show our own error messages instead of the
+             browser's default pop-up bubble, same pattern as the other
+             forms on this page. -->
+        <form id="planner-form" novalidate class="bg-white rounded-2xl shadow-sm p-6 mb-5 flex flex-wrap items-end gap-4">
+          <div class="flex-1">
+            <label for="planner-task-input" class="block font-body text-[13.5px] font-semibold text-[#2f3e46] mb-1.5">Task</label>
+            <input type="text" id="planner-task-input" name="planner-task-input" class="form-input" placeholder="e.g. ST0501 lecture" />
+            <p id="planner-task-error" class="form-error-text hidden">Please type a task before adding it.</p>
+          </div>
+          <div>
+            <label for="planner-day-select" class="block font-body text-[13.5px] font-semibold text-[#2f3e46] mb-1.5">Day</label>
+            <select id="planner-day-select" class="form-select">
+              <option value="mon">Monday</option>
+              <option value="tue">Tuesday</option>
+              <option value="wed">Wednesday</option>
+              <option value="thu">Thursday</option>
+              <option value="fri">Friday</option>
+              <option value="sat">Saturday</option>
+              <option value="sun">Sunday</option>
+            </select>
+          </div>
+          <div>
+            <label for="planner-start-select" class="block font-body text-[13.5px] font-semibold text-[#2f3e46] mb-1.5">Start time</label>
+            <!-- Filled in by JavaScript with one option per hour of the
+                 timetable (8:00 AM to 9:00 PM), so the list always matches
+                 whatever hour range the timetable itself uses. -->
+            <select id="planner-start-select" class="form-select"></select>
+          </div>
+          <div>
+            <label for="planner-duration-select" class="block font-body text-[13.5px] font-semibold text-[#2f3e46] mb-1.5">Duration</label>
+            <select id="planner-duration-select" class="form-select">
+              <option value="1">1 hour</option>
+              <option value="2">2 hours</option>
+              <option value="3">3 hours</option>
+            </select>
+          </div>
+          <div>
+            <label for="planner-category-select" class="block font-body text-[13.5px] font-semibold text-[#2f3e46] mb-1.5">Category</label>
+            <select id="planner-category-select" class="form-select">
+              <option value="home-skills">Home Skills</option>
+              <option value="money-time" selected>Money &amp; Time</option>
+              <option value="people-safety">People &amp; Safety</option>
+              <option value="practice-growth">Practice &amp; Growth</option>
+            </select>
+          </div>
+          <button type="submit" class="inline-block bg-[#d97757] text-white font-body font-semibold text-[15px] rounded-lg px-7 py-4 hover:bg-[#c2673f] transition-colors">Add to Timetable</button>
+          <!-- Shown only when the requested time clashes with a task
+               that's already on the timetable for that day. -->
+          <p id="planner-clash-error" class="form-error-text hidden w-full">This clashes with a task already on your timetable for that day. Pick a different start time or duration.</p>
+        </form>
+
+        <!-- Colour legend so the category colours used on the timetable
+             blocks are easy to read at a glance. -->
+        <div class="flex flex-wrap gap-5 mb-5">
+          <span class="flex items-center gap-1.5 font-body text-xs text-[#5b6b70]"><span class="legend-dot bg-[#7c9d96]"></span>Home Skills</span>
+          <span class="flex items-center gap-1.5 font-body text-xs text-[#5b6b70]"><span class="legend-dot bg-[#52796f]"></span>Money &amp; Time</span>
+          <span class="flex items-center gap-1.5 font-body text-xs text-[#5b6b70]"><span class="legend-dot bg-[#2f3e46]"></span>People &amp; Safety</span>
+          <span class="flex items-center gap-1.5 font-body text-xs text-[#5b6b70]"><span class="legend-dot bg-[#d97757]"></span>Practice &amp; Growth</span>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm p-6">
+          <!-- A real HTML <table> is used here (not just styled <div>s)
+               because this data genuinely is tabular: 7 days across the
+               top, one row per hour down the side, exactly like a
+               school timetable. The <tbody> starts empty on purpose —
+               JavaScript builds all 14 hour rows itself every time a
+               task is added, ticked off or deleted, using a real
+               rowspan on the <td> whenever a task is longer than 1
+               hour, so a 2-hour task visually takes up 2 rows in one
+               block, the same way a 2-hour class would on a printed
+               timetable. The header row uses position:sticky (in
+               styles.css) so it stays visible while this section
+               scrolls. -->
+          <div class="planner-scroll">
+            <table class="planner-table">
+              <thead>
+                <tr class="bg-[#52796f] text-white">
+                  <th class="font-heading text-xs uppercase tracking-wide">Time</th>
+                  <th class="font-heading text-xs uppercase tracking-wide">Mon</th>
+                  <th class="font-heading text-xs uppercase tracking-wide">Tue</th>
+                  <th class="font-heading text-xs uppercase tracking-wide">Wed</th>
+                  <th class="font-heading text-xs uppercase tracking-wide">Thu</th>
+                  <th class="font-heading text-xs uppercase tracking-wide">Fri</th>
+                  <th class="font-heading text-xs uppercase tracking-wide">Sat</th>
+                  <th class="font-heading text-xs uppercase tracking-wide">Sun</th>
+                </tr>
+              </thead>
+              <tbody id="planner-tbody"></tbody>
+            </table>
+          </div>
+
+          <div class="flex items-center gap-4 mt-4">
+            <button type="button" id="planner-clear" class="inline-block border-2 border-[#52796f] text-[#52796f] font-body font-semibold text-[15px] rounded-lg px-7 py-[14px] hover:bg-[#eef3f1] transition-colors">Clear Week</button>
+            <!-- Empty by default; JS fills this in for a moment after an
+                 action (add/tick/delete/clear), then clears it again. -->
+            <span id="planner-status" class="font-body text-[13.5px] text-[#52796f] font-semibold"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== PRIORITY MATRIX ==================== -->
+      <section class="max-w-6xl mx-auto px-10 pt-14">
+        <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-1.5">Set your priorities</h2>
+        <p class="font-body text-[15px] text-[#5b6b70] leading-relaxed mb-5 max-w-[760px]">Not everything on your to-do list deserves the same amount of panic. Add a task below, choose which box it belongs in, and see your week sorted by what&rsquo;s actually urgent versus what just feels urgent.</p>
+
+        <!-- novalidate turns off the browser's own pop-up validation
+             bubbles so we can show our own error message instead, fully
+             styled to match the rest of the site. -->
+        <form id="priority-form" novalidate class="bg-white rounded-2xl shadow-sm p-6 mb-7 flex flex-wrap items-end gap-4">
+          <div class="flex-1">
+            <label for="priority-input" class="block font-body text-[13.5px] font-semibold text-[#2f3e46] mb-1.5">Task</label>
+            <input type="text" id="priority-input" name="priority-input" class="form-input" placeholder="e.g. Finish ST0501 CA2 pages" />
+            <p id="priority-error" class="form-error-text hidden">Please type a task before adding it.</p>
+          </div>
+          <div>
+            <label for="priority-quadrant" class="block font-body text-[13.5px] font-semibold text-[#2f3e46] mb-1.5">Quadrant</label>
+            <select id="priority-quadrant" name="priority-quadrant" class="form-select">
+              <option value="do">Urgent &amp; Important</option>
+              <option value="schedule">Not Urgent &amp; Important</option>
+              <option value="delegate">Urgent &amp; Not Important</option>
+              <option value="delete">Not Urgent &amp; Not Important</option>
+            </select>
+          </div>
+          <button type="submit" class="inline-block bg-[#d97757] text-white font-body font-semibold text-[15px] rounded-lg px-7 py-4 hover:bg-[#c2673f] transition-colors">Add Task</button>
+        </form>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-white rounded-2xl shadow-sm p-6">
+            <h3 class="font-body font-bold text-[14.5px] text-[#52796f] mb-3">Do first &mdash; Urgent &amp; Important</h3>
+            <ul id="quadrant-do" class="list-none flex flex-col gap-2"></ul>
+          </div>
+          <div class="bg-white rounded-2xl shadow-sm p-6">
+            <h3 class="font-body font-bold text-[14.5px] text-[#52796f] mb-3">Schedule &mdash; Not Urgent, but Important</h3>
+            <ul id="quadrant-schedule" class="list-none flex flex-col gap-2"></ul>
+          </div>
+          <div class="bg-white rounded-2xl shadow-sm p-6">
+            <h3 class="font-body font-bold text-[14.5px] text-[#d97757] mb-3">Delegate &mdash; Urgent, but Not Important</h3>
+            <ul id="quadrant-delegate" class="list-none flex flex-col gap-2"></ul>
+          </div>
+          <div class="bg-white rounded-2xl shadow-sm p-6">
+            <h3 class="font-body font-bold text-[14.5px] text-[#d97757] mb-3">Eliminate &mdash; Not Urgent &amp; Not Important</h3>
+            <ul id="quadrant-delete" class="list-none flex flex-col gap-2"></ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== FOCUSED STUDY TECHNIQUES ==================== -->
+      <section class="max-w-6xl mx-auto px-10 pt-14">
+        <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-4">Focused study techniques</h2>
+        <div class="flex flex-col gap-2">
+          <details class="group bg-white rounded-2xl shadow-sm p-5">
+            <summary class="list-none flex justify-between items-center gap-4 cursor-pointer font-body font-semibold text-[14.5px] text-[#2f3e46]">
+              <span>The Pomodoro Technique</span>
+              <span aria-hidden="true" class="text-[#52796f] font-bold shrink-0 group-open:hidden">+</span>
+              <span aria-hidden="true" class="text-[#52796f] font-bold shrink-0 hidden group-open:inline">&ndash;</span>
+            </summary>
+            <p class="font-body text-[13.5px] text-[#5b6b70] leading-relaxed mt-2.5">Work in focused 25-minute bursts, then take a 5-minute break. After four bursts, take a longer 15&ndash;30 minute break. Try it with the timer further down this page.</p>
+          </details>
+          <details class="group bg-white rounded-2xl shadow-sm p-5">
+            <summary class="list-none flex justify-between items-center gap-4 cursor-pointer font-body font-semibold text-[14.5px] text-[#2f3e46]">
+              <span>Timeboxing</span>
+              <span aria-hidden="true" class="text-[#52796f] font-bold shrink-0 group-open:hidden">+</span>
+              <span aria-hidden="true" class="text-[#52796f] font-bold shrink-0 hidden group-open:inline">&ndash;</span>
+            </summary>
+            <p class="font-body text-[13.5px] text-[#5b6b70] leading-relaxed mt-2.5">Give every task a fixed block of time on your calendar, even revision or admin. When the box ends, you move on &mdash; this stops one task quietly eating your whole afternoon.</p>
+          </details>
+          <details class="group bg-white rounded-2xl shadow-sm p-5">
+            <summary class="list-none flex justify-between items-center gap-4 cursor-pointer font-body font-semibold text-[14.5px] text-[#2f3e46]">
+              <span>The Two-Minute Rule</span>
+              <span aria-hidden="true" class="text-[#52796f] font-bold shrink-0 group-open:hidden">+</span>
+              <span aria-hidden="true" class="text-[#52796f] font-bold shrink-0 hidden group-open:inline">&ndash;</span>
+            </summary>
+            <p class="font-body text-[13.5px] text-[#5b6b70] leading-relaxed mt-2.5">If a task takes less than two minutes, do it immediately instead of adding it to a list. It stops tiny tasks from piling up into one huge, overwhelming list.</p>
+          </details>
+          <details class="group bg-white rounded-2xl shadow-sm p-5">
+            <summary class="list-none flex justify-between items-center gap-4 cursor-pointer font-body font-semibold text-[14.5px] text-[#2f3e46]">
+              <span>Eat the Frog First</span>
+              <span aria-hidden="true" class="text-[#52796f] font-bold shrink-0 group-open:hidden">+</span>
+              <span aria-hidden="true" class="text-[#52796f] font-bold shrink-0 hidden group-open:inline">&ndash;</span>
+            </summary>
+            <p class="font-body text-[13.5px] text-[#5b6b70] leading-relaxed mt-2.5">Do your least favourite, most-avoided task first thing, while your energy and willpower are highest. Everything after that feels easier by comparison.</p>
+          </details>
+        </div>
+      </section>
+
+      <!-- ==================== FOCUS TIMER ==================== -->
+      <section class="max-w-6xl mx-auto px-10 pt-12 pb-16">
+        <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-1.5">Try a focus timer</h2>
+        <p class="font-body text-sm text-[#5b6b70] mb-4">Pick a length, hit start, and work on one task until it rings.</p>
+
+        <div class="bg-[#52796f] text-white rounded-[20px] px-10 py-8 flex items-center justify-between gap-6">
+          <div>
+            <label for="timer-length" class="block text-xs font-bold uppercase tracking-widest opacity-75 mb-2.5">Session length</label>
+            <select id="timer-length" class="form-select timer-length-select">
+              <option value="25">25 minutes &mdash; focus</option>
+              <option value="15">15 minutes &mdash; short focus</option>
+              <option value="5">5 minutes &mdash; break</option>
+            </select>
+            <p id="timer-status" class="text-sm opacity-85 mt-2.5 max-w-[480px] leading-relaxed"></p>
+          </div>
+          <div class="text-center shrink-0">
+            <p id="timer-display" class="font-heading font-bold text-[40px] leading-tight">25:00</p>
+            <div class="flex gap-2.5 mt-2.5">
+              <button type="button" id="timer-toggle" class="inline-block bg-white text-[#52796f] font-body font-semibold text-sm rounded-lg px-7 py-[13px] whitespace-nowrap hover:bg-[#eef3f1] transition-colors">Start</button>
+              <button type="button" id="timer-reset" class="inline-block border-2 border-white text-white font-body font-semibold text-sm rounded-lg px-7 py-[11px] whitespace-nowrap hover:bg-[#eef3f1] hover:text-[#52796f] transition-colors">Reset</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============================= FOOTER ============================= -->
+    <footer class="bg-[#2f3e46] text-[#faf7f2] px-10 pt-14 pb-6">
+      <div class="max-w-6xl mx-auto grid grid-cols-[1.4fr_1fr_1fr] gap-10">
+        <div>
+          <div class="font-heading font-bold text-xl mb-3">Level Up Life!</div>
+          <p class="text-sm opacity-70 max-w-[260px] leading-relaxed">A website that aims to teach beginner life skills, let visitors assess their readiness, complete challenges and submit useful tips for other students.</p>
+        </div>
+        <div>
+          <h2 class="text-xs font-bold uppercase tracking-wider opacity-60 mb-3">Explore</h2>
+          <ul class="list-none">
+            <li class="text-sm opacity-85 py-1">Home Skills</li>
+            <li class="text-sm opacity-85 py-1">Money &amp; Time</li>
+            <li class="text-sm opacity-85 py-1">People &amp; Safety</li>
+            <li class="text-sm opacity-85 py-1">Practice &amp; Growth</li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="text-xs font-bold uppercase tracking-wider opacity-60 mb-3">Created By</h2>
+          <ul class="list-none">
+            <li class="text-sm opacity-85 py-1">NGUYEN KHAC MING (P2621030)</li>
+            <li class="text-sm opacity-85 py-1">MYINT MYAT MIN (P2634142)</li>
+            <li class="text-sm opacity-85 py-1">NURHAKIM BIN MONIR (P2237855)</li>
+            <li class="text-sm opacity-85 py-1">DANNALA NIKHILESH KUMAR (P2621379)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="max-w-6xl mx-auto mt-9 text-xs opacity-55">&copy; 2026 Level Up Life!</div>
+    </footer>
+
+    <!-- Shared mobile-menu behaviour, then this page's own logic. -->
+    <script src="../assets/js/nav-toggle.js"></script>
+    <script src="../assets/js/time-management.js"></script>
+  </body>
+</html>

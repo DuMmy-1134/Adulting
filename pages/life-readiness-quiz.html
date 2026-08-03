@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Life Readiness Quiz — Level Up Life!</title>
+    <meta
+      name="description"
+      content="A 2-minute quiz covering home skills, money and time, people and safety, and personal growth, with a personalised result and advice at the end."
+    />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body class="bg-[#faf7f2] font-body text-[#2f3e46] antialiased">
+    <!-- ============================= HEADER ============================= -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm will-change-transform">
+      <div class="max-w-6xl mx-auto px-10 py-4 flex items-center justify-between relative">
+        <a href="../index.html" class="font-heading font-bold text-xl text-[#52796f]">Level Up Life!</a>
+        <button type="button" id="nav-toggle-btn" class="nav-toggle-btn" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu">
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+        </button>
+        <nav aria-label="Main" id="main-nav" class="main-nav">
+          <ul class="flex items-center gap-8 list-none">
+            <li class="relative group">
+              <a href="#" class="font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">Home Skills <span aria-hidden="true">▾</span></a>
+              <div class="nav-dropdown-panel invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity absolute left-0 top-full min-w-[190px] bg-white rounded-xl shadow-lg p-4">
+                <ul class="list-none">
+                  <li><a href="#" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Quick Meals</a></li>
+                  <li><a href="#" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Laundry Basics</a></li>
+                  <li><a href="#" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Room Organization</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="relative group">
+              <a href="#" class="font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">Money &amp; Time <span aria-hidden="true">▾</span></a>
+              <div class="nav-dropdown-panel invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity absolute left-0 top-full min-w-[190px] bg-white rounded-xl shadow-lg p-4">
+                <ul class="list-none">
+                  <li><a href="#" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Money Basics</a></li>
+                  <li><a href="time-management.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Time Management</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="relative group">
+              <a href="#" class="font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">People &amp; Safety <span aria-hidden="true">▾</span></a>
+              <div class="nav-dropdown-panel invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity absolute left-0 top-full min-w-[190px] bg-white rounded-xl shadow-lg p-4">
+                <ul class="list-none">
+                  <li><a href="#" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Communication Skills</a></li>
+                  <li><a href="online-safety.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Online Safety</a></li>
+                  <li><a href="emergency-preparedness.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Emergency Preparedness</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="relative group">
+              <a href="#" class="font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">Practice &amp; Growth <span aria-hidden="true">▾</span></a>
+              <div class="nav-dropdown-panel invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity absolute left-0 top-full min-w-[190px] bg-white rounded-xl shadow-lg p-4">
+                <ul class="list-none">
+                  <li><a href="#" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Weekly Challenges</a></li>
+                  <li><a href="life-readiness-quiz.html" aria-current="page" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Life Readiness Quiz</a></li>
+                  <li><a href="submit-a-tip.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Submit a Tip</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- ============================= HERO ============================= -->
+      <section class="bg-[#2f3e46] text-white px-10 pt-14 pb-16">
+        <div class="max-w-6xl mx-auto">
+          <h1 class="font-heading font-bold text-[40px] leading-tight mb-3">Life Readiness Quiz</h1>
+          <p class="font-body text-base opacity-85 max-w-[540px]">8 quick questions across home skills, money &amp; time, people &amp; safety, and personal growth. Answer honestly &mdash; there are no wrong answers, only a starting point.</p>
+        </div>
+      </section>
+
+      <!-- ==================== QUIZ SECTION ==================== -->
+      <!-- Everything the visitor answers lives inside this one wrapper so
+           JavaScript can hide the whole thing in one line once they are
+           done, and show the results section in its place. -->
+      <section id="quiz-section" class="max-w-6xl mx-auto px-10 pt-14 pb-4">
+        <!-- Progress bar: filled in and updated entirely by JavaScript,
+             it starts empty because nothing has been answered yet. -->
+        <div class="mb-6">
+          <div class="flex justify-between items-center mb-2">
+            <span class="font-body text-[13.5px] font-semibold text-[#52796f]">Your progress</span>
+            <span id="quiz-progress-text" class="font-body text-[13.5px] text-[#5b6b70]">0 of 8 answered</span>
+          </div>
+          <div class="progress-track">
+            <div id="quiz-progress-fill" class="progress-fill"></div>
+          </div>
+        </div>
+
+        <!-- Question 1 — Home Skills -->
+        <div class="quiz-question bg-white rounded-2xl shadow-sm p-6 mb-4" data-category="home-skills">
+          <p class="font-body font-semibold text-[14.5px] text-[#2f3e46] mb-3">1. How comfortable are you cooking a simple meal from scratch?</p>
+          <div class="flex flex-col gap-2">
+            <label class="quiz-option flex items-center gap-2.5 rounded-lg p-4 cursor-pointer">
+              <input type="radio" name="q1" data-points="1" />
+              <span class="font-body text-[13.5px] text-[#2f3e46]">Not really &mdash; I&rsquo;d need a recipe open the whole time</span>
+            </label>
+            <label class="quiz-option flex items-center gap-2.5 rounded-lg p-4 cursor-pointer">
+              <input type="radio" name="q1" data-points="2" />
+              <span class="font-body text-[13.5px] text-[#2f3e46]">A few simple dishes, but I stick to what I know</span>
+            </label>
+            <label class="quiz-option flex items-center gap-2.5 rounded-lg p-4 cursor-pointer">
+              <input type="radio" name="q1" data-points="3" />
+              <span class="font-body text-[13.5px] text-[#2f3e46]">Very comfortable &mdash; I can improvise with whatever is in the fridge</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Question 2 — Home Skills -->
+        <div class="quiz-question bg-white rounded-2xl shadow-sm p-6 mb-4" data-category="home-skills">
+          <p class="font-body font-semibold text-[14.5px] text-[#2f3e46] mb-3">2. How would you rate your laundry and room-organisation habits?</p>
+          <div class="flex flex-col gap-2">
+            <label class="quiz-option flex items-center gap-2.5 rounded-lg p-4 cursor-pointer">
+              <input type="radio" name="q2" data-points="1" />
+              <span class="font-body text-[13.5px] text-[#2f3e46]">Honestly, a bit of a mess most weeks</span>
+            </label>
+            <label class="quiz-option flex items-center gap-2.5 rounded-lg p-4 cursor-pointer">
+              <input type="radio" name="q2" data-points="2" />
+              <span class="font-body text-[13.5px] text-[#2f3e46]">I manage, but I put it off until it piles up</span>
+            </label>
+            <label class="quiz-option flex items-center gap-2.5 rounded-lg p-4 cursor-pointer">
+              <input type="radio" name="q2" data-points="3" />
+              <span class="font-body text-[13.5px] text-[#2f3e46]">Pretty tidy &mdash; I keep on top of it as I go</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Question 3 — Money & Time -->
+        <div class="quiz-question bg-white rounded-2xl shadow-sm p-6 mb-4" data-category="money-time">
+          <p class="font-body font-semibold text-[14.5px] text-[#2f3e46] mb-3">3. Do you track your spending or follow some kind of budget?</p>
+          <div class="flex flex-col gap-2">
+            <label class="quiz-option flex items-center gap-2.5 rounded-lg p-4 cursor-pointer">
+              <input type="radio" name="q3" data-points="1" />
+              <span class="font-body text-[13.5px] text-[#2f3e46]">Not really, I just spend and hope for the best</span>
+            </label>
+            <label class="quiz-option flex items-center gap-2.5 rounded-lg p-4 cursor-pointer">
+              <input type="radio" name="q3" data-points="2" />
+              <span class="font-body text-[13.5px] text-[#2f3e46]">I have a rough idea, but nothing written down</span>
+            </label>
+            <label class="quiz-option flex items-center gap-2.5 rounded-lg p-4 cursor-pointer">
+              <input type="radio" name="q3" data-points="3" />
+              <span class="font-body text-[13.5px] text-[#2f3e46]">Yes, I track it or use a budget regularly</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Question 4 — Money & Time -->
+        <div class="quiz-question bg-white rounded-2xl shadow-sm p-6 mb-4" data-category="money-time">
+          <p class="font-body font-semibold text-[14.5px] text-[#2f3e46] mb-3">4. Do you plan your week ahead instead of reacting day to day?</p>
+          <div class="flex flex-col gap-2">
+            <label class="quiz-option flex items-center gap-2.5 rounded-lg p-4 cursor-pointer">
+              <input type="radio" name="q4" data-points="1" />
+              <span class="font-body text-[13.5px] text-[#2f3e46]">Rarely &mdash; I mostly just react to whatever comes up</span>
+            </label>
+            <label class="quiz-option flex items-center gap-2.5 rounded-lg p-4 cursor-pointer">
+              <input type="radio" name="q4" data-points="2" />
+              <span class="font-body text-[13.5px] text-[#2f3e46]">Sometimes, for the busier weeks</span>
+            </label>
+            <label class="quiz-option flex items-center gap-2.5 rounded-lg p-4 cursor-pointer">
+              <input type="radio" name="q4" data-points="3" />
+              <span class="font-body text-[13.5px] text-[#2f3e46]">Yes, I plan most weeks ahead of time</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Question 5 — People & Safety -->
+        <div class="quiz-question bg-white rounded-2xl shadow-sm p-6 mb-4" data-category="people-safety">
+          <p class="font-body font-semibold text-[14.5px] text-[#2f3e46] mb-3">5. Do you use a different password for each of your important accounts?</p>
+          <div class="flex flex-col gap-2">
+            <label class="quiz-option flex items-center gap-2.5 rounded-lg p-4 cursor-pointer">
+              <input type="radio" name="q5" data-points="1" />
+              <span class="font-body text-[13.5px] text-[#2f3e46]">No, I mostly reuse the same one or two</span>
+            </label>
+            <label class="quiz-option flex items-center gap-2.5 rounded-lg p-4 cursor-pointer">
+              <input type="radio" name="q5" data-points="2" />
+              <span class="font-body text-[13.5px] text-[#2f3e46]">Some accounts, but not all of them</span>
+            </label>
+            <label class="quiz-option flex items-center gap-2.5 rounded-lg p-4 cursor-pointer">
+              <input type="radio" name="q5" data-points="3" />
+              <span class="font-body text-[13.5px] text-[#2f3e46]">Yes, every important account has its own password</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Question 6 — People & Safety -->
+        <div class="quiz-question bg-white rounded-2xl shadow-sm p-6 mb-4" data-category="people-safety">
+          <p class="font-body font-semibold text-[14.5px] text-[#2f3e46] mb-3">6. If the fire alarm went off in your building right now, would you know exactly what to do?</p>
+          <div class="flex flex-col gap-2">
+            <label class="quiz-option flex items-center gap-2.5 rounded-lg p-4 cursor-pointer">
+              <input type="radio" name="q6" data-points="1" />
+              <span class="font-body text-[13.5px] text-[#2f3e46]">Not really, I&rsquo;d have to figure it out on the spot</span>
+            </label>
+            <label class="quiz-option flex items-center gap-2.5 rounded-lg p-4 cursor-pointer">
+              <input type="radio" name="q6" data-points="2" />
+              <span class="font-body text-[13.5px] text-[#2f3e46]">I have a rough idea of the nearest exit</span>
+            </label>
+            <label class="quiz-option flex items-center gap-2.5 rounded-lg p-4 cursor-pointer">
+              <input type="radio" name="q6" data-points="3" />
+              <span class="font-body text-[13.5px] text-[#2f3e46]">Yes, I know my exits and the assembly point</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Question 7 — Practice & Growth -->
+        <div class="quiz-question bg-white rounded-2xl shadow-sm p-6 mb-4" data-category="practice-growth">
+          <p class="font-body font-semibold text-[14.5px] text-[#2f3e46] mb-3">7. Do you ever look back at your week to see what went well or badly?</p>
+          <div class="flex flex-col gap-2">
+            <label class="quiz-option flex items-center gap-2.5 rounded-lg p-4 cursor-pointer">
+              <input type="radio" name="q7" data-points="1" />
+              <span class="font-body text-[13.5px] text-[#2f3e46]">Never, one week just blurs into the next</span>
+            </label>
+            <label class="quiz-option flex items-center gap-2.5 rounded-lg p-4 cursor-pointer">
+              <input type="radio" name="q7" data-points="2" />
+              <span class="font-body text-[13.5px] text-[#2f3e46]">Occasionally, if something went really wrong</span>
+            </label>
+            <label class="quiz-option flex items-center gap-2.5 rounded-lg p-4 cursor-pointer">
+              <input type="radio" name="q7" data-points="3" />
+              <span class="font-body text-[13.5px] text-[#2f3e46]">Yes, I regularly reflect and adjust</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Question 8 — Practice & Growth -->
+        <div class="quiz-question bg-white rounded-2xl shadow-sm p-6 mb-4" data-category="practice-growth">
+          <p class="font-body font-semibold text-[14.5px] text-[#2f3e46] mb-3">8. Are you comfortable asking for help when you don&rsquo;t know something?</p>
+          <div class="flex flex-col gap-2">
+            <label class="quiz-option flex items-center gap-2.5 rounded-lg p-4 cursor-pointer">
+              <input type="radio" name="q8" data-points="1" />
+              <span class="font-body text-[13.5px] text-[#2f3e46]">Not really, I&rsquo;d rather struggle through alone</span>
+            </label>
+            <label class="quiz-option flex items-center gap-2.5 rounded-lg p-4 cursor-pointer">
+              <input type="radio" name="q8" data-points="2" />
+              <span class="font-body text-[13.5px] text-[#2f3e46]">Depends who is asking &mdash; sometimes it&rsquo;s awkward</span>
+            </label>
+            <label class="quiz-option flex items-center gap-2.5 rounded-lg p-4 cursor-pointer">
+              <input type="radio" name="q8" data-points="3" />
+              <span class="font-body text-[13.5px] text-[#2f3e46]">Yes, asking early saves everyone time</span>
+            </label>
+          </div>
+        </div>
+
+        <p id="quiz-validation-message" class="form-error-text hidden mb-4">Please answer every question before viewing your results.</p>
+        <button type="button" id="quiz-submit-btn" class="inline-block bg-[#d97757] text-white font-body font-semibold text-[15px] rounded-lg px-8 py-4 hover:bg-[#c2673f] transition-colors">See My Results</button>
+      </section>
+
+      <!-- ==================== RESULTS SECTION (hidden until quiz is done) ==================== -->
+      <section id="quiz-results" class="max-w-6xl mx-auto px-10 pt-4 pb-16 hidden">
+        <div class="bg-[#52796f] text-white rounded-[20px] px-10 py-8 mb-7">
+          <p class="text-xs font-bold uppercase tracking-widest opacity-75">Your result</p>
+          <h2 id="quiz-result-title" class="font-heading font-bold text-[28px] mt-2.5"></h2>
+          <p id="quiz-result-summary" class="text-sm opacity-90 mt-2 max-w-[760px] leading-relaxed"></p>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm p-6 mb-7">
+          <h3 class="font-heading font-bold text-lg text-[#2f3e46] mb-4">Your scores by category</h3>
+          <!-- The <tbody> starts empty on purpose — JavaScript builds one
+               <tr> per category once it has actually calculated a score. -->
+          <table class="planner-table">
+            <thead>
+              <tr class="bg-[#52796f] text-white">
+                <th class="font-heading text-[13.5px]">Category</th>
+                <th class="font-heading text-[13.5px]">Your score (out of 6)</th>
+              </tr>
+            </thead>
+            <tbody id="quiz-results-table-body"></tbody>
+          </table>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm p-6 mb-7">
+          <h3 class="font-heading font-bold text-lg text-[#2f3e46] mb-2">What to try next</h3>
+          <p id="quiz-advice-text" class="font-body text-[14.5px] text-[#5b6b70] leading-relaxed mb-3"></p>
+          <a id="quiz-advice-link" href="#" class="font-body text-[13.5px] font-semibold text-[#d97757]">Explore this module &rarr;</a>
+        </div>
+
+        <button type="button" id="quiz-retake-btn" class="inline-block border-2 border-[#52796f] text-[#52796f] font-body font-semibold text-[15px] rounded-lg px-7 py-[14px] hover:bg-[#eef3f1] transition-colors">Retake the Quiz</button>
+      </section>
+    </main>
+
+    <!-- ============================= FOOTER ============================= -->
+    <footer class="bg-[#2f3e46] text-[#faf7f2] px-10 pt-14 pb-6">
+      <div class="max-w-6xl mx-auto grid grid-cols-[1.4fr_1fr_1fr] gap-10">
+        <div>
+          <div class="font-heading font-bold text-xl mb-3">Level Up Life!</div>
+          <p class="text-sm opacity-70 max-w-[260px] leading-relaxed">A website that aims to teach beginner life skills, let visitors assess their readiness, complete challenges and submit useful tips for other students.</p>
+        </div>
+        <div>
+          <h2 class="text-xs font-bold uppercase tracking-wider opacity-60 mb-3">Explore</h2>
+          <ul class="list-none">
+            <li class="text-sm opacity-85 py-1">Home Skills</li>
+            <li class="text-sm opacity-85 py-1">Money &amp; Time</li>
+            <li class="text-sm opacity-85 py-1">People &amp; Safety</li>
+            <li class="text-sm opacity-85 py-1">Practice &amp; Growth</li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="text-xs font-bold uppercase tracking-wider opacity-60 mb-3">Created By</h2>
+          <ul class="list-none">
+            <li class="text-sm opacity-85 py-1">NGUYEN KHAC MING (P2621030)</li>
+            <li class="text-sm opacity-85 py-1">MYINT MYAT MIN (P2634142)</li>
+            <li class="text-sm opacity-85 py-1">NURHAKIM BIN MONIR (P2237855)</li>
+            <li class="text-sm opacity-85 py-1">DANNALA NIKHILESH KUMAR (P2621379)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="max-w-6xl mx-auto mt-9 text-xs opacity-55">&copy; 2026 Level Up Life!</div>
+    </footer>
+
+    <script src="../assets/js/nav-toggle.js"></script>
+    <script src="../assets/js/life-readiness-quiz.js"></script>
+  </body>
+</html>
