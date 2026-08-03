@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Room Organization - Level Up Life</title>
+  <link rel="stylesheet" href="../assets/css/fonts.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../assets/js/tailwind-config.js" defer></script>
+</head>
+<body class="bg-white">
+  <!-- Navigation -->
+  <header class="bg-white border-b border-gray-200">
+    <nav class="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
+      <a href="../index.html" class="text-2xl font-bold text-[#52796f]" style="font-family: 'Fraunces', serif;">Level Up Life!</a>
+      
+      <!-- Desktop Nav -->
+      <ul class="hidden md:flex gap-12 text-base font-semibold">
+        <!-- Home Skills Dropdown -->
+        <li class="relative group">
+          <button class="text-gray-700 hover:text-[#d97757] transition flex items-center gap-1">
+            Home Skills <span>▼</span>
+          </button>
+          <div class="absolute left-0 mt-2 w-48 bg-[#eef3f1] rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-10">
+            <a href="#" class="block px-6 py-3 text-gray-700 hover:text-[#d97757] first:rounded-t-lg font-medium">Quick Meals</a>
+            <a href="LaundryBasics.html" class="block px-6 py-3 text-gray-700 hover:text-[#d97757] font-medium">Laundry Basics</a>
+            <a href="RoomOrganisation.html" class="block px-6 py-3 text-[#d97757] font-bold hover:text-[#d97757] last:rounded-b-lg">Room Organization</a>
+          </div>
+        </li>
+
+        <!-- Money & Time Dropdown -->
+        <li class="relative group">
+          <button class="text-gray-700 hover:text-[#d97757] transition flex items-center gap-1">
+            Money & Time <span>▼</span>
+          </button>
+          <div class="absolute left-0 mt-2 w-48 bg-[#eef3f1] rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-10">
+            <a href="#" class="block px-6 py-3 text-gray-700 hover:text-[#d97757] first:rounded-t-lg font-medium">Money Basics</a>
+            <a href="#" class="block px-6 py-3 text-gray-700 hover:text-[#d97757] last:rounded-b-lg font-medium">Time Management</a>
+          </div>
+        </li>
+
+        <!-- People & Safety Dropdown -->
+        <li class="relative group">
+          <button class="text-gray-700 hover:text-[#d97757] transition flex items-center gap-1">
+            People & Safety <span>▼</span>
+          </button>
+          <div class="absolute left-0 mt-2 w-48 bg-[#eef3f1] rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-10">
+            <a href="#" class="block px-6 py-3 text-gray-700 hover:text-[#d97757] first:rounded-t-lg font-medium">Communication Skills</a>
+            <a href="#" class="block px-6 py-3 text-gray-700 hover:text-[#d97757] font-medium">Online Safety</a>
+            <a href="#" class="block px-6 py-3 text-gray-700 hover:text-[#d97757] last:rounded-b-lg font-medium">Emergency Preparedness</a>
+          </div>
+        </li>
+
+        <!-- Practice & Growth Dropdown -->
+        <li class="relative group">
+          <button class="text-gray-700 hover:text-[#d97757] transition flex items-center gap-1">
+            Practice & Growth <span>▼</span>
+          </button>
+          <div class="absolute left-0 mt-2 w-48 bg-[#eef3f1] rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-10">
+            <a href="#" class="block px-6 py-3 text-gray-700 hover:text-[#d97757] first:rounded-t-lg font-medium">Weekly Challenges</a>
+            <a href="#" class="block px-6 py-3 text-gray-700 hover:text-[#d97757] font-medium">Life Readiness Quiz</a>
+            <a href="#" class="block px-6 py-3 text-gray-700 hover:text-[#d97757] last:rounded-b-lg font-medium">Submit a Tip</a>
+          </div>
+        </li>
+      </ul>
+
+      <!-- Mobile Nav Toggle -->
+      <button id="nav-toggle" class="md:hidden p-2 hover:bg-[#eef3f1] rounded" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <svg data-nav-icon="bars" class="w-6 h-6 text-[#52796f]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <svg data-nav-icon="close" class="w-6 h-6 text-[#52796f] hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Mobile Nav -->
+    <div id="mobile-nav" class="md:hidden hidden bg-white border-t border-gray-200">
+      <div class="px-6 py-4 space-y-2">
+        <a href="#" class="block py-3 text-gray-700 hover:text-[#d97757] font-medium">Quick Meals</a>
+        <a href="LaundryBasics.html" class="block py-3 text-gray-700 hover:text-[#d97757] font-medium">Laundry Basics</a>
+        <a href="RoomOrganisation.html" class="block py-3 text-[#d97757] font-bold">Room Organization</a>
+        <a href="#" class="block py-3 text-gray-700 hover:text-[#d97757] font-medium">Money & Time</a>
+        <a href="#" class="block py-3 text-gray-700 hover:text-[#d97757] font-medium">People & Safety</a>
+        <a href="#" class="block py-3 text-gray-700 hover:text-[#d97757] font-medium">Practice & Growth</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-[#eef3f1] py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <p class="text-[#52796f] text-sm mb-4">Home Skills</p>
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6" style="font-family: 'Fraunces', serif;">Room organization without the chaos.</h1>
+          <p class="text-lg text-gray-700 mb-8">Transform your space with a simple system. From organizing by zone to decluttering strategically, create a room that works for you.</p>
+          <div class="flex gap-4">
+            <button class="bg-[#d97757] text-white px-8 py-3 rounded-lg font-medium hover:bg-[#c96649] transition">Get started</button>
+            <button class="border-2 border-[#52796f] text-[#52796f] px-8 py-3 rounded-lg font-medium hover:bg-[#eef3f1] transition">See examples</button>
+          </div>
+        </div>
+        <div class="bg-cyan-100 border-2 border-cyan-400 rounded-2xl h-80 flex items-center justify-center">
+          <div class="text-center px-8">
+            <p class="text-gray-600 font-medium">Before / After image comparison slider or tabs</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Organize by Zone Section -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-gray-900 mb-12" style="font-family: 'Fraunces', serif;">Organize by zone</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white border-2 border-gray-300 p-8 rounded-lg">
+          <h3 class="text-xl font-bold text-gray-900 mb-6">Study desk</h3>
+          <div class="space-y-3">
+            <label class="flex items-center gap-3">
+              <input type="checkbox" class="w-5 h-5 accent-[#52796f]">
+              <span class="text-gray-700">Clear off unnecessary items</span>
+            </label>
+            <label class="flex items-center gap-3">
+              <input type="checkbox" class="w-5 h-5 accent-[#52796f]">
+              <span class="text-gray-700">Organize supplies by category</span>
+            </label>
+            <label class="flex items-center gap-3">
+              <input type="checkbox" class="w-5 h-5 accent-[#52796f]">
+              <span class="text-gray-700">Create a cable management system</span>
+            </label>
+            <label class="flex items-center gap-3">
+              <input type="checkbox" class="w-5 h-5 accent-[#52796f]">
+              <span class="text-gray-700">Add drawer dividers</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="bg-white border-2 border-gray-300 p-8 rounded-lg">
+          <h3 class="text-xl font-bold text-gray-900 mb-6">Wardrobe</h3>
+          <div class="space-y-3">
+            <label class="flex items-center gap-3">
+              <input type="checkbox" class="w-5 h-5 accent-[#52796f]">
+              <span class="text-gray-700">Sort by clothing type</span>
+            </label>
+            <label class="flex items-center gap-3">
+              <input type="checkbox" class="w-5 h-5 accent-[#52796f]">
+              <span class="text-gray-700">Donate clothes you don't wear</span>
+            </label>
+            <label class="flex items-center gap-3">
+              <input type="checkbox" class="w-5 h-5 accent-[#52796f]">
+              <span class="text-gray-700">Use matching hangers</span>
+            </label>
+            <label class="flex items-center gap-3">
+              <input type="checkbox" class="w-5 h-5 accent-[#52796f]">
+              <span class="text-gray-700">Organize by color</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="bg-white border-2 border-gray-300 p-8 rounded-lg">
+          <h3 class="text-xl font-bold text-gray-900 mb-6">Storage area</h3>
+          <div class="space-y-3">
+            <label class="flex items-center gap-3">
+              <input type="checkbox" class="w-5 h-5 accent-[#52796f]">
+              <span class="text-gray-700">Label all storage boxes</span>
+            </label>
+            <label class="flex items-center gap-3">
+              <input type="checkbox" class="w-5 h-5 accent-[#52796f]">
+              <span class="text-gray-700">Store seasonal items together</span>
+            </label>
+            <label class="flex items-center gap-3">
+              <input type="checkbox" class="w-5 h-5 accent-[#52796f]">
+              <span class="text-gray-700">Use clear containers when possible</span>
+            </label>
+            <label class="flex items-center gap-3">
+              <input type="checkbox" class="w-5 h-5 accent-[#52796f]">
+              <span class="text-gray-700">Keep frequently used items accessible</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Decluttering Method Section -->
+  <section class="bg-gray-50 py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-gray-900 mb-12" style="font-family: 'Fraunces', serif;">Decluttering method: 3-step card experience</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-[#eef3f1] p-8 rounded-lg">
+          <div class="text-4xl font-bold text-[#52796f] mb-4">01</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Assess</h3>
+          <p class="text-gray-700">Look at each item in your room. Ask yourself: Do I use this? Do I love this? Does it serve a purpose?</p>
+        </div>
+
+        <div class="bg-[#eef3f1] p-8 rounded-lg">
+          <div class="text-4xl font-bold text-[#52796f] mb-4">02</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Decide</h3>
+          <p class="text-gray-700">Sort items into three piles: keep, donate, or throw away. Be honest about what you actually need and use regularly.</p>
+        </div>
+
+        <div class="bg-[#eef3f1] p-8 rounded-lg">
+          <div class="text-4xl font-bold text-[#52796f] mb-4">03</div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Organize</h3>
+          <p class="text-gray-700">Arrange remaining items in a logical system. Create designated spaces so everything has a home.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Progress Tracking Section -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="bg-yellow-50 border-2 border-yellow-400 p-8 rounded-lg text-center">
+        <h3 class="text-2xl font-bold text-gray-900 mb-4" style="font-family: 'Fraunces', serif;">Track your progress</h3>
+        <p class="text-gray-700 mb-8">Progress message changes as checklist items are completed. Check off tasks above to monitor your room organization journey.</p>
+        
+        <div class="bg-white border border-gray-300 p-6 rounded-lg inline-block min-w-80">
+          <div class="text-center">
+            <p class="text-[#52796f] font-semibold text-lg">Keep going! You're making great progress.</p>
+            <div class="mt-4 w-full bg-gray-200 rounded-full h-2">
+              <div class="bg-[#52796f] h-2 rounded-full" style="width: 0%"></div>
+            </div>
+            <p class="text-sm text-gray-600 mt-3">Complete tasks above to level up</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Best Practices Section -->
+  <section class="bg-gray-50 py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <!-- Do's -->
+        <div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-8" style="font-family: 'Fraunces', serif;">Do's</h3>
+          <ul class="space-y-4">
+            <li class="flex gap-3">
+              <span class="text-[#52796f] text-xl">✓</span>
+              <span class="text-gray-700">Make a plan before you start organizing</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-[#52796f] text-xl">✓</span>
+              <span class="text-gray-700">Use vertical space with shelves and wall storage</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-[#52796f] text-xl">✓</span>
+              <span class="text-gray-700">Invest in good storage containers</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-[#52796f] text-xl">✓</span>
+              <span class="text-gray-700">Label everything clearly</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-[#52796f] text-xl">✓</span>
+              <span class="text-gray-700">Maintain your system regularly</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Don'ts -->
+        <div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-8" style="font-family: 'Fraunces', serif;">Don'ts</h3>
+          <ul class="space-y-4">
+            <li class="flex gap-3">
+              <span class="text-red-500 text-xl">✗</span>
+              <span class="text-gray-700">Don't keep items out of guilt or "just in case"</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-red-500 text-xl">✗</span>
+              <span class="text-gray-700">Don't buy organizing supplies before decluttering</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-red-500 text-xl">✗</span>
+              <span class="text-gray-700">Don't ignore items that need repairs</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-red-500 text-xl">✗</span>
+              <span class="text-gray-700">Don't forget about high and low spaces</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-red-500 text-xl">✗</span>
+              <span class="text-gray-700">Don't organize in a rushed way</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="bg-[#52796f] py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <h2 class="text-4xl font-bold text-white mb-6" style="font-family: 'Fraunces', serif;">Ready to transform your room?</h2>
+      <p class="text-lg text-[#eef3f1] mb-8">Start organizing by zone today and create a space that inspires you.</p>
+      <button class="bg-[#d97757] text-white px-8 py-3 rounded-lg font-medium hover:bg-[#c96649] transition">Begin organizing</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <h3 class="font-bold text-white mb-4">Quick links</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:text-white transition">Home</a></li>
+            <li><a href="#" class="hover:text-white transition">All skills</a></li>
+            <li><a href="RoomOrganisation.html" class="hover:text-white transition">Room Organization</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-bold text-white mb-4">Learn</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:text-white transition">Home Skills</a></li>
+            <li><a href="#" class="hover:text-white transition">Money & Time</a></li>
+            <li><a href="#" class="hover:text-white transition">People & Safety</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-bold text-white mb-4">About</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:text-white transition">Our mission</a></li>
+            <li><a href="#" class="hover:text-white transition">Accessibility</a></li>
+            <li><a href="#" class="hover:text-white transition">Group information</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-bold text-white mb-4">Connect</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:text-white transition">Twitter</a></li>
+            <li><a href="#" class="hover:text-white transition">Instagram</a></li>
+            <li><a href="#" class="hover:text-white transition">Email</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-700 pt-8 text-center text-gray-500 text-sm">
+        <p>&copy; 2026 Level Up Life. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../assets/js/nav-toggle.js" defer></script>
+</body>
+</html>
