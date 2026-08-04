@@ -32,8 +32,8 @@ const plannerTbody = document.getElementById("planner-tbody");
 // The timetable covers 8:00 AM up to (but not including) 10:00 PM, in
 // 1-hour rows — 14 rows in total, the same kind of range a real class
 // timetable would use.
-const PLANNER_START_HOUR = 8;
-const PLANNER_END_HOUR = 22;
+const PLANNER_START_HOUR = 7;
+const PLANNER_END_HOUR = 23;
 
 // The 7 day columns, in display order, matching the <th> order in the HTML.
 const PLANNER_DAYS = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
@@ -118,7 +118,7 @@ function hasClash(day, startHour, duration) {
 // timetable, so it always matches PLANNER_START_HOUR/PLANNER_END_HOUR
 // above instead of being typed out by hand in the HTML.
 function populateStartTimeOptions() {
-  for (let hour = PLANNER_START_HOUR; hour < PLANNER_END_HOUR; hour++) {
+  for (let hour = PLANNER_START_HOUR; hour <= PLANNER_END_HOUR; hour++) {
     const option = document.createElement("option");
     option.value = String(hour);
     option.textContent = formatHourLabel(hour);
@@ -241,7 +241,7 @@ function renderPlannerTimetable() {
     rowsToSkip[day] = 0;
   });
 
-  for (let hour = PLANNER_START_HOUR; hour < PLANNER_END_HOUR; hour++) {
+  for (let hour = PLANNER_START_HOUR; hour <= PLANNER_END_HOUR; hour++) {
     const row = document.createElement("tr");
 
     const hourLabelCell = document.createElement("td");
