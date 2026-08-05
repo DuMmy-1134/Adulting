@@ -13,20 +13,21 @@
       type="module"
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="../assets/js/moneybasics.js" defer></script>
     <link rel="stylesheet" href="../assets/css/styles.css" />
     <link rel="stylesheet" href="../assets/css/min.css" />
   </head>
   <body class="bg-[#faf7f2] font-body text-[#2f3e46] antialiased">
     <header class="sticky top-0 z-50 bg-white shadow-sm will-change-transform">
       <div
-        class="max-w-6xl mx-auto px-10 py-4 flex items-center justify-between"
+        class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 py-4 flex items-center justify-between"
       >
         <a
           href="../index.html"
           class="font-heading font-bold text-xl text-[#52796f]"
           >Level Up Life!</a
         >
-        <nav aria-label="Main">
+        <nav aria-label="Main" class="hidden lg:flex">
           <ul class="flex items-center gap-8 list-none">
             <li class="relative group">
               <a
@@ -41,6 +42,7 @@
                   <li>
                     <a
                       href="quick-meal.html"
+                      aria-current="page"
                       class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap"
                       >Quick Meals</a
                     >
@@ -101,7 +103,7 @@
                 <ul class="list-none">
                   <li>
                     <a
-                      href="#"
+                      href="CommunicationSkills.html"
                       class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap"
                       >Communication Skills</a
                     >
@@ -116,7 +118,6 @@
                   <li>
                     <a
                       href="emergency-preparedness.html"
-                      aria-current="page"
                       class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap"
                       >Emergency Preparedness</a
                     >
@@ -136,7 +137,7 @@
                 <ul class="list-none">
                   <li>
                     <a
-                      href="#"
+                      href="weeklyChallenges.html"
                       class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap"
                       >Weekly Challenges</a
                     >
@@ -160,16 +161,227 @@
             </li>
           </ul>
         </nav>
+        <button
+          type="button"
+          id="nav-toggle"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+          aria-label="Open menu"
+          class="flex lg:hidden items-center justify-center w-11 h-11 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#52796f] focus-visible:ring-offset-2"
+        >
+          <svg
+            data-nav-icon="bars"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#2f3e46"
+            stroke-width="2"
+            stroke-linecap="round"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <line x1="4" y1="7" x2="20" y2="7"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="17" x2="20" y2="17"></line>
+          </svg>
+          <svg
+            data-nav-icon="close"
+            class="hidden"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#2f3e46"
+            stroke-width="2"
+            stroke-linecap="round"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+          </svg>
+        </button>
       </div>
+      <nav
+        id="mobile-nav"
+        hidden
+        aria-label="Mobile"
+        class="lg:hidden bg-white p-4"
+      >
+        <ul class="list-none">
+          <li class="border-b border-[#f0ece3]">
+            <button
+              type="button"
+              data-nav-group
+              aria-expanded="false"
+              aria-controls="mobile-nav-home-skills"
+              class="w-full min-h-[44px] flex justify-between items-center px-4 font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]"
+            >
+              <span>Home Skills</span>
+              <span
+                data-nav-chevron
+                aria-hidden="true"
+                class="transition-transform"
+                >▾</span
+              >
+            </button>
+            <ul id="mobile-nav-home-skills" hidden class="list-none">
+              <li>
+                <a
+                  href="quick-meal.html"
+                  aria-current="page"
+                  class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]"
+                  >Quick Meals</a
+                >
+              </li>
+              <li>
+                <a
+                  href="LaundryBasics.html"
+                  class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]"
+                  >Laundry Basics</a
+                >
+              </li>
+              <li>
+                <a
+                  href="RoomOrganisation.html"
+                  class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]"
+                  >Room Organization</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li class="border-b border-[#f0ece3]">
+            <button
+              type="button"
+              data-nav-group
+              aria-expanded="false"
+              aria-controls="mobile-nav-money-time"
+              class="w-full min-h-[44px] flex justify-between items-center px-4 font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]"
+            >
+              <span>Money &amp; Time</span>
+              <span
+                data-nav-chevron
+                aria-hidden="true"
+                class="transition-transform"
+                >▾</span
+              >
+            </button>
+            <ul id="mobile-nav-money-time" hidden class="list-none">
+              <li>
+                <a
+                  href="moneybasics.html"
+                  class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]"
+                  >Money Basics</a
+                >
+              </li>
+              <li>
+                <a
+                  href="time-management.html"
+                  class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]"
+                  >Time Management</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li class="border-b border-[#f0ece3]">
+            <button
+              type="button"
+              data-nav-group
+              aria-expanded="false"
+              aria-controls="mobile-nav-people-safety"
+              class="w-full min-h-[44px] flex justify-between items-center px-4 font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]"
+            >
+              <span>People &amp; Safety</span>
+              <span
+                data-nav-chevron
+                aria-hidden="true"
+                class="transition-transform"
+                >▾</span
+              >
+            </button>
+            <ul id="mobile-nav-people-safety" hidden class="list-none">
+              <li>
+                <a
+                  href="CommunicationSkills.html"
+                  class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]"
+                  >Communication Skills</a
+                >
+              </li>
+              <li>
+                <a
+                  href="online-safety.html"
+                  class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]"
+                  >Online Safety</a
+                >
+              </li>
+              <li>
+                <a
+                  href="emergency-preparedness.html"
+                  class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]"
+                  >Emergency Preparedness</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li>
+            <button
+              type="button"
+              data-nav-group
+              aria-expanded="false"
+              aria-controls="mobile-nav-practice-growth"
+              class="w-full min-h-[44px] flex justify-between items-center px-4 font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]"
+            >
+              <span>Practice &amp; Growth</span>
+              <span
+                data-nav-chevron
+                aria-hidden="true"
+                class="transition-transform"
+                >▾</span
+              >
+            </button>
+            <ul id="mobile-nav-practice-growth" hidden class="list-none">
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]"
+                  >Weekly Challenges</a
+                >
+              </li>
+              <li>
+                <a
+                  href="life-readiness-quiz.html"
+                  class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]"
+                  >Life Readiness Quiz</a
+                >
+              </li>
+              <li>
+                <a
+                  href="submit-a-tip.html"
+                  class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]"
+                  >Submit a Tip</a
+                >
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
     </header>
+    <section class="bg-[#2f3e46] text-white px-4 md:px-6 lg:px-10 pt-14 pb-16">
+      <div class="max-w-6xl mx-auto">
+        <h1 class="px-10 font-heading font-bold text-[40px] leading-tight mb-3">
+          Money Basics
+        </h1>
+        <p class="px-10 font-body text-base opacity-85 max-w-[540px]">
+          Simple steps to build smart financial habits for life.
+        </p>
+      </div>
+    </section>
     <section class="site-features max-w-6xl mx-auto px-10 py-4">
-      <h1 class="font-heading font-bold text-3xl text-[#2f3e46] mb-2.5">
-        Money Basics
-      </h1>
-      <div class="grid grid-cols-5 gap-4">
+      <div class="">
         <a
-          href="#"
-          class="block col-span-2 bg-white rounded-2xl shadow-sm p-6 hover:shadow-md hover:-translate-y-0.5 transition-all"
+          id="needOrWant"
+          class="block mb-4 col-span-2 bg-white rounded-2xl shadow-sm p-6 hover:shadow-md hover:-translate-y-0.5 transition-all"
         >
           <span
             class="block font-heading font-bold text-lg text-[#2f3e46] mb-2.5"
@@ -184,23 +396,160 @@
             class="block font-body text-[13.5px] font-semibold text-[#d97757]"
             >click to Read &rarr;</span
           >
+          <div
+            id="expandable-content"
+            class="hidden mt-6 pt-6 border-t border-slate-100 space-y-4"
+          >
+            <div class="bg-emerald-50 border border-emerald-200 p-3 rounded-xl">
+              <span class="font-bold text-emerald-800">Need</span>
+              <p class="text-emerald-700 text-xs mt-1">
+                Groceries, rent, essential clothing, phone plan.
+              </p>
+            </div>
+            <div class="bg-amber-50 border border-amber-200 p-3 rounded-xl">
+              <span class="font-bold text-amber-800">💡 Want</span>
+              <p class="text-amber-700 text-xs mt-1">
+                Fast food, designer fits, streaming subs, gaming.
+              </p>
+            </div>
+
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+              <h4
+                class="font-semibold text-xs text-slate-500 uppercase tracking-wider mb-2"
+              >
+                The 3-Question Reality Check
+              </h4>
+              <ul class="text-sm text-slate-700 space-y-2">
+                <li class="flex items-start gap-2">
+                  <span>1️⃣</span>
+                  <span>Will my week break down without this item?</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span>2️⃣</span>
+                  <span>Am I buying this out of stress, boredom, or FOMO?</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span>3️⃣</span>
+                  <span
+                    >Would I still want this if it wasn't on
+                    sale/trending?</span
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div class="bg-teal-900 text-teal-100 p-4 rounded-xl text-sm">
+              <p class="font-bold text-amber-300 mb-1">
+                Micro-Challenge: Try the 24-Hour Rule
+              </p>
+              <p class="text-xs text-teal-200 leading-relaxed">
+                Before buying any 'Want' over $20, leave it in your cart for 24
+                hours. If you still care about it tomorrow, consider it!
+              </p>
+            </div>
+          </div>
         </a>
         <a
-          href="#"
+          id="budget-goals"
           class="block col-span-3 bg-white rounded-2xl shadow-sm p-6 hover:shadow-md hover:-translate-y-0.5 transition-all"
         >
           <span
             class="block font-heading font-bold text-lg text-[#2f3e46] mb-2.5"
-            >Setting Budget Goals</span
+            >Setting Budget Goals: Interactive Guide</span
           >
           <span
             class="block font-body text-[13.5px] text-[#5b6b70] leading-normal mb-3.5"
-            >Learn how to set up goals</span
+            >Learn how to save for things you actually want without giving up
+            your lifestyle.</span
           >
           <span
             class="block font-body text-[13.5px] font-semibold text-[#d97757]"
             >Click to Read &rarr;
           </span>
+          <div
+            id="budget-expandable-content"
+            class="hidden mt-6 pt-6 border-t border-slate-100 space-y-6"
+          >
+            <div>
+              <h4
+                class="font-semibold text-xs text-slate-500 uppercase tracking-wider mb-3"
+              >
+                1. Pick Your Savings Buckets
+              </h4>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm">
+                <div
+                  class="bg-purple-50 border border-purple-200 p-3 rounded-xl"
+                >
+                  <span class="font-bold text-purple-900 block"
+                    >Short-Term</span
+                  >
+                  <span class="text-xs text-purple-700">1 – 3 Months</span>
+                  <p class="text-slate-600 text-xs mt-2">
+                    Concert tickets, new shoes, or festival weekend.
+                  </p>
+                </div>
+
+                <div
+                  class="bg-indigo-50 border border-indigo-200 p-3 rounded-xl"
+                >
+                  <span class="font-bold text-indigo-900 block"
+                    >Medium-Term</span
+                  >
+                  <span class="text-xs text-indigo-700">6 – 12 Months</span>
+                  <p class="text-slate-600 text-xs mt-2">
+                    Upgrading tech, laptop, or holiday trip.
+                  </p>
+                </div>
+
+                <div class="bg-teal-50 border border-teal-200 p-3 rounded-xl">
+                  <span class="font-bold text-teal-900 block">Long-Term</span>
+                  <span class="text-xs text-teal-700">1+ Years</span>
+                  <p class="text-slate-600 text-xs mt-2">
+                    First car down payment, moving out fund.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+              <h4
+                class="font-semibold text-xs text-slate-500 uppercase tracking-wider mb-2"
+              >
+                2. The Teen 50/30/20 Split Formula
+              </h4>
+              <p class="text-xs text-slate-600 mb-3">
+                When you get money (job, allowance, gift), divide it instantly:
+              </p>
+
+              <div class="w-full h-4 rounded-full overflow-hidden flex mb-2">
+                <div class="bg-slate-400 w-[50%]" title="50% Needs"></div>
+                <div class="bg-amber-400 w-[30%]" title="30% Wants"></div>
+                <div class="bg-emerald-500 w-[20%]" title="20% Goals"></div>
+              </div>
+
+              <div class="grid grid-cols-3 text-center text-xs font-medium">
+                <span class="text-slate-600">50% Needs</span>
+                <span class="text-amber-700">30% Fun & Wants</span>
+                <span class="text-emerald-700 font-bold">20% Goal Bucket</span>
+              </div>
+            </div>
+
+            <div
+              class="bg-purple-900 text-purple-100 p-4 rounded-xl text-sm flex items-start gap-3"
+            >
+              <div>
+                <p class="font-bold text-amber-300">
+                  Pro-Tip: "Out of Sight, Out of Mind"
+                </p>
+                <p class="text-xs text-purple-200 mt-0.5 leading-relaxed">
+                  Create a separate sub-account or savings stash on day 1. If
+                  the money stays in your main spending account, you
+                  <em>will</em> spend it on small daily purchases without
+                  realizing it.
+                </p>
+              </div>
+            </div>
+          </div>
         </a>
       </div>
       <div id="area-selection" class="py-4">
@@ -209,21 +558,125 @@
         </h2>
         <div class="grid grid-cols-4 gap-4 grid-row-3">
           <a
-            href="#"
             class="block bg-white row-span-3 col-span-2 rounded-2xl shadow-sm p-6 hover:shadow-md hover:-translate-y-0.5 transition-all"
           >
-            <span
-              class="block font-heading font-bold text-lg text-[#2f3e46] mb-2.5"
-              >Input Panel</span
+            <form
+              id="money-calculator"
+              class="bg-white p-6 sm:p-8 rounded-2xl max-w-lg mx-auto"
             >
-            <span
-              class="block font-body text-[13.5px] text-[#5b6b70] leading-normal mb-3.5"
-              >Input and caculate for monntly allowance and management</span
-            >
-            <span
-              class="block font-body text-[13.5px] font-semibold text-[#d97757]"
-              >Read the module &rarr;</span
-            >
+              <div class="space-y-5">
+                <div>
+                  <label
+                    for="monthly-allowance"
+                    class="block text-sm font-semibold text-slate-700 mb-1"
+                  >
+                    Monthly Allowance / Income
+                  </label>
+                  <div class="relative rounded-lg shadow-sm">
+                    <div
+                      class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3"
+                    >
+                      <span class="text-slate-500 sm:text-sm">$</span>
+                    </div>
+                    <input
+                      type="number"
+                      name="monthly-allowance"
+                      id="monthly-allowance"
+                      min="0"
+                      step="0.01"
+                      placeholder="0.00"
+                      required
+                      class="block w-full rounded-lg border border-slate-300 pl-7 pr-4 py-2.5 text-slate-900 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 focus:outline-none transition sm:text-sm"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label
+                    for="monthly-expenses"
+                    class="block text-sm font-semibold text-slate-700 mb-1"
+                  >
+                    Monthly Expenses
+                  </label>
+                  <div class="relative rounded-lg shadow-sm">
+                    <div
+                      class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3"
+                    >
+                      <span class="text-slate-500 sm:text-sm">$</span>
+                    </div>
+                    <input
+                      type="number"
+                      name="monthly-expenses"
+                      id="monthly-expenses"
+                      min="0"
+                      step="0.01"
+                      placeholder="0.00"
+                      required
+                      class="block w-full rounded-lg border border-slate-300 pl-7 pr-4 py-2.5 text-slate-900 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 focus:outline-none transition sm:text-sm"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label
+                    for="amount-saved"
+                    class="block text-sm font-semibold text-slate-700 mb-1"
+                  >
+                    Current Amount Saved
+                  </label>
+                  <div class="relative rounded-lg shadow-sm">
+                    <div
+                      class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3"
+                    >
+                      <span class="text-slate-500 sm:text-sm">$</span>
+                    </div>
+                    <input
+                      type="number"
+                      name="amount-saved"
+                      id="amount-saved"
+                      min="0"
+                      step="0.01"
+                      placeholder="0.00"
+                      required
+                      class="block w-full rounded-lg border border-slate-300 pl-7 pr-4 py-2.5 text-slate-900 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 focus:outline-none transition sm:text-sm"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label
+                    for="savings-target"
+                    class="block text-sm font-semibold text-slate-700 mb-1"
+                  >
+                    Savings Target Goal
+                  </label>
+                  <div class="relative rounded-lg shadow-sm">
+                    <div
+                      class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3"
+                    >
+                      <span class="text-slate-500 sm:text-sm">$</span>
+                    </div>
+                    <input
+                      type="number"
+                      name="savings-target"
+                      id="savings-target"
+                      min="0"
+                      step="0.01"
+                      placeholder="0.00"
+                      required
+                      class="block w-full rounded-lg border border-slate-300 pl-7 pr-4 py-2.5 text-slate-900 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 focus:outline-none transition sm:text-sm"
+                    />
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  class="w-full mt-2 rounded-lg bg-emerald-600 px-4 py-3 text-sm font-semibold text-white shadow-md hover:bg-emerald-700 active:bg-emerald-800 transition focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+                >
+                  Calculate Timeline
+                </button>
+              </div>
+            </form>
           </a>
           <a
             href="#"
@@ -233,18 +686,95 @@
               class="block font-heading font-bold text-lg text-[#2f3e46] mb-2.5"
               >Live Summary Analysis</span
             >
-            <span
-              class="block font-body text-[13.5px] text-[#5b6b70] leading-normal mb-3.5"
-              >Your usage, allowance, and how you should manager properly.
-              Suggest tips and tricks</span
-            >
-            <span
-              class="block font-body text-[13.5px] font-semibold text-[#d97757]"
-              >Read the module &rarr;</span
-            >
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr
+                    class="border-b border-slate-200 text-xs font-semibold text-slate-500 uppercase tracking-wider"
+                  >
+                    <th class="py-2 px-3">Metric</th>
+                    <th class="py-2 px-3">Amount</th>
+                    <th class="py-2 px-3">% of Allowance</th>
+                    <th class="py-2 px-3">% of Target</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100 text-sm text-slate-700">
+                  <!-- Monthly Allowance -->
+                  <tr>
+                    <td class="py-3 px-3 font-medium">Monthly Allowance</td>
+                    <td
+                      id="summary-allowance"
+                      class="py-3 px-3 font-semibold text-slate-900"
+                    >
+                      S$0
+                    </td>
+                    <td class="py-3 px-3 text-slate-400">100%</td>
+                    <td class="py-3 px-3 text-slate-400">-</td>
+                  </tr>
+
+                  <!-- Monthly Expenses -->
+                  <tr>
+                    <td class="py-3 px-3 font-medium">Monthly Expenses</td>
+                    <td
+                      id="summary-expenses"
+                      class="py-3 px-3 font-semibold text-slate-900"
+                    >
+                      S$0
+                    </td>
+                    <td
+                      id="pct-spent"
+                      class="py-3 px-3 text-rose-600 font-medium"
+                    >
+                      0%
+                    </td>
+                    <td class="py-3 px-3 text-slate-400">-</td>
+                  </tr>
+
+                  <!-- Saved Amount -->
+                  <tr>
+                    <td class="py-3 px-3 font-medium">Saved Amount</td>
+                    <td
+                      id="summary-saved"
+                      class="py-3 px-3 font-semibold text-slate-900"
+                    >
+                      S$0
+                    </td>
+                    <td
+                      id="pct-saved"
+                      class="py-3 px-3 text-emerald-600 font-medium"
+                    >
+                      0%
+                    </td>
+                    <td
+                      id="pct-saved-of-target"
+                      class="py-3 px-3 text-emerald-600 font-medium"
+                    >
+                      0%
+                    </td>
+                  </tr>
+
+                  <!-- Savings Target -->
+                  <tr>
+                    <td class="py-3 px-3 font-medium">Savings Target</td>
+                    <td
+                      id="summary-target"
+                      class="py-3 px-3 font-semibold text-slate-900"
+                    >
+                      S$0
+                    </td>
+                    <td class="py-3 px-3 text-slate-400">-</td>
+                    <td
+                      id="pct-needed-target"
+                      class="py-3 px-3 text-amber-600 font-medium"
+                    >
+                      100% needed
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </a>
           <a
-            href="#"
             class="block bg-white col-span-2 rounded-2xl shadow-sm p-6 hover:shadow-md hover:-translate-y-0.5 transition-all"
           >
             <span
@@ -264,10 +794,10 @@
         <h2 class="font-heading font-semibold text-2xl mb-2.5 pt-4">
           Saving Habits
         </h2>
-        <div class="saving-habits grid grid-cols-3 gap-4">
+        <div id="saving-habits" class="grid md:grid-cols-3 gap-4">
           <a
-            href="#"
-            class="block bg-white rounded-2xl shadow-sm p-6 hover:shadow-md hover:-translate-y-0.5 transition-all"
+            href="#saving-habits"
+            class="habit block bg-white rounded-2xl shadow-sm p-6 hover:shadow-md hover:-translate-y-0.5 transition-all"
           >
             <span
               class="block font-heading font-bold text-lg text-[#2f3e46] mb-2.5"
@@ -275,15 +805,46 @@
             >
             <span
               class="block font-body text-[13.5px] text-[#5b6b70] leading-normal mb-3.5"
-              >Imporantance of realistc Goal!</span
+              >Imporantance of realistc Goals!</span
             >
             <span
               class="block font-body text-[13.5px] font-semibold text-[#d97757]"
               >Click to Read</span
-            > </a
+            >
+            <div class="hidden invisible-habit space-y-4 text-sm mt-4">
+              <div class="bg-purple-50 p-3 rounded-xl border border-purple-200">
+                <span class="font-bold text-purple-900 block"
+                  >🎯 The Rule of Micro-Wins</span
+                >
+                <p class="text-xs text-purple-800 mt-1">
+                  If a goal takes 6 months, you’ll give up in 2 weeks. Break it
+                  into weekly targets you can hit without stress.
+                </p>
+              </div>
+
+              <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                <span
+                  class="font-semibold text-xs text-slate-500 uppercase block mb-1"
+                  >Try This Strategy:</span
+                >
+                <p class="text-xs text-slate-700">
+                  <strong>Name your savings account.</strong> Instead of
+                  "Savings", name it "New Laptop Fund". Studies show you are 3x
+                  less likely to spend money when it has a label.
+                </p>
+              </div>
+
+              <div class="bg-purple-900 text-purple-100 p-3 rounded-xl text-xs">
+                <span class="font-bold text-amber-300 block mb-1"
+                  >⚡ Quick Action Item:</span
+                >
+                Pick a tiny target ($10 this week). Put it away today before you
+                spend it on snacks.
+              </div>
+            </div></a
           ><a
-            href="#"
-            class="block bg-white rounded-2xl shadow-sm p-6 hover:shadow-md hover:-translate-y-0.5 transition-all"
+            href="#saving-habits"
+            class="block habit bg-white rounded-2xl shadow-sm p-6 hover:shadow-md hover:-translate-y-0.5 transition-all"
           >
             <span
               class="block col-span-1 font-heading font-bold text-lg text-[#2f3e46] mb-2.5"
@@ -297,10 +858,57 @@
             <span
               class="block font-body text-[13.5px] font-semibold text-[#d97757]"
               >Click to Read</span
-            > </a
+            >
+            <div
+              id="trackingExpenses"
+              class="hidden invisible-habit space-y-4 text-sm"
+            >
+              <div
+                class="bg-emerald-50 p-3 rounded-xl border border-emerald-200"
+              >
+                <span class="font-bold text-emerald-900 block"
+                  >🕵️ The "Invisible Leak" Effect</span
+                >
+                <p class="text-xs text-emerald-800 mt-1">
+                  A $4 coffee 5 days a week equals
+                  <strong>$80 a month</strong> ($960 a year!). Tracking isn't
+                  about quitting coffee—it's about seeing the leaks.
+                </p>
+              </div>
+
+              <div
+                class="bg-slate-50 p-3 rounded-xl border border-slate-200 space-y-2"
+              >
+                <span
+                  class="font-semibold text-xs text-slate-500 uppercase block"
+                  >The 3-Bucket Tracking System:</span
+                >
+                <ul class="text-xs text-slate-700 space-y-1">
+                  <li>
+                    🍔 <strong>Grub & Drinks:</strong> Snacks, cafes, fast food
+                  </li>
+                  <li>
+                    🎮 <strong>Fun & Tech:</strong> Subscriptions, games,
+                    hangouts
+                  </li>
+                  <li>
+                    🚌 <strong>Essentials:</strong> Transit, phone plans, school
+                    gear
+                  </li>
+                </ul>
+              </div>
+
+              <div class="bg-purple-900 text-purple-100 p-3 rounded-xl text-xs">
+                <span class="font-bold text-amber-300 block mb-1"
+                  >⚡ Micro-Challenge:</span
+                >
+                Check your banking app or wallet right now. Write down the last
+                3 things you bought. Were any of them a surprise?
+              </div>
+            </div> </a
           ><a
-            href="#"
-            class="block bg-white rounded-2xl shadow-sm p-6 hover:shadow-md hover:-translate-y-0.5 transition-all"
+            href="#saving-habits"
+            class="block habit bg-white rounded-2xl shadow-sm p-6 hover:shadow-md hover:-translate-y-0.5 transition-all"
           >
             <span
               class="block font-heading font-bold text-lg text-[#2f3e46] mb-2.5"
@@ -315,6 +923,50 @@
               class="block font-body text-[13.5px] font-semibold text-[#d97757]"
               >Click to Read</span
             >
+            <div class="hidden invisible-habit space-y-4 text-sm">
+              <div class="bg-amber-50 p-3 rounded-xl border border-amber-200">
+                <span class="font-bold text-amber-900 block"
+                  >⏳ The "Hours Worked" Mindset</span
+                >
+                <p class="text-xs text-amber-800 mt-1">
+                  If you make $12/hr at a part-time job, a $60 game isn't
+                  $60—it's <strong>5 hours of your life</strong>. Ask yourself:
+                  Is it worth 5 hours of work?
+                </p>
+              </div>
+
+              <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                <span
+                  class="font-semibold text-xs text-slate-500 uppercase block mb-2"
+                  >The Cool-Off Wait List:</span
+                >
+                <div class="grid grid-cols-3 gap-2 text-center text-xs">
+                  <div class="p-2 bg-white rounded border border-slate-200">
+                    <span class="font-bold block text-slate-800">&lt; $20</span>
+                    <span class="text-slate-500 text-[10px]">Wait 24 Hrs</span>
+                  </div>
+                  <div class="p-2 bg-white rounded border border-slate-200">
+                    <span class="font-bold block text-slate-800"
+                      >$20 - $100</span
+                    >
+                    <span class="text-slate-500 text-[10px]">Wait 3 Days</span>
+                  </div>
+                  <div class="p-2 bg-white rounded border border-slate-200">
+                    <span class="font-bold block text-slate-800">$100+</span>
+                    <span class="text-slate-500 text-[10px]">Wait 1 Week</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-purple-900 text-purple-100 p-3 rounded-xl text-xs">
+                <span class="font-bold text-amber-300 block mb-1"
+                  >The Cart Hack:</span
+                >
+                Add items to your online cart, but
+                <strong>do not check out</strong>. Close the tab. If you still
+                remember it in 3 days, reconsider it!
+              </div>
+            </div>
           </a>
         </div>
       </div>
