@@ -78,8 +78,33 @@ function updateSummaryTable() {
   }
 }
 
+const calculatorFields = [allowanceInput, expensesInput, savedInput, targetInput];
+
+function setFieldError(input, hasError) {
+  const errorText = document.getElementById(`${input.id}-error`);
+  input.classList.toggle("border-[#d97757]", hasError);
+  input.classList.toggle("border-[#7c9d96]", !hasError);
+  if (errorText) {
+    errorText.classList.toggle("hidden", !hasError);
+  }
+}
+
 const inputForm = document.getElementById("money-calculator");
 inputForm.addEventListener("submit", (e) => {
   e.preventDefault();
+
+  let isValid = true;
+  calculatorFields.forEach((field) => {
+    const fieldIsEmpty = field.value.trim() === "";
+    setFieldError(field, fieldIsEmpty);
+    if (fieldIsEmpty) {
+      isValid = false;
+    }
+  });
+
+  if (!isValid) {
+    return;
+  }
+
   updateSummaryTable();
 });

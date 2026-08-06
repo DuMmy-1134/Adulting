@@ -114,7 +114,7 @@ function createTipCard(tip) {
   title.textContent = tip.title;
 
   const body = document.createElement("p");
-  body.className = "font-body text-[13.5px] text-[#5b6b70] leading-normal mb-3";
+  body.className = "font-body text-base text-[#5b6b70] leading-normal mb-3";
   body.textContent = tip.text;
 
   const meta = document.createElement("p");
