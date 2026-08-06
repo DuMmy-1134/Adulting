@@ -36,13 +36,13 @@ const CHALLENGES = [
     title: "Track every dollar for one day",
     text: "Write down everything you spend between waking up and lights out, bubble tea included, then look at where it actually went.",
     ctaLabel: "Start tracking",
-    ctaHref: "#",
+    ctaHref: "pages/money-basics.html",
   },
   {
     title: "Clear one surface before you sleep",
     text: "Pick the desk, the chair, or the floor beside your bed, and give yourself ten minutes to clear just that one.",
     ctaLabel: "Take the challenge",
-    ctaHref: "#",
+    ctaHref: "pages/room-organisation.html",
   },
 ];
 

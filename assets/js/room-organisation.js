@@ -123,8 +123,7 @@ function toggleZone(e) {
 function markZoneComplete(e) {
   const btn = e.currentTarget;
   const zoneId = btn.getAttribute('data-zone-id');
-  const zoneItem = btn.closest('div[border-2]').closest('div');
-  
+
   btn.textContent = '✓ Completed';
   btn.className = 'w-full bg-[#d4edda] text-[#155724] font-semibold py-2 rounded-lg border-2 border-[#52796f]';
   btn.disabled = true;
