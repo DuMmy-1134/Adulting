@@ -69,6 +69,53 @@
         </svg>
       </button>
     </div>
+    <nav id="mobile-nav" hidden aria-label="Mobile" class="lg:hidden bg-white p-4">
+      <ul class="list-none">
+        <li class="border-b border-[#f0ece3]">
+          <button type="button" data-nav-group aria-expanded="false" aria-controls="mobile-nav-home-skills" class="w-full min-h-[44px] flex justify-between items-center px-4 font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">
+            <span>Home Skills</span>
+            <span data-nav-chevron aria-hidden="true" class="transition-transform">▾</span>
+          </button>
+          <ul id="mobile-nav-home-skills" hidden class="list-none">
+            <li><a href="quick-meal.html" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Quick Meals</a></li>
+            <li><a href="laundry-basics.html" aria-current="page" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Laundry Basics</a></li>
+            <li><a href="room-organisation.html" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Room Organization</a></li>
+          </ul>
+        </li>
+        <li class="border-b border-[#f0ece3]">
+          <button type="button" data-nav-group aria-expanded="false" aria-controls="mobile-nav-money-time" class="w-full min-h-[44px] flex justify-between items-center px-4 font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">
+            <span>Money &amp; Time</span>
+            <span data-nav-chevron aria-hidden="true" class="transition-transform">▾</span>
+          </button>
+          <ul id="mobile-nav-money-time" hidden class="list-none">
+            <li><a href="money-basics.html" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Money Basics</a></li>
+            <li><a href="time-management.html" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Time Management</a></li>
+          </ul>
+        </li>
+        <li class="border-b border-[#f0ece3]">
+          <button type="button" data-nav-group aria-expanded="false" aria-controls="mobile-nav-people-safety" class="w-full min-h-[44px] flex justify-between items-center px-4 font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">
+            <span>People &amp; Safety</span>
+            <span data-nav-chevron aria-hidden="true" class="transition-transform">▾</span>
+          </button>
+          <ul id="mobile-nav-people-safety" hidden class="list-none">
+            <li><a href="communication-skills.html" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Communication Skills</a></li>
+            <li><a href="online-safety.html" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Online Safety</a></li>
+            <li><a href="emergency-preparedness.html" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Emergency Preparedness</a></li>
+          </ul>
+        </li>
+        <li>
+          <button type="button" data-nav-group aria-expanded="false" aria-controls="mobile-nav-practice-growth" class="w-full min-h-[44px] flex justify-between items-center px-4 font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">
+            <span>Practice &amp; Growth</span>
+            <span data-nav-chevron aria-hidden="true" class="transition-transform">▾</span>
+          </button>
+          <ul id="mobile-nav-practice-growth" hidden class="list-none">
+            <li><a href="weekly-challenges.html" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Weekly Challenges</a></li>
+            <li><a href="life-readiness-quiz.html" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Life Readiness Quiz</a></li>
+            <li><a href="submit-a-tip.html" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Submit a Tip</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
   </header>
 
   <!-- Main Content -->
@@ -83,14 +130,14 @@
         <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition">
           <h3 class="font-heading text-lg font-bold text-[#2f3e46] mb-2">Sorting Your Clothes</h3>
           <p class="text-sm text-[#5b6b70] mb-4">Learn how to separate clothes by color, fabric, and care requirements.</p>
-          <a href="#" class="text-[#d97757] font-medium text-sm hover:underline">Click to Read →</a>
+          <span class="text-[#d97757] font-medium text-sm">Click to Read →</span>
         </div>
 
         <!-- Card 2 -->
         <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition">
           <h3 class="font-heading text-lg font-bold text-[#2f3e46] mb-2">Washing Settings Guide</h3>
           <p class="text-sm text-[#5b6b70] mb-4">Master the right water temperature and cycle for different fabric types.</p>
-          <a href="#" class="text-[#d97757] font-medium text-sm hover:underline">Click to Read →</a>
+          <span class="text-[#d97757] font-medium text-sm">Click to Read →</span>
         </div>
       </div>
     </section>
@@ -103,14 +150,14 @@
         <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition">
           <h3 class="font-heading text-lg font-bold text-[#2f3e46] mb-2">Understanding Care Labels</h3>
           <p class="text-sm text-[#5b6b70] mb-4">Decode laundry symbols on clothing tags to prevent damage.</p>
-          <a href="#" class="text-[#d97757] font-medium text-sm hover:underline">Click to Read →</a>
+          <span class="text-[#d97757] font-medium text-sm">Click to Read →</span>
         </div>
 
         <!-- Card 2 -->
         <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition">
           <h3 class="font-heading text-lg font-bold text-[#2f3e46] mb-2">Bleach &amp; Chemical Guide</h3>
           <p class="text-sm text-[#5b6b70] mb-4">Know when and how to use bleach safely on different fabrics.</p>
-          <a href="#" class="text-[#d97757] font-medium text-sm hover:underline">Click to Read →</a>
+          <span class="text-[#d97757] font-medium text-sm">Click to Read →</span>
         </div>
       </div>
     </section>
@@ -123,21 +170,21 @@
         <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition">
           <h3 class="font-heading text-lg font-bold text-[#2f3e46] mb-2">Machine vs. Hand Drying</h3>
           <p class="text-sm text-[#5b6b70] mb-4">Understand which drying method works best for each garment type.</p>
-          <a href="#" class="text-[#d97757] font-medium text-sm hover:underline">Click to Read →</a>
+          <span class="text-[#d97757] font-medium text-sm">Click to Read →</span>
         </div>
 
         <!-- Card 2 -->
         <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition">
           <h3 class="font-heading text-lg font-bold text-[#2f3e46] mb-2">Preventing Wrinkles</h3>
           <p class="text-sm text-[#5b6b70] mb-4">Tips and tricks to keep clothes looking fresh and wrinkle-free.</p>
-          <a href="#" class="text-[#d97757] font-medium text-sm hover:underline">Click to Read →</a>
+          <span class="text-[#d97757] font-medium text-sm">Click to Read →</span>
         </div>
 
         <!-- Card 3 -->
         <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition">
           <h3 class="font-heading text-lg font-bold text-[#2f3e46] mb-2">Extending Garment Life</h3>
           <p class="text-sm text-[#5b6b70] mb-4">Maintain your clothes properly to make them last longer.</p>
-          <a href="#" class="text-[#d97757] font-medium text-sm hover:underline">Click to Read →</a>
+          <span class="text-[#d97757] font-medium text-sm">Click to Read →</span>
         </div>
       </div>
     </section>
@@ -191,6 +238,5 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="../assets/js/nav-toggle.js" defer></script>
 </body>
 </html>
