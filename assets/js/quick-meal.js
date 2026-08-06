@@ -131,20 +131,20 @@ function renderMeals(mealsToRender) {
             class="block text-[11.5px] font-bold tracking-[0.06em] text-[#7c9d96] mb-2"
             >${meal["id"]}</span
           >
-          <span
+          <h3
             class="block font-heading font-bold text-lg text-[#2f3e46] mb-2.5"
-            >${meal["name"]}</span
+            >${meal["name"]}</h3
           >
           <span
-            class="block font-body text-[13.5px] text-[#5b6b70] leading-normal mb-3.5"
+            class="block font-body text-base text-[#5b6b70] leading-normal mb-3.5"
             >Difficulty: ${meal["difficulty"]}</span
           >
           <span
-            class="block font-body text-[13.5px] text-[#5b6b70] leading-normal mb-3.5"
+            class="block font-body text-base text-[#5b6b70] leading-normal mb-3.5"
             >MealType: ${meal["mealType"]}</span
           >
           <span
-            class="block font-body text-[13.5px] text-[#5b6b70] leading-normal mb-3.5"
+            class="block font-body text-base text-[#5b6b70] leading-normal mb-3.5"
             >EstimatedTime: ${meal["estimatedTimeMinutes"]}</span
           >
           
@@ -166,7 +166,7 @@ const recipeDisplay = document.getElementById("recipe-display");
 // function make the selected text to white
 function setCardActive(card, active) {
   card.classList.toggle("bg-[#df936d]", active);
-  card.querySelectorAll("span").forEach((s) => {
+  card.querySelectorAll("span, h3").forEach((s) => {
     if (active) {
       s.style.color = "#fff";
     } else s.style.color = "";

@@ -637,7 +637,7 @@ function renderAdvice(categoryScores) {
     heading.textContent = info.label;
 
     const text = document.createElement("p");
-    text.className = "font-body text-[13.5px] text-[#5b6b70] leading-relaxed mb-2";
+    text.className = "font-body text-base text-[#5b6b70] leading-relaxed mb-2";
     text.textContent = info.advice;
 
     const link = document.createElement("a");
