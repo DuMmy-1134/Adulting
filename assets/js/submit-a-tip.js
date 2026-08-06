@@ -15,7 +15,7 @@
       page.
 */
 
-// ---- Element references -------------------------------------------------
+// ---- Element references ----
 
 const tipForm = document.getElementById("tip-form");
 const tipNameInput = document.getElementById("tip-name");
@@ -81,7 +81,7 @@ const SEED_TIPS = [
 // Which filter pill is currently selected. Starts on "all".
 let activeFilter = "all";
 
-// ---- Loading / saving submitted tips ------------------------------------
+// ---- Loading / saving submitted tips ----
 
 // Reads whatever the visitor has submitted before on this browser.
 // Returns an empty array if nothing has been saved yet.
@@ -94,7 +94,7 @@ function saveStoredTips(tipsArray) {
   localStorage.setItem(TIPS_STORAGE_KEY, JSON.stringify(tipsArray));
 }
 
-// ---- Building and rendering tip cards ------------------------------------
+// ---- Building and rendering tip cards ----
 
 // Takes one tip object and returns a fully-built <div> card element,
 // ready to be inserted into the page.
@@ -153,7 +153,7 @@ function renderTips() {
   });
 }
 
-// ---- Filter pills ---------------------------------------------------------
+// ---- Filter pills ----
 
 // Two fixed sets of classes: one look for the pill that is currently
 // selected, another for every pill that isn't. Swapping between these
@@ -193,14 +193,14 @@ tipFilters.addEventListener("click", (event) => {
   renderTips();
 });
 
-// ---- Live character counter ----------------------------------------------
+// ---- Live character counter ----
 
 tipBodyTextarea.addEventListener("input", () => {
   const currentLength = tipBodyTextarea.value.length;
   tipBodyCounter.textContent = currentLength + " / " + MAX_TIP_LENGTH + " characters";
 });
 
-// ---- Form validation and submission ---------------------------------------
+// ---- Form validation and submission ----
 
 // Small helper: shows/hides one field's error message and toggles the
 // red-ish "has-error" border, so the same 4 lines aren't repeated for
@@ -272,6 +272,6 @@ tipForm.addEventListener("submit", (event) => {
   }, 4000);
 });
 
-// ---- First render on page load ---------------------------------------------
+// ---- First render on page load ----
 
 renderTips();
