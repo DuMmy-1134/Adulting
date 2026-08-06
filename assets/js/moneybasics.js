@@ -23,7 +23,7 @@ savingHabits.addEventListener("click", (e) => {
   expandableHabit.classList.toggle("hidden");
 });
 
-// Input Calculator
+// Budget Calculator
 // Input Elements
 const allowanceInput = document.getElementById("monthly-allowance");
 const expensesInput = document.getElementById("monthly-expenses");
