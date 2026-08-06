@@ -56,10 +56,10 @@ function checkStepsOrder() {
 
   if (isCorrect) {
     feedbackMessage.textContent = '✓ Correct! You\'ve arranged the steps in the right order!';
-    feedbackMessage.className = 'mt-4 p-4 bg-[#d4edda] text-[#155724] rounded-lg font-semibold text-center border-2 border-[#52796f]';
+    feedbackMessage.className = 'mt-4 p-4 bg-[#eef3f1] text-[#2f3e46] rounded-lg font-semibold text-center border-2 border-[#52796f]';
   } else {
     feedbackMessage.textContent = '✗ Not quite right. Try again!';
-    feedbackMessage.className = 'mt-4 p-4 bg-[#f8d7da] text-[#721c24] rounded-lg font-semibold text-center border-2 border-[#d97757]';
+    feedbackMessage.className = 'mt-4 p-4 bg-[#f6f2ea] text-[#2f3e46] rounded-lg font-semibold text-center border-2 border-[#d97757]';
   }
 }
 
