@@ -12,6 +12,7 @@
       src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1"
       type="module"
     ></script>
+    <script src="../assets/js/weeklyChallenges.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="../assets/css/styles.css" />
     <link rel="stylesheet" href="../assets/css/quick-meal.css" />
@@ -20,14 +21,14 @@
   <body class="bg-[#faf7f2] font-body text-[#2f3e46] antialiased">
     <header class="sticky top-0 z-50 bg-white shadow-sm will-change-transform">
       <div
-        class="max-w-6xl mx-auto px-10 py-4 flex items-center justify-between"
+        class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 py-4 flex items-center justify-between"
       >
         <a
           href="../index.html"
           class="font-heading font-bold text-xl text-[#52796f]"
           >Level Up Life!</a
         >
-        <nav aria-label="Main">
+        <nav aria-label="Main" class="hidden lg:flex">
           <ul class="flex items-center gap-8 list-none">
             <li class="relative group">
               <a
@@ -42,20 +43,21 @@
                   <li>
                     <a
                       href="quick-meal.html"
+                      aria-current="page"
                       class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap"
                       >Quick Meals</a
                     >
                   </li>
                   <li>
                     <a
-                      href="laundry-basics.html"
+                      href="#"
                       class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap"
                       >Laundry Basics</a
                     >
                   </li>
                   <li>
                     <a
-                      href="room-organisation.html"
+                      href="#"
                       class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap"
                       >Room Organization</a
                     >
@@ -75,7 +77,7 @@
                 <ul class="list-none">
                   <li>
                     <a
-                      href="money-basics.html"
+                      href="#"
                       class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap"
                       >Money Basics</a
                     >
@@ -102,7 +104,7 @@
                 <ul class="list-none">
                   <li>
                     <a
-                      href="communication-skills.html"
+                      href="#"
                       class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap"
                       >Communication Skills</a
                     >
@@ -136,8 +138,7 @@
                 <ul class="list-none">
                   <li>
                     <a
-                      href="weekly-challenges.html"
-                      aria-current="page"
+                      href="#"
                       class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap"
                       >Weekly Challenges</a
                     >
@@ -161,7 +162,211 @@
             </li>
           </ul>
         </nav>
+        <button
+          type="button"
+          id="nav-toggle"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+          aria-label="Open menu"
+          class="flex lg:hidden items-center justify-center w-11 h-11 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#52796f] focus-visible:ring-offset-2"
+        >
+          <svg
+            data-nav-icon="bars"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#2f3e46"
+            stroke-width="2"
+            stroke-linecap="round"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <line x1="4" y1="7" x2="20" y2="7"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="17" x2="20" y2="17"></line>
+          </svg>
+          <svg
+            data-nav-icon="close"
+            class="hidden"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#2f3e46"
+            stroke-width="2"
+            stroke-linecap="round"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+          </svg>
+        </button>
       </div>
+      <nav
+        id="mobile-nav"
+        hidden
+        aria-label="Mobile"
+        class="lg:hidden bg-white p-4"
+      >
+        <ul class="list-none">
+          <li class="border-b border-[#f0ece3]">
+            <button
+              type="button"
+              data-nav-group
+              aria-expanded="false"
+              aria-controls="mobile-nav-home-skills"
+              class="w-full min-h-[44px] flex justify-between items-center px-4 font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]"
+            >
+              <span>Home Skills</span>
+              <span
+                data-nav-chevron
+                aria-hidden="true"
+                class="transition-transform"
+                >▾</span
+              >
+            </button>
+            <ul id="mobile-nav-home-skills" hidden class="list-none">
+              <li>
+                <a
+                  href="quick-meal.html"
+                  aria-current="page"
+                  class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]"
+                  >Quick Meals</a
+                >
+              </li>
+              <li>
+                <a
+                  href="LaundryBasics.html"
+                  class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]"
+                  >Laundry Basics</a
+                >
+              </li>
+              <li>
+                <a
+                  href="RoomOrganisation.html"
+                  class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]"
+                  >Room Organization</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li class="border-b border-[#f0ece3]">
+            <button
+              type="button"
+              data-nav-group
+              aria-expanded="false"
+              aria-controls="mobile-nav-money-time"
+              class="w-full min-h-[44px] flex justify-between items-center px-4 font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]"
+            >
+              <span>Money &amp; Time</span>
+              <span
+                data-nav-chevron
+                aria-hidden="true"
+                class="transition-transform"
+                >▾</span
+              >
+            </button>
+            <ul id="mobile-nav-money-time" hidden class="list-none">
+              <li>
+                <a
+                  href="moneybasics.html"
+                  class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]"
+                  >Money Basics</a
+                >
+              </li>
+              <li>
+                <a
+                  href="time-management.html"
+                  class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]"
+                  >Time Management</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li class="border-b border-[#f0ece3]">
+            <button
+              type="button"
+              data-nav-group
+              aria-expanded="false"
+              aria-controls="mobile-nav-people-safety"
+              class="w-full min-h-[44px] flex justify-between items-center px-4 font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]"
+            >
+              <span>People &amp; Safety</span>
+              <span
+                data-nav-chevron
+                aria-hidden="true"
+                class="transition-transform"
+                >▾</span
+              >
+            </button>
+            <ul id="mobile-nav-people-safety" hidden class="list-none">
+              <li>
+                <a
+                  href="CommunicationSkills.html"
+                  class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]"
+                  >Communication Skills</a
+                >
+              </li>
+              <li>
+                <a
+                  href="online-safety.html"
+                  class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]"
+                  >Online Safety</a
+                >
+              </li>
+              <li>
+                <a
+                  href="emergency-preparedness.html"
+                  class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]"
+                  >Emergency Preparedness</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li>
+            <button
+              type="button"
+              data-nav-group
+              aria-expanded="false"
+              aria-controls="mobile-nav-practice-growth"
+              class="w-full min-h-[44px] flex justify-between items-center px-4 font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]"
+            >
+              <span>Practice &amp; Growth</span>
+              <span
+                data-nav-chevron
+                aria-hidden="true"
+                class="transition-transform"
+                >▾</span
+              >
+            </button>
+            <ul id="mobile-nav-practice-growth" hidden class="list-none">
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]"
+                  >Weekly Challenges</a
+                >
+              </li>
+              <li>
+                <a
+                  href="life-readiness-quiz.html"
+                  class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]"
+                  >Life Readiness Quiz</a
+                >
+              </li>
+              <li>
+                <a
+                  href="submit-a-tip.html"
+                  class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]"
+                  >Submit a Tip</a
+                >
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
     </header>
     <section class="site-features max-w-6xl mx-auto px-10 py-4">
       <h1 class="font-heading font-bold text-3xl text-[#2f3e46] mb-2.5">
@@ -188,27 +393,9 @@
           >
         </a>
       </div>
-      <div class="flex justify-between py-4">
-        <div class="buttons gap-3">
-          <button
-            class="border-1 px-2 rounded-full text-center w-[120px] text-sm text-white transition-all duration-300 hover:-translate-y-0.5"
-          >
-            Time
-          </button>
-          <button
-            class="border-1 px-2 rounded-full text-center w-[120px] text-sm text-white transition-all duration-300 hover:-translate-y-0.5"
-          >
-            Difficulty
-          </button>
-          <button
-            class="border-1 rounded-full px-2 text-center w-[120px] text-sm text-white transition-all duration-300 hover:-translate-y-0.5"
-          >
-            Life Basics
-          </button>
-        </div>
-
+      <div class="py-4">
         <div
-          class="progress bg-[#db7757] w-90 text-center rounded-2xl text-white shadow-sm p-2 hover:shadow-md hover:-translate-y-0.5 transition-all"
+          class="progress bg-[#db7757] w-full text-center rounded-2xl text-white shadow-sm p-2 hover:shadow-md hover:-translate-y-0.5 transition-all"
         >
           Progress
         </div>
@@ -281,50 +468,94 @@
             </tr>
 
             <!-- Empty Wireframe Placeholder Rows -->
+            <!-- Row 4 -->
             <tr>
-              <td class="border-r-2 border-[#8BA39E] p-6"></td>
-              <td class="border-r-2 border-[#8BA39E] p-6"></td>
-              <td class="border-r-2 border-[#8BA39E] p-6"></td>
-              <td class="border-r-2 border-[#8BA39E] p-6"></td>
-              <td class="p-6"></td>
+              <td class="border-r-2 border-[#8BA39E] p-3">4</td>
+              <td class="border-r-2 border-[#8BA39E] p-3">Money / Budget</td>
+              <td class="border-r-2 border-[#8BA39E] p-3 text-left">
+                Track all expenses for today
+              </td>
+              <td class="border-r-2 border-[#8BA39E] p-3">Medium</td>
+              <td class="p-3">
+                <button
+                  class="font-medium text-[#4D736A] hover:underline challenge-btn"
+                >
+                  Mark Complete
+                </button>
+              </td>
             </tr>
+
+            <!-- Row 5 -->
             <tr>
-              <td class="border-r-2 border-[#8BA39E] p-6"></td>
-              <td class="border-r-2 border-[#8BA39E] p-6"></td>
-              <td class="border-r-2 border-[#8BA39E] p-6"></td>
-              <td class="border-r-2 border-[#8BA39E] p-6"></td>
-              <td class="p-6"></td>
+              <td class="border-r-2 border-[#8BA39E] p-3">5</td>
+              <td class="border-r-2 border-[#8BA39E] p-3">Safety / Digital</td>
+              <td class="border-r-2 border-[#8BA39E] p-3 text-left">
+                Update passwords for two main accounts
+              </td>
+              <td class="border-r-2 border-[#8BA39E] p-3">Medium</td>
+              <td class="p-3">
+                <button
+                  class="font-medium text-[#4D736A] hover:underline challenge-btn"
+                >
+                  Mark Complete
+                </button>
+              </td>
             </tr>
+
+            <!-- Row 6 -->
             <tr>
-              <td class="border-r-2 border-[#8BA39E] p-6"></td>
-              <td class="border-r-2 border-[#8BA39E] p-6"></td>
-              <td class="border-r-2 border-[#8BA39E] p-6"></td>
-              <td class="border-r-2 border-[#8BA39E] p-6"></td>
-              <td class="p-6"></td>
+              <td class="border-r-2 border-[#8BA39E] p-3">6</td>
+              <td class="border-r-2 border-[#8BA39E] p-3">Home / Basics</td>
+              <td class="border-r-2 border-[#8BA39E] p-3 text-left">
+                Do a load of laundry and fold it immediately
+              </td>
+              <td class="border-r-2 border-[#8BA39E] p-3">Medium</td>
+              <td class="p-3">
+                <button
+                  class="font-medium text-[#4D736A] hover:underline challenge-btn"
+                >
+                  Mark Complete
+                </button>
+              </td>
             </tr>
+
+            <!-- Row 7 -->
             <tr>
-              <td class="border-r-2 border-[#8BA39E] p-6"></td>
-              <td class="border-r-2 border-[#8BA39E] p-6"></td>
-              <td class="border-r-2 border-[#8BA39E] p-6"></td>
-              <td class="border-r-2 border-[#8BA39E] p-6"></td>
-              <td class="p-6"></td>
+              <td class="border-r-2 border-[#8BA39E] p-3">7</td>
+              <td class="border-r-2 border-[#8BA39E] p-3">Growth / Wellness</td>
+              <td class="border-r-2 border-[#8BA39E] p-3 text-left">
+                Reflect on weekly achievements and set 1 goal
+              </td>
+              <td class="border-r-2 border-[#8BA39E] p-3">Hard</td>
+              <td class="p-3">
+                <button
+                  class="font-medium text-[#4D736A] hover:underline challenge-btn"
+                >
+                  Mark Complete
+                </button>
+              </td>
             </tr>
           </tbody>
         </table>
       </div>
       <a
-        href="#"
+        id="mindsetTips"
         class="block mt-10 bg-[#db7757] rounded-2xl shadow-sm p-6 hover:shadow-md hover:-translate-y-0.5 transition-all"
       >
-        <span class="block font-heading font-bold text-lg text-white mb-2.5"
-          >MindSet Tips</span
+        <span
+          class="block flex justify-between font-heading font-bold text-lg text-white mb-2.5"
+          >MindSet Tips<span
+            class="text-white text-2xl font-bold shrink-0 group-open:hidden"
+            >+</span
+          ></span
         >
         <!-- <span
             class="block font-body text-[13.5px] text-[#5b6b70] leading-normal mb-3.5"
             >Simple recipes with time and difficulty, built for busy
             weeknights.</span
           > -->
-        <span class="block font-body text-[13.5px] font-semibold text-white"
+        <span
+          class="block hidden tip font-body text-[13.5px] font-semibold text-white"
           >Keep the task small, focus on progress and restart without guilt if
           you miss a day.</span
         >
@@ -346,10 +577,34 @@
           Explore
         </h2>
         <ul class="list-none">
-          <li class="py-1"><a href="../index.html#home-skills" class="text-sm opacity-85 hover:opacity-100 hover:text-[#d97757] transition">Home Skills</a></li>
-          <li class="py-1"><a href="../index.html#money-time" class="text-sm opacity-85 hover:opacity-100 hover:text-[#d97757] transition">Money &amp; Time</a></li>
-          <li class="py-1"><a href="../index.html#people-safety" class="text-sm opacity-85 hover:opacity-100 hover:text-[#d97757] transition">People &amp; Safety</a></li>
-          <li class="py-1"><a href="../index.html#practice-growth" class="text-sm opacity-85 hover:opacity-100 hover:text-[#d97757] transition">Practice &amp; Growth</a></li>
+          <li class="py-1">
+            <a
+              href="../index.html#home-skills"
+              class="text-sm opacity-85 hover:opacity-100 hover:text-[#d97757] transition"
+              >Home Skills</a
+            >
+          </li>
+          <li class="py-1">
+            <a
+              href="../index.html#money-time"
+              class="text-sm opacity-85 hover:opacity-100 hover:text-[#d97757] transition"
+              >Money &amp; Time</a
+            >
+          </li>
+          <li class="py-1">
+            <a
+              href="../index.html#people-safety"
+              class="text-sm opacity-85 hover:opacity-100 hover:text-[#d97757] transition"
+              >People &amp; Safety</a
+            >
+          </li>
+          <li class="py-1">
+            <a
+              href="../index.html#practice-growth"
+              class="text-sm opacity-85 hover:opacity-100 hover:text-[#d97757] transition"
+              >Practice &amp; Growth</a
+            >
+          </li>
         </ul>
       </div>
       <div>
