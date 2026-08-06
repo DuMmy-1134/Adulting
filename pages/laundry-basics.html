@@ -8,8 +8,10 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="../assets/js/tailwind-config.js" defer></script>
   <script src="../assets/js/nav-toggle.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+  <script src="../assets/js/laundry-basics.js" defer></script>
 </head>
-<body class="bg-white">
+<body class="bg-[#faf7f2] font-body text-[#2f3e46] antialiased">
   <!-- Navigation -->
   <header class="sticky top-0 z-50 bg-white shadow-sm will-change-transform">
     <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 py-4 flex items-center justify-between">
@@ -49,7 +51,6 @@
             <a href="../index.html#practice-growth" class="font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">Practice &amp; Growth <span aria-hidden="true">▾</span></a>
             <div class="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity absolute left-0 top-full min-w-[190px] bg-white rounded-xl shadow-lg p-4">
               <ul class="list-none">
-                <li><a href="weekly-challenges.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Weekly Challenges</a></li>
                 <li><a href="life-readiness-quiz.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Life Readiness Quiz</a></li>
                 <li><a href="submit-a-tip.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Submit a Tip</a></li>
               </ul>
@@ -63,9 +64,8 @@
           <line x1="4" y1="12" x2="20" y2="12"></line>
           <line x1="4" y1="17" x2="20" y2="17"></line>
         </svg>
-        <svg data-nav-icon="close" class="hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2f3e46" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false">
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-          <line x1="18" y1="6" x2="6" y2="18"></line>
+        <svg data-nav-icon="close" class="w-6 h-6 text-[#52796f] hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
         </svg>
       </button>
     </div>
@@ -118,157 +118,110 @@
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section class="bg-[#eef3f1] py-12 md:py-20">
-    <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10">
-      <div class="max-w-[600px]">
-        <h1 class="text-5xl md:text-6xl font-bold text-[#2f3e46] mb-6" style="font-family: 'Fraunces', serif;">Laundry Basics</h1>
-        <p class="text-lg text-[#5b6b70] mb-8 leading-relaxed">Laundry without the guesswork.</p>
-        <div class="flex gap-4">
-          <button class="bg-[#d97757] text-white px-8 py-3 rounded-lg font-medium hover:bg-[#c96649] transition">Learn the basics</button>
-          <button class="border-2 border-[#52796f] text-[#52796f] px-8 py-3 rounded-lg font-medium hover:bg-[#eef3f1] transition">Quick tips</button>
+  <!-- Main Content -->
+  <main class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 py-12">
+    <!-- Page Title -->
+    <h1 class="font-heading text-4xl font-bold text-[#2f3e46] mb-12">Laundry Basics</h1>
+
+    <!-- Section 1: Laundry Fundamentals -->
+    <section class="mb-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Card 1 -->
+        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition">
+          <h3 class="font-heading text-lg font-bold text-[#2f3e46] mb-2">Sorting Your Clothes</h3>
+          <p class="text-sm text-[#5b6b70] mb-4">Learn how to separate clothes by color, fabric, and care requirements.</p>
+          <span class="text-[#d97757] font-medium text-sm">Click to Read →</span>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition">
+          <h3 class="font-heading text-lg font-bold text-[#2f3e46] mb-2">Washing Settings Guide</h3>
+          <p class="text-sm text-[#5b6b70] mb-4">Master the right water temperature and cycle for different fabric types.</p>
+          <span class="text-[#d97757] font-medium text-sm">Click to Read →</span>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Significance Section -->
-  <section class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pb-10">
-    <div class="bg-[#eef3f1] rounded-2xl shadow-md p-10 border-2 border-[#52796f]">
-      <h2 class="font-heading font-bold text-[28px] text-[#52796f] mb-6">Why Laundry Basics Matter</h2>
-      <p class="font-body text-[16px] text-[#2f3e46] leading-relaxed">Laundry basics are essential for independence when you move out or start university. Proper care protects your clothes from damage, extending their lifespan and saving money on replacements. Correct washing temperatures kill bacteria and allergens, keeping you healthy, while understanding fabric care prevents shrinking, fading, and tearing. Beyond practical benefits, good laundry habits demonstrate responsibility and self-sufficiency. Ultimately, knowing how to care for your clothes boosts confidence, keeps your wardrobe looking great, and saves you significant money and frustration over time.</p>
-    </div>
-  </section>
+    <!-- Section 2: Laundry Symbols -->
+    <section class="mb-12">
+      <h2 class="font-heading text-2xl font-bold text-[#2f3e46] mb-6">Laundry Symbols Explained</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Card 1 -->
+        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition">
+          <h3 class="font-heading text-lg font-bold text-[#2f3e46] mb-2">Understanding Care Labels</h3>
+          <p class="text-sm text-[#5b6b70] mb-4">Decode laundry symbols on clothing tags to prevent damage.</p>
+          <span class="text-[#d97757] font-medium text-sm">Click to Read →</span>
+        </div>
 
-  <!-- Steps Section -->
-  <section class="py-16 md:py-24">
-    <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10">
-      <h2 class="text-4xl font-bold text-[#2f3e46] mb-12" style="font-family: 'Fraunces', serif;">Step-by-step guide</h2>
+        <!-- Card 2 -->
+        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition">
+          <h3 class="font-heading text-lg font-bold text-[#2f3e46] mb-2">Bleach &amp; Chemical Guide</h3>
+          <p class="text-sm text-[#5b6b70] mb-4">Know when and how to use bleach safely on different fabrics.</p>
+          <span class="text-[#d97757] font-medium text-sm">Click to Read →</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Drying &amp; Maintenance -->
+    <section class="mb-12">
+      <h2 class="font-heading text-2xl font-bold text-[#2f3e46] mb-6">Drying &amp; Care Habits</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition">
+          <h3 class="font-heading text-lg font-bold text-[#2f3e46] mb-2">Machine vs. Hand Drying</h3>
+          <p class="text-sm text-[#5b6b70] mb-4">Understand which drying method works best for each garment type.</p>
+          <span class="text-[#d97757] font-medium text-sm">Click to Read →</span>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition">
+          <h3 class="font-heading text-lg font-bold text-[#2f3e46] mb-2">Preventing Wrinkles</h3>
+          <p class="text-sm text-[#5b6b70] mb-4">Tips and tricks to keep clothes looking fresh and wrinkle-free.</p>
+          <span class="text-[#d97757] font-medium text-sm">Click to Read →</span>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition">
+          <h3 class="font-heading text-lg font-bold text-[#2f3e46] mb-2">Extending Garment Life</h3>
+          <p class="text-sm text-[#5b6b70] mb-4">Maintain your clothes properly to make them last longer.</p>
+          <span class="text-[#d97757] font-medium text-sm">Click to Read →</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="max-w-2xl mx-auto mt-16">
+      <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-6">Step-by-Step Accordion</h2>
+      <p class="text-lg text-[#2f3e46] mb-8">Drag and arrange the steps in the correct order, then click "Check Answer" to verify!</p>
       
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-[#eef3f1] p-8 rounded-lg">
-          <div class="text-4xl font-bold text-[#52796f] mb-4">01</div>
-          <h3 class="text-xl font-bold text-[#2f3e46] mb-3">Sort your clothes</h3>
-          <p class="text-[#5b6b70]">Separate into whites, darks, and delicates. Check pockets and close zippers to protect your clothes.</p>
-        </div>
+      <div class="bg-white rounded-2xl shadow-sm p-6">
+        <ul id="sortable-steps" class="space-y-3 list-none">
+          <li class="step-item bg-[#f5f3f0] p-4 rounded-lg cursor-move border-2 border-[#7c9d96] hover:shadow-md transition-all" data-step="3">
+            <span class="font-bold text-[#2f3e46]">Load the washer</span>
+          </li>
+          <li class="step-item bg-[#f5f3f0] p-4 rounded-lg cursor-move border-2 border-[#7c9d96] hover:shadow-md transition-all" data-step="1">
+            <span class="font-bold text-[#2f3e46]">Sort clothes by color</span>
+          </li>
+          <li class="step-item bg-[#f5f3f0] p-4 rounded-lg cursor-move border-2 border-[#7c9d96] hover:shadow-md transition-all" data-step="4">
+            <span class="font-bold text-[#2f3e46]">Choose settings and start</span>
+          </li>
+          <li class="step-item bg-[#f5f3f0] p-4 rounded-lg cursor-move border-2 border-[#7c9d96] hover:shadow-md transition-all" data-step="2">
+            <span class="font-bold text-[#2f3e46]">Check care labels</span>
+          </li>
+        </ul>
 
-        <div class="bg-[#eef3f1] p-8 rounded-lg">
-          <div class="text-4xl font-bold text-[#52796f] mb-4">02</div>
-          <h3 class="text-xl font-bold text-[#2f3e46] mb-3">Choose the right settings</h3>
-          <p class="text-[#5b6b70]">Use hot water for whites, warm for most items, and cold for colors and delicates to prevent fading.</p>
-        </div>
+        <div id="steps-feedback"></div>
 
-        <div class="bg-[#eef3f1] p-8 rounded-lg">
-          <div class="text-4xl font-bold text-[#52796f] mb-4">03</div>
-          <h3 class="text-xl font-bold text-[#2f3e46] mb-3">Dry and fold</h3>
-          <p class="text-[#5b6b70]">Hang dry delicate items or use the appropriate dryer heat. Fold immediately to prevent wrinkles.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Do's and Don'ts Section -->
-  <section class="bg-gray-50 py-16 md:py-24">
-    <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-        <!-- Do's -->
-        <div>
-          <h3 class="text-2xl font-bold text-[#2f3e46] mb-8" style="font-family: 'Fraunces', serif;">Do's</h3>
-          <ul class="space-y-4">
-            <li class="flex gap-3">
-              <span class="text-[#52796f] text-xl">✓</span>
-              <span class="text-[#5b6b70]">Check care labels before washing</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="text-[#52796f] text-xl">✓</span>
-              <span class="text-[#5b6b70]">Use cold water to save energy</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="text-[#52796f] text-xl">✓</span>
-              <span class="text-[#5b6b70]">Sort by color to prevent fading</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="text-[#52796f] text-xl">✓</span>
-              <span class="text-[#5b6b70]">Empty pockets and close zippers</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="text-[#52796f] text-xl">✓</span>
-              <span class="text-[#5b6b70]">Use appropriate water temperature</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Don'ts -->
-        <div>
-          <h3 class="text-2xl font-bold text-[#2f3e46] mb-8" style="font-family: 'Fraunces', serif;">Don'ts</h3>
-          <ul class="space-y-4">
-            <li class="flex gap-3">
-              <span class="text-red-500 text-xl">✗</span>
-              <span class="text-[#5b6b70]">Don't overload the washer or dryer</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="text-red-500 text-xl">✗</span>
-              <span class="text-[#5b6b70]">Don't mix colors with whites</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="text-red-500 text-xl">✗</span>
-              <span class="text-[#5b6b70]">Don't leave wet clothes in the washer</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="text-red-500 text-xl">✗</span>
-              <span class="text-[#5b6b70]">Don't use too much detergent</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="text-red-500 text-xl">✗</span>
-              <span class="text-[#5b6b70]">Don't ignore laundry symbols</span>
-            </li>
-          </ul>
+        <div class="flex gap-4 mt-6">
+          <button id="check-steps-btn" class="flex-1 bg-[#52796f] text-white font-semibold py-3 rounded-lg hover:bg-[#3d5a56] transition-all">
+            Check Answer
+          </button>
+          <button id="reset-steps-btn" class="flex-1 bg-[#d97757] text-white font-semibold py-3 rounded-lg hover:bg-[#c2673f] transition-all">
+            Reset
+          </button>
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- Laundry Symbols -->
-  <section class="py-16 md:py-24">
-    <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10">
-      <h2 class="text-4xl font-bold text-[#2f3e46] mb-12" style="font-family: 'Fraunces', serif;">Laundry symbols guide</h2>
-      
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-        <div class="bg-white border border-gray-200 p-6 rounded-lg text-center">
-          <div class="text-5xl mb-4">🧺</div>
-          <h4 class="font-bold text-[#2f3e46]">Wash</h4>
-          <p class="text-sm text-[#5b6b70] mt-2">Machine wash at recommended temperature</p>
-        </div>
-
-        <div class="bg-white border border-gray-200 p-6 rounded-lg text-center">
-          <div class="text-5xl mb-4">🌡️</div>
-          <h4 class="font-bold text-[#2f3e46]">Temperature</h4>
-          <p class="text-sm text-[#5b6b70] mt-2">Follow temperature guidelines</p>
-        </div>
-
-        <div class="bg-white border border-gray-200 p-6 rounded-lg text-center">
-          <div class="text-5xl mb-4">🚫</div>
-          <h4 class="font-bold text-[#2f3e46]">Bleach</h4>
-          <p class="text-sm text-[#5b6b70] mt-2">Do not use bleach</p>
-        </div>
-
-        <div class="bg-white border border-gray-200 p-6 rounded-lg text-center">
-          <div class="text-5xl mb-4">💨</div>
-          <h4 class="font-bold text-[#2f3e46]">Dry</h4>
-          <p class="text-sm text-[#5b6b70] mt-2">Dry cleaning recommended</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="bg-[#52796f] py-16 md:py-24">
-    <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 text-center">
-      <h2 class="text-4xl font-bold text-white mb-6" style="font-family: 'Fraunces', serif;">Ready to master laundry?</h2>
-      <p class="text-lg text-[#eef3f1] mb-8">Start with these basics and level up your laundry skills today.</p>
-      <button class="bg-[#d97757] text-white px-8 py-3 rounded-lg font-medium hover:bg-[#c96649] transition">Get started</button>
-    </div>
-  </section>
 
   <!-- Footer -->
   <footer class="bg-[#2f3e46] text-[#faf7f2] px-4 md:px-6 lg:px-10 pt-14 pb-6">
@@ -298,5 +251,7 @@
     </div>
     <div class="max-w-6xl mx-auto mt-9 text-xs opacity-70">&copy; 2026 Level Up Life!</div>
   </footer>
+
+  <!-- Scripts -->
 </body>
 </html>
