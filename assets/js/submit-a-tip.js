@@ -15,7 +15,7 @@
       page.
 */
 
-// ---- Element references -------------------------------------------------
+// ---- Element references ----
 
 const tipForm = document.getElementById("tip-form");
 const tipNameInput = document.getElementById("tip-name");
@@ -52,14 +52,14 @@ const SEED_TIPS = [
     category: "home-skills",
     title: "Cook double, freeze half",
     text: "Whenever you cook rice or a curry, make double the amount and freeze half in a container. Future you gets a free meal on a busy day.",
-    name: "Jia Wei",
+    name: "Min",
     date: "12 Jul 2026",
   },
   {
     category: "money-time",
     title: "Pay yourself first",
     text: "The moment your allowance or pay comes in, move a fixed amount straight into a separate savings account before you spend on anything else.",
-    name: "Priya",
+    name: "Ming",
     date: "18 Jul 2026",
   },
   {
@@ -73,7 +73,7 @@ const SEED_TIPS = [
     category: "practice-growth",
     title: "One line a day is enough",
     text: "You don't need a full journal entry. Write a single line each night about what went well — it adds up to a useful record after a month.",
-    name: "Marcus",
+    name: "Hakim",
     date: "27 Jul 2026",
   },
 ];
@@ -81,7 +81,7 @@ const SEED_TIPS = [
 // Which filter pill is currently selected. Starts on "all".
 let activeFilter = "all";
 
-// ---- Loading / saving submitted tips ------------------------------------
+// ---- Loading / saving submitted tips ----
 
 // Reads whatever the visitor has submitted before on this browser.
 // Returns an empty array if nothing has been saved yet.
@@ -94,7 +94,7 @@ function saveStoredTips(tipsArray) {
   localStorage.setItem(TIPS_STORAGE_KEY, JSON.stringify(tipsArray));
 }
 
-// ---- Building and rendering tip cards ------------------------------------
+// ---- Building and rendering tip cards ----
 
 // Takes one tip object and returns a fully-built <div> card element,
 // ready to be inserted into the page.
@@ -153,7 +153,7 @@ function renderTips() {
   });
 }
 
-// ---- Filter pills ---------------------------------------------------------
+// ---- Filter pills ----
 
 // Two fixed sets of classes: one look for the pill that is currently
 // selected, another for every pill that isn't. Swapping between these
@@ -193,14 +193,14 @@ tipFilters.addEventListener("click", (event) => {
   renderTips();
 });
 
-// ---- Live character counter ----------------------------------------------
+// ---- Live character counter ----
 
 tipBodyTextarea.addEventListener("input", () => {
   const currentLength = tipBodyTextarea.value.length;
   tipBodyCounter.textContent = currentLength + " / " + MAX_TIP_LENGTH + " characters";
 });
 
-// ---- Form validation and submission ---------------------------------------
+// ---- Form validation and submission ----
 
 // Small helper: shows/hides one field's error message and toggles the
 // red-ish "has-error" border, so the same 4 lines aren't repeated for
@@ -272,6 +272,6 @@ tipForm.addEventListener("submit", (event) => {
   }, 4000);
 });
 
-// ---- First render on page load ---------------------------------------------
+// ---- First render on page load ----
 
 renderTips();

@@ -8,12 +8,15 @@
       name="description"
       content="Share a practical life tip with other students, browse tips from the community, and filter them by category."
     />
+    <link rel="stylesheet" href="../assets/css/fonts.css" />
     <link rel="stylesheet" href="../assets/css/styles.css" />
-    <script src="../assets/js/nav-toggle.js"></script>
-    <script src="../assets/js/submit-a-tip.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../assets/js/tailwind-config.js"></script>
+    <script src="../assets/js/submit-a-tip.js" defer></script>
+    <script src="../assets/js/nav-toggle.js" defer></script>
   </head>
   <body class="bg-[#faf7f2] font-body text-[#2f3e46] antialiased">
-    <!-- ============================= HEADER ============================= -->
+    <!-- HEADER -->
     <header class="sticky top-0 z-50 bg-white shadow-sm will-change-transform">
       <div class="max-w-6xl mx-auto px-10 py-4 flex items-center justify-between relative">
         <a href="../index.html" class="font-heading font-bold text-xl text-[#52796f]">Level Up Life!</a>
@@ -25,39 +28,39 @@
         <nav aria-label="Main" id="main-nav" class="main-nav">
           <ul class="flex items-center gap-8 list-none">
             <li class="relative group">
-              <a href="#" class="font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">Home Skills <span aria-hidden="true">▾</span></a>
+              <a href="../index.html#home-skills" class="font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">Home Skills <span aria-hidden="true">▾</span></a>
               <div class="nav-dropdown-panel invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity absolute left-0 top-full min-w-[190px] bg-white rounded-xl shadow-lg p-4">
                 <ul class="list-none">
-                  <li><a href="#" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Quick Meals</a></li>
-                  <li><a href="#" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Laundry Basics</a></li>
-                  <li><a href="#" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Room Organization</a></li>
+                  <li><a href="quick-meal.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Quick Meals</a></li>
+                  <li><a href="laundry-basics.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Laundry Basics</a></li>
+                  <li><a href="room-organisation.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Room Organization</a></li>
                 </ul>
               </div>
             </li>
             <li class="relative group">
-              <a href="#" class="font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">Money &amp; Time <span aria-hidden="true">▾</span></a>
+              <a href="../index.html#money-time" class="font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">Money &amp; Time <span aria-hidden="true">▾</span></a>
               <div class="nav-dropdown-panel invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity absolute left-0 top-full min-w-[190px] bg-white rounded-xl shadow-lg p-4">
                 <ul class="list-none">
-                  <li><a href="#" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Money Basics</a></li>
+                  <li><a href="money-basics.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Money Basics</a></li>
                   <li><a href="time-management.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Time Management</a></li>
                 </ul>
               </div>
             </li>
             <li class="relative group">
-              <a href="#" class="font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">People &amp; Safety <span aria-hidden="true">▾</span></a>
+              <a href="../index.html#people-safety" class="font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">People &amp; Safety <span aria-hidden="true">▾</span></a>
               <div class="nav-dropdown-panel invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity absolute left-0 top-full min-w-[190px] bg-white rounded-xl shadow-lg p-4">
                 <ul class="list-none">
-                  <li><a href="#" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Communication Skills</a></li>
+                  <li><a href="communication-skills.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Communication Skills</a></li>
                   <li><a href="online-safety.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Online Safety</a></li>
                   <li><a href="emergency-preparedness.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Emergency Preparedness</a></li>
                 </ul>
               </div>
             </li>
             <li class="relative group">
-              <a href="#" class="font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">Practice &amp; Growth <span aria-hidden="true">▾</span></a>
+              <a href="../index.html#practice-growth" class="font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">Practice &amp; Growth <span aria-hidden="true">▾</span></a>
               <div class="nav-dropdown-panel invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity absolute left-0 top-full min-w-[190px] bg-white rounded-xl shadow-lg p-4">
                 <ul class="list-none">
-                  <li><a href="#" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Weekly Challenges</a></li>
+                  <li><a href="weekly-challenges.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Weekly Challenges</a></li>
                   <li><a href="life-readiness-quiz.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Life Readiness Quiz</a></li>
                   <li><a href="submit-a-tip.html" aria-current="page" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Submit a Tip</a></li>
                 </ul>
@@ -69,7 +72,7 @@
     </header>
 
     <main>
-      <!-- ============================= HERO ============================= -->
+      <!-- HERO -->
       <section class="bg-[#2f3e46] text-white px-10 pt-14 pb-16">
         <div class="max-w-6xl mx-auto">
           <h1 class="font-heading font-bold text-[40px] leading-tight mb-3">Submit a Tip</h1>
@@ -77,7 +80,7 @@
         </div>
       </section>
 
-      <!-- ==================== TIP SUBMISSION FORM ==================== -->
+      <!-- TIP SUBMISSION FORM -->
       <section class="max-w-6xl mx-auto px-10 pt-14">
         <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-1.5">Share your tip</h2>
         <p class="font-body text-[15px] text-[#5b6b70] leading-relaxed mb-5 max-w-[760px]">Fill in the form below. Your name is optional &mdash; leave it blank to post as Anonymous.</p>
@@ -125,7 +128,7 @@
         </form>
       </section>
 
-      <!-- ==================== COMMUNITY TIPS ==================== -->
+      <!-- COMMUNITY TIPS -->
       <section class="max-w-6xl mx-auto px-10 pb-16">
         <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-1.5">Community tips</h2>
         <p class="font-body text-sm text-[#5b6b70] mb-5">Practical tips shared by other students. Filter by category, or add your own above.</p>
@@ -146,7 +149,7 @@
       </section>
     </main>
 
-    <!-- ============================= FOOTER ============================= -->
+    <!-- FOOTER -->
     <footer class="bg-[#2f3e46] text-[#faf7f2] px-10 pt-14 pb-6">
       <div class="max-w-6xl mx-auto grid grid-cols-[1.4fr_1fr_1fr] gap-10">
         <div>
@@ -156,10 +159,10 @@
         <div>
           <h2 class="text-xs font-bold uppercase tracking-wider opacity-60 mb-3">Explore</h2>
           <ul class="list-none">
-            <li class="text-sm opacity-85 py-1">Home Skills</li>
-            <li class="text-sm opacity-85 py-1">Money &amp; Time</li>
-            <li class="text-sm opacity-85 py-1">People &amp; Safety</li>
-            <li class="text-sm opacity-85 py-1">Practice &amp; Growth</li>
+            <li class="py-1"><a href="../index.html#home-skills" class="text-sm opacity-85 hover:opacity-100 hover:text-[#d97757] transition">Home Skills</a></li>
+            <li class="py-1"><a href="../index.html#money-time" class="text-sm opacity-85 hover:opacity-100 hover:text-[#d97757] transition">Money &amp; Time</a></li>
+            <li class="py-1"><a href="../index.html#people-safety" class="text-sm opacity-85 hover:opacity-100 hover:text-[#d97757] transition">People &amp; Safety</a></li>
+            <li class="py-1"><a href="../index.html#practice-growth" class="text-sm opacity-85 hover:opacity-100 hover:text-[#d97757] transition">Practice &amp; Growth</a></li>
           </ul>
         </div>
         <div>
