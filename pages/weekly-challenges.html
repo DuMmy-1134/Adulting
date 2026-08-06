@@ -8,14 +8,12 @@
       name="description"
       content="A 7-day challenge table to turn life-skill tips into habits, filterable by category and difficulty."
     />
-    <script
-      src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1"
-      type="module"
-    ></script>
-    <script src="../assets/js/weekly-challenges.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="../assets/css/fonts.css" />
     <link rel="stylesheet" href="../assets/css/styles.css" />
     <link rel="stylesheet" href="../assets/css/quick-meal.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../assets/js/tailwind-config.js"></script>
+    <script src="../assets/js/weekly-challenges.js" defer></script>
   </head>
   <body class="bg-[#faf7f2] font-body text-[#2f3e46] antialiased">
     <header class="sticky top-0 z-50 bg-white shadow-sm will-change-transform">
@@ -400,7 +398,7 @@
       </div>
       <!-- 4. The Challenges Table -->
       <div
-        class="overflow-hidden rounded-xl border-2 border-[#8BA39E] bg-white"
+        class="overflow-x-auto rounded-xl border-2 border-[#8BA39E] bg-white"
       >
         <table class="w-full text-center border-collapse">
           <!-- Table Header -->

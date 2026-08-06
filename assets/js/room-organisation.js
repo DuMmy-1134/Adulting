@@ -125,7 +125,7 @@ function markZoneComplete(e) {
   const zoneId = btn.getAttribute('data-zone-id');
 
   btn.textContent = '✓ Completed';
-  btn.className = 'w-full bg-[#d4edda] text-[#155724] font-semibold py-2 rounded-lg border-2 border-[#52796f]';
+  btn.className = 'w-full bg-[#eef3f1] text-[#2f3e46] font-semibold py-2 rounded-lg border-2 border-[#52796f]';
   btn.disabled = true;
   
   // Save to localStorage
@@ -149,13 +149,13 @@ function updateProgress() {
   
   if (completed === total) {
     progressMessage.textContent = `✓ Excellent! You've organized all ${total} zones!`;
-    progressMessage.className = 'mt-6 p-4 bg-[#d4edda] text-[#155724] rounded-lg font-semibold text-center border-2 border-[#52796f]';
+    progressMessage.className = 'mt-6 p-4 bg-[#eef3f1] text-[#2f3e46] rounded-lg font-semibold text-center border-2 border-[#52796f]';
   } else if (completed > 0) {
     progressMessage.textContent = `Progress: ${completed} of ${total} zones organized (${percentage}%)`;
-    progressMessage.className = 'mt-6 p-4 bg-[#fff3cd] text-[#856404] rounded-lg font-semibold text-center border-2 border-[#d97757]';
+    progressMessage.className = 'mt-6 p-4 bg-[#f6f2ea] text-[#2f3e46] rounded-lg font-semibold text-center border-2 border-[#d97757]';
   } else {
     progressMessage.textContent = 'Click a zone to start organizing!';
-    progressMessage.className = 'mt-6 p-4 bg-[#e7f3ff] text-[#004085] rounded-lg font-semibold text-center border-2 border-[#7c9d96]';
+    progressMessage.className = 'mt-6 p-4 bg-[#eef3f1] text-[#2f3e46] rounded-lg font-semibold text-center border-2 border-[#7c9d96]';
   }
 }
 
@@ -175,7 +175,7 @@ function loadCompletedZones() {
     const btn = document.querySelector(`button.complete-zone-btn[data-zone-id="${zoneId}"]`);
     if (btn && !btn.disabled) {
       btn.textContent = '✓ Completed';
-      btn.className = 'w-full bg-[#d4edda] text-[#155724] font-semibold py-2 rounded-lg border-2 border-[#52796f]';
+      btn.className = 'w-full bg-[#eef3f1] text-[#2f3e46] font-semibold py-2 rounded-lg border-2 border-[#52796f]';
       btn.disabled = true;
     }
   });
