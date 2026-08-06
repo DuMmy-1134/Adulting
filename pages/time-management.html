@@ -14,14 +14,14 @@
          Tailwind utilities can't already do (form fields, planner
          table, mobile nav). -->
     <link rel="stylesheet" href="../assets/css/fonts.css" />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="../assets/js/tailwind-config.js"></script>
-    <link rel="stylesheet" href="../assets/css/styles.css" />
     <script src="../assets/js/time-management.js" defer></script>
     <script src="../assets/js/nav-toggle.js" defer></script>
   </head>
   <body class="bg-[#faf7f2] font-body text-[#2f3e46] antialiased">
-    <!-- ============================= HEADER ============================= -->
+    <!-- HEADER -->
     <header class="sticky top-0 z-50 bg-white shadow-sm will-change-transform">
       <div class="max-w-6xl mx-auto px-10 py-4 flex items-center justify-between relative">
         <a href="../index.html" class="font-heading font-bold text-xl text-[#52796f]">Level Up Life!</a>
@@ -42,8 +42,8 @@
               <div class="nav-dropdown-panel invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity absolute left-0 top-full min-w-[190px] bg-white rounded-xl shadow-lg p-4">
                 <ul class="list-none">
                   <li><a href="quick-meal.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Quick Meals</a></li>
-                  <li><a href="LaundryBasics.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Laundry Basics</a></li>
-                  <li><a href="RoomOrganisation.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Room Organization</a></li>
+                  <li><a href="laundry-basics.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Laundry Basics</a></li>
+                  <li><a href="room-organisation.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Room Organization</a></li>
                 </ul>
               </div>
             </li>
@@ -51,7 +51,7 @@
               <a href="../index.html#money-time" class="font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">Money &amp; Time <span aria-hidden="true">▾</span></a>
               <div class="nav-dropdown-panel invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity absolute left-0 top-full min-w-[190px] bg-white rounded-xl shadow-lg p-4">
                 <ul class="list-none">
-                  <li><a href="moneybasics.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Money Basics</a></li>
+                  <li><a href="money-basics.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Money Basics</a></li>
                   <li><a href="time-management.html" aria-current="page" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Time Management</a></li>
                 </ul>
               </div>
@@ -60,7 +60,7 @@
               <a href="../index.html#people-safety" class="font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">People &amp; Safety <span aria-hidden="true">▾</span></a>
               <div class="nav-dropdown-panel invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity absolute left-0 top-full min-w-[190px] bg-white rounded-xl shadow-lg p-4">
                 <ul class="list-none">
-                  <li><a href="#" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Communication Skills</a></li>
+                  <li><a href="communication-skills.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Communication Skills</a></li>
                   <li><a href="online-safety.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Online Safety</a></li>
                   <li><a href="emergency-preparedness.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Emergency Preparedness</a></li>
                 </ul>
@@ -70,7 +70,7 @@
               <a href="../index.html#practice-growth" class="font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">Practice &amp; Growth <span aria-hidden="true">▾</span></a>
               <div class="nav-dropdown-panel invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity absolute left-0 top-full min-w-[190px] bg-white rounded-xl shadow-lg p-4">
                 <ul class="list-none">
-                  <li><a href="#" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Weekly Challenges</a></li>
+                  <li><a href="weekly-challenges.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Weekly Challenges</a></li>
                   <li><a href="life-readiness-quiz.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Life Readiness Quiz</a></li>
                   <li><a href="submit-a-tip.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Submit a Tip</a></li>
                 </ul>
@@ -82,7 +82,7 @@
     </header>
 
     <main>
-      <!-- ============================= HERO ============================= -->
+      <!-- HERO -->
       <section class="bg-[#2f3e46] text-white px-10 pt-14 pb-16">
         <div class="max-w-6xl mx-auto">
           <h1 class="font-heading font-bold text-[40px] leading-tight mb-3">Time Management</h1>
@@ -90,7 +90,7 @@
         </div>
       </section>
 
-      <!-- ==================== WEEKLY TIMETABLE (HTML TABLE) ==================== -->
+      <!-- WEEKLY TIMETABLE (HTML TABLE) -->
       <section class="max-w-6xl mx-auto px-10 pt-14">
         <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-1.5">Plan your week</h2>
         <p class="font-body text-[15px] text-[#5b6b70] leading-relaxed mb-5 max-w-[760px]">A real hour-by-hour timetable, just like the one on your student portal. Add a task with a start time and a duration (or click straight into an empty slot) and it fills that exact block. Clashing times are caught automatically, so nothing overlaps by accident.</p>
@@ -195,7 +195,7 @@
         </div>
       </section>
 
-      <!-- ==================== PRIORITY MATRIX ==================== -->
+      <!-- PRIORITY MATRIX -->
       <section class="max-w-6xl mx-auto px-10 pt-14">
         <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-1.5">Set your priorities</h2>
         <p class="font-body text-[15px] text-[#5b6b70] leading-relaxed mb-5 max-w-[760px]">Not everything on your to-do list deserves the same amount of panic. Add a task below, choose which box it belongs in, and see your week sorted by what&rsquo;s actually urgent versus what just feels urgent.</p>
@@ -241,7 +241,7 @@
         </div>
       </section>
 
-      <!-- ==================== FOCUSED STUDY TECHNIQUES ==================== -->
+      <!-- FOCUSED STUDY TECHNIQUES -->
       <section class="max-w-6xl mx-auto px-10 pt-14">
         <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-4">Focused study techniques</h2>
         <div class="flex flex-col gap-2">
@@ -251,7 +251,20 @@
               <span aria-hidden="true" class="text-[#52796f] font-bold shrink-0 group-open:hidden">+</span>
               <span aria-hidden="true" class="text-[#52796f] font-bold shrink-0 hidden group-open:inline">&ndash;</span>
             </summary>
-            <p class="font-body text-[13.5px] text-[#5b6b70] leading-relaxed mt-2.5">Work in focused 25-minute bursts, then take a 5-minute break. After four bursts, take a longer 15&ndash;30 minute break. Try it with the timer further down this page.</p>
+            <div class="mt-2.5 flex flex-col gap-3">
+              <p class="font-body text-[13.5px] text-[#5b6b70] leading-relaxed"><span class="font-semibold text-[#2f3e46]">What it is:</span> Developed by Francesco Cirillo in the late 1980s, named after the tomato-shaped kitchen timer he used as a student. You work in short, fixed bursts with a timer, then take a short break, and after a few bursts you take a longer break. Try it with the timer further down this page.</p>
+              <div>
+                <p class="font-body text-[13.5px] font-semibold text-[#2f3e46] mb-1.5">How to do it:</p>
+                <ol class="list-decimal pl-5 flex flex-col gap-1 font-body text-[13.5px] text-[#5b6b70] leading-relaxed">
+                  <li>Pick one task.</li>
+                  <li>Set a timer for 25 minutes and work on only that task until it rings.</li>
+                  <li>When it rings, stop &mdash; even mid-sentence &mdash; and take a 5-minute break away from your screen.</li>
+                  <li>Repeat. After 4 pomodoros (about 2 hours), take a longer break of 15&ndash;30 minutes.</li>
+                </ol>
+              </div>
+              <p class="font-body text-[13.5px] text-[#5b6b70] leading-relaxed"><span class="font-semibold text-[#2f3e46]">Why it works:</span> A 25-minute block feels manageable even for a task you&rsquo;re dreading, so it lowers the barrier to starting. The ticking clock creates just enough urgency to keep you off your phone, and the forced breaks stop you from burning out over a long study session. Counting your pomodoros also gives you a realistic sense of how long things actually take, which makes planning future sessions easier.</p>
+              <p class="font-body text-[13.5px] text-[#5b6b70] leading-relaxed"><span class="font-semibold text-[#2f3e46]">Tips:</span> Turn off notifications for the interval, not just &ldquo;try to ignore them.&rdquo; If you finish early, use the rest of the block to review or tidy up rather than starting something new. If something urgent interrupts you, it&rsquo;s fine to end the pomodoro early &mdash; the technique is a tool, not a rule you have to suffer for.</p>
+            </div>
           </details>
           <details class="group bg-white rounded-2xl shadow-sm p-5">
             <summary class="list-none flex justify-between items-center gap-4 cursor-pointer font-body font-semibold text-[14.5px] text-[#2f3e46]">
@@ -259,7 +272,20 @@
               <span aria-hidden="true" class="text-[#52796f] font-bold shrink-0 group-open:hidden">+</span>
               <span aria-hidden="true" class="text-[#52796f] font-bold shrink-0 hidden group-open:inline">&ndash;</span>
             </summary>
-            <p class="font-body text-[13.5px] text-[#5b6b70] leading-relaxed mt-2.5">Give every task a fixed block of time on your calendar, even revision or admin. When the box ends, you move on &mdash; this stops one task quietly eating your whole afternoon.</p>
+            <div class="mt-2.5 flex flex-col gap-3">
+              <p class="font-body text-[13.5px] text-[#5b6b70] leading-relaxed"><span class="font-semibold text-[#2f3e46]">What it is:</span> Giving a task a fixed, pre-decided block of time on your calendar or planner, and stopping (or deliberately deciding to extend) when that block ends &mdash; rather than working on something until it &ldquo;feels&rdquo; done.</p>
+              <div>
+                <p class="font-body text-[13.5px] font-semibold text-[#2f3e46] mb-1.5">How to do it:</p>
+                <ol class="list-decimal pl-5 flex flex-col gap-1 font-body text-[13.5px] text-[#5b6b70] leading-relaxed">
+                  <li>List what you need to do for the day or week.</li>
+                  <li>Estimate a realistic amount of time for each item and put it directly onto your planner at a specific time, not just as a to-do item.</li>
+                  <li>Work on that task only during its box.</li>
+                  <li>When the box ends, stop. If it&rsquo;s not finished, consciously decide whether it gets a new box later, rather than letting it silently run over.</li>
+                </ol>
+              </div>
+              <p class="font-body text-[13.5px] text-[#5b6b70] leading-relaxed"><span class="font-semibold text-[#2f3e46]">Why it works:</span> It counters what&rsquo;s sometimes called Parkinson&rsquo;s Law &mdash; work tends to expand to fill however much time you give it. A tight, specific box creates urgency the same way a deadline does. It also makes your day visible: if you try to timebox 14 hours of tasks into a 10-hour day, you find out during planning, not at 11pm. This is exactly what the timetable tool on this page is built around &mdash; every task you add has a start time and a length, and the site warns you if two tasks would clash.</p>
+              <p class="font-body text-[13.5px] text-[#5b6b70] leading-relaxed"><span class="font-semibold text-[#2f3e46]">Tips:</span> Add a little buffer between boxes for things overrunning slightly. Timebox open-ended tasks too, like revision or research, which don&rsquo;t have a natural finishing point and can otherwise eat a whole afternoon.</p>
+            </div>
           </details>
           <details class="group bg-white rounded-2xl shadow-sm p-5">
             <summary class="list-none flex justify-between items-center gap-4 cursor-pointer font-body font-semibold text-[14.5px] text-[#2f3e46]">
@@ -267,7 +293,19 @@
               <span aria-hidden="true" class="text-[#52796f] font-bold shrink-0 group-open:hidden">+</span>
               <span aria-hidden="true" class="text-[#52796f] font-bold shrink-0 hidden group-open:inline">&ndash;</span>
             </summary>
-            <p class="font-body text-[13.5px] text-[#5b6b70] leading-relaxed mt-2.5">If a task takes less than two minutes, do it immediately instead of adding it to a list. It stops tiny tasks from piling up into one huge, overwhelming list.</p>
+            <div class="mt-2.5 flex flex-col gap-3">
+              <p class="font-body text-[13.5px] text-[#5b6b70] leading-relaxed"><span class="font-semibold text-[#2f3e46]">What it is:</span> If a task will take less than 2 minutes to do, do it immediately instead of writing it down to do later. It comes from David Allen&rsquo;s &ldquo;Getting Things Done&rdquo; method.</p>
+              <div>
+                <p class="font-body text-[13.5px] font-semibold text-[#2f3e46] mb-1.5">How to do it:</p>
+                <ol class="list-decimal pl-5 flex flex-col gap-1 font-body text-[13.5px] text-[#5b6b70] leading-relaxed">
+                  <li>When a small task comes up (replying to a message, filing one document, packing your bag for tomorrow), ask: would this take less than 2 minutes?</li>
+                  <li>If yes, do it right now, on the spot.</li>
+                  <li>If no, add it properly to your to-do list or timetable instead of trying to remember it.</li>
+                </ol>
+              </div>
+              <p class="font-body text-[13.5px] text-[#5b6b70] leading-relaxed"><span class="font-semibold text-[#2f3e46]">Why it works:</span> Writing a tiny task down, filing it, and coming back to it later often takes more effort than just doing it. Left alone, small tasks pile up into a backlog that feels much bigger than it actually is, and they nag at your attention even when you&rsquo;re not doing them (&ldquo;open loops&rdquo;). Clearing them immediately keeps your list focused on things that actually deserve planning.</p>
+              <p class="font-body text-[13.5px] text-[#5b6b70] leading-relaxed"><span class="font-semibold text-[#2f3e46]">Worth knowing:</span> You&rsquo;ll sometimes see &ldquo;the 2-minute rule&rdquo; used differently in habit-building advice (from James Clear&rsquo;s Atomic Habits) &mdash; scaling a new habit down to a version that takes under 2 minutes, e.g. &ldquo;read every night&rdquo; becomes &ldquo;read one page.&rdquo; Same name, different idea; both are useful, just for different situations.</p>
+            </div>
           </details>
           <details class="group bg-white rounded-2xl shadow-sm p-5">
             <summary class="list-none flex justify-between items-center gap-4 cursor-pointer font-body font-semibold text-[14.5px] text-[#2f3e46]">
@@ -275,12 +313,24 @@
               <span aria-hidden="true" class="text-[#52796f] font-bold shrink-0 group-open:hidden">+</span>
               <span aria-hidden="true" class="text-[#52796f] font-bold shrink-0 hidden group-open:inline">&ndash;</span>
             </summary>
-            <p class="font-body text-[13.5px] text-[#5b6b70] leading-relaxed mt-2.5">Do your least favourite, most-avoided task first thing, while your energy and willpower are highest. Everything after that feels easier by comparison.</p>
+            <div class="mt-2.5 flex flex-col gap-3">
+              <p class="font-body text-[13.5px] text-[#5b6b70] leading-relaxed"><span class="font-semibold text-[#2f3e46]">What it is:</span> Do your single biggest, hardest, or most-avoided task of the day first, before anything else. The name comes from a line attributed to Mark Twain &mdash; &ldquo;If it&rsquo;s your job to eat a frog, it&rsquo;s best to do it first thing in the morning&rdquo; &mdash; popularised as a productivity method by Brian Tracy&rsquo;s book Eat That Frog!</p>
+              <div>
+                <p class="font-body text-[13.5px] font-semibold text-[#2f3e46] mb-1.5">How to do it:</p>
+                <ol class="list-decimal pl-5 flex flex-col gap-1 font-body text-[13.5px] text-[#5b6b70] leading-relaxed">
+                  <li>The night before (or first thing in the morning), decide what your one &ldquo;frog&rdquo; is &mdash; the task you&rsquo;re most likely to put off.</li>
+                  <li>Do that task before checking messages, email, or anything easy and satisfying.</li>
+                  <li>If you have more than one big task, tackle the worst one first &mdash; &ldquo;if you have to eat two frogs, eat the ugliest one first.&rdquo;</li>
+                </ol>
+              </div>
+              <p class="font-body text-[13.5px] text-[#5b6b70] leading-relaxed"><span class="font-semibold text-[#2f3e46]">Why it works:</span> Willpower and focus are usually highest earlier in the day and drop the more decisions you make (sometimes called decision fatigue). Avoiding a hard task all day doesn&rsquo;t make it smaller, it just adds a background hum of stress and often leads to &ldquo;productive procrastination&rdquo; &mdash; staying busy with small, easy tasks to avoid the one that matters. Getting the frog out of the way early also gives you a real sense of progress that carries through the rest of the day.</p>
+              <p class="font-body text-[13.5px] text-[#5b6b70] leading-relaxed"><span class="font-semibold text-[#2f3e46]">Tips:</span> Decide on your frog in advance so you don&rsquo;t waste your best hours deciding what to work on. If your frog is too big to finish in one sitting, it&rsquo;s fine for &ldquo;eating the frog&rdquo; to mean starting it, not finishing it.</p>
+            </div>
           </details>
         </div>
       </section>
 
-      <!-- ==================== FOCUS TIMER ==================== -->
+      <!-- FOCUS TIMER -->
       <section class="max-w-6xl mx-auto px-10 pt-12 pb-16">
         <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-1.5">Try a focus timer</h2>
         <p class="font-body text-sm text-[#5b6b70] mb-4">Pick a length, hit start, and work on one task until it rings.</p>
@@ -306,7 +356,7 @@
       </section>
     </main>
 
-    <!-- ============================= FOOTER ============================= -->
+    <!-- FOOTER -->
     <footer class="bg-[#2f3e46] text-[#faf7f2] px-10 pt-14 pb-6">
       <div class="max-w-6xl mx-auto grid grid-cols-[1.4fr_1fr_1fr] gap-10">
         <div>
@@ -316,10 +366,10 @@
         <div>
           <h2 class="text-xs font-bold uppercase tracking-wider opacity-60 mb-3">Explore</h2>
           <ul class="list-none">
-            <li class="text-sm opacity-85 py-1">Home Skills</li>
-            <li class="text-sm opacity-85 py-1">Money &amp; Time</li>
-            <li class="text-sm opacity-85 py-1">People &amp; Safety</li>
-            <li class="text-sm opacity-85 py-1">Practice &amp; Growth</li>
+            <li class="py-1"><a href="../index.html#home-skills" class="text-sm opacity-85 hover:opacity-100 hover:text-[#d97757] transition">Home Skills</a></li>
+            <li class="py-1"><a href="../index.html#money-time" class="text-sm opacity-85 hover:opacity-100 hover:text-[#d97757] transition">Money &amp; Time</a></li>
+            <li class="py-1"><a href="../index.html#people-safety" class="text-sm opacity-85 hover:opacity-100 hover:text-[#d97757] transition">People &amp; Safety</a></li>
+            <li class="py-1"><a href="../index.html#practice-growth" class="text-sm opacity-85 hover:opacity-100 hover:text-[#d97757] transition">Practice &amp; Growth</a></li>
           </ul>
         </div>
         <div>

@@ -9,13 +9,12 @@
   All 3 features save their data with localStorage, which is a small
   built-in browser "notebook" that keeps information even after the
   visitor closes the tab or restarts their computer. There is no
-  server/database here — this is a front-end-only project, so
-  localStorage is what lets the planner feel "saved" between visits.
+  server/database here so it lets the planner feel "saved" between visits.
 */
 
-/* =======================================================================
+/* 
    1. WEEKLY TIMETABLE
-   ======================================================================= */
+    */
 
 const plannerForm = document.getElementById("planner-form");
 const plannerTaskInput = document.getElementById("planner-task-input");
@@ -32,8 +31,8 @@ const plannerTbody = document.getElementById("planner-tbody");
 // The timetable covers 8:00 AM up to (but not including) 10:00 PM, in
 // 1-hour rows — 14 rows in total, the same kind of range a real class
 // timetable would use.
-const PLANNER_START_HOUR = 8;
-const PLANNER_END_HOUR = 22;
+const PLANNER_START_HOUR = 7;
+const PLANNER_END_HOUR = 23;
 
 // The 7 day columns, in display order, matching the <th> order in the HTML.
 const PLANNER_DAYS = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
@@ -61,7 +60,7 @@ const PLANNER_CATEGORIES = {
 //   startHour: 9, duration: 2, category: "money-time", done: false }
 let plannerTasks = [];
 
-// ---- Small time-formatting helpers ---------------------------------------
+// --- Small time-formatting helpers ---
 
 // Turns a 24-hour number like 13 into a 12-hour clock label like "1:00 PM".
 function formatHourLabel(hour) {
@@ -78,7 +77,7 @@ function formatHourRange(startHour, duration) {
   return formatHourLabel(startHour) + " – " + formatHourLabel(startHour + duration);
 }
 
-// ---- Loading / saving ------------------------------------------------
+// ---- Loading / saving ----
 
 function loadPlannerTasks() {
   const savedJson = localStorage.getItem(PLANNER_STORAGE_KEY);
@@ -89,7 +88,7 @@ function savePlannerTasks() {
   localStorage.setItem(PLANNER_STORAGE_KEY, JSON.stringify(plannerTasks));
 }
 
-// ---- Clash checking --------------------------------------------------------
+// ---- Clash checking ----
 
 // Two time ranges overlap unless one of them finishes at or before the
 // other one starts. This is the standard way to check whether 2 time
@@ -112,13 +111,13 @@ function hasClash(day, startHour, duration) {
   });
 }
 
-// ---- Building the Start Time dropdown --------------------------------------
+// ---- Building the Start Time dropdown ----
 
 // Fills the Start Time <select> with one option per hour of the
 // timetable, so it always matches PLANNER_START_HOUR/PLANNER_END_HOUR
 // above instead of being typed out by hand in the HTML.
 function populateStartTimeOptions() {
-  for (let hour = PLANNER_START_HOUR; hour < PLANNER_END_HOUR; hour++) {
+  for (let hour = PLANNER_START_HOUR; hour <= PLANNER_END_HOUR; hour++) {
     const option = document.createElement("option");
     option.value = String(hour);
     option.textContent = formatHourLabel(hour);
@@ -147,7 +146,7 @@ function updateAvailableDurations() {
   }
 }
 
-// ---- Rendering ---------------------------------------------------------
+// ---- Rendering ----
 
 // Builds one solid-colour task block, complete with its own tick
 // checkbox, the time range it covers, and a delete (x) button.
@@ -241,7 +240,7 @@ function renderPlannerTimetable() {
     rowsToSkip[day] = 0;
   });
 
-  for (let hour = PLANNER_START_HOUR; hour < PLANNER_END_HOUR; hour++) {
+  for (let hour = PLANNER_START_HOUR; hour <= PLANNER_END_HOUR; hour++) {
     const row = document.createElement("tr");
 
     const hourLabelCell = document.createElement("td");
@@ -281,7 +280,7 @@ function renderPlannerTimetable() {
   }
 }
 
-// ---- Adding a task -------------------------------------------------------
+// ---- Adding a task ----
 
 if (plannerForm) {
   plannerStartSelect.addEventListener("change", updateAvailableDurations);
@@ -334,7 +333,7 @@ if (plannerForm) {
   });
 }
 
-// ---- Clearing the whole week ---------------------------------------------
+// ---- Clearing the whole week ----
 
 if (plannerClearBtn) {
   plannerClearBtn.addEventListener("click", () => {
@@ -364,9 +363,9 @@ if (plannerTbody) {
   renderPlannerTimetable();
 }
 
-/* =======================================================================
+/* 
    2. EISENHOWER PRIORITY MATRIX
-   ======================================================================= */
+    */
 
 const priorityForm = document.getElementById("priority-form");
 const priorityInput = document.getElementById("priority-input");
@@ -486,9 +485,9 @@ if (priorityForm) {
   });
 }
 
-/* =======================================================================
+/* 
    3. FOCUS TIMER (Pomodoro-style countdown)
-   ======================================================================= */
+    */
 
 const timerDisplay = document.getElementById("timer-display");
 const timerToggleBtn = document.getElementById("timer-toggle");
