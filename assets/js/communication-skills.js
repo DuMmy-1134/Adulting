@@ -49,51 +49,72 @@ const SCENARIOS = [
   },
 ];
 
-function populateScenarioSelect() {
-  const select = document.getElementById("scenario-select");
-  if (!select) {
+// Pill active/inactive classes match the filter-pill-btn pattern in
+// submit-a-tip.js, reused here for the same "select one of several
+// options" interaction.
+const ACTIVE_PILL_CLASSES = ["bg-[#52796f]", "border-[#52796f]", "text-white"];
+const INACTIVE_PILL_CLASSES = ["border-[#7c9d96]", "text-[#2f3e46]", "hover:bg-[#eef3f1]"];
+
+function setPillActive(pillButton, isActive) {
+  if (isActive) {
+    pillButton.classList.remove(...INACTIVE_PILL_CLASSES);
+    pillButton.classList.add(...ACTIVE_PILL_CLASSES);
+  } else {
+    pillButton.classList.remove(...ACTIVE_PILL_CLASSES);
+    pillButton.classList.add(...INACTIVE_PILL_CLASSES);
+  }
+}
+
+function renderScenarioPills() {
+  const container = document.getElementById("scenario-pills");
+  if (!container) {
     return;
   }
 
-  const placeholder = document.createElement("option");
-  placeholder.value = "";
-  placeholder.textContent = "Choose a situation…";
-  select.appendChild(placeholder);
-
   SCENARIOS.forEach((scenario, index) => {
-    const option = document.createElement("option");
-    option.value = String(index);
-    option.textContent = scenario.label;
-    select.appendChild(option);
+    const pill = document.createElement("button");
+    pill.type = "button";
+    pill.className =
+      "scenario-pill-btn inline-block px-4 py-2 rounded-full border-2 text-[13.5px] font-semibold text-left transition-colors";
+    pill.dataset.scenarioIndex = String(index);
+    pill.textContent = scenario.label;
+    setPillActive(pill, false);
+    container.appendChild(pill);
   });
 }
 
-function showScenarioResponse() {
-  const select = document.getElementById("scenario-select");
+function showScenarioResponse(index) {
   const wrapper = document.getElementById("scenario-response");
   const textEl = document.getElementById("scenario-response-text");
-  if (!select || !wrapper || !textEl) {
+  if (!wrapper || !textEl) {
     return;
   }
 
-  if (select.value === "") {
-    wrapper.classList.add("hidden");
-    return;
-  }
-
-  const scenario = SCENARIOS[Number(select.value)];
+  const scenario = SCENARIOS[index];
   textEl.textContent = scenario.response;
   wrapper.classList.remove("hidden");
 }
 
 function initExampleResponses() {
-  const select = document.getElementById("scenario-select");
-  if (!select) {
+  const container = document.getElementById("scenario-pills");
+  if (!container) {
     return;
   }
 
-  populateScenarioSelect();
-  select.addEventListener("change", showScenarioResponse);
+  renderScenarioPills();
+
+  container.addEventListener("click", (event) => {
+    const clickedPill = event.target.closest(".scenario-pill-btn");
+    if (!clickedPill) {
+      return;
+    }
+
+    container.querySelectorAll(".scenario-pill-btn").forEach((pillButton) => {
+      setPillActive(pillButton, pillButton === clickedPill);
+    });
+
+    showScenarioResponse(Number(clickedPill.dataset.scenarioIndex));
+  });
 }
 
 initExampleResponses();

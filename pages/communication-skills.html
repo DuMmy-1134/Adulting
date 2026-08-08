@@ -144,6 +144,12 @@
               <li>Follow up on their answer with a related question rather than switching straight to your own story.</li>
               <li>It&rsquo;s fine to name the moment: "I don&rsquo;t think we&rsquo;ve met &mdash; I&rsquo;m Alex" works better than waiting to be introduced.</li>
             </ul>
+            <div class="flex flex-col gap-1.5">
+              <p class="font-body text-[13.5px] font-semibold text-[#52796f] uppercase tracking-wide">Before / after</p>
+              <p class="font-body text-base text-[#5b6b70] leading-relaxed"><span class="text-[#d97757] font-semibold">Don&rsquo;t say:</span> &ldquo;Hey, how&rsquo;s it going?&rdquo;</p>
+              <p class="font-body text-base text-[#5b6b70] leading-relaxed"><span class="text-[#52796f] font-semibold">Try instead:</span> &ldquo;This module&rsquo;s been rough, right? Did you manage the reading last night?&rdquo;</p>
+              <p class="font-body text-base text-[#5b6b70] leading-relaxed">The first invites a one-word "fine" and dies there. The second references something specific and gives them an easy way to keep talking.</p>
+            </div>
           </div>
         </details>
         <details class="group bg-white rounded-2xl shadow-sm p-5">
@@ -171,11 +177,17 @@
           <div class="mt-2.5 flex flex-col gap-3">
             <p class="font-body text-base text-[#5b6b70] leading-relaxed">Conflict and sensitive topics go better when you plan the conversation instead of having it in the heat of the moment.</p>
             <ul class="list-disc pl-5 flex flex-col gap-1.5 font-body text-base text-[#5b6b70] leading-relaxed">
-              <li>Use "I" statements &mdash; "I felt left out when plans changed without me" lands better than "You always leave me out."</li>
+              <li>Use "I" statements instead of "you" statements &mdash; see the before/after below.</li>
               <li>Pick a private moment instead of raising it in a group chat or in front of others.</li>
               <li>State the issue, then stop talking &mdash; give the other person room to respond instead of listing every grievance at once.</li>
               <li>It&rsquo;s okay to say "let me think about this and get back to you" instead of responding while you&rsquo;re still upset.</li>
             </ul>
+            <div class="flex flex-col gap-1.5">
+              <p class="font-body text-[13.5px] font-semibold text-[#52796f] uppercase tracking-wide">Before / after</p>
+              <p class="font-body text-base text-[#5b6b70] leading-relaxed"><span class="text-[#d97757] font-semibold">Don&rsquo;t say:</span> &ldquo;You always leave me out.&rdquo;</p>
+              <p class="font-body text-base text-[#5b6b70] leading-relaxed"><span class="text-[#52796f] font-semibold">Try instead:</span> &ldquo;I felt left out when the plans changed without me.&rdquo;</p>
+              <p class="font-body text-base text-[#5b6b70] leading-relaxed">The first sounds like an accusation and puts the other person on the defensive. The second states how you feel without blaming them, so they&rsquo;re more likely to actually hear you.</p>
+            </div>
           </div>
         </details>
         <details class="group bg-white rounded-2xl shadow-sm p-5">
@@ -192,6 +204,12 @@
               <li>A one-line "seen, will reply properly tonight" beats leaving someone on read for two days.</li>
               <li>Keep group chats on-topic &mdash; side conversations are easier in a separate thread or DM.</li>
             </ul>
+            <div class="flex flex-col gap-1.5">
+              <p class="font-body text-[13.5px] font-semibold text-[#52796f] uppercase tracking-wide">Before / after</p>
+              <p class="font-body text-base text-[#5b6b70] leading-relaxed"><span class="text-[#d97757] font-semibold">Don&rsquo;t send:</span> &ldquo;k.&rdquo;</p>
+              <p class="font-body text-base text-[#5b6b70] leading-relaxed"><span class="text-[#52796f] font-semibold">Try instead:</span> &ldquo;Got it, thank you! I&rsquo;ll get started on this today.&rdquo;</p>
+              <p class="font-body text-base text-[#5b6b70] leading-relaxed">The first reads as cold or annoyed even if you didn&rsquo;t mean it that way. A few extra words cost you nothing and remove all the guesswork for the other person.</p>
+            </div>
           </div>
         </details>
       </div>
@@ -201,8 +219,8 @@
       <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-1.5">Try it: example responses</h2>
       <p class="font-body text-base text-[#5b6b70] leading-relaxed mb-5 max-w-[760px]">Pick a situation below to see a ready-to-adapt example response &mdash; to profs, friends, or a group chat.</p>
       <div class="bg-white rounded-2xl shadow-sm p-6">
-        <label for="scenario-select" class="block font-body text-[13.5px] font-semibold text-[#2f3e46] mb-1.5">Situation</label>
-        <select id="scenario-select" class="form-select w-full max-w-[480px] border-2 border-[#7c9d96] rounded-lg px-3 py-2.5 font-body text-[14.5px] text-[#2f3e46] focus:outline-none focus:border-[#52796f]"></select>
+        <p class="block font-body text-[13.5px] font-semibold text-[#2f3e46] mb-2.5">Situation</p>
+        <div id="scenario-pills" role="group" aria-label="Choose a situation" class="flex flex-wrap gap-2"></div>
         <div id="scenario-response" class="mt-5 pt-5 border-t border-[#f0ece3] hidden">
           <p class="font-body text-[13.5px] font-semibold text-[#52796f] uppercase tracking-wide mb-2">Example response</p>
           <p id="scenario-response-text" class="font-body text-base text-[#2f3e46] leading-relaxed bg-[#f6f2ea] rounded-xl p-4"></p>
