@@ -7,6 +7,7 @@ let quickMeals = [
     name: "Overnight Oats",
     mealType: "Breakfast",
     estimatedTimeMinutes: 5,
+    timeNote: "5 min prep + 2 hr chill",
     difficulty: "Easy",
     ingredients: [
       "1/2 cup rolled oats",
@@ -156,21 +157,169 @@ let quickMeals = [
     source: "https://downshiftology.com/recipes/3-minute-hummus/",
     youtubeId: "GbxnB53IExY",
   },
+  {
+    id: "meal-07",
+    name: "Singapore Fried Carrot Cake (Chye Tow Kway)",
+    mealType: "Snack",
+    estimatedTimeMinutes: 85,
+    timeNote: "1 hr 25 min active + overnight chill",
+    difficulty: "Hard",
+    ingredients: [
+      "1 1/2 cups (180g) fine rice flour",
+      "1/4 cup (40g) tapioca flour",
+      "2 1/2 cups concentrated chicken stock (or vegetable stock)",
+      "1 heaped cup (300g) grated white radish/daikon",
+      "1 tsp salt, adjusted to taste",
+      "2 tsp garlic, minced (for the steamed cake)",
+      "1 tbsp garlic, minced (for stir-frying)",
+      "1 tbsp spring onion whites, chopped",
+      "1/2 tbsp pickled radish (chai poh), rinsed and drained",
+      "1 tbsp red chilli sauce",
+      "1 1/2 tbsp Thai fish sauce, or more to taste",
+      "1 1/2 tbsp light soy sauce",
+      "3 eggs",
+      "Spring onion or cilantro and red chilli, for garnish",
+    ],
+    recipe: [
+      "The night before: mix the rice flour and tapioca flour into the cooled chicken stock until there are no lumps.",
+      "Bring water to a boil in a saucepan, add the grated radish, and cook until translucent (a few minutes), then drain.",
+      "Heat 1 tbsp oil in a non-stick wok, add the 2 tsp minced garlic, and once just golden, quickly stir in the rice-flour batter.",
+      "Add the drained radish and stir &mdash; the batter should be quite thick, so keep cooking and stirring on low heat until it thickens.",
+      "Pour into a cake tin, place on a rack in a steamer, and steam covered for 1 hour over medium-low heat until the top is set.",
+      "Let the steamed cake cool, then refrigerate overnight.",
+      "The next day: cut the steamed cake into medium dice, and beat the eggs with a pinch of salt and pepper.",
+      "Heat oil in a wok, fry the diced cake pieces until pale gold, then push them to the side of the pan.",
+      "Add the 1 tbsp garlic and spring onion whites to the space and saut&eacute;.",
+      "Add the pickled radish and stir briefly, then add the chilli sauce, fish sauce, and soy sauce; stir until well mixed with the cake pieces.",
+      "Pour the beaten egg over the diced pieces, then scramble and toss everything together.",
+      "Garnish with chopped spring onion or cilantro and serve hot.",
+    ],
+    source: "https://www.recipesaresimple.com/recipe/singapore-carrot-cake/",
+    youtubeId: "GtXWmXsSRsI",
+  },
+  {
+    id: "meal-08",
+    name: "Singapore Noodles",
+    mealType: "Lunch",
+    estimatedTimeMinutes: 25,
+    difficulty: "Medium",
+    ingredients: [
+      "2 tbsp soy sauce",
+      "2 tbsp Chinese cooking wine (or dry sherry)",
+      "2 1/2 tsp curry powder",
+      "1/2 tsp sugar",
+      "1/2 tsp white pepper",
+      "100g (3 oz) dried rice vermicelli noodles",
+      "2 tbsp peanut oil, divided",
+      "8&ndash;10 medium raw shrimp/prawns, shelled and deveined",
+      "2 eggs, beaten",
+      "1/2 medium onion, thinly sliced",
+      "4 garlic cloves, minced",
+      "1 tsp fresh ginger, grated",
+      "1/2 lb (250g) Chinese BBQ pork (char siu), thinly sliced",
+      "1 cup red capsicum/bell pepper, sliced",
+      "2 tsp thinly sliced hot green pepper, optional",
+    ],
+    recipe: [
+      "Combine the soy sauce, Chinese cooking wine, curry powder, sugar, and white pepper in a small bowl to make the sauce.",
+      "Soak the rice vermicelli in a bowl of boiled water per packet instructions, then drain and set aside.",
+      "Heat 1 tbsp oil in a wok over medium heat, cook the shrimp until just done (about 2 1/2&ndash;3 minutes), then remove and set aside.",
+      "Add the egg to the wok and spread into a thin omelette; once set, roll it up, remove, and slice.",
+      "Return the wok to medium heat with the remaining 1 tbsp oil, add the garlic, ginger, and onion, and cook for 2 minutes until the onion softens.",
+      "Add the capsicum and cook for 1 minute.",
+      "Add the noodles and sauce and toss, then add the egg, pork, shrimp, and chillies (if using); toss until the sauce coats everything and it's heated through, about 1&ndash;2 minutes.",
+      "Serve immediately.",
+    ],
+    source: "https://www.recipetineats.com/singapore-noodles/",
+    youtubeId: "bH1RbOGUkKs",
+  },
+  {
+    id: "meal-09",
+    name: "Char Kway Teow",
+    mealType: "Dinner",
+    estimatedTimeMinutes: 20,
+    difficulty: "Medium",
+    ingredients: [
+      "500g (1 lb) fresh wide rice noodles",
+      "2 tbsp lard or vegetable oil",
+      "2 tbsp vegetable oil, divided",
+      "10 small prawns/shrimp, shelled and deveined",
+      "2 garlic cloves, finely chopped",
+      "1 Chinese sausage (lup cheong), thinly sliced on the diagonal",
+      "5cm (2 in) piece of fried fish cake, thinly sliced",
+      "20 stems garlic chives, cut into 4cm pieces",
+      "2 1/2 cups bean sprouts",
+      "2 eggs, whisked",
+      "5 tsp dark soy sauce",
+      "4 tsp light soy sauce",
+      "2 tsp oyster sauce",
+      "4 tsp kecap manis (sweet soy sauce)",
+    ],
+    recipe: [
+      "Mix the dark soy, light soy, oyster sauce, and kecap manis together to make the sauce.",
+      "Warm the packet of noodles in the microwave for 1 1/2&ndash;2 minutes until pliable, then carefully separate them &mdash; don't handle them while cold, they'll break.",
+      "Heat 1 tbsp oil in a large non-stick skillet over high heat; cook the shrimp for about 1 1/2 minutes until just done, then remove to a bowl.",
+      "Add the Chinese sausage and fish cake and cook for 1 minute until the sausage caramelises, then add to the bowl.",
+      "Add another 1 tbsp oil, then the egg; cook into a thick omelette, chop it up roughly, and add to the bowl.",
+      "Add the bean sprouts and cook for about 1 minute until just starting to wilt, then add to the bowl.",
+      "Add the lard; once it starts to smoke, add the garlic, then immediately the noodles &mdash; gently fold 4 times to coat with oil.",
+      "Tip the other ingredients back in along with the garlic chives, fold gently twice, then pour over the sauce.",
+      "Gently toss 4&ndash;6 times to disperse the sauce, pausing between tosses to let the noodles caramelise a little at the edges.",
+      "Remove from the heat and serve immediately.",
+    ],
+    source: "https://www.recipetineats.com/char-kway-teow/",
+    youtubeId: "3iHctwBBeYc",
+  },
+  {
+    id: "meal-10",
+    name: "Laksa",
+    mealType: "Lunch",
+    estimatedTimeMinutes: 60,
+    difficulty: "Hard",
+    ingredients: [
+      "2 cups (500ml) chicken stock/broth",
+      "1 cup (250ml) water",
+      "3 chicken drumsticks",
+      "1 1/2 tbsp oil",
+      "2 garlic cloves, minced",
+      "2cm piece of ginger, finely grated",
+      "1 lemongrass stalk, white part grated",
+      "2 bird's eye chillies, finely chopped",
+      "1/2 cup (135g) laksa paste",
+      "400ml can coconut milk",
+      "2 tsp fish sauce",
+      "50g (1.5 oz) dried vermicelli noodles",
+      "100g (3.5 oz) hokkien noodles, optional",
+      "80g (2.5 oz) bean sprouts",
+      "80g (2.5 oz) tofu puffs, halved",
+      "Fresh coriander, lime wedges, and crispy fried shallots, to garnish",
+    ],
+    recipe: [
+      "Simmer the chicken drumsticks in the stock and water for 25 minutes, until the meat falls off the bone and the liquid reduces by about a third.",
+      "Discard the skin and bones, shred the chicken, and set the broth aside.",
+      "Heat the oil in a saucepan over medium-low heat; saut&eacute; the garlic and ginger for 20 seconds, then add the lemongrass and chillies and cook for 1 minute.",
+      "Add the laksa paste and cook for 2 minutes, stirring constantly, until fragrant.",
+      "Add the chicken stock, coconut milk, and fish sauce. Cover and simmer for 10 minutes.",
+      "Adjust the taste with lime juice and fish sauce, add the tofu puffs, then leave off the heat with the lid on for 5 minutes.",
+      "Prepare the noodles per packet instructions and divide between bowls; top with the shredded chicken.",
+      "Pour the broth over, top with bean sprouts and your garnishes of choice, and serve.",
+    ],
+    source: "https://www.recipetineats.com/laksa-soup/",
+    youtubeId: "7XfvuGjaDTc",
+  },
 ];
 const mealsDiv = document.getElementById("mealDiv");
+const paginationNav = document.getElementById("mealPagination");
+const MEALS_PER_PAGE = 6;
 
-// Same loop you had, just wrapped in a function so we can call it again
-// with a different (filtered/sorted) array instead of only ever using
-// the full quickMeals list.
-function renderMeals(mealsToRender) {
-  let htmlCode = "";
+let activeMeals = quickMeals;
+let currentPage = 1;
 
-  for (let i = 0; i < mealsToRender.length; i++) {
-    let meal = mealsToRender[i];
-    htmlCode += `<a
+function mealCardHtml(meal) {
+  return `<a
           href="#"
           data-id="${meal["id"]}"
-          class="meal-card block bg-white rounded-2xl shadow-sm p-6 hover:shadow-md hover:-translate-y-0.5 transition-all"
+          class="meal-card flex flex-col h-full bg-white rounded-2xl shadow-sm p-6 hover:shadow-md hover:-translate-y-0.5 transition-all"
         >
           <span
             class="block text-[11.5px] font-bold tracking-[0.06em] text-[#7c9d96] mb-2 uppercase"
@@ -186,17 +335,79 @@ function renderMeals(mealsToRender) {
           >
           <span
             class="block font-body text-base text-[#5b6b70] leading-normal mb-3.5"
-            >Time: ${meal["estimatedTimeMinutes"]} min</span
+            >Time: ${meal["timeNote"] || `${meal["estimatedTimeMinutes"]} min`}</span
           >
           <span
-            class="block font-body text-[13.5px] font-semibold text-[#d97757]"
+            class="block font-body text-[13.5px] font-semibold text-[#d97757] mt-auto"
             >Click to Select &rarr;</span
           >
         </a>
         `;
-  }
-  mealsDiv.innerHTML = htmlCode;
 }
+
+// Renders just the current page's slice of activeMeals, plus the
+// pagination bar underneath it.
+function renderPage() {
+  const start = (currentPage - 1) * MEALS_PER_PAGE;
+  const pageMeals = activeMeals.slice(start, start + MEALS_PER_PAGE);
+
+  mealsDiv.innerHTML = pageMeals.length
+    ? pageMeals.map(mealCardHtml).join("")
+    : `<p class="col-span-full text-center font-body text-[#5b6b70] py-10">No meals match your search.</p>`;
+
+  renderPagination();
+}
+
+function renderPagination() {
+  if (!paginationNav) return;
+
+  const totalPages = Math.ceil(activeMeals.length / MEALS_PER_PAGE);
+  if (totalPages <= 1) {
+    paginationNav.innerHTML = "";
+    return;
+  }
+
+  const pageBtn = (label, page, { disabled = false, active = false } = {}) => `
+    <button
+      type="button"
+      data-page="${page}"
+      ${disabled ? "disabled" : ""}
+      class="pagination-btn min-w-9 h-9 px-3 rounded-full font-body text-sm font-semibold transition-colors ${
+        active
+          ? "bg-[#52796f] text-white"
+          : "bg-white text-[#2f3e46] border border-[#f0ece3] hover:border-[#7c9d96] hover:text-[#52796f] disabled:opacity-40 disabled:hover:border-[#f0ece3] disabled:hover:text-[#2f3e46]"
+      }"
+    >${label}</button>`;
+
+  let html = pageBtn("&larr;", currentPage - 1, { disabled: currentPage === 1 });
+  for (let p = 1; p <= totalPages; p++) {
+    html += pageBtn(String(p), p, { active: p === currentPage });
+  }
+  html += pageBtn("&rarr;", currentPage + 1, { disabled: currentPage === totalPages });
+
+  paginationNav.innerHTML = html;
+}
+
+// Sets a new active dataset (from search/filter/reset) and jumps back
+// to page 1, since the old page number may no longer be valid.
+function renderMeals(mealsToRender) {
+  activeMeals = mealsToRender;
+  currentPage = 1;
+  renderPage();
+}
+
+paginationNav?.addEventListener("click", (e) => {
+  const btn = e.target.closest("[data-page]");
+  if (!btn || btn.disabled) return;
+
+  const page = Number(btn.dataset.page);
+  const totalPages = Math.ceil(activeMeals.length / MEALS_PER_PAGE);
+  if (page < 1 || page > totalPages) return;
+
+  currentPage = page;
+  renderPage();
+  mealsDiv.scrollIntoView({ behavior: "smooth", block: "start" });
+});
 
 renderMeals(quickMeals);
 
@@ -258,10 +469,11 @@ mealGrid.addEventListener("click", (e) => {
         <div class="aspect-video w-full rounded-xl overflow-hidden">
           <iframe
             class="w-full h-full"
-            src="https://www.youtube.com/embed/${meal.youtubeId}"
+            src="https://www.youtube-nocookie.com/embed/${meal.youtubeId}"
             title="${meal.name} recipe video"
             frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
           ></iframe>
         </div>`
@@ -301,10 +513,24 @@ searchInput.addEventListener("input", () => {
 });
 
 const [timeBtn, difficultyBtn, mealTypeBtn, reset] = document.querySelectorAll(
-  ".functions-group button",
+  ".functions-group .filter-btn, .functions-group .reset-btn",
 );
 
+// Tracks every dropdown created by setupFilterDropdown so a click on one
+// filter button can close the others, and so an outside click can close
+// whichever one is open.
+const allDropdowns = [];
+
+function closeAllDropdowns() {
+  allDropdowns.forEach(({ button, dropdown }) => {
+    dropdown.classList.add("hidden");
+    button.classList.remove("is-open");
+  });
+}
+
 function setupFilterDropdown(button, key, formatOption) {
+  const defaultLabel = button.querySelector(".filter-btn-label").textContent;
+
   // Set is used to Remove the duplicates
   const options = [...new Set(quickMeals.map((meal) => meal[key]))];
 
@@ -318,34 +544,52 @@ function setupFilterDropdown(button, key, formatOption) {
 
   const dropdown = document.createElement("div");
   dropdown.className =
-    "absolute bg-white rounded-xl shadow-md mt-2 py-2 z-10 hidden w-full";
+    "absolute left-0 min-w-full bg-white rounded-xl shadow-md mt-2 py-2 z-10 hidden";
   dropdown.innerHTML = options
     .map(
       (option) =>
-        `<div class="filter-option px-4 py-1 text-[#2f3e46] cursor-pointer hover:bg-[#faf7f2]" data-value="${option}">${display(option)}</div>`,
+        `<div class="filter-option px-4 py-1.5 text-sm text-[#2f3e46] whitespace-nowrap cursor-pointer hover:bg-[#faf7f2]" data-value="${option}">${display(option)}</div>`,
     )
     .join("");
 
   button.parentElement.style.position = "relative";
   button.parentElement.appendChild(dropdown);
+  allDropdowns.push({ button, dropdown });
 
-  button.addEventListener("click", () => {
-    dropdown.classList.toggle("hidden");
+  button.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const isOpen = !dropdown.classList.contains("hidden");
+    closeAllDropdowns();
+    if (!isOpen) {
+      dropdown.classList.remove("hidden");
+      button.classList.add("is-open");
+    }
   });
 
   dropdown.addEventListener("click", (e) => {
     const chosen = e.target.closest(".filter-option");
     if (!chosen) return;
 
+    button.querySelector(".filter-btn-label").textContent =
+      `${defaultLabel}: ${chosen.textContent}`;
+
     const filteredMeals = quickMeals.filter(
       (meal) => String(meal[key]) === chosen.dataset.value,
     );
     renderMeals(filteredMeals);
-    dropdown.classList.add("hidden");
+    closeAllDropdowns();
   });
 }
-// Reset the filtered Meals if clicked
+
+// Clicking anywhere outside an open dropdown closes it.
+document.addEventListener("click", closeAllDropdowns);
+
+// Reset the filtered meals and filter button labels back to defaults.
 reset.addEventListener("click", () => {
+  closeAllDropdowns();
+  document.querySelectorAll(".filter-btn-label").forEach((label) => {
+    label.textContent = label.textContent.split(":")[0];
+  });
   renderMeals(quickMeals);
 });
 
