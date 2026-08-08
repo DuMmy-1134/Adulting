@@ -97,3 +97,26 @@ if (resetButton) {
 document.addEventListener('DOMContentLoaded', function() {
   resetSteps();
 });
+
+function youtubeEmbedHtml(youtubeId, title) {
+  return `
+    <div class="aspect-video w-full rounded-xl overflow-hidden">
+      <iframe
+        class="w-full h-full"
+        src="https://www.youtube-nocookie.com/embed/${youtubeId}"
+        title="${title}"
+        frameborder="0"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>`;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('[data-youtube-embed]').forEach(function (el) {
+    const videoId = el.dataset.youtubeEmbed;
+    const title = el.dataset.youtubeTitle || 'Demonstration video';
+    el.innerHTML = youtubeEmbedHtml(videoId, title);
+  });
+});
