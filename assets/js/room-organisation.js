@@ -50,73 +50,64 @@ const resetZonesBtn = document.getElementById('reset-zones-btn');
 // Render zones with accordion
 function renderZones() {
   if (!zonesContainer) return;
-  
+
   zonesContainer.innerHTML = '';
-  
+
   ROOM_ZONES.forEach(zone => {
-    const zoneItem = document.createElement('div');
-    zoneItem.className = 'border-2 border-[#7c9d96] rounded-lg overflow-hidden mb-3';
-    
-    // Zone header (clickable)
-    const header = document.createElement('button');
-    header.className = 'w-full bg-[#f5f3f0] hover:bg-[#eef3f1] p-4 flex items-center justify-between font-heading font-bold text-[#2f3e46] transition-all';
-    header.setAttribute('data-zone-id', zone.id);
-    
+    const zoneItem = document.createElement('details');
+    zoneItem.className = 'group bg-white rounded-2xl shadow-sm p-5';
+    zoneItem.setAttribute('data-zone-id', zone.id);
+
+    // Zone header
+    const summary = document.createElement('summary');
+    summary.className = 'list-none flex justify-between items-center gap-4 cursor-pointer font-body font-semibold text-base text-[#2f3e46]';
+
     const titleSpan = document.createElement('span');
     titleSpan.textContent = zone.title;
-    
-    const chevron = document.createElement('span');
-    chevron.className = 'transition-transform';
-    chevron.textContent = '▾';
-    
-    header.appendChild(titleSpan);
-    header.appendChild(chevron);
-    
-    // Zone content (hidden by default)
+    summary.appendChild(titleSpan);
+
+    const plus = document.createElement('span');
+    plus.setAttribute('aria-hidden', 'true');
+    plus.className = 'text-[#52796f] font-bold shrink-0 group-open:hidden';
+    plus.textContent = '+';
+    summary.appendChild(plus);
+
+    const minus = document.createElement('span');
+    minus.setAttribute('aria-hidden', 'true');
+    minus.className = 'text-[#52796f] font-bold shrink-0 hidden group-open:inline';
+    minus.textContent = '–';
+    summary.appendChild(minus);
+
+    // Zone content
     const content = document.createElement('div');
-    content.className = 'hidden bg-white p-4';
-    content.setAttribute('data-zone-id', zone.id);
-    
+    content.className = 'mt-2.5 flex flex-col gap-3';
+
     // Steps list
     const stepsList = document.createElement('ol');
-    stepsList.className = 'list-decimal list-inside space-y-2 mb-4';
-    
+    stepsList.className = 'list-decimal list-inside space-y-2 font-body text-sm text-[#5b6b70]';
+
     zone.tips.forEach(tip => {
       const li = document.createElement('li');
-      li.className = 'font-body text-[13.5px] text-[#5b6b70]';
       li.textContent = tip;
       stepsList.appendChild(li);
     });
-    
+
     content.appendChild(stepsList);
-    
+
     // Complete button
     const completeBtn = document.createElement('button');
     completeBtn.className = 'w-full bg-[#52796f] text-white font-semibold py-2 rounded-lg hover:bg-[#3d5a56] transition-all complete-zone-btn';
     completeBtn.setAttribute('data-zone-id', zone.id);
     completeBtn.textContent = 'Mark as Complete';
     completeBtn.addEventListener('click', markZoneComplete);
-    
+
     content.appendChild(completeBtn);
-    
-    zoneItem.appendChild(header);
+
+    zoneItem.appendChild(summary);
     zoneItem.appendChild(content);
-    
-    header.addEventListener('click', toggleZone);
-    
+
     zonesContainer.appendChild(zoneItem);
   });
-}
-
-// Toggle zone accordion
-function toggleZone(e) {
-  const header = e.currentTarget;
-  const zoneId = header.getAttribute('data-zone-id');
-  const content = document.querySelector(`div[data-zone-id="${zoneId}"]`);
-  const chevron = header.querySelector('span:last-child');
-  
-  content.classList.toggle('hidden');
-  chevron.style.transform = content.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
 }
 
 // Mark zone as complete
