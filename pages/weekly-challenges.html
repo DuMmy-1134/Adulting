@@ -388,7 +388,7 @@
           > -->
           <span
             class="block font-body text-[13.5px] font-semibold text-[#d97757]"
-            >filter by category and diffculty. Mark tasks complete to update the
+            >Filter by category and difficulty below. Mark tasks complete to update the
             progress bar</span
           >
         </div>
@@ -400,7 +400,22 @@
           Progress
         </div>
       </div>
-      <!-- 4. The Challenges Table -->
+      <div class="flex flex-wrap gap-4 mb-4">
+        <div>
+          <label for="challenge-category-filter" class="block font-body text-[13.5px] font-semibold text-[#2f3e46] mb-1.5">Category</label>
+          <select id="challenge-category-filter" class="form-select border-2 border-[#7c9d96] rounded-lg px-3 py-2 font-body text-[14.5px] text-[#2f3e46] focus:outline-none focus:border-[#52796f]">
+            <option value="all">All categories</option>
+          </select>
+        </div>
+        <div>
+          <label for="challenge-difficulty-filter" class="block font-body text-[13.5px] font-semibold text-[#2f3e46] mb-1.5">Difficulty</label>
+          <select id="challenge-difficulty-filter" class="form-select border-2 border-[#7c9d96] rounded-lg px-3 py-2 font-body text-[14.5px] text-[#2f3e46] focus:outline-none focus:border-[#52796f]">
+            <option value="all">All difficulties</option>
+          </select>
+        </div>
+      </div>
+      <p id="challenge-filter-status" aria-live="polite" class="font-body text-[13px] text-[#5b6b70] mb-3"></p>
+      <!-- The Challenges Table -->
       <div
         class="overflow-x-auto rounded-xl border-2 border-[#8BA39E] bg-white"
       >
@@ -423,7 +438,7 @@
           <!-- Table Body -->
           <tbody class="divide-y-2 divide-[#8BA39E] text-sm text-slate-700">
             <!-- Row 1 -->
-            <tr>
+            <tr data-category="Time / Meals" data-difficulty="Easy">
               <td class="border-r-2 border-[#8BA39E] p-3">1</td>
               <td class="border-r-2 border-[#8BA39E] p-3">Time / Meals</td>
               <td class="border-r-2 border-[#8BA39E] p-3 text-left">
@@ -438,7 +453,7 @@
             </tr>
 
             <!-- Row 2 -->
-            <tr>
+            <tr data-category="Time / Meals" data-difficulty="Easy">
               <td class="border-r-2 border-[#8BA39E] p-3">2</td>
               <td class="border-r-2 border-[#8BA39E] p-3">Time / Meals</td>
               <td class="border-r-2 border-[#8BA39E] p-3 text-left">
@@ -453,7 +468,7 @@
             </tr>
 
             <!-- Row 3 -->
-            <tr>
+            <tr data-category="Time / Meals" data-difficulty="Easy">
               <td class="border-r-2 border-[#8BA39E] p-3">3</td>
               <td class="border-r-2 border-[#8BA39E] p-3">Time / Meals</td>
               <td class="border-r-2 border-[#8BA39E] p-3 text-left">
@@ -467,9 +482,8 @@
               </td>
             </tr>
 
-            <!-- Empty Wireframe Placeholder Rows -->
             <!-- Row 4 -->
-            <tr>
+            <tr data-category="Money / Budget" data-difficulty="Medium">
               <td class="border-r-2 border-[#8BA39E] p-3">4</td>
               <td class="border-r-2 border-[#8BA39E] p-3">Money / Budget</td>
               <td class="border-r-2 border-[#8BA39E] p-3 text-left">
@@ -486,7 +500,7 @@
             </tr>
 
             <!-- Row 5 -->
-            <tr>
+            <tr data-category="Safety / Digital" data-difficulty="Medium">
               <td class="border-r-2 border-[#8BA39E] p-3">5</td>
               <td class="border-r-2 border-[#8BA39E] p-3">Safety / Digital</td>
               <td class="border-r-2 border-[#8BA39E] p-3 text-left">
@@ -503,7 +517,7 @@
             </tr>
 
             <!-- Row 6 -->
-            <tr>
+            <tr data-category="Home / Basics" data-difficulty="Medium">
               <td class="border-r-2 border-[#8BA39E] p-3">6</td>
               <td class="border-r-2 border-[#8BA39E] p-3">Home / Basics</td>
               <td class="border-r-2 border-[#8BA39E] p-3 text-left">
@@ -520,7 +534,7 @@
             </tr>
 
             <!-- Row 7 -->
-            <tr>
+            <tr data-category="Growth / Wellness" data-difficulty="Hard">
               <td class="border-r-2 border-[#8BA39E] p-3">7</td>
               <td class="border-r-2 border-[#8BA39E] p-3">Growth / Wellness</td>
               <td class="border-r-2 border-[#8BA39E] p-3 text-left">

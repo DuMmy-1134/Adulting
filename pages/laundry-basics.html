@@ -51,6 +51,7 @@
             <a href="../index.html#practice-growth" class="font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">Practice &amp; Growth <span aria-hidden="true">▾</span></a>
             <div class="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity absolute left-0 top-full min-w-[190px] bg-white rounded-xl shadow-lg p-4">
               <ul class="list-none">
+                <li><a href="weekly-challenges.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Weekly Challenges</a></li>
                 <li><a href="life-readiness-quiz.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Life Readiness Quiz</a></li>
                 <li><a href="submit-a-tip.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Submit a Tip</a></li>
               </ul>
@@ -133,18 +134,36 @@
     <section class="mb-12">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <!-- Card 1 -->
-        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition">
-          <h3 class="font-heading text-lg font-bold text-[#2f3e46] mb-2">Sorting Your Clothes</h3>
-          <p class="text-sm text-[#5b6b70] mb-4">Learn how to separate clothes by color, fabric, and care requirements.</p>
-          <span class="text-[#d97757] font-medium text-sm">Click to Read →</span>
-        </div>
+        <details class="group bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition">
+          <summary class="list-none flex justify-between items-center gap-4 cursor-pointer">
+            <h3 class="font-heading text-lg font-bold text-[#2f3e46]">Sorting Your Clothes</h3>
+            <span aria-hidden="true" class="text-[#d97757] font-bold shrink-0 group-open:hidden">+</span>
+            <span aria-hidden="true" class="text-[#d97757] font-bold shrink-0 hidden group-open:inline">&ndash;</span>
+          </summary>
+          <p class="text-sm text-[#5b6b70] mt-2 mb-3">Learn how to separate clothes by color, fabric, and care requirements.</p>
+          <ul class="list-disc pl-5 text-sm text-[#5b6b70] space-y-1.5">
+            <li>Split into three piles: whites, lights, and darks &mdash; dye from darks can bleed onto lighter fabrics.</li>
+            <li>Separate heavy items (jeans, towels) from delicates so buttons and zips don&rsquo;t snag thin fabric.</li>
+            <li>Check the care label before mixing anything in with a load &mdash; it tells you if an item needs its own wash.</li>
+            <li>Turn printed or dark items inside out to protect the design and reduce fading.</li>
+          </ul>
+        </details>
 
         <!-- Card 2 -->
-        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition">
-          <h3 class="font-heading text-lg font-bold text-[#2f3e46] mb-2">Washing Settings Guide</h3>
-          <p class="text-sm text-[#5b6b70] mb-4">Master the right water temperature and cycle for different fabric types.</p>
-          <span class="text-[#d97757] font-medium text-sm">Click to Read →</span>
-        </div>
+        <details class="group bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition">
+          <summary class="list-none flex justify-between items-center gap-4 cursor-pointer">
+            <h3 class="font-heading text-lg font-bold text-[#2f3e46]">Washing Settings Guide</h3>
+            <span aria-hidden="true" class="text-[#d97757] font-bold shrink-0 group-open:hidden">+</span>
+            <span aria-hidden="true" class="text-[#d97757] font-bold shrink-0 hidden group-open:inline">&ndash;</span>
+          </summary>
+          <p class="text-sm text-[#5b6b70] mt-2 mb-3">Master the right water temperature and cycle for different fabric types.</p>
+          <ul class="list-disc pl-5 text-sm text-[#5b6b70] space-y-1.5">
+            <li><span class="font-semibold text-[#2f3e46]">Cold water:</span> dark colors, delicates, and most everyday loads &mdash; keeps colors from fading.</li>
+            <li><span class="font-semibold text-[#2f3e46]">Warm water:</span> moderately soiled synthetics and bedsheets.</li>
+            <li><span class="font-semibold text-[#2f3e46]">Hot water:</span> whites, towels, and heavily soiled items.</li>
+            <li><span class="font-semibold text-[#2f3e46]">Cycle:</span> normal for sturdy fabrics, gentle/delicate for thin fabrics, permanent press for wrinkle-prone synthetics.</li>
+          </ul>
+        </details>
       </div>
     </section>
 
@@ -153,18 +172,37 @@
       <h2 class="font-heading text-2xl font-bold text-[#2f3e46] mb-6">Laundry Symbols Explained</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <!-- Card 1 -->
-        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition">
-          <h3 class="font-heading text-lg font-bold text-[#2f3e46] mb-2">Understanding Care Labels</h3>
-          <p class="text-sm text-[#5b6b70] mb-4">Decode laundry symbols on clothing tags to prevent damage.</p>
-          <span class="text-[#d97757] font-medium text-sm">Click to Read →</span>
-        </div>
+        <details class="group bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition">
+          <summary class="list-none flex justify-between items-center gap-4 cursor-pointer">
+            <h3 class="font-heading text-lg font-bold text-[#2f3e46]">Understanding Care Labels</h3>
+            <span aria-hidden="true" class="text-[#d97757] font-bold shrink-0 group-open:hidden">+</span>
+            <span aria-hidden="true" class="text-[#d97757] font-bold shrink-0 hidden group-open:inline">&ndash;</span>
+          </summary>
+          <p class="text-sm text-[#5b6b70] mt-2 mb-3">Decode laundry symbols on clothing tags to prevent damage.</p>
+          <ul class="list-disc pl-5 text-sm text-[#5b6b70] space-y-1.5">
+            <li><span class="font-semibold text-[#2f3e46]">Tub icon:</span> washing instructions &mdash; dots inside show the maximum safe temperature.</li>
+            <li><span class="font-semibold text-[#2f3e46]">Triangle:</span> bleach instructions &mdash; a crossed-out triangle means no bleach at all.</li>
+            <li><span class="font-semibold text-[#2f3e46]">Square:</span> drying instructions, including tumble-dry heat level.</li>
+            <li><span class="font-semibold text-[#2f3e46]">Iron icon:</span> ironing instructions &mdash; crossed out means don&rsquo;t iron this item.</li>
+            <li><span class="font-semibold text-[#2f3e46]">Circle:</span> dry clean only.</li>
+          </ul>
+        </details>
 
         <!-- Card 2 -->
-        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition">
-          <h3 class="font-heading text-lg font-bold text-[#2f3e46] mb-2">Bleach &amp; Chemical Guide</h3>
-          <p class="text-sm text-[#5b6b70] mb-4">Know when and how to use bleach safely on different fabrics.</p>
-          <span class="text-[#d97757] font-medium text-sm">Click to Read →</span>
-        </div>
+        <details class="group bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition">
+          <summary class="list-none flex justify-between items-center gap-4 cursor-pointer">
+            <h3 class="font-heading text-lg font-bold text-[#2f3e46]">Bleach &amp; Chemical Guide</h3>
+            <span aria-hidden="true" class="text-[#d97757] font-bold shrink-0 group-open:hidden">+</span>
+            <span aria-hidden="true" class="text-[#d97757] font-bold shrink-0 hidden group-open:inline">&ndash;</span>
+          </summary>
+          <p class="text-sm text-[#5b6b70] mt-2 mb-3">Know when and how to use bleach safely on different fabrics.</p>
+          <ul class="list-disc pl-5 text-sm text-[#5b6b70] space-y-1.5">
+            <li><span class="font-semibold text-[#2f3e46]">Chlorine bleach:</span> whites and colorfast fabrics only &mdash; never on wool, silk, or spandex.</li>
+            <li><span class="font-semibold text-[#2f3e46]">Oxygen (color-safe) bleach:</span> a gentler option that&rsquo;s safe for most colored fabrics.</li>
+            <li>Always dilute bleach in water first &mdash; pouring it directly on fabric can bleach or burn through it.</li>
+            <li>Check the care label&rsquo;s triangle symbol before using any bleach.</li>
+          </ul>
+        </details>
       </div>
     </section>
 
@@ -173,25 +211,51 @@
       <h2 class="font-heading text-2xl font-bold text-[#2f3e46] mb-6">Drying &amp; Care Habits</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <!-- Card 1 -->
-        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition">
-          <h3 class="font-heading text-lg font-bold text-[#2f3e46] mb-2">Machine vs. Hand Drying</h3>
-          <p class="text-sm text-[#5b6b70] mb-4">Understand which drying method works best for each garment type.</p>
-          <span class="text-[#d97757] font-medium text-sm">Click to Read →</span>
-        </div>
+        <details class="group bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition">
+          <summary class="list-none flex justify-between items-center gap-4 cursor-pointer">
+            <h3 class="font-heading text-lg font-bold text-[#2f3e46]">Machine vs. Hand Drying</h3>
+            <span aria-hidden="true" class="text-[#d97757] font-bold shrink-0 group-open:hidden">+</span>
+            <span aria-hidden="true" class="text-[#d97757] font-bold shrink-0 hidden group-open:inline">&ndash;</span>
+          </summary>
+          <p class="text-sm text-[#5b6b70] mt-2 mb-3">Understand which drying method works best for each garment type.</p>
+          <ul class="list-disc pl-5 text-sm text-[#5b6b70] space-y-1.5">
+            <li><span class="font-semibold text-[#2f3e46]">Tumble dry:</span> sturdy cottons and towels &mdash; use low heat for synthetics.</li>
+            <li><span class="font-semibold text-[#2f3e46]">Lay flat:</span> sweaters and wool, to stop them stretching out of shape.</li>
+            <li><span class="font-semibold text-[#2f3e46]">Hang dry:</span> shirts and dresses, to cut down on wrinkles.</li>
+          </ul>
+        </details>
 
         <!-- Card 2 -->
-        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition">
-          <h3 class="font-heading text-lg font-bold text-[#2f3e46] mb-2">Preventing Wrinkles</h3>
-          <p class="text-sm text-[#5b6b70] mb-4">Tips and tricks to keep clothes looking fresh and wrinkle-free.</p>
-          <span class="text-[#d97757] font-medium text-sm">Click to Read →</span>
-        </div>
+        <details class="group bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition">
+          <summary class="list-none flex justify-between items-center gap-4 cursor-pointer">
+            <h3 class="font-heading text-lg font-bold text-[#2f3e46]">Preventing Wrinkles</h3>
+            <span aria-hidden="true" class="text-[#d97757] font-bold shrink-0 group-open:hidden">+</span>
+            <span aria-hidden="true" class="text-[#d97757] font-bold shrink-0 hidden group-open:inline">&ndash;</span>
+          </summary>
+          <p class="text-sm text-[#5b6b70] mt-2 mb-3">Tips and tricks to keep clothes looking fresh and wrinkle-free.</p>
+          <ul class="list-disc pl-5 text-sm text-[#5b6b70] space-y-1.5">
+            <li>Don&rsquo;t overload the washer or dryer &mdash; clothes need room to tumble freely.</li>
+            <li>Take clothes out as soon as the cycle ends instead of leaving them to sit.</li>
+            <li>Fold or hang items up right away.</li>
+            <li>Add a couple of dryer balls to keep clothes separated as they tumble.</li>
+          </ul>
+        </details>
 
         <!-- Card 3 -->
-        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition">
-          <h3 class="font-heading text-lg font-bold text-[#2f3e46] mb-2">Extending Garment Life</h3>
-          <p class="text-sm text-[#5b6b70] mb-4">Maintain your clothes properly to make them last longer.</p>
-          <span class="text-[#d97757] font-medium text-sm">Click to Read →</span>
-        </div>
+        <details class="group bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition">
+          <summary class="list-none flex justify-between items-center gap-4 cursor-pointer">
+            <h3 class="font-heading text-lg font-bold text-[#2f3e46]">Extending Garment Life</h3>
+            <span aria-hidden="true" class="text-[#d97757] font-bold shrink-0 group-open:hidden">+</span>
+            <span aria-hidden="true" class="text-[#d97757] font-bold shrink-0 hidden group-open:inline">&ndash;</span>
+          </summary>
+          <p class="text-sm text-[#5b6b70] mt-2 mb-3">Maintain your clothes properly to make them last longer.</p>
+          <ul class="list-disc pl-5 text-sm text-[#5b6b70] space-y-1.5">
+            <li>Wash lightly-worn items less often &mdash; every wash cycle wears fibers down a little.</li>
+            <li>Turn clothes inside out to protect color and prints from friction in the wash.</li>
+            <li>Use a mesh laundry bag for delicates, bras, and anything with straps.</li>
+            <li>Avoid high heat where you can &mdash; it&rsquo;s the biggest cause of shrinking and fiber damage over time.</li>
+          </ul>
+        </details>
       </div>
     </section>
   </main>

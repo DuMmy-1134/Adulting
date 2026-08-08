@@ -123,7 +123,7 @@ function renderMeals(mealsToRender) {
   for (let i = 0; i < mealsToRender.length; i++) {
     let meal = mealsToRender[i];
     htmlCode += `<a
-          href="#content"
+          href="#"
           data-id="${meal["id"]}"
           class="meal-card block bg-white rounded-2xl shadow-sm p-6 hover:shadow-md hover:-translate-y-0.5 transition-all"
         >
@@ -136,18 +136,17 @@ function renderMeals(mealsToRender) {
             >${meal["name"]}</h3
           >
           <span
-            class="block font-body text-base text-[#5b6b70] leading-normal mb-3.5"
+            class="block font-body text-base text-[#5b6b70] leading-normal mb-1"
             >Difficulty: ${meal["difficulty"]}</span
           >
           <span
-            class="block font-body text-base text-[#5b6b70] leading-normal mb-3.5"
-            >MealType: ${meal["mealType"]}</span
+            class="block font-body text-base text-[#5b6b70] leading-normal mb-1"
+            >Meal type: ${meal["mealType"]}</span
           >
           <span
             class="block font-body text-base text-[#5b6b70] leading-normal mb-3.5"
-            >EstimatedTime: ${meal["estimatedTimeMinutes"]}</span
+            >Time: ${meal["estimatedTimeMinutes"]} min</span
           >
-          
           <span
             class="block font-body text-[13.5px] font-semibold text-[#d97757]"
             >Click to Select &rarr;</span
@@ -176,6 +175,7 @@ function setCardActive(card, active) {
 mealGrid.addEventListener("click", (e) => {
   const clickedCard = e.target.closest(".meal-card");
   if (clickedCard == undefined) return;
+  e.preventDefault();
 
   const isAlreadyActive = clickedCard.classList.contains("bg-[#df936d]");
 
@@ -247,9 +247,17 @@ const [timeBtn, difficultyBtn, mealTypeBtn, reset] = document.querySelectorAll(
   ".functions-group button",
 );
 
-function setupFilterDropdown(button, key) {
+function setupFilterDropdown(button, key, formatOption) {
   // Set is used to Remove the duplicates
   const options = [...new Set(quickMeals.map((meal) => meal[key]))];
+
+  // Sort numerically when every option is a number (e.g. time in
+  // minutes), otherwise leave them in their existing order.
+  if (options.every((option) => typeof option === "number")) {
+    options.sort((a, b) => a - b);
+  }
+
+  const display = formatOption || ((option) => option);
 
   const dropdown = document.createElement("div");
   dropdown.className =
@@ -257,7 +265,7 @@ function setupFilterDropdown(button, key) {
   dropdown.innerHTML = options
     .map(
       (option) =>
-        `<div class="filter-option px-4 py-1 text-[#2f3e46] cursor-pointer hover:bg-[#faf7f2]">${option}</div>`,
+        `<div class="filter-option px-4 py-1 text-[#2f3e46] cursor-pointer hover:bg-[#faf7f2]" data-value="${option}">${display(option)}</div>`,
     )
     .join("");
 
@@ -273,7 +281,7 @@ function setupFilterDropdown(button, key) {
     if (!chosen) return;
 
     const filteredMeals = quickMeals.filter(
-      (meal) => String(meal[key]) === chosen.textContent,
+      (meal) => String(meal[key]) === chosen.dataset.value,
     );
     renderMeals(filteredMeals);
     dropdown.classList.add("hidden");
@@ -285,6 +293,6 @@ reset.addEventListener("click", () => {
 });
 
 // Filter Buttons
-setupFilterDropdown(timeBtn, "estimatedTimeMinutes");
+setupFilterDropdown(timeBtn, "estimatedTimeMinutes", (mins) => `${mins} min`);
 setupFilterDropdown(difficultyBtn, "difficulty");
 setupFilterDropdown(mealTypeBtn, "mealType");

@@ -366,19 +366,20 @@
     </header>
     <section class="bg-[#2f3e46] text-white px-4 md:px-6 lg:px-10 pt-14 pb-16">
       <div class="max-w-6xl mx-auto">
-        <h1 class="px-10 font-heading font-bold text-[40px] leading-tight mb-3">
+        <h1 class="font-heading font-bold text-[40px] leading-tight mb-3">
           Money Basics
         </h1>
-        <p class="px-10 font-body text-base opacity-85 max-w-[540px]">
+        <p class="font-body text-base opacity-85 max-w-[540px]">
           Simple steps to build smart financial habits for life.
         </p>
       </div>
     </section>
     <section class="site-features max-w-6xl mx-auto px-4 md:px-6 lg:px-10 py-4">
       <div class="">
-        <a
+        <button
+          type="button"
           id="needOrWant"
-          class="block mb-4 col-span-2 bg-white rounded-2xl shadow-sm p-6 hover:shadow-md hover:-translate-y-0.5 transition-all"
+          class="block w-full text-left mb-4 col-span-2 bg-white rounded-2xl shadow-sm p-6 hover:shadow-md hover:-translate-y-0.5 transition-all"
         >
           <h3
             class="block font-heading font-bold text-lg text-[#2f3e46] mb-2.5"
@@ -391,7 +392,7 @@
           >
           <span
             class="block font-body text-[13.5px] font-semibold text-[#d97757]"
-            >click to Read &rarr;</span
+            >Click to Read &rarr;</span
           >
           <div
             id="expandable-content"
@@ -445,10 +446,11 @@
               </p>
             </div>
           </div>
-        </a>
-        <a
+        </button>
+        <button
+          type="button"
           id="budget-goals"
-          class="block col-span-3 bg-white rounded-2xl shadow-sm p-6 hover:shadow-md hover:-translate-y-0.5 transition-all"
+          class="block w-full text-left col-span-3 bg-white rounded-2xl shadow-sm p-6 hover:shadow-md hover:-translate-y-0.5 transition-all"
         >
           <h3
             class="block font-heading font-bold text-lg text-[#2f3e46] mb-2.5"
@@ -547,14 +549,14 @@
               </div>
             </div>
           </div>
-        </a>
+        </button>
       </div>
       <div id="area-selection" class="py-4">
         <h2 class="font-heading font-semibold text-2xl mb-2.5">
           Student Budget Calculator
         </h2>
         <div class="grid grid-cols-4 gap-4 grid-row-3">
-          <a
+          <div
             class="block bg-white row-span-3 col-span-2 rounded-2xl shadow-sm p-6 hover:shadow-md hover:-translate-y-0.5 transition-all"
           >
             <form
@@ -679,7 +681,7 @@
                 </button>
               </div>
             </form>
-          </a>
+          </div>
           <div
             class="block row-span-2 col-span-2 bg-white rounded-2xl shadow-sm p-6 hover:shadow-md hover:-translate-y-0.5 transition-all"
           >
@@ -775,30 +777,36 @@
               </table>
             </div>
           </div>
-          <a
-            class="block bg-white col-span-2 rounded-2xl shadow-sm p-6 hover:shadow-md hover:-translate-y-0.5 transition-all"
+          <details
+            class="group block bg-white col-span-2 rounded-2xl shadow-sm p-6 hover:shadow-md hover:-translate-y-0.5 transition-all"
           >
-            <h3
-              class="block font-heading font-bold text-lg text-[#2f3e46] mb-2.5"
-              >FeedBack Commenting Block</h3
-            >
+            <summary class="list-none cursor-pointer flex justify-between items-start gap-2">
+              <h3
+                class="block font-heading font-bold text-lg text-[#2f3e46] mb-2.5"
+                >Quick Gut-Check: Rate Your Spending</h3
+              >
+              <span aria-hidden="true" class="text-[#d97757] font-bold shrink-0 group-open:hidden">+</span>
+              <span aria-hidden="true" class="text-[#d97757] font-bold shrink-0 hidden group-open:inline">&ndash;</span>
+            </summary>
             <span
               class="block font-body text-base text-[#5b6b70] leading-normal mb-3.5"
-              >Check how you can save up and get feedback from your peers</span
+              >No app or peer required &mdash; answer these honestly to see how your habits stack up.</span
             >
-            <span
-              class="block font-body text-[13.5px] font-semibold text-[#d97757]"
-              >Read the module &rarr;</span
-            >
-          </a>
+            <ul class="list-disc pl-5 text-sm text-[#5b6b70] space-y-1.5">
+              <li>Do you know roughly how much you spent last week without checking your banking app?</li>
+              <li>Have you put anything away in savings in the last month, even a small amount?</li>
+              <li>Could you cover a $50 surprise expense today without borrowing?</li>
+              <li>If you answered "no" to more than one, revisit the 50/30/20 split above and pick just one habit from below to start with.</li>
+            </ul>
+          </details>
         </div>
         <h2 class="font-heading font-semibold text-2xl mb-2.5 pt-4">
           Saving Habits
         </h2>
         <div id="saving-habits" class="grid md:grid-cols-3 gap-4">
-          <a
-            href="#saving-habits"
-            class="habit block bg-white rounded-2xl shadow-sm p-6 hover:shadow-md hover:-translate-y-0.5 transition-all"
+          <button
+            type="button"
+            class="habit block w-full text-left bg-white rounded-2xl shadow-sm p-6 hover:shadow-md hover:-translate-y-0.5 transition-all"
           >
             <h3
               class="block font-heading font-bold text-lg text-[#2f3e46] mb-2.5"
@@ -806,7 +814,7 @@
             >
             <span
               class="block font-body text-base text-[#5b6b70] leading-normal mb-3.5"
-              >Imporantance of realistc Goals!</span
+              >The importance of realistic goals</span
             >
             <span
               class="block font-body text-[13.5px] font-semibold text-[#d97757]"
@@ -842,14 +850,14 @@
                 Pick a tiny target ($10 this week). Put it away today before you
                 spend it on snacks.
               </div>
-            </div></a
-          ><a
-            href="#saving-habits"
-            class="block habit bg-white rounded-2xl shadow-sm p-6 hover:shadow-md hover:-translate-y-0.5 transition-all"
+            </div></button
+          ><button
+            type="button"
+            class="block w-full text-left habit bg-white rounded-2xl shadow-sm p-6 hover:shadow-md hover:-translate-y-0.5 transition-all"
           >
-            <span
+            <h3
               class="block col-span-1 font-heading font-bold text-lg text-[#2f3e46] mb-2.5"
-              >Tracking the Expenses</span
+              >Tracking the Expenses</h3
             >
             <span
               class="block font-body text-base text-[#5b6b70] leading-normal mb-3.5"
@@ -906,10 +914,10 @@
                 Check your banking app or wallet right now. Write down the last
                 3 things you bought. Were any of them a surprise?
               </div>
-            </div> </a
-          ><a
-            href="#saving-habits"
-            class="block habit bg-white rounded-2xl shadow-sm p-6 hover:shadow-md hover:-translate-y-0.5 transition-all"
+            </div> </button
+          ><button
+            type="button"
+            class="block w-full text-left habit bg-white rounded-2xl shadow-sm p-6 hover:shadow-md hover:-translate-y-0.5 transition-all"
           >
             <h3
               class="block font-heading font-bold text-lg text-[#2f3e46] mb-2.5"
@@ -968,7 +976,7 @@
                 remember it in 3 days, reconsider it!
               </div>
             </div>
-          </a>
+          </button>
         </div>
       </div>
     </section>

@@ -23,6 +23,11 @@
 const STATUS_ALL_CLOSED_TEXT = "All action guides are closed.";
 const STATUS_OPEN_PREFIX = "Showing: ";
 
+// Both the status line and the Collapse-all button stay hidden/empty
+// until the visitor opens (or collapses) a guide for the first time —
+// there's nothing useful to say or collapse before that.
+let hasInteracted = false;
+
 function getGuides() {
   return document.querySelectorAll("[data-action-guide]");
 }
@@ -37,7 +42,18 @@ function getGuideTitle(guide) {
 
 function renderStatus() {
   const statusEl = document.getElementById("action-guides-status");
+  const collapseButton = document.getElementById("action-guides-collapse");
+
+  if (collapseButton) {
+    collapseButton.hidden = !hasInteracted;
+  }
+
   if (!statusEl) {
+    return;
+  }
+
+  if (!hasInteracted) {
+    statusEl.textContent = "";
     return;
   }
 
@@ -48,11 +64,7 @@ function renderStatus() {
     }
   });
 
-  if (openGuide) {
-    statusEl.textContent = STATUS_OPEN_PREFIX + getGuideTitle(openGuide);
-  } else {
-    statusEl.textContent = STATUS_ALL_CLOSED_TEXT;
-  }
+  statusEl.textContent = openGuide ? STATUS_OPEN_PREFIX + getGuideTitle(openGuide) : STATUS_ALL_CLOSED_TEXT;
 }
 
 function closeOtherGuides(openedGuide) {
@@ -64,6 +76,7 @@ function closeOtherGuides(openedGuide) {
 }
 
 function collapseAllGuides() {
+  hasInteracted = true;
   getGuides().forEach((guide) => {
     guide.open = false;
   });
@@ -78,22 +91,18 @@ function initActionGuides() {
 
   guides.forEach((guide) => {
     guide.addEventListener("toggle", () => {
-      if (!guide.open) {
-        renderStatus();
-        return;
+      hasInteracted = true;
+      if (guide.open) {
+        closeOtherGuides(guide);
       }
-      closeOtherGuides(guide);
       renderStatus();
     });
   });
 
   const collapseButton = document.getElementById("action-guides-collapse");
   if (collapseButton) {
-    collapseButton.hidden = false;
     collapseButton.addEventListener("click", collapseAllGuides);
   }
-
-  renderStatus();
 }
 
 initActionGuides();
