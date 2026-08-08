@@ -126,8 +126,14 @@
 
     <main>
       <!-- HERO -->
-      <section class="bg-[#2f3e46] text-white pt-8 pb-16">
-        <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10">
+      <!-- Hero background photo: "Colorful sticky notes pinned to
+           board" by Patrick Perkins on Unsplash, free to use under
+           the Unsplash License.
+           https://unsplash.com/photos/colorful-sticky-notes-pinned-to-board-ETRPjvb0KM0 -->
+      <section class="relative overflow-hidden text-white pt-8 pb-16">
+        <div class="absolute inset-0 bg-[url('../assets/images/submit-a-tip-hero.jpg')] bg-cover bg-center"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-[#2f3e46] via-[#2f3e46]/85 to-[#2f3e46]/35"></div>
+        <div class="relative max-w-6xl mx-auto px-4 md:px-6 lg:px-10">
           <nav aria-label="Breadcrumb" class="mb-6">
             <ol class="flex items-center gap-2 font-body text-xs text-white/70 list-none">
               <li><a href="../index.html" class="hover:text-[#d97757] hover:opacity-100 transition-colors">Home</a></li>
