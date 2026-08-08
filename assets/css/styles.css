@@ -1,8 +1,8 @@
 /* =======================================================================
-   Level Up Life! — shared plain-CSS file for the Time Management,
-   Life Readiness Quiz and Submit a Tip pages.
+   Level Up Life! — shared plain-CSS file for the Money Basics, Weekly
+   Challenges, Time Management, Life Readiness Quiz and Submit a Tip pages.
 
-   These 3 pages now load Tailwind from the Play CDN
+   These 5 pages now load Tailwind from the Play CDN
    (https://cdn.tailwindcss.com) plus assets/js/tailwind-config.js for the
    "heading"/"body" font families, the same pattern already used by
    index.html, online-safety.html, emergency-preparedness.html and
@@ -23,10 +23,6 @@
      Background (Parchment) #faf7f2
      Text (Charcoal Blue)  #2f3e46
 
-   Note: room-organisation.html also links this file (for the
-   .font-heading / .font-body classes below), so those two rules and the
-   @font-face block are kept even though the 3 CDN pages get the same
-   fonts from tailwind-config.js as well.
    ======================================================================= */
 
 @font-face {

@@ -1,10 +1,3 @@
-// Needs or Wants Expandable Cards
-const NeedOrWant = document.getElementById("needOrWant");
-const expandableContent = document.getElementById("expandable-content");
-NeedOrWant.addEventListener("click", () => {
-  expandableContent.classList.toggle("hidden");
-});
-
 // Budget Goals Expandable Cards
 const budgetGoals = document.getElementById("budget-goals");
 const expandableBudgetCard = document.getElementById(

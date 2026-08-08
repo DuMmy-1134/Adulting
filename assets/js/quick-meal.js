@@ -128,8 +128,8 @@ function renderMeals(mealsToRender) {
           class="meal-card block bg-white rounded-2xl shadow-sm p-6 hover:shadow-md hover:-translate-y-0.5 transition-all"
         >
           <span
-            class="block text-[11.5px] font-bold tracking-[0.06em] text-[#7c9d96] mb-2"
-            >${meal["id"]}</span
+            class="block text-[11.5px] font-bold tracking-[0.06em] text-[#7c9d96] mb-2 uppercase"
+            >${meal["mealType"]}</span
           >
           <h3
             class="block font-heading font-bold text-lg text-[#2f3e46] mb-2.5"
@@ -138,10 +138,6 @@ function renderMeals(mealsToRender) {
           <span
             class="block font-body text-base text-[#5b6b70] leading-normal mb-1"
             >Difficulty: ${meal["difficulty"]}</span
-          >
-          <span
-            class="block font-body text-base text-[#5b6b70] leading-normal mb-1"
-            >Meal type: ${meal["mealType"]}</span
           >
           <span
             class="block font-body text-base text-[#5b6b70] leading-normal mb-3.5"
