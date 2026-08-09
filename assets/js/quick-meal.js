@@ -308,6 +308,7 @@ let quickMeals = [
     youtubeId: "7XfvuGjaDTc",
   },
 ];
+
 const mealsDiv = document.getElementById("mealDiv");
 const paginationNav = document.getElementById("mealPagination");
 const MEALS_PER_PAGE = 6;
@@ -379,11 +380,15 @@ function renderPagination() {
       }"
     >${label}</button>`;
 
-  let html = pageBtn("&larr;", currentPage - 1, { disabled: currentPage === 1 });
+  let html = pageBtn("&larr;", currentPage - 1, {
+    disabled: currentPage === 1,
+  });
   for (let p = 1; p <= totalPages; p++) {
     html += pageBtn(String(p), p, { active: p === currentPage });
   }
-  html += pageBtn("&rarr;", currentPage + 1, { disabled: currentPage === totalPages });
+  html += pageBtn("&rarr;", currentPage + 1, {
+    disabled: currentPage === totalPages,
+  });
 
   paginationNav.innerHTML = html;
 }
@@ -448,7 +453,13 @@ mealGrid.addEventListener("click", (e) => {
     const instructionsList = recipeDisplay.querySelector(".instructions-list");
     const recipeVideo = recipeDisplay.querySelector(".recipe-video");
 
-    if (meal && recipeTitle && ingredientsList && instructionsList && recipeVideo) {
+    if (
+      meal &&
+      recipeTitle &&
+      ingredientsList &&
+      instructionsList &&
+      recipeVideo
+    ) {
       recipeTitle.textContent = meal.name;
 
       ingredientsList.innerHTML = `
@@ -597,3 +608,67 @@ reset.addEventListener("click", () => {
 setupFilterDropdown(timeBtn, "estimatedTimeMinutes", (mins) => `${mins} min`);
 setupFilterDropdown(difficultyBtn, "difficulty");
 setupFilterDropdown(mealTypeBtn, "mealType");
+
+// Quick Meals Add in
+// Helper: Extract YouTube ID from full URL or standalone ID
+function extractYouTubeId(urlOrId) {
+  if (!urlOrId) return "";
+  const trimmed = urlOrId.trim();
+  // Regex to extract 11-character YouTube video ID from various URL formats
+  const match = trimmed.match(
+    /(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/,
+  );
+  return match ? match[1] : trimmed.length === 11 ? trimmed : "";
+}
+
+// Form Event Listener for Adding New Recipes
+const addRecipeForm = document.getElementById("add-recipe-form");
+
+if (addRecipeForm) {
+  addRecipeForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    // 1. Process Ingredients (split by comma, filter empty strings, trim whitespace)
+    const rawIngredients = document.getElementById("recipe-ingredients").value;
+    const ingredientsArray = rawIngredients
+      .split(",")
+      .map((item) => item.trim())
+      .filter((item) => item.length > 0);
+
+    // 2. Process Instructions (split by period '.', filter empty strings, trim whitespace)
+    const rawInstructions = document.getElementById(
+      "recipe-instructions",
+    ).value;
+    const recipeArray = rawInstructions
+      .split(".")
+      .map((step) => step.trim())
+      .filter((step) => step.length > 0);
+
+    // 3. Process YouTube Video ID
+    const rawYoutube = document.getElementById("youtube-link").value;
+    const youtubeId = extractYouTubeId(rawYoutube);
+
+    // 4. Build Object with matching keys
+    const newMeal = {
+      id: `meal-${Date.now()}`,
+      name: document.getElementById("recipe-name").value.trim(),
+      mealType: document.getElementById("meal-type").value,
+      estimatedTimeMinutes: Number(
+        document.getElementById("estimated-time").value,
+      ),
+      timeNote: document.getElementById("time-note").value.trim() || undefined,
+      difficulty: document.getElementById("recipe-difficulty").value,
+      ingredients: ingredientsArray,
+      recipe: recipeArray,
+      source: document.getElementById("recipe-source").value.trim() || "",
+      youtubeId: youtubeId,
+    };
+
+    // 5. Add to quickMeals array and re-render grid & pagination
+    quickMeals.unshift(newMeal); // Adds new meal to the beginning of the array
+    renderMeals(quickMeals);
+
+    // 6. Reset form
+    addRecipeForm.reset();
+  });
+}
