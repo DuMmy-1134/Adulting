@@ -2,7 +2,7 @@
  * Shared nav-toggle behavior for the header chrome, used on every page.
  *
  * The header uses a single consolidated <nav id="site-nav"> for both
- * desktop and mobile — there is no separate mobile-only nav DOM. Each
+ * desktop and mobile - there is no separate mobile-only nav DOM. Each
  * category trigger is one <a data-nav-group> that is a real link (desktop:
  * navigates on click, dropdown opens on hover via CSS `group-hover`) and
  * also a disclosure toggle (mobile: click expands/collapses its submenu

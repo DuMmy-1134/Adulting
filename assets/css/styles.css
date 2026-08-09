@@ -1,5 +1,5 @@
 /* =======================================================================
-   Level Up Life! — shared plain-CSS file for the Money Basics, Weekly
+   Level Up Life! - shared plain-CSS file for the Money Basics, Weekly
    Challenges, Time Management, Life Readiness Quiz and Submit a Tip pages.
 
    These 5 pages now load Tailwind from the Play CDN
@@ -7,7 +7,7 @@
    "heading"/"body" font families, the same pattern already used by
    index.html, online-safety.html, emergency-preparedness.html and
    quick-meal.html. Because of that, this file no longer needs to contain
-   a pre-built copy of Tailwind's reset and utility classes — the CDN
+   a pre-built copy of Tailwind's reset and utility classes - the CDN
    script generates every utility (including arbitrary values like
    bg-[#52796f]) on the fly, straight from the class names used in the
    HTML.
@@ -192,7 +192,7 @@ input[type="checkbox"] {
 
 /* Quiz answer card. A transparent 2px border is set here so that when
    JavaScript later adds .selected (which turns the border teal) the
-   card doesn't grow/shift by 2px — the space for the border already
+   card doesn't grow/shift by 2px - the space for the border already
    existed, just invisible. */
 .quiz-option {
   border: 2px solid transparent;
@@ -213,7 +213,7 @@ input[type="checkbox"] {
 ----------------------------------------------------------------------- */
 
 /* Wraps the <table> in a fixed-height, scrollable box. Without this, a
-   14-row hourly timetable would make the whole page very tall — this
+   14-row hourly timetable would make the whole page very tall - this
    keeps it to a sensible height while still showing every hour. */
 .planner-scroll {
   max-height: 30rem;
@@ -273,7 +273,7 @@ input[type="checkbox"] {
 }
 
 /* One task block, filling its entire table cell (including across
-   however many hours its rowspan covers) — the same visual idea as a
+   however many hours its rowspan covers) - the same visual idea as a
    coloured class block on a printed timetable. Colour itself comes
    from the 4 .block-* classes below, one of which JavaScript adds
    alongside this class. */
@@ -299,7 +299,7 @@ input[type="checkbox"] {
   opacity: 0.75;
 }
 
-/* Solid category colour per block — the same 4 brand colours used for
+/* Solid category colour per block - the same 4 brand colours used for
    the legend dots above the timetable, so a block's colour always means
    the same thing everywhere on the site. */
 .block-home-skills {
@@ -327,7 +327,7 @@ input[type="checkbox"] {
 
 /* The top group (task name + time range) inside a task block. Wrapping
    these two lines in their own element means the block only has 2
-   direct flex children — the text group and the controls row — which
+   direct flex children - the text group and the controls row - which
    is what .planner-task's justify-content:space-between actually pushes
    apart. */
 .planner-task-info {
@@ -351,14 +351,14 @@ input[type="checkbox"] {
 }
 
 /* Lets a flex item shrink smaller than its own content would normally
-   allow. Needed for .truncate to actually work inside a flex row —
+   allow. Needed for .truncate to actually work inside a flex row -
    without this, the browser refuses to shrink the box and the "…" never
    appears. */
 .min-w-0 {
   min-width: 0;
 }
 
-/* flex: 1 1 0% — the item grows/shrinks to fill leftover space in its
+/* flex: 1 1 0% - the item grows/shrinks to fill leftover space in its
    flex row. Used on the "Task" field wrapper in the priority-matrix and
    planner forms so the text input stretches across the remaining width
    instead of staying at its smallest possible size. */

@@ -2,7 +2,7 @@
  * Page-behavior script for index.html (the Home page).
  *
  * Convention for this project's content scripts (Phases 6-8 follow this):
- * - One script per page, named after the page it serves — this file,
+ * - One script per page, named after the page it serves - this file,
  *   home.js, serves index.html only.
  * - Loaded with `defer` after the two Tailwind script tags, so it runs
  *   once the DOM is fully parsed and never blocks page rendering.
@@ -82,7 +82,7 @@ const CHALLENGES = [
   },
   {
     title: "Share the one tip you wish you'd known sooner",
-    text: "Something that cost you time, money, or a burnt pot the first time round — pass it on so someone else skips that step.",
+    text: "Something that cost you time, money, or a burnt pot the first time round - pass it on so someone else skips that step.",
     ctaLabel: "Submit your tip",
     ctaHref: "pages/submit-a-tip.html",
   },

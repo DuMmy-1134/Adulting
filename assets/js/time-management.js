@@ -29,7 +29,7 @@ const plannerStatus = document.getElementById("planner-status");
 const plannerTbody = document.getElementById("planner-tbody");
 
 // The timetable covers 8:00 AM up to (but not including) 10:00 PM, in
-// 1-hour rows — 14 rows in total, the same kind of range a real class
+// 1-hour rows - 14 rows in total, the same kind of range a real class
 // timetable would use.
 const PLANNER_START_HOUR = 7;
 const PLANNER_END_HOUR = 23;
@@ -105,7 +105,7 @@ function hasClash(day, startHour, duration) {
   const proposedEnd = startHour + duration;
   return plannerTasks.some((task) => {
     if (task.day !== day) {
-      return false; // Different day — can never clash.
+      return false; // Different day - can never clash.
     }
     return rangesOverlap(startHour, proposedEnd, task.startHour, task.startHour + task.duration);
   });
@@ -250,7 +250,7 @@ function renderPlannerTimetable() {
 
     PLANNER_DAYS.forEach((day) => {
       // This day's column still has rows left to skip from an earlier
-      // multi-hour task, so don't draw a <td> here at all — the table's
+      // multi-hour task, so don't draw a <td> here at all - the table's
       // own rowspan is already covering this row for that column.
       if (rowsToSkip[day] > 0) {
         rowsToSkip[day] -= 1;
@@ -326,7 +326,7 @@ if (plannerForm) {
     renderPlannerTimetable();
     showPlannerStatus("Task added to your timetable.");
 
-    // Only clear the task text — leave Day/Start Time/Duration/Category
+    // Only clear the task text - leave Day/Start Time/Duration/Category
     // as they are, so adding several tasks in a row is quick.
     plannerTaskInput.value = "";
     plannerTaskInput.focus();
@@ -451,7 +451,7 @@ if (priorityForm) {
   loadPriorityMatrixFromStorage();
 
   // "submit" fires when the button is pressed OR when Enter is pressed
-  // while inside the text field — using the form's submit event instead
+  // while inside the text field - using the form's submit event instead
   // of just a button click covers both cases automatically.
   priorityForm.addEventListener("submit", (event) => {
     // Forms normally reload the page when submitted; preventDefault()
@@ -466,7 +466,7 @@ if (priorityForm) {
       priorityError.classList.remove("hidden");
       priorityInput.classList.add("has-error");
       priorityInput.focus();
-      return; // Stop here — do not add an empty task.
+      return; // Stop here - do not add an empty task.
     }
 
     // Input was valid: clear any previous error state first.
@@ -536,7 +536,7 @@ if (timerDisplay) {
     // (1 second) until we stop it with clearInterval.
     intervalId = setInterval(tickTimer, 1000);
     timerToggleBtn.textContent = "Pause";
-    timerStatus.textContent = "Focus time — stay on one task until this rings.";
+    timerStatus.textContent = "Focus time - stay on one task until this rings.";
   }
 
   function stopTimer() {

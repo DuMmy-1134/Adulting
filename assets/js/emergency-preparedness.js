@@ -3,7 +3,7 @@
  * Preparedness page).
  *
  * Convention for this project's content scripts (Phases 6-8 follow this):
- * - One script per page, named after the page it serves — this file,
+ * - One script per page, named after the page it serves - this file,
  *   emergency-preparedness.js, serves pages/emergency-preparedness.html only.
  * - Loaded with `defer` after the two Tailwind script tags, so it runs
  *   once the DOM is fully parsed and never blocks page rendering.
@@ -15,7 +15,7 @@
  * - All injected copy is assigned with textContent, so page text can
  *   never be interpreted as markup.
  * - This script enhances rather than replaces the native
- *   <details>/<summary> elements — with JavaScript unavailable every
+ *   <details>/<summary> elements - with JavaScript unavailable every
  *   guide still opens and closes, the script only adds mutual
  *   exclusivity, the status line, and the Collapse-all control.
  */
@@ -24,7 +24,7 @@ const STATUS_ALL_CLOSED_TEXT = "All action guides are closed.";
 const STATUS_OPEN_PREFIX = "Showing: ";
 
 // Both the status line and the Collapse-all button stay hidden/empty
-// until the visitor opens (or collapses) a guide for the first time —
+// until the visitor opens (or collapses) a guide for the first time -
 // there's nothing useful to say or collapse before that.
 let hasInteracted = false;
 

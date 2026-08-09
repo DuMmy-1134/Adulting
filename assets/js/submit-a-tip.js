@@ -45,7 +45,7 @@ const CATEGORY_INFO = {
 
 // A handful of starter tips so the page doesn't look empty on a brand
 // new browser that hasn't submitted anything yet. These are NOT saved
-// to localStorage — they are always shown in addition to whatever the
+// to localStorage - they are always shown in addition to whatever the
 // visitor has submitted.
 const SEED_TIPS = [
   {
@@ -72,7 +72,7 @@ const SEED_TIPS = [
   {
     category: "practice-growth",
     title: "One line a day is enough",
-    text: "You don't need a full journal entry. Write a single line each night about what went well — it adds up to a useful record after a month.",
+    text: "You don't need a full journal entry. Write a single line each night about what went well - it adds up to a useful record after a month.",
     name: "Hakim",
     date: "27 Jul 2026",
   },
@@ -143,7 +143,7 @@ function renderTips() {
   if (tipsToShow.length === 0) {
     const emptyMessage = document.createElement("p");
     emptyMessage.className = "font-body text-[14.5px] text-[#5b6b70]";
-    emptyMessage.textContent = "No tips in this category yet — be the first to add one above!";
+    emptyMessage.textContent = "No tips in this category yet - be the first to add one above!";
     tipsGrid.appendChild(emptyMessage);
     return;
   }
@@ -212,7 +212,7 @@ function setFieldError(inputElement, errorElement, hasError) {
 
 tipForm.addEventListener("submit", (event) => {
   // Stop the browser's normal "reload the page and send the form to a
-  // server" behaviour — this is a client-side-only demo.
+  // server" behaviour - this is a client-side-only demo.
   event.preventDefault();
 
   const category = tipCategorySelect.value;
@@ -230,7 +230,7 @@ tipForm.addEventListener("submit", (event) => {
   setFieldError(tipBodyTextarea, tipBodyError, !bodyIsValid);
 
   if (!categoryIsValid || !titleIsValid || !bodyIsValid) {
-    return; // At least one field failed — stop here, errors are now visible.
+    return; // At least one field failed - stop here, errors are now visible.
   }
 
   // Build the new tip object. If the name field was left blank, fall

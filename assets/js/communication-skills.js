@@ -3,7 +3,7 @@
  * Communication Skills page).
  *
  * Convention for this project's content scripts (Phases 6-8 follow this):
- * - One script per page, named after the page it serves — this file,
+ * - One script per page, named after the page it serves - this file,
  *   communication-skills.js, serves pages/communication-skills.html only.
  * - Loaded with `defer` after the two Tailwind script tags, so it runs
  *   once the DOM is fully parsed and never blocks page rendering.
@@ -25,7 +25,7 @@ const SCENARIOS = [
   {
     label: "Telling a friend you need space",
     response:
-      "Hey, I want to be upfront with you because I value our friendship. I've been feeling a bit overwhelmed lately and need some time to myself this week. It's not about you — I just need to recharge. Can we catch up again next week instead?",
+      "Hey, I want to be upfront with you because I value our friendship. I've been feeling a bit overwhelmed lately and need some time to myself this week. It's not about you - I just need to recharge. Can we catch up again next week instead?",
   },
   {
     label: "A group chat is spiraling into an argument",
@@ -35,17 +35,17 @@ const SCENARIOS = [
   {
     label: "Declining a group project role you don't have time for",
     response:
-      "Thanks for thinking of me for this part — I want to be honest that I'm stretched thin this week and wouldn't be able to give it the attention it deserves. Could someone else take the lead on this piece? I'm happy to help review it once it's drafted.",
+      "Thanks for thinking of me for this part - I want to be honest that I'm stretched thin this week and wouldn't be able to give it the attention it deserves. Could someone else take the lead on this piece? I'm happy to help review it once it's drafted.",
   },
   {
     label: "Following up after being left on read",
     response:
-      "Hey, no worries if you've been busy! Just following up on my message from earlier about [topic] — let me know whenever you get a chance, no rush.",
+      "Hey, no worries if you've been busy! Just following up on my message from earlier about [topic] - let me know whenever you get a chance, no rush.",
   },
   {
     label: "Apologizing after a text was misread",
     response:
-      "I think my last message came across differently than I meant it — sorry about that, texts can lose tone. What I meant was [clarify intent]. Let me know if that makes more sense, or we can just talk about it in person.",
+      "I think my last message came across differently than I meant it - sorry about that, texts can lose tone. What I meant was [clarify intent]. Let me know if that makes more sense, or we can just talk about it in person.",
   },
 ];
 

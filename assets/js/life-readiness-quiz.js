@@ -20,9 +20,9 @@
 // equally across the 4 categories (16 / 4 = 4 questions each), and the
 // rest stay hidden in the bank for next time. Hidden questions are
 // never added to the page, so they never factor into the progress bar,
-// the score, or the result bands below — every calculation only ever
+// the score, or the result bands below - every calculation only ever
 // looks at the questions actually shown. Options are always ordered
-// low-readiness to high-readiness — the option's position (1st, 2nd,
+// low-readiness to high-readiness - the option's position (1st, 2nd,
 // 3rd) becomes its point value, exactly like the original hand-written
 // questions did with data-points.
 // -------------------------------------------------------------------
@@ -34,9 +34,9 @@ const QUESTION_BANK = {
     {
       text: "How comfortable are you cooking a simple meal from scratch?",
       options: [
-        "Not really — I’d need a recipe open the whole time",
+        "Not really - I’d need a recipe open the whole time",
         "A few simple dishes, but I stick to what I know",
-        "Very comfortable — I can improvise with whatever is in the fridge",
+        "Very comfortable - I can improvise with whatever is in the fridge",
       ],
     },
     {
@@ -44,7 +44,7 @@ const QUESTION_BANK = {
       options: [
         "Honestly, a bit of a mess most weeks",
         "I manage, but I put it off until it piles up",
-        "Pretty tidy — I keep on top of it as I go",
+        "Pretty tidy - I keep on top of it as I go",
       ],
     },
     {
@@ -74,7 +74,7 @@ const QUESTION_BANK = {
     {
       text: "Do you meal prep or cook in batches for busier days?",
       options: [
-        "Never — I figure out food last minute every day",
+        "Never - I figure out food last minute every day",
         "Sometimes, when I remember or have time",
         "Yes, I regularly prep ahead so busy days are covered",
       ],
@@ -90,9 +90,9 @@ const QUESTION_BANK = {
     {
       text: "How comfortable are you following a recipe you’ve never tried before?",
       options: [
-        "Not comfortable at all — I’d stick to what I know",
+        "Not comfortable at all - I’d stick to what I know",
         "I’d give it a go but expect to mess it up",
-        "Very comfortable — I enjoy trying new recipes",
+        "Very comfortable - I enjoy trying new recipes",
       ],
     },
   ],
@@ -108,7 +108,7 @@ const QUESTION_BANK = {
     {
       text: "Do you plan your week ahead instead of reacting day to day?",
       options: [
-        "Rarely — I mostly just react to whatever comes up",
+        "Rarely - I mostly just react to whatever comes up",
         "Sometimes, for the busier weeks",
         "Yes, I plan most weeks ahead of time",
       ],
@@ -132,7 +132,7 @@ const QUESTION_BANK = {
     {
       text: "Do you know roughly how much you spend on subscriptions each month?",
       options: [
-        "No idea — I’ve probably forgotten about some of them",
+        "No idea - I’ve probably forgotten about some of them",
         "I have a rough idea, but haven’t checked in a while",
         "Yes, I know exactly what I’m subscribed to and paying for",
       ],
@@ -140,17 +140,17 @@ const QUESTION_BANK = {
     {
       text: "How often do you finish assignments or tasks at the last minute?",
       options: [
-        "Almost always — I’m usually racing the deadline",
+        "Almost always - I’m usually racing the deadline",
         "Sometimes, depending on how busy I am",
-        "Rarely — I usually finish with time to spare",
+        "Rarely - I usually finish with time to spare",
       ],
     },
     {
       text: "How well do you balance study or work with your social life?",
       options: [
-        "Not well — one usually takes over completely",
+        "Not well - one usually takes over completely",
         "I manage, but it’s a constant juggling act",
-        "Pretty well — I make time for both",
+        "Pretty well - I make time for both",
       ],
     },
     {
@@ -182,17 +182,17 @@ const QUESTION_BANK = {
     {
       text: "How careful are you about what personal information you share online?",
       options: [
-        "Not very — I don’t really think about it",
+        "Not very - I don’t really think about it",
         "Somewhat, but I don’t check privacy settings often",
-        "Very — I check privacy settings and think before sharing",
+        "Very - I check privacy settings and think before sharing",
       ],
     },
     {
       text: "How confident are you in handling a basic first aid situation, like a cut or a burn?",
       options: [
-        "Not confident at all — I wouldn’t know what to do",
+        "Not confident at all - I wouldn’t know what to do",
         "I know the very basics but would probably panic",
-        "Fairly confident — I know the basics and stay calm",
+        "Fairly confident - I know the basics and stay calm",
       ],
     },
     {
@@ -222,9 +222,9 @@ const QUESTION_BANK = {
     {
       text: "How comfortable are you speaking up if you feel unsafe or uncomfortable in a group?",
       options: [
-        "Not comfortable at all — I’d probably stay quiet",
+        "Not comfortable at all - I’d probably stay quiet",
         "Somewhat, but it’d take a lot for me to say something",
-        "Comfortable — I’d speak up if something felt wrong",
+        "Comfortable - I’d speak up if something felt wrong",
       ],
     },
   ],
@@ -241,7 +241,7 @@ const QUESTION_BANK = {
       text: "Are you comfortable asking for help when you don’t know something?",
       options: [
         "Not really, I’d rather struggle through alone",
-        "Depends who is asking — sometimes it’s awkward",
+        "Depends who is asking - sometimes it’s awkward",
         "Yes, asking early saves everyone time",
       ],
     },
@@ -264,17 +264,17 @@ const QUESTION_BANK = {
     {
       text: "How willing are you to try things outside your comfort zone?",
       options: [
-        "Not very — I’d rather stick to what I know",
+        "Not very - I’d rather stick to what I know",
         "Willing sometimes, if it doesn’t feel too risky",
-        "Very willing — I actively look for new things to try",
+        "Very willing - I actively look for new things to try",
       ],
     },
     {
       text: "How do you usually take feedback or criticism?",
       options: [
-        "Pretty badly — it’s hard not to take it personally",
+        "Pretty badly - it’s hard not to take it personally",
         "It stings at first, but I come around to it",
-        "Well — I try to see it as useful information",
+        "Well - I try to see it as useful information",
       ],
     },
     {
@@ -320,7 +320,7 @@ const CATEGORY_INFO = {
   },
   "practice-growth": {
     label: "Practice & Growth",
-    advice: "Reflecting on your week and being open to asking for help are habits, not personality traits — they get easier the more you practise them. Try writing down one thing that went well and one thing to change, once a week.",
+    advice: "Reflecting on your week and being open to asking for help are habits, not personality traits - they get easier the more you practise them. Try writing down one thing that went well and one thing to change, once a week.",
     link: "../index.html#practice-growth",
   },
 };
@@ -373,7 +373,7 @@ const quizResultsTableBody = document.getElementById("quiz-results-table-body");
 const quizAdviceIntro = document.getElementById("quiz-advice-intro");
 const quizAdviceList = document.getElementById("quiz-advice-list");
 
-// Re-assigned every time the quiz is (re)built — see renderQuizQuestions().
+// Re-assigned every time the quiz is (re)built - see renderQuizQuestions().
 let quizQuestions = [];
 
 // -------------------------------------------------------------------
@@ -392,7 +392,7 @@ function shuffleArray(items) {
 }
 
 // Splits TOTAL_QUESTIONS evenly across the categories in QUESTION_BANK
-// (16 questions / 4 categories = 4 each). Written generically — if
+// (16 questions / 4 categories = 4 each). Written generically - if
 // TOTAL_QUESTIONS or the number of categories ever changed to values
 // that don't divide evenly, the leftover questions would be handed out
 // to a random subset of categories instead of always the same one.
@@ -408,9 +408,9 @@ function pickQuestionCountsByCategory(categories) {
   return counts;
 }
 
-// Picks the random questions for one attempt of the quiz — exactly
+// Picks the random questions for one attempt of the quiz - exactly
 // TOTAL_QUESTIONS of them, pulled from QUESTION_BANK using the counts
-// above — then shuffles the combined list so the categories are
+// above - then shuffles the combined list so the categories are
 // interleaved instead of appearing in four separate blocks.
 function pickQuizQuestions() {
   const categories = Object.keys(QUESTION_BANK);
@@ -482,7 +482,7 @@ function renderQuizQuestions() {
 
 function updateQuizProgress() {
   // "input[type=radio]:checked" selects every radio input on the whole
-  // page that is currently selected — one per answered question.
+  // page that is currently selected - one per answered question.
   const answeredCount = document.querySelectorAll('.quiz-question input[type="radio"]:checked').length;
   const totalQuestions = quizQuestions.length;
   const percent = totalQuestions === 0 ? 0 : Math.round((answeredCount / totalQuestions) * 100);
@@ -492,7 +492,7 @@ function updateQuizProgress() {
 }
 
 // Listens for a "change" event anywhere inside the quiz section. This is
-// called "event delegation" — instead of adding a listener to every
+// called "event delegation" - instead of adding a listener to every
 // individual radio button, we add ONE listener on their shared parent
 // and let the event bubble up to it. Less code, and it still works even
 // though the questions themselves are rebuilt from scratch on every
@@ -605,8 +605,8 @@ function renderCategoryTable(categoryScores, categoryMax) {
   });
 }
 
-// Finds every category tied for the lowest score — not just the first
-// one — and shows advice and a link for each of them. Most attempts
+// Finds every category tied for the lowest score - not just the first
+// one - and shows advice and a link for each of them. Most attempts
 // only have one weakest category, but if two or more categories come
 // out equally low, all of them get a block instead of silently
 // dropping the rest.
@@ -618,7 +618,7 @@ function renderAdvice(categoryScores) {
 
   quizAdviceIntro.textContent =
     weakestCategories.length > 1
-      ? "You tied for the lowest score across a few areas — here's where to start with each:"
+      ? "You tied for the lowest score across a few areas - here's where to start with each:"
       : "Your lowest-scoring area was " + CATEGORY_INFO[weakestCategories[0]].label + ":";
 
   quizAdviceList.innerHTML = "";

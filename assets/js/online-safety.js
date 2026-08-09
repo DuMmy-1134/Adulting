@@ -2,7 +2,7 @@
  * Page-behavior script for pages/online-safety.html (the Online Safety page).
  *
  * Convention for this project's content scripts (Phases 6-8 follow this):
- * - One script per page, named after the page it serves — this file,
+ * - One script per page, named after the page it serves - this file,
  *   online-safety.js, serves pages/online-safety.html only.
  * - Loaded with `defer` after the two Tailwind script tags, so it runs
  *   once the DOM is fully parsed and never blocks page rendering.
@@ -14,7 +14,7 @@
  * - All injected copy is assigned with textContent, so page text can
  *   never be interpreted as markup.
  * - The test password this script reads is never sent over the network,
- *   stored, or logged — it exists only in memory for the duration of the
+ *   stored, or logged - it exists only in memory for the duration of the
  *   keystroke that produced it.
  */
 
@@ -35,7 +35,7 @@ function scorePassword(password) {
   const classes = [/[a-z]/, /[A-Z]/, /[0-9]/, /[^A-Za-z0-9]/].filter((pattern) => pattern.test(password)).length;
 
   // Length is what actually protects against brute-forcing, so it's
-  // checked first and can't be overridden by character-class variety —
+  // checked first and can't be overridden by character-class variety -
   // this is what previously let a 4-character password like "Aa1!" score
   // as "Strong" just because it mixed letters, a digit and a symbol.
   // A password under 8 characters is always weak, no matter what it
@@ -49,7 +49,7 @@ function scorePassword(password) {
   }
 
   // A very long password (16+) is hard to brute-force even with low
-  // variety — e.g. a multi-word passphrase — so it counts as strong on
+  // variety - e.g. a multi-word passphrase - so it counts as strong on
   // length alone. Otherwise, strong requires both real length (12+) and
   // real variety (3+ character types).
   if (length >= 16) {

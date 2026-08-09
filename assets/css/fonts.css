@@ -1,5 +1,5 @@
 /* Self-hosted font faces for Level Up Life! (Fraunces + Nunito Sans).
-   Tailwind utility classes are no longer built into this stylesheet — they now
+   Tailwind utility classes are no longer built into this stylesheet - they now
    arrive at runtime via the Play CDN script tag (see assets/js/tailwind-config.js). */
 
 @font-face {
