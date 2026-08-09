@@ -31,25 +31,35 @@ function scorePassword(password) {
     return null;
   }
 
+  const length = password.length;
   const classes = [/[a-z]/, /[A-Z]/, /[0-9]/, /[^A-Za-z0-9]/].filter((pattern) => pattern.test(password)).length;
 
-  let tier;
-  if (password.length < 8) {
-    tier = "weak";
-  } else if (password.length <= 11) {
-    tier = "medium";
-  } else {
-    tier = "strong";
+  // Length is what actually protects against brute-forcing, so it's
+  // checked first and can't be overridden by character-class variety —
+  // this is what previously let a 4-character password like "Aa1!" score
+  // as "Strong" just because it mixed letters, a digit and a symbol.
+  // A password under 8 characters is always weak, no matter what it
+  // contains. Between 8 and 11 characters, it's still weak unless it
+  // mixes at least two character types.
+  if (length < 8) {
+    return "weak";
+  }
+  if (length < 12 && classes <= 1) {
+    return "weak";
   }
 
-  if (tier === "weak" && classes >= 3) {
-    tier = "medium";
+  // A very long password (16+) is hard to brute-force even with low
+  // variety — e.g. a multi-word passphrase — so it counts as strong on
+  // length alone. Otherwise, strong requires both real length (12+) and
+  // real variety (3+ character types).
+  if (length >= 16) {
+    return "strong";
   }
-  if (tier === "medium" && classes === 4) {
-    tier = "strong";
+  if (length >= 12 && classes >= 3) {
+    return "strong";
   }
 
-  return tier;
+  return "medium";
 }
 
 function renderStrength(tier) {
@@ -122,5 +132,53 @@ function initCarousel() {
   });
 }
 
+const SAFETY_CHECKLIST_STORAGE_KEY = "ltl-online-safety-checklist";
+
+function getCheckedSafetyItems() {
+  try {
+    const stored = JSON.parse(localStorage.getItem(SAFETY_CHECKLIST_STORAGE_KEY));
+    return Array.isArray(stored) ? stored : [];
+  } catch {
+    return [];
+  }
+}
+
+function setCheckboxVisual(checkbox) {
+  const box = checkbox.nextElementSibling;
+  if (!box) {
+    return;
+  }
+  box.classList.toggle("bg-[#52796f]", checkbox.checked);
+  box.classList.toggle("border-[#52796f]", checkbox.checked);
+  box.textContent = checkbox.checked ? "✓" : "";
+}
+
+function initSafetyChecklist() {
+  const checkboxes = document.querySelectorAll("[data-safety-check]");
+  if (checkboxes.length === 0) {
+    return;
+  }
+
+  const checkedItems = getCheckedSafetyItems();
+
+  checkboxes.forEach((checkbox) => {
+    checkbox.checked = checkedItems.includes(checkbox.dataset.safetyCheck);
+    setCheckboxVisual(checkbox);
+
+    checkbox.addEventListener("change", () => {
+      setCheckboxVisual(checkbox);
+
+      const current = getCheckedSafetyItems();
+      const key = checkbox.dataset.safetyCheck;
+      const next = checkbox.checked
+        ? [...current.filter((item) => item !== key), key]
+        : current.filter((item) => item !== key);
+
+      localStorage.setItem(SAFETY_CHECKLIST_STORAGE_KEY, JSON.stringify(next));
+    });
+  });
+}
+
 initPasswordStrengthChecker();
 initCarousel();
+initSafetyChecklist();

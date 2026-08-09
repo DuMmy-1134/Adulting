@@ -13,184 +13,279 @@
 </head>
 <body class="bg-[#faf7f2] font-body text-[#2f3e46] antialiased">
   <!-- Navigation -->
-  <header class="sticky top-0 z-50 bg-white shadow-sm will-change-transform">
-    <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 py-4 flex items-center justify-between">
-      <a href="../index.html" class="font-heading font-bold text-xl text-[#52796f]">Level Up Life!</a>
-      <nav aria-label="Main" class="hidden lg:flex">
-        <ul class="flex items-center gap-8 list-none">
-          <li class="relative group">
-            <a href="../index.html#home-skills" class="font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">Home Skills <span aria-hidden="true">▾</span></a>
-            <div class="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity absolute left-0 top-full min-w-[190px] bg-white rounded-xl shadow-lg p-4">
+    <header class="sticky top-0 z-50 bg-white shadow-sm will-change-transform">
+      <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 py-4 flex flex-wrap items-center justify-between">
+        <a href="../index.html" class="font-heading font-bold text-xl text-[#52796f]">Level Up Life!</a>
+        <button type="button" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu" class="flex lg:hidden items-center justify-center w-11 h-11 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#52796f] focus-visible:ring-offset-2">
+          <svg data-nav-icon="bars" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2f3e46" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false">
+            <line x1="4" y1="7" x2="20" y2="7"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="17" x2="20" y2="17"></line>
+          </svg>
+          <svg data-nav-icon="close" class="hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2f3e46" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false">
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+          </svg>
+        </button>
+        <nav id="site-nav" aria-label="Main" hidden class="w-full mt-4 p-4 rounded-xl bg-[#faf7f2] lg:w-auto lg:!flex lg:items-center lg:gap-8 lg:mt-0 lg:p-0 lg:bg-transparent lg:rounded-none">
+        <ul class="list-none lg:flex lg:items-center lg:gap-8">
+          <li class="relative group border-b border-[#f0ece3] lg:border-0">
+            <a href="../index.html#home-skills" data-nav-group aria-expanded="false" aria-controls="site-nav-home-skills" class="flex justify-between items-center min-h-[44px] px-4 lg:px-0 lg:inline-flex font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">
+              <span>Home Skills</span>
+              <span data-nav-chevron aria-hidden="true" class="transition-transform lg:group-hover:rotate-180">▾</span>
+            </a>
+            <div id="site-nav-home-skills" hidden class="lg:!block lg:invisible lg:opacity-0 lg:group-hover:visible lg:group-hover:opacity-100 lg:group-focus-within:visible lg:group-focus-within:opacity-100 lg:transition-opacity lg:absolute lg:left-0 lg:top-full lg:min-w-[190px] lg:bg-white lg:rounded-xl lg:shadow-lg lg:p-4">
               <ul class="list-none">
-                <li><a href="quick-meal.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Quick Meals</a></li>
-                <li><a href="laundry-basics.html" aria-current="page" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Laundry Basics</a></li>
-                <li><a href="room-organisation.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Room Organization</a></li>
+                <li><a href="quick-meal.html" class="flex items-center min-h-[44px] pl-8 pr-4 lg:min-h-0 lg:block lg:px-2 lg:py-2 font-body text-sm text-[#2f3e46] lg:rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Quick Meals</a></li>
+                <li><a href="laundry-basics.html" aria-current="page" class="flex items-center min-h-[44px] pl-8 pr-4 lg:min-h-0 lg:block lg:px-2 lg:py-2 font-body text-sm text-[#2f3e46] lg:rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Laundry Basics</a></li>
+                <li><a href="room-organisation.html" class="flex items-center min-h-[44px] pl-8 pr-4 lg:min-h-0 lg:block lg:px-2 lg:py-2 font-body text-sm text-[#2f3e46] lg:rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Room Organization</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="relative group border-b border-[#f0ece3] lg:border-0">
+            <a href="../index.html#money-time" data-nav-group aria-expanded="false" aria-controls="site-nav-money-time" class="flex justify-between items-center min-h-[44px] px-4 lg:px-0 lg:inline-flex font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">
+              <span>Money &amp; Time</span>
+              <span data-nav-chevron aria-hidden="true" class="transition-transform lg:group-hover:rotate-180">▾</span>
+            </a>
+            <div id="site-nav-money-time" hidden class="lg:!block lg:invisible lg:opacity-0 lg:group-hover:visible lg:group-hover:opacity-100 lg:group-focus-within:visible lg:group-focus-within:opacity-100 lg:transition-opacity lg:absolute lg:left-0 lg:top-full lg:min-w-[190px] lg:bg-white lg:rounded-xl lg:shadow-lg lg:p-4">
+              <ul class="list-none">
+                <li><a href="money-basics.html" class="flex items-center min-h-[44px] pl-8 pr-4 lg:min-h-0 lg:block lg:px-2 lg:py-2 font-body text-sm text-[#2f3e46] lg:rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Money Basics</a></li>
+                <li><a href="time-management.html" class="flex items-center min-h-[44px] pl-8 pr-4 lg:min-h-0 lg:block lg:px-2 lg:py-2 font-body text-sm text-[#2f3e46] lg:rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Time Management</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="relative group border-b border-[#f0ece3] lg:border-0">
+            <a href="../index.html#people-safety" data-nav-group aria-expanded="false" aria-controls="site-nav-people-safety" class="flex justify-between items-center min-h-[44px] px-4 lg:px-0 lg:inline-flex font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">
+              <span>People &amp; Safety</span>
+              <span data-nav-chevron aria-hidden="true" class="transition-transform lg:group-hover:rotate-180">▾</span>
+            </a>
+            <div id="site-nav-people-safety" hidden class="lg:!block lg:invisible lg:opacity-0 lg:group-hover:visible lg:group-hover:opacity-100 lg:group-focus-within:visible lg:group-focus-within:opacity-100 lg:transition-opacity lg:absolute lg:left-0 lg:top-full lg:min-w-[190px] lg:bg-white lg:rounded-xl lg:shadow-lg lg:p-4">
+              <ul class="list-none">
+                <li><a href="communication-skills.html" class="flex items-center min-h-[44px] pl-8 pr-4 lg:min-h-0 lg:block lg:px-2 lg:py-2 font-body text-sm text-[#2f3e46] lg:rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Communication Skills</a></li>
+                <li><a href="online-safety.html" class="flex items-center min-h-[44px] pl-8 pr-4 lg:min-h-0 lg:block lg:px-2 lg:py-2 font-body text-sm text-[#2f3e46] lg:rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Online Safety</a></li>
+                <li><a href="emergency-preparedness.html" class="flex items-center min-h-[44px] pl-8 pr-4 lg:min-h-0 lg:block lg:px-2 lg:py-2 font-body text-sm text-[#2f3e46] lg:rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Emergency Preparedness</a></li>
               </ul>
             </div>
           </li>
           <li class="relative group">
-            <a href="../index.html#money-time" class="font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">Money &amp; Time <span aria-hidden="true">▾</span></a>
-            <div class="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity absolute left-0 top-full min-w-[190px] bg-white rounded-xl shadow-lg p-4">
+            <a href="../index.html#practice-growth" data-nav-group aria-expanded="false" aria-controls="site-nav-practice-growth" class="flex justify-between items-center min-h-[44px] px-4 lg:px-0 lg:inline-flex font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">
+              <span>Practice &amp; Growth</span>
+              <span data-nav-chevron aria-hidden="true" class="transition-transform lg:group-hover:rotate-180">▾</span>
+            </a>
+            <div id="site-nav-practice-growth" hidden class="lg:!block lg:invisible lg:opacity-0 lg:group-hover:visible lg:group-hover:opacity-100 lg:group-focus-within:visible lg:group-focus-within:opacity-100 lg:transition-opacity lg:absolute lg:left-0 lg:top-full lg:min-w-[190px] lg:bg-white lg:rounded-xl lg:shadow-lg lg:p-4">
               <ul class="list-none">
-                <li><a href="money-basics.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Money Basics</a></li>
-                <li><a href="time-management.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Time Management</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="relative group">
-            <a href="../index.html#people-safety" class="font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">People &amp; Safety <span aria-hidden="true">▾</span></a>
-            <div class="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity absolute left-0 top-full min-w-[190px] bg-white rounded-xl shadow-lg p-4">
-              <ul class="list-none">
-                <li><a href="communication-skills.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Communication Skills</a></li>
-                <li><a href="online-safety.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Online Safety</a></li>
-                <li><a href="emergency-preparedness.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Emergency Preparedness</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="relative group">
-            <a href="../index.html#practice-growth" class="font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">Practice &amp; Growth <span aria-hidden="true">▾</span></a>
-            <div class="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity absolute left-0 top-full min-w-[190px] bg-white rounded-xl shadow-lg p-4">
-              <ul class="list-none">
-                <li><a href="life-readiness-quiz.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Life Readiness Quiz</a></li>
-                <li><a href="submit-a-tip.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Submit a Tip</a></li>
+                <li><a href="weekly-challenges.html" class="flex items-center min-h-[44px] pl-8 pr-4 lg:min-h-0 lg:block lg:px-2 lg:py-2 font-body text-sm text-[#2f3e46] lg:rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Weekly Challenges</a></li>
+                <li><a href="life-readiness-quiz.html" class="flex items-center min-h-[44px] pl-8 pr-4 lg:min-h-0 lg:block lg:px-2 lg:py-2 font-body text-sm text-[#2f3e46] lg:rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Life Readiness Quiz</a></li>
+                <li><a href="submit-a-tip.html" class="flex items-center min-h-[44px] pl-8 pr-4 lg:min-h-0 lg:block lg:px-2 lg:py-2 font-body text-sm text-[#2f3e46] lg:rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Submit a Tip</a></li>
               </ul>
             </div>
           </li>
         </ul>
+        </nav>
+      </div>
+    </header>
+
+  <!-- Hero -->
+  <!-- Hero background photo: "A woman holding a basket in front of a
+       washing machine" by Lola Azizada on Unsplash, free to use under
+       the Unsplash License.
+       https://unsplash.com/photos/a-woman-holding-a-basket-in-front-of-a-washing-machine-D4vUZH7KxHE -->
+  <section class="relative overflow-hidden text-white pt-8 pb-16">
+    <div class="absolute inset-0 bg-[url('../assets/images/laundry-basics-hero.jpg')] bg-cover [background-position:center_28%]"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-[#2f3e46] via-[#2f3e46]/85 to-[#2f3e46]/35"></div>
+    <div class="relative max-w-6xl mx-auto px-4 md:px-6 lg:px-10">
+      <nav aria-label="Breadcrumb" class="mb-6">
+        <ol class="flex items-center gap-2 font-body text-xs text-white/70 list-none">
+          <li><a href="../index.html" class="hover:text-[#d97757] hover:opacity-100 transition-colors">Home</a></li>
+          <li aria-hidden="true" class="opacity-50">/</li>
+          <li><a href="../index.html#home-skills" class="hover:text-[#d97757] hover:opacity-100 transition-colors">Home Skills</a></li>
+          <li aria-hidden="true" class="opacity-50">/</li>
+          <li aria-current="page" class="text-white font-semibold">Laundry Basics</li>
+        </ol>
       </nav>
-      <button type="button" id="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu" class="flex lg:hidden items-center justify-center w-11 h-11 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#52796f] focus-visible:ring-offset-2">
-        <svg data-nav-icon="bars" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2f3e46" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false">
-          <line x1="4" y1="7" x2="20" y2="7"></line>
-          <line x1="4" y1="12" x2="20" y2="12"></line>
-          <line x1="4" y1="17" x2="20" y2="17"></line>
-        </svg>
-        <svg data-nav-icon="close" class="w-6 h-6 text-[#52796f] hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-        </svg>
-      </button>
+      <h1 class="font-heading font-bold text-[40px] leading-tight mb-3">Laundry Basics</h1>
+      <p class="font-body text-base opacity-85 max-w-[540px]">Sorting, symbols and the settings that stop your clothes shrinking.</p>
     </div>
-    <nav id="mobile-nav" hidden aria-label="Mobile" class="lg:hidden bg-white p-4">
-      <ul class="list-none">
-        <li class="border-b border-[#f0ece3]">
-          <button type="button" data-nav-group aria-expanded="false" aria-controls="mobile-nav-home-skills" class="w-full min-h-[44px] flex justify-between items-center px-4 font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">
-            <span>Home Skills</span>
-            <span data-nav-chevron aria-hidden="true" class="transition-transform">▾</span>
-          </button>
-          <ul id="mobile-nav-home-skills" hidden class="list-none">
-            <li><a href="quick-meal.html" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Quick Meals</a></li>
-            <li><a href="laundry-basics.html" aria-current="page" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Laundry Basics</a></li>
-            <li><a href="room-organisation.html" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Room Organization</a></li>
-          </ul>
-        </li>
-        <li class="border-b border-[#f0ece3]">
-          <button type="button" data-nav-group aria-expanded="false" aria-controls="mobile-nav-money-time" class="w-full min-h-[44px] flex justify-between items-center px-4 font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">
-            <span>Money &amp; Time</span>
-            <span data-nav-chevron aria-hidden="true" class="transition-transform">▾</span>
-          </button>
-          <ul id="mobile-nav-money-time" hidden class="list-none">
-            <li><a href="money-basics.html" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Money Basics</a></li>
-            <li><a href="time-management.html" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Time Management</a></li>
-          </ul>
-        </li>
-        <li class="border-b border-[#f0ece3]">
-          <button type="button" data-nav-group aria-expanded="false" aria-controls="mobile-nav-people-safety" class="w-full min-h-[44px] flex justify-between items-center px-4 font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">
-            <span>People &amp; Safety</span>
-            <span data-nav-chevron aria-hidden="true" class="transition-transform">▾</span>
-          </button>
-          <ul id="mobile-nav-people-safety" hidden class="list-none">
-            <li><a href="communication-skills.html" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Communication Skills</a></li>
-            <li><a href="online-safety.html" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Online Safety</a></li>
-            <li><a href="emergency-preparedness.html" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Emergency Preparedness</a></li>
-          </ul>
-        </li>
-        <li>
-          <button type="button" data-nav-group aria-expanded="false" aria-controls="mobile-nav-practice-growth" class="w-full min-h-[44px] flex justify-between items-center px-4 font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">
-            <span>Practice &amp; Growth</span>
-            <span data-nav-chevron aria-hidden="true" class="transition-transform">▾</span>
-          </button>
-          <ul id="mobile-nav-practice-growth" hidden class="list-none">
-            <li><a href="weekly-challenges.html" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Weekly Challenges</a></li>
-            <li><a href="life-readiness-quiz.html" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Life Readiness Quiz</a></li>
-            <li><a href="submit-a-tip.html" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Submit a Tip</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-  </header>
+  </section>
 
   <!-- Main Content -->
   <main class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 py-12">
-    <!-- Page Title -->
-    <h1 class="font-heading text-4xl font-bold text-[#2f3e46] mb-12">Laundry Basics</h1>
 
     <!-- Section 1: Laundry Fundamentals -->
     <section class="mb-12">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <h2 class="font-heading text-2xl font-bold text-[#2f3e46] mb-6">Laundry Fundamentals</h2>
+      <div class="flex flex-col gap-2">
         <!-- Card 1 -->
-        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition">
-          <h3 class="font-heading text-lg font-bold text-[#2f3e46] mb-2">Sorting Your Clothes</h3>
-          <p class="text-sm text-[#5b6b70] mb-4">Learn how to separate clothes by color, fabric, and care requirements.</p>
-          <span class="text-[#d97757] font-medium text-sm">Click to Read →</span>
-        </div>
+        <details class="group bg-white rounded-2xl shadow-sm p-5">
+          <summary class="list-none flex justify-between items-center gap-4 cursor-pointer font-body font-semibold text-base text-[#2f3e46]">
+            <span>Sorting Your Clothes</span>
+            <span aria-hidden="true" class="text-[#52796f] font-bold shrink-0 group-open:hidden">+</span>
+            <span aria-hidden="true" class="text-[#52796f] font-bold shrink-0 hidden group-open:inline">&ndash;</span>
+          </summary>
+          <div class="mt-2.5 flex flex-col gap-3">
+            <p class="font-body text-base text-[#5b6b70] leading-relaxed">Learn how to separate clothes by color, fabric, and care requirements.</p>
+            <div data-youtube-embed="z6_Vu7QzNR8" data-youtube-title="Sorting Your Clothes demonstration video"></div>
+            <ul class="list-disc pl-5 flex flex-col gap-1.5 font-body text-base text-[#5b6b70] leading-relaxed">
+              <li>Split into three piles: whites, lights, and darks &mdash; dye from darks can bleed onto lighter fabrics.</li>
+              <li>Separate heavy items (jeans, towels) from delicates so buttons and zips don&rsquo;t snag thin fabric.</li>
+              <li>Check the care label before mixing anything in with a load &mdash; it tells you if an item needs its own wash.</li>
+              <li>Turn printed or dark items inside out to protect the design and reduce fading.</li>
+            </ul>
+          </div>
+        </details>
 
         <!-- Card 2 -->
-        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition">
-          <h3 class="font-heading text-lg font-bold text-[#2f3e46] mb-2">Washing Settings Guide</h3>
-          <p class="text-sm text-[#5b6b70] mb-4">Master the right water temperature and cycle for different fabric types.</p>
-          <span class="text-[#d97757] font-medium text-sm">Click to Read →</span>
-        </div>
+        <details class="group bg-white rounded-2xl shadow-sm p-5">
+          <summary class="list-none flex justify-between items-center gap-4 cursor-pointer font-body font-semibold text-base text-[#2f3e46]">
+            <span>Washing Settings Guide</span>
+            <span aria-hidden="true" class="text-[#52796f] font-bold shrink-0 group-open:hidden">+</span>
+            <span aria-hidden="true" class="text-[#52796f] font-bold shrink-0 hidden group-open:inline">&ndash;</span>
+          </summary>
+          <div class="mt-2.5 flex flex-col gap-3">
+            <p class="font-body text-base text-[#5b6b70] leading-relaxed">Master the right water temperature and cycle for different fabric types.</p>
+            <div data-youtube-embed="_hGTMJppk1U" data-youtube-title="Washing Settings Guide demonstration video"></div>
+            <ul class="list-disc pl-5 flex flex-col gap-1.5 font-body text-base text-[#5b6b70] leading-relaxed">
+              <li><span class="font-semibold text-[#2f3e46]">Cold water:</span> dark colors, delicates, and most everyday loads &mdash; keeps colors from fading.</li>
+              <li><span class="font-semibold text-[#2f3e46]">Warm water:</span> moderately soiled synthetics and bedsheets.</li>
+              <li><span class="font-semibold text-[#2f3e46]">Hot water:</span> whites, towels, and heavily soiled items.</li>
+              <li><span class="font-semibold text-[#2f3e46]">Cycle:</span> normal for sturdy fabrics, gentle/delicate for thin fabrics, permanent press for wrinkle-prone synthetics.</li>
+            </ul>
+          </div>
+        </details>
       </div>
     </section>
 
     <!-- Section 2: Laundry Symbols -->
     <section class="mb-12">
       <h2 class="font-heading text-2xl font-bold text-[#2f3e46] mb-6">Laundry Symbols Explained</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <!--
+        Image: "Guide to Procedures; LAUNDRY.jpg" by Aaron headly.
+        Source: https://commons.wikimedia.org/wiki/File:Guide_to_Procedures;_LAUNDRY.jpg
+        License: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+        Downloaded locally to assets/images/laundry-symbols-guide.jpg.
+      -->
+      <figure class="mb-6">
+        <img src="../assets/images/laundry-symbols-guide.jpg" alt="Poster listing common laundry care-label icons and their meanings, photographed at a laundromat" class="w-full max-w-2xl mx-auto rounded-xl" loading="lazy">
+      </figure>
+
+      <div class="mb-8">
+        <p class="font-body text-base text-[#5b6b70] mb-3 font-semibold">What the icons actually mean:</p>
+        <ul class="list-none flex flex-col gap-2.5">
+          <li class="flex gap-2.5 font-body text-base text-[#2f3e46]"><span aria-hidden="true" class="text-[#d97757] font-semibold">&ndash;</span><span><strong>Tub (with water)</strong> &mdash; machine or hand wash. Dots inside show water temperature (more dots = hotter); a bar underneath means a gentler cycle; an X through it means don&rsquo;t wash at all.</span></li>
+          <li class="flex gap-2.5 font-body text-base text-[#2f3e46]"><span aria-hidden="true" class="text-[#d97757] font-semibold">&ndash;</span><span><strong>Triangle</strong> &mdash; bleaching. A plain outline means any bleach is fine, two diagonal lines inside mean non-chlorine bleach only, and an X through it means don&rsquo;t bleach.</span></li>
+          <li class="flex gap-2.5 font-body text-base text-[#2f3e46]"><span aria-hidden="true" class="text-[#d97757] font-semibold">&ndash;</span><span><strong>Square</strong> &mdash; drying. A circle inside means tumble dry (dots again for heat level); lines inside mean line/hang or flat dry instead; an X through it means don&rsquo;t tumble dry.</span></li>
+          <li class="flex gap-2.5 font-body text-base text-[#2f3e46]"><span aria-hidden="true" class="text-[#d97757] font-semibold">&ndash;</span><span><strong>Iron</strong> &mdash; ironing. Dots set the heat (low/medium/high); an X through it means don&rsquo;t iron that item at all.</span></li>
+          <li class="flex gap-2.5 font-body text-base text-[#2f3e46]"><span aria-hidden="true" class="text-[#d97757] font-semibold">&ndash;</span><span><strong>Circle</strong> &mdash; professional dry cleaning. A plain circle means dry clean only; an X through it means the item can&rsquo;t be dry cleaned.</span></li>
+        </ul>
+      </div>
+
+      <div class="flex flex-col gap-2">
         <!-- Card 1 -->
-        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition">
-          <h3 class="font-heading text-lg font-bold text-[#2f3e46] mb-2">Understanding Care Labels</h3>
-          <p class="text-sm text-[#5b6b70] mb-4">Decode laundry symbols on clothing tags to prevent damage.</p>
-          <span class="text-[#d97757] font-medium text-sm">Click to Read →</span>
-        </div>
+        <details class="group bg-white rounded-2xl shadow-sm p-5">
+          <summary class="list-none flex justify-between items-center gap-4 cursor-pointer font-body font-semibold text-base text-[#2f3e46]">
+            <span>Understanding Care Labels</span>
+            <span aria-hidden="true" class="text-[#52796f] font-bold shrink-0 group-open:hidden">+</span>
+            <span aria-hidden="true" class="text-[#52796f] font-bold shrink-0 hidden group-open:inline">&ndash;</span>
+          </summary>
+          <div class="mt-2.5 flex flex-col gap-3">
+            <p class="font-body text-base text-[#5b6b70] leading-relaxed">Decode laundry symbols on clothing tags to prevent damage.</p>
+            <div data-youtube-embed="HknEq5ZyyuA" data-youtube-title="Understanding Care Labels demonstration video"></div>
+            <ul class="list-disc pl-5 flex flex-col gap-1.5 font-body text-base text-[#5b6b70] leading-relaxed">
+              <li><span class="font-semibold text-[#2f3e46]">Tub icon:</span> washing instructions &mdash; dots inside show the maximum safe temperature.</li>
+              <li><span class="font-semibold text-[#2f3e46]">Triangle:</span> bleach instructions &mdash; a crossed-out triangle means no bleach at all.</li>
+              <li><span class="font-semibold text-[#2f3e46]">Square:</span> drying instructions, including tumble-dry heat level.</li>
+              <li><span class="font-semibold text-[#2f3e46]">Iron icon:</span> ironing instructions &mdash; crossed out means don&rsquo;t iron this item.</li>
+              <li><span class="font-semibold text-[#2f3e46]">Circle:</span> dry clean only.</li>
+            </ul>
+          </div>
+        </details>
 
         <!-- Card 2 -->
-        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition">
-          <h3 class="font-heading text-lg font-bold text-[#2f3e46] mb-2">Bleach &amp; Chemical Guide</h3>
-          <p class="text-sm text-[#5b6b70] mb-4">Know when and how to use bleach safely on different fabrics.</p>
-          <span class="text-[#d97757] font-medium text-sm">Click to Read →</span>
-        </div>
+        <details class="group bg-white rounded-2xl shadow-sm p-5">
+          <summary class="list-none flex justify-between items-center gap-4 cursor-pointer font-body font-semibold text-base text-[#2f3e46]">
+            <span>Bleach &amp; Chemical Guide</span>
+            <span aria-hidden="true" class="text-[#52796f] font-bold shrink-0 group-open:hidden">+</span>
+            <span aria-hidden="true" class="text-[#52796f] font-bold shrink-0 hidden group-open:inline">&ndash;</span>
+          </summary>
+          <div class="mt-2.5 flex flex-col gap-3">
+            <p class="font-body text-base text-[#5b6b70] leading-relaxed">Know when and how to use bleach safely on different fabrics.</p>
+            <div data-youtube-embed="ymb10MYlhn4" data-youtube-title="Bleach &amp; Chemical Guide demonstration video"></div>
+            <ul class="list-disc pl-5 flex flex-col gap-1.5 font-body text-base text-[#5b6b70] leading-relaxed">
+              <li><span class="font-semibold text-[#2f3e46]">Chlorine bleach:</span> whites and colorfast fabrics only &mdash; never on wool, silk, or spandex.</li>
+              <li><span class="font-semibold text-[#2f3e46]">Oxygen (color-safe) bleach:</span> a gentler option that&rsquo;s safe for most colored fabrics.</li>
+              <li>Always dilute bleach in water first &mdash; pouring it directly on fabric can bleach or burn through it.</li>
+              <li>Check the care label&rsquo;s triangle symbol before using any bleach.</li>
+            </ul>
+          </div>
+        </details>
       </div>
     </section>
 
     <!-- Section 3: Drying &amp; Maintenance -->
     <section class="mb-12">
       <h2 class="font-heading text-2xl font-bold text-[#2f3e46] mb-6">Drying &amp; Care Habits</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="flex flex-col gap-2">
         <!-- Card 1 -->
-        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition">
-          <h3 class="font-heading text-lg font-bold text-[#2f3e46] mb-2">Machine vs. Hand Drying</h3>
-          <p class="text-sm text-[#5b6b70] mb-4">Understand which drying method works best for each garment type.</p>
-          <span class="text-[#d97757] font-medium text-sm">Click to Read →</span>
-        </div>
+        <details class="group bg-white rounded-2xl shadow-sm p-5">
+          <summary class="list-none flex justify-between items-center gap-4 cursor-pointer font-body font-semibold text-base text-[#2f3e46]">
+            <span>Machine vs. Hand Drying</span>
+            <span aria-hidden="true" class="text-[#52796f] font-bold shrink-0 group-open:hidden">+</span>
+            <span aria-hidden="true" class="text-[#52796f] font-bold shrink-0 hidden group-open:inline">&ndash;</span>
+          </summary>
+          <div class="mt-2.5 flex flex-col gap-3">
+            <p class="font-body text-base text-[#5b6b70] leading-relaxed">Understand which drying method works best for each garment type.</p>
+            <div data-youtube-embed="9bGkxccSpzc" data-youtube-title="Machine vs. Hand Drying demonstration video"></div>
+            <ul class="list-disc pl-5 flex flex-col gap-1.5 font-body text-base text-[#5b6b70] leading-relaxed">
+              <li><span class="font-semibold text-[#2f3e46]">Tumble dry:</span> sturdy cottons and towels &mdash; use low heat for synthetics.</li>
+              <li><span class="font-semibold text-[#2f3e46]">Lay flat:</span> sweaters and wool, to stop them stretching out of shape.</li>
+              <li><span class="font-semibold text-[#2f3e46]">Hang dry:</span> shirts and dresses, to cut down on wrinkles.</li>
+            </ul>
+          </div>
+        </details>
 
         <!-- Card 2 -->
-        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition">
-          <h3 class="font-heading text-lg font-bold text-[#2f3e46] mb-2">Preventing Wrinkles</h3>
-          <p class="text-sm text-[#5b6b70] mb-4">Tips and tricks to keep clothes looking fresh and wrinkle-free.</p>
-          <span class="text-[#d97757] font-medium text-sm">Click to Read →</span>
-        </div>
+        <details class="group bg-white rounded-2xl shadow-sm p-5">
+          <summary class="list-none flex justify-between items-center gap-4 cursor-pointer font-body font-semibold text-base text-[#2f3e46]">
+            <span>Preventing Wrinkles</span>
+            <span aria-hidden="true" class="text-[#52796f] font-bold shrink-0 group-open:hidden">+</span>
+            <span aria-hidden="true" class="text-[#52796f] font-bold shrink-0 hidden group-open:inline">&ndash;</span>
+          </summary>
+          <div class="mt-2.5 flex flex-col gap-3">
+            <p class="font-body text-base text-[#5b6b70] leading-relaxed">Tips and tricks to keep clothes looking fresh and wrinkle-free.</p>
+            <div data-youtube-embed="Me0Z1f7CGVM" data-youtube-title="Preventing Wrinkles demonstration video"></div>
+            <ul class="list-disc pl-5 flex flex-col gap-1.5 font-body text-base text-[#5b6b70] leading-relaxed">
+              <li>Don&rsquo;t overload the washer or dryer &mdash; clothes need room to tumble freely.</li>
+              <li>Take clothes out as soon as the cycle ends instead of leaving them to sit.</li>
+              <li>Fold or hang items up right away.</li>
+              <li>Add a couple of dryer balls to keep clothes separated as they tumble.</li>
+            </ul>
+          </div>
+        </details>
 
         <!-- Card 3 -->
-        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition">
-          <h3 class="font-heading text-lg font-bold text-[#2f3e46] mb-2">Extending Garment Life</h3>
-          <p class="text-sm text-[#5b6b70] mb-4">Maintain your clothes properly to make them last longer.</p>
-          <span class="text-[#d97757] font-medium text-sm">Click to Read →</span>
-        </div>
+        <details class="group bg-white rounded-2xl shadow-sm p-5">
+          <summary class="list-none flex justify-between items-center gap-4 cursor-pointer font-body font-semibold text-base text-[#2f3e46]">
+            <span>Extending Garment Life</span>
+            <span aria-hidden="true" class="text-[#52796f] font-bold shrink-0 group-open:hidden">+</span>
+            <span aria-hidden="true" class="text-[#52796f] font-bold shrink-0 hidden group-open:inline">&ndash;</span>
+          </summary>
+          <div class="mt-2.5 flex flex-col gap-3">
+            <p class="font-body text-base text-[#5b6b70] leading-relaxed">Maintain your clothes properly to make them last longer.</p>
+            <div data-youtube-embed="lZs97NJFGhw" data-youtube-title="Extending Garment Life demonstration video"></div>
+            <ul class="list-disc pl-5 flex flex-col gap-1.5 font-body text-base text-[#5b6b70] leading-relaxed">
+              <li>Wash lightly-worn items less often &mdash; every wash cycle wears fibers down a little.</li>
+              <li>Turn clothes inside out to protect color and prints from friction in the wash.</li>
+              <li>Use a mesh laundry bag for delicates, bras, and anything with straps.</li>
+              <li>Avoid high heat where you can &mdash; it&rsquo;s the biggest cause of shrinking and fiber damage over time.</li>
+            </ul>
+          </div>
+        </details>
       </div>
     </section>
   </main>
 
-  <div class="max-w-2xl mx-auto mt-16">
+  <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pb-16">
       <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-6">Step-by-Step Accordion</h2>
       <p class="text-lg text-[#2f3e46] mb-8">Drag and arrange the steps in the correct order, then click "Check Answer" to verify!</p>
       
@@ -224,8 +319,8 @@
     </div>
 
   <!-- Footer -->
-  <footer class="bg-[#2f3e46] text-[#faf7f2] px-4 md:px-6 lg:px-10 pt-14 pb-6">
-    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+  <footer class="bg-[#2f3e46] text-[#faf7f2] pt-14 pb-6">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
       <div>
         <div class="font-heading font-bold text-xl mb-3">Level Up Life!</div>
         <p class="text-sm opacity-70 max-w-[260px] leading-relaxed">A website that aims to teach beginner life skills, let visitors assess their readiness, complete challenges and submit useful tips for other students.</p>

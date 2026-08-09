@@ -44,6 +44,48 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initial progress update
   updateProgress();
+
+  // Category / difficulty filters
+  const categorySelect = document.getElementById("challenge-category-filter");
+  const difficultySelect = document.getElementById("challenge-difficulty-filter");
+  const filterStatus = document.getElementById("challenge-filter-status");
+
+  function populateFilterOptions(select, values) {
+    [...new Set(values)].forEach((value) => {
+      const option = document.createElement("option");
+      option.value = value;
+      option.textContent = value;
+      select.appendChild(option);
+    });
+  }
+
+  function applyFilters() {
+    const category = categorySelect.value;
+    const difficulty = difficultySelect.value;
+    let visibleCount = 0;
+
+    rows.forEach((row) => {
+      const matchesCategory = category === "all" || row.dataset.category === category;
+      const matchesDifficulty = difficulty === "all" || row.dataset.difficulty === difficulty;
+      const isVisible = matchesCategory && matchesDifficulty;
+      row.classList.toggle("hidden", !isVisible);
+      if (isVisible) {
+        visibleCount++;
+      }
+    });
+
+    filterStatus.textContent = `Showing ${visibleCount} of ${totalTasks} challenges.`;
+  }
+
+  if (categorySelect && difficultySelect && filterStatus) {
+    populateFilterOptions(categorySelect, [...rows].map((row) => row.dataset.category));
+    populateFilterOptions(difficultySelect, [...rows].map((row) => row.dataset.difficulty));
+
+    categorySelect.addEventListener("change", applyFilters);
+    difficultySelect.addEventListener("change", applyFilters);
+
+    applyFilters();
+  }
 });
 // Mindset Tip Expandable Widget
 const mindsetTips = document.getElementById("mindsetTips");
