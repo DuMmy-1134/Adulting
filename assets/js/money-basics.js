@@ -71,7 +71,12 @@ function updateSummaryTable() {
   }
 }
 
-const calculatorFields = [allowanceInput, expensesInput, savedInput, targetInput];
+const calculatorFields = [
+  allowanceInput,
+  expensesInput,
+  savedInput,
+  targetInput,
+];
 
 function setFieldError(input, hasError) {
   const errorText = document.getElementById(`${input.id}-error`);
