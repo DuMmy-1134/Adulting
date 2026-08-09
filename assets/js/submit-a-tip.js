@@ -101,7 +101,7 @@ function saveStoredTips(tipsArray) {
 function createTipCard(tip) {
   const card = document.createElement("div");
   // data-category is what the filter buttons check against later.
-  card.className = "tip-card block w-full sm:w-[300px] bg-white rounded-2xl shadow-sm p-6";
+  card.className = "tip-card block bg-white rounded-2xl shadow-sm p-6";
   card.dataset.category = tip.category;
 
   const badge = document.createElement("span");
