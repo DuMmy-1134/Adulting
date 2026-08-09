@@ -44,6 +44,48 @@ const CHALLENGES = [
     ctaLabel: "Take the challenge",
     ctaHref: "pages/room-organisation.html",
   },
+  {
+    title: "Cook one real meal tonight",
+    text: "Skip the delivery app and pick a recipe filtered to the time and difficulty you've actually got energy for.",
+    ctaLabel: "Browse meals",
+    ctaHref: "pages/quick-meal.html",
+  },
+  {
+    title: "Check a care label before you regret it",
+    text: "Find one item you've been washing on a guess, and match its symbols against the guide before the next load shrinks it.",
+    ctaLabel: "Decode the symbols",
+    ctaHref: "pages/laundry-basics.html",
+  },
+  {
+    title: "Sort today's to-do list into four boxes",
+    text: "Urgent-and-important, important-but-not-urgent, urgent-but-not-important, neither. Most lists are shorter than they look once you do this.",
+    ctaLabel: "Set your priorities",
+    ctaHref: "pages/time-management.html",
+  },
+  {
+    title: "Rehearse one hard conversation before you have it",
+    text: "Pick a scenario close to one you're actually avoiding and try out a response before it's real.",
+    ctaLabel: "Try it",
+    ctaHref: "pages/communication-skills.html",
+  },
+  {
+    title: "Commit to a 7-day habit",
+    text: "Pick one five-minute daily challenge from the list, filtered by category or difficulty, and check it off for a week.",
+    ctaLabel: "Pick a challenge",
+    ctaHref: "pages/weekly-challenges.html",
+  },
+  {
+    title: "Take the 2-minute Life Readiness Quiz",
+    text: "Answer a few quick questions and get a personalised path through the modules you're weakest on.",
+    ctaLabel: "Take the quiz",
+    ctaHref: "pages/life-readiness-quiz.html",
+  },
+  {
+    title: "Share the one tip you wish you'd known sooner",
+    text: "Something that cost you time, money, or a burnt pot the first time round — pass it on so someone else skips that step.",
+    ctaLabel: "Submit your tip",
+    ctaHref: "pages/submit-a-tip.html",
+  },
 ];
 
 const FILTER_ACTIVE_CLASSES = ["bg-[#52796f]", "text-white"];
