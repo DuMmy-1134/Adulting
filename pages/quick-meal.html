@@ -10,6 +10,7 @@
     />
     <link rel="stylesheet" href="../assets/css/fonts.css" />
     <link rel="stylesheet" href="../assets/css/quick-meal.css" />
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="../assets/js/tailwind-config.js"></script>
     <script src="../assets/js/nav-toggle.js" defer></script>
@@ -482,6 +483,164 @@
           </div>
         </div>
       </div>
+    </section>
+    
+    </div>
+    <!-- Add Recipe Modal / Section -->
+    <section
+      class="mb-10 max-w-6xl p-6 mx-auto bg-white rounded-2xl shadow-sm border border-[#f0ece3]"
+    >
+      <h3 class="font-heading font-bold text-xl text-[#2f3e46] mb-4">
+        Add Your Own Quick Meal
+      </h3>
+      <form id="add-recipe-form" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label
+            for="recipe-name"
+            class="block text-sm font-semibold text-[#2f3e46] mb-1"
+            >Recipe Name *</label
+          >
+          <input
+            type="text"
+            id="recipe-name"
+            required
+            placeholder="e.g. Avocado Toast"
+            class="w-full rounded-lg border border-[#f0ece3] p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#7c9d96]"
+          />
+        </div>
+
+        <div>
+          <label
+            for="meal-type"
+            class="block text-sm font-semibold text-[#2f3e46] mb-1"
+            >Meal Type *</label
+          >
+          <select
+            id="meal-type"
+            required
+            class="w-full rounded-lg border border-[#f0ece3] p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#7c9d96]"
+          >
+            <option value="Breakfast">Breakfast</option>
+            <option value="Lunch">Lunch</option>
+            <option value="Dinner">Dinner</option>
+            <option value="Snack">Snack</option>
+          </select>
+        </div>
+
+        <div>
+          <label
+            for="estimated-time"
+            class="block text-sm font-semibold text-[#2f3e46] mb-1"
+            >Estimated Time (mins) *</label
+          >
+          <input
+            type="number"
+            id="estimated-time"
+            required
+            min="1"
+            placeholder="e.g. 15"
+            class="w-full rounded-lg border border-[#f0ece3] p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#7c9d96]"
+          />
+        </div>
+
+        <div>
+          <label
+            for="time-note"
+            class="block text-sm font-semibold text-[#2f3e46] mb-1"
+            >Time Note (Optional)</label
+          >
+          <input
+            type="text"
+            id="time-note"
+            placeholder="e.g. 5 min prep + 10 min cook"
+            class="w-full rounded-lg border border-[#f0ece3] p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#7c9d96]"
+          />
+        </div>
+
+        <div>
+          <label
+            for="recipe-difficulty"
+            class="block text-sm font-semibold text-[#2f3e46] mb-1"
+            >Difficulty *</label
+          >
+          <select
+            id="recipe-difficulty"
+            required
+            class="w-full rounded-lg border border-[#f0ece3] p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#7c9d96]"
+          >
+            <option value="Easy">Easy</option>
+            <option value="Medium">Medium</option>
+            <option value="Hard">Hard</option>
+          </select>
+        </div>
+
+        <div>
+          <label
+            for="youtube-link"
+            class="block text-sm font-semibold text-[#2f3e46] mb-1"
+            >YouTube Link or Video ID</label
+          >
+          <input
+            type="text"
+            id="youtube-link"
+            placeholder="e.g. https://www.youtube.com/watch?v=Lkl9_3-jX6c"
+            class="w-full rounded-lg border border-[#f0ece3] p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#7c9d96]"
+          />
+        </div>
+
+        <div class="md:col-span-2">
+          <label
+            for="recipe-source"
+            class="block text-sm font-semibold text-[#2f3e46] mb-1"
+            >Source / Web Link (Optional)</label
+          >
+          <input
+            type="url"
+            id="recipe-source"
+            placeholder="https://..."
+            class="w-full rounded-lg border border-[#f0ece3] p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#7c9d96]"
+          />
+        </div>
+
+        <div class="md:col-span-2">
+          <label
+            for="recipe-ingredients"
+            class="block text-sm font-semibold text-[#2f3e46] mb-1"
+            >Ingredients (Separated by commas) *</label
+          >
+          <textarea
+            id="recipe-ingredients"
+            required
+            rows="2"
+            placeholder="2 slices bread, 1 ripe avocado, Salt to taste, Pinch of black pepper"
+            class="w-full rounded-lg border border-[#f0ece3] p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#7c9d96]"
+          ></textarea>
+        </div>
+
+        <div class="md:col-span-2">
+          <label
+            for="recipe-instructions"
+            class="block text-sm font-semibold text-[#2f3e46] mb-1"
+            >Instructions (Separated by periods .) *</label
+          >
+          <textarea
+            id="recipe-instructions"
+            required
+            rows="3"
+            placeholder="Toast the bread slices. Mash the avocado in a bowl. Spread over toast and season with salt and pepper."
+            class="w-full rounded-lg border border-[#f0ece3] p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#7c9d96]"
+          ></textarea>
+        </div>
+
+        <div class="md:col-span-2 flex justify-end">
+          <button
+            type="submit"
+            class="bg-[#d97757] hover:bg-[#3d5a52] text-white font-semibold text-sm px-6 py-2.5 rounded-lg transition-colors cursor-pointer"
+          >
+            Add Recipe
+          </button>
+        </div>
+      </form>
     </section>
     <footer class="bg-[#2f3e46] text-[#faf7f2] pt-14 pb-6">
       <div
