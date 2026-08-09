@@ -243,9 +243,8 @@ function generateNewWeeklySchedule() {
       <td class="py-3 px-4 text-[#2f3e46] text-left">${item.challenge}</td>
       <td class="py-3 px-4 text-[#5b6b70]">${item.difficulty}</td>
       <td class="py-3 px-4">
-        <button 
-          onclick="toggleComplete(this)" 
-          class="text-[#52796f] hover:text-[#2f3e46] font-semibold text-sm underline cursor-pointer">
+        <button
+          class="toggle-complete-btn text-[#52796f] hover:text-[#2f3e46] font-semibold text-sm underline cursor-pointer">
           Mark Complete
         </button>
       </td>
@@ -271,6 +270,17 @@ document.addEventListener("DOMContentLoaded", () => {
   if (categorySelect && difficultySelect) {
     categorySelect.addEventListener("change", applyFilters);
     difficultySelect.addEventListener("change", applyFilters);
+  }
+
+  // One click listener on the table body (event delegation) instead of an
+  // inline onclick per row, since rows are regenerated on every reshuffle.
+  const tableBody = document.getElementById("challenge-table-body");
+  if (tableBody) {
+    tableBody.addEventListener("click", (event) => {
+      const btn = event.target.closest(".toggle-complete-btn");
+      if (!btn) return;
+      toggleComplete(btn);
+    });
   }
 
   // Mindset Tip Expandable Widget
