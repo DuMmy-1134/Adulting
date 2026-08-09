@@ -111,8 +111,32 @@
   <!-- Main Content -->
   <main class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 py-12">
 
+    <div class="mb-12">
+      <div class="bg-[#eef2f0] rounded-xl p-5 md:p-6">
+        <p class="font-body font-semibold text-sm text-[#2f3e46] mb-3">On this page</p>
+        <ul class="list-none flex flex-col gap-2">
+          <li class="flex items-center gap-2">
+            <span aria-hidden="true" class="text-[#9caaa6]">&mdash;</span>
+            <a href="#fundamentals" class="font-body text-sm text-[#52796f] hover:text-[#d97757] hover:underline">Laundry Fundamentals</a>
+          </li>
+          <li class="flex items-center gap-2">
+            <span aria-hidden="true" class="text-[#9caaa6]">&mdash;</span>
+            <a href="#symbols" class="font-body text-sm text-[#52796f] hover:text-[#d97757] hover:underline">Laundry Symbols Explained</a>
+          </li>
+          <li class="flex items-center gap-2">
+            <span aria-hidden="true" class="text-[#9caaa6]">&mdash;</span>
+            <a href="#drying-care" class="font-body text-sm text-[#52796f] hover:text-[#d97757] hover:underline">Drying &amp; Care Habits</a>
+          </li>
+          <li class="flex items-center gap-2">
+            <span aria-hidden="true" class="text-[#9caaa6]">&mdash;</span>
+            <a href="#step-by-step" class="font-body text-sm text-[#52796f] hover:text-[#d97757] hover:underline">Step-by-Step Accordion</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
     <!-- Section 1: Laundry Fundamentals -->
-    <section class="mb-12">
+    <section id="fundamentals" class="mb-12">
       <h2 class="font-heading text-2xl font-bold text-[#2f3e46] mb-6">Laundry Fundamentals</h2>
       <div class="flex flex-col gap-2">
         <!-- Card 1 -->
@@ -156,7 +180,7 @@
     </section>
 
     <!-- Section 2: Laundry Symbols -->
-    <section class="mb-12">
+    <section id="symbols" class="mb-12">
       <h2 class="font-heading text-2xl font-bold text-[#2f3e46] mb-6">Laundry Symbols Explained</h2>
 
       <!--
@@ -223,7 +247,7 @@
     </section>
 
     <!-- Section 3: Drying &amp; Maintenance -->
-    <section class="mb-12">
+    <section id="drying-care" class="mb-12">
       <h2 class="font-heading text-2xl font-bold text-[#2f3e46] mb-6">Drying &amp; Care Habits</h2>
       <div class="flex flex-col gap-2">
         <!-- Card 1 -->
@@ -285,7 +309,7 @@
     </section>
   </main>
 
-  <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pb-16">
+  <div id="step-by-step" class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pb-16">
       <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-6">Step-by-Step Accordion</h2>
       <p class="text-lg text-[#2f3e46] mb-8">Drag and arrange the steps in the correct order, then click "Check Answer" to verify!</p>
       
@@ -344,7 +368,7 @@
         </ul>
       </div>
     </div>
-    <div class="max-w-6xl mx-auto mt-9 text-xs opacity-70">&copy; 2026 Level Up Life!</div>
+    <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 mt-9 text-xs opacity-70">&copy; 2026 Level Up Life!</div>
   </footer>
 
   <!-- Scripts -->
