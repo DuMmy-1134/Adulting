@@ -16,7 +16,7 @@ savingHabits.addEventListener("click", (e) => {
   expandableHabit.classList.toggle("hidden");
 });
 
-// Input Calculator
+// Budget Calculator
 // Input Elements
 const allowanceInput = document.getElementById("monthly-allowance");
 const expensesInput = document.getElementById("monthly-expenses");
@@ -71,7 +71,12 @@ function updateSummaryTable() {
   }
 }
 
-const calculatorFields = [allowanceInput, expensesInput, savedInput, targetInput];
+const calculatorFields = [
+  allowanceInput,
+  expensesInput,
+  savedInput,
+  targetInput,
+];
 
 function setFieldError(input, hasError) {
   const errorText = document.getElementById(`${input.id}-error`);

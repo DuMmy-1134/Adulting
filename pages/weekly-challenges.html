@@ -17,73 +17,241 @@
   </head>
   <body class="bg-[#faf7f2] font-body text-[#2f3e46] antialiased">
     <header class="sticky top-0 z-50 bg-white shadow-sm will-change-transform">
-      <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 py-4 flex flex-wrap items-center justify-between">
-        <a href="../index.html" class="font-heading font-bold text-xl text-[#52796f]">Level Up Life!</a>
-        <button type="button" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu" class="flex lg:hidden items-center justify-center w-11 h-11 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#52796f] focus-visible:ring-offset-2">
-          <svg data-nav-icon="bars" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2f3e46" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false">
+      <div
+        class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 py-4 flex flex-wrap items-center justify-between"
+      >
+        <a
+          href="../index.html"
+          class="font-heading font-bold text-xl text-[#52796f]"
+          >Level Up Life!</a
+        >
+        <button
+          type="button"
+          id="nav-toggle"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          aria-label="Open menu"
+          class="flex lg:hidden items-center justify-center w-11 h-11 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#52796f] focus-visible:ring-offset-2"
+        >
+          <svg
+            data-nav-icon="bars"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#2f3e46"
+            stroke-width="2"
+            stroke-linecap="round"
+            aria-hidden="true"
+            focusable="false"
+          >
             <line x1="4" y1="7" x2="20" y2="7"></line>
             <line x1="4" y1="12" x2="20" y2="12"></line>
             <line x1="4" y1="17" x2="20" y2="17"></line>
           </svg>
-          <svg data-nav-icon="close" class="hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2f3e46" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false">
+          <svg
+            data-nav-icon="close"
+            class="hidden"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#2f3e46"
+            stroke-width="2"
+            stroke-linecap="round"
+            aria-hidden="true"
+            focusable="false"
+          >
             <line x1="6" y1="6" x2="18" y2="18"></line>
             <line x1="18" y1="6" x2="6" y2="18"></line>
           </svg>
         </button>
-        <nav id="site-nav" aria-label="Main" hidden class="w-full mt-4 p-4 rounded-xl bg-[#faf7f2] lg:w-auto lg:!flex lg:items-center lg:gap-8 lg:mt-0 lg:p-0 lg:bg-transparent lg:rounded-none">
-        <ul class="list-none lg:flex lg:items-center lg:gap-8">
-          <li class="relative group border-b border-[#f0ece3] lg:border-0">
-            <a href="../index.html#home-skills" data-nav-group aria-expanded="false" aria-controls="site-nav-home-skills" class="flex justify-between items-center min-h-[44px] px-4 lg:px-0 lg:inline-flex font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">
-              <span>Home Skills</span>
-              <span data-nav-chevron aria-hidden="true" class="transition-transform lg:group-hover:rotate-180">▾</span>
-            </a>
-            <div id="site-nav-home-skills" hidden class="lg:!block lg:invisible lg:opacity-0 lg:group-hover:visible lg:group-hover:opacity-100 lg:group-focus-within:visible lg:group-focus-within:opacity-100 lg:transition-opacity lg:absolute lg:left-0 lg:top-full lg:min-w-[190px] lg:bg-white lg:rounded-xl lg:shadow-lg lg:p-4">
-              <ul class="list-none">
-                <li><a href="quick-meal.html" class="flex items-center min-h-[44px] pl-8 pr-4 lg:min-h-0 lg:block lg:px-2 lg:py-2 font-body text-sm text-[#2f3e46] lg:rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Quick Meals</a></li>
-                <li><a href="laundry-basics.html" class="flex items-center min-h-[44px] pl-8 pr-4 lg:min-h-0 lg:block lg:px-2 lg:py-2 font-body text-sm text-[#2f3e46] lg:rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Laundry Basics</a></li>
-                <li><a href="room-organisation.html" class="flex items-center min-h-[44px] pl-8 pr-4 lg:min-h-0 lg:block lg:px-2 lg:py-2 font-body text-sm text-[#2f3e46] lg:rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Room Organization</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="relative group border-b border-[#f0ece3] lg:border-0">
-            <a href="../index.html#money-time" data-nav-group aria-expanded="false" aria-controls="site-nav-money-time" class="flex justify-between items-center min-h-[44px] px-4 lg:px-0 lg:inline-flex font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">
-              <span>Money &amp; Time</span>
-              <span data-nav-chevron aria-hidden="true" class="transition-transform lg:group-hover:rotate-180">▾</span>
-            </a>
-            <div id="site-nav-money-time" hidden class="lg:!block lg:invisible lg:opacity-0 lg:group-hover:visible lg:group-hover:opacity-100 lg:group-focus-within:visible lg:group-focus-within:opacity-100 lg:transition-opacity lg:absolute lg:left-0 lg:top-full lg:min-w-[190px] lg:bg-white lg:rounded-xl lg:shadow-lg lg:p-4">
-              <ul class="list-none">
-                <li><a href="money-basics.html" class="flex items-center min-h-[44px] pl-8 pr-4 lg:min-h-0 lg:block lg:px-2 lg:py-2 font-body text-sm text-[#2f3e46] lg:rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Money Basics</a></li>
-                <li><a href="time-management.html" class="flex items-center min-h-[44px] pl-8 pr-4 lg:min-h-0 lg:block lg:px-2 lg:py-2 font-body text-sm text-[#2f3e46] lg:rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Time Management</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="relative group border-b border-[#f0ece3] lg:border-0">
-            <a href="../index.html#people-safety" data-nav-group aria-expanded="false" aria-controls="site-nav-people-safety" class="flex justify-between items-center min-h-[44px] px-4 lg:px-0 lg:inline-flex font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">
-              <span>People &amp; Safety</span>
-              <span data-nav-chevron aria-hidden="true" class="transition-transform lg:group-hover:rotate-180">▾</span>
-            </a>
-            <div id="site-nav-people-safety" hidden class="lg:!block lg:invisible lg:opacity-0 lg:group-hover:visible lg:group-hover:opacity-100 lg:group-focus-within:visible lg:group-focus-within:opacity-100 lg:transition-opacity lg:absolute lg:left-0 lg:top-full lg:min-w-[190px] lg:bg-white lg:rounded-xl lg:shadow-lg lg:p-4">
-              <ul class="list-none">
-                <li><a href="communication-skills.html" class="flex items-center min-h-[44px] pl-8 pr-4 lg:min-h-0 lg:block lg:px-2 lg:py-2 font-body text-sm text-[#2f3e46] lg:rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Communication Skills</a></li>
-                <li><a href="online-safety.html" class="flex items-center min-h-[44px] pl-8 pr-4 lg:min-h-0 lg:block lg:px-2 lg:py-2 font-body text-sm text-[#2f3e46] lg:rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Online Safety</a></li>
-                <li><a href="emergency-preparedness.html" class="flex items-center min-h-[44px] pl-8 pr-4 lg:min-h-0 lg:block lg:px-2 lg:py-2 font-body text-sm text-[#2f3e46] lg:rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Emergency Preparedness</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="relative group">
-            <a href="../index.html#practice-growth" data-nav-group aria-expanded="false" aria-controls="site-nav-practice-growth" class="flex justify-between items-center min-h-[44px] px-4 lg:px-0 lg:inline-flex font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">
-              <span>Practice &amp; Growth</span>
-              <span data-nav-chevron aria-hidden="true" class="transition-transform lg:group-hover:rotate-180">▾</span>
-            </a>
-            <div id="site-nav-practice-growth" hidden class="lg:!block lg:invisible lg:opacity-0 lg:group-hover:visible lg:group-hover:opacity-100 lg:group-focus-within:visible lg:group-focus-within:opacity-100 lg:transition-opacity lg:absolute lg:left-0 lg:top-full lg:min-w-[190px] lg:bg-white lg:rounded-xl lg:shadow-lg lg:p-4">
-              <ul class="list-none">
-                <li><a href="weekly-challenges.html" aria-current="page" class="flex items-center min-h-[44px] pl-8 pr-4 lg:min-h-0 lg:block lg:px-2 lg:py-2 font-body text-sm text-[#2f3e46] lg:rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Weekly Challenges</a></li>
-                <li><a href="life-readiness-quiz.html" class="flex items-center min-h-[44px] pl-8 pr-4 lg:min-h-0 lg:block lg:px-2 lg:py-2 font-body text-sm text-[#2f3e46] lg:rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Life Readiness Quiz</a></li>
-                <li><a href="submit-a-tip.html" class="flex items-center min-h-[44px] pl-8 pr-4 lg:min-h-0 lg:block lg:px-2 lg:py-2 font-body text-sm text-[#2f3e46] lg:rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Submit a Tip</a></li>
-              </ul>
-            </div>
-          </li>
-        </ul>
+        <nav
+          id="site-nav"
+          aria-label="Main"
+          hidden
+          class="w-full mt-4 p-4 rounded-xl bg-[#faf7f2] lg:w-auto lg:!flex lg:items-center lg:gap-8 lg:mt-0 lg:p-0 lg:bg-transparent lg:rounded-none"
+        >
+          <ul class="list-none lg:flex lg:items-center lg:gap-8">
+            <li class="relative group border-b border-[#f0ece3] lg:border-0">
+              <a
+                href="../index.html#home-skills"
+                data-nav-group
+                aria-expanded="false"
+                aria-controls="site-nav-home-skills"
+                class="flex justify-between items-center min-h-[44px] px-4 lg:px-0 lg:inline-flex font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer"
+              >
+                <span>Home Skills</span>
+                <span
+                  data-nav-chevron
+                  aria-hidden="true"
+                  class="transition-transform lg:group-hover:rotate-180"
+                  >▾</span
+                >
+              </a>
+              <div
+                id="site-nav-home-skills"
+                hidden
+                class="lg:!block lg:invisible lg:opacity-0 lg:group-hover:visible lg:group-hover:opacity-100 lg:group-focus-within:visible lg:group-focus-within:opacity-100 lg:transition-opacity lg:absolute lg:left-0 lg:top-full lg:min-w-[190px] lg:bg-white lg:rounded-xl lg:shadow-lg lg:p-4"
+              >
+                <ul class="list-none">
+                  <li>
+                    <a
+                      href="quick-meal.html"
+                      aria-current="page"
+                      class="flex items-center min-h-[44px] pl-8 pr-4 lg:min-h-0 lg:block lg:px-2 lg:py-2 font-body text-sm text-[#2f3e46] lg:rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap"
+                      >Quick Meals</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="laundry-basics.html"
+                      class="flex items-center min-h-[44px] pl-8 pr-4 lg:min-h-0 lg:block lg:px-2 lg:py-2 font-body text-sm text-[#2f3e46] lg:rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap"
+                      >Laundry Basics</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="room-organisation.html"
+                      class="flex items-center min-h-[44px] pl-8 pr-4 lg:min-h-0 lg:block lg:px-2 lg:py-2 font-body text-sm text-[#2f3e46] lg:rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap"
+                      >Room Organization</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="relative group border-b border-[#f0ece3] lg:border-0">
+              <a
+                href="../index.html#money-time"
+                data-nav-group
+                aria-expanded="false"
+                aria-controls="site-nav-money-time"
+                class="flex justify-between items-center min-h-[44px] px-4 lg:px-0 lg:inline-flex font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer"
+              >
+                <span>Money &amp; Time</span>
+                <span
+                  data-nav-chevron
+                  aria-hidden="true"
+                  class="transition-transform lg:group-hover:rotate-180"
+                  >▾</span
+                >
+              </a>
+              <div
+                id="site-nav-money-time"
+                hidden
+                class="lg:!block lg:invisible lg:opacity-0 lg:group-hover:visible lg:group-hover:opacity-100 lg:group-focus-within:visible lg:group-focus-within:opacity-100 lg:transition-opacity lg:absolute lg:left-0 lg:top-full lg:min-w-[190px] lg:bg-white lg:rounded-xl lg:shadow-lg lg:p-4"
+              >
+                <ul class="list-none">
+                  <li>
+                    <a
+                      href="money-basics.html"
+                      class="flex items-center min-h-[44px] pl-8 pr-4 lg:min-h-0 lg:block lg:px-2 lg:py-2 font-body text-sm text-[#2f3e46] lg:rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap"
+                      >Money Basics</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="time-management.html"
+                      class="flex items-center min-h-[44px] pl-8 pr-4 lg:min-h-0 lg:block lg:px-2 lg:py-2 font-body text-sm text-[#2f3e46] lg:rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap"
+                      >Time Management</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="relative group border-b border-[#f0ece3] lg:border-0">
+              <a
+                href="../index.html#people-safety"
+                data-nav-group
+                aria-expanded="false"
+                aria-controls="site-nav-people-safety"
+                class="flex justify-between items-center min-h-[44px] px-4 lg:px-0 lg:inline-flex font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer"
+              >
+                <span>People &amp; Safety</span>
+                <span
+                  data-nav-chevron
+                  aria-hidden="true"
+                  class="transition-transform lg:group-hover:rotate-180"
+                  >▾</span
+                >
+              </a>
+              <div
+                id="site-nav-people-safety"
+                hidden
+                class="lg:!block lg:invisible lg:opacity-0 lg:group-hover:visible lg:group-hover:opacity-100 lg:group-focus-within:visible lg:group-focus-within:opacity-100 lg:transition-opacity lg:absolute lg:left-0 lg:top-full lg:min-w-[190px] lg:bg-white lg:rounded-xl lg:shadow-lg lg:p-4"
+              >
+                <ul class="list-none">
+                  <li>
+                    <a
+                      href="communication-skills.html"
+                      class="flex items-center min-h-[44px] pl-8 pr-4 lg:min-h-0 lg:block lg:px-2 lg:py-2 font-body text-sm text-[#2f3e46] lg:rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap"
+                      >Communication Skills</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="online-safety.html"
+                      class="flex items-center min-h-[44px] pl-8 pr-4 lg:min-h-0 lg:block lg:px-2 lg:py-2 font-body text-sm text-[#2f3e46] lg:rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap"
+                      >Online Safety</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="emergency-preparedness.html"
+                      class="flex items-center min-h-[44px] pl-8 pr-4 lg:min-h-0 lg:block lg:px-2 lg:py-2 font-body text-sm text-[#2f3e46] lg:rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap"
+                      >Emergency Preparedness</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="relative group">
+              <a
+                href="../index.html#practice-growth"
+                data-nav-group
+                aria-expanded="false"
+                aria-controls="site-nav-practice-growth"
+                class="flex justify-between items-center min-h-[44px] px-4 lg:px-0 lg:inline-flex font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer"
+              >
+                <span>Practice &amp; Growth</span>
+                <span
+                  data-nav-chevron
+                  aria-hidden="true"
+                  class="transition-transform lg:group-hover:rotate-180"
+                  >▾</span
+                >
+              </a>
+              <div
+                id="site-nav-practice-growth"
+                hidden
+                class="lg:!block lg:invisible lg:opacity-0 lg:group-hover:visible lg:group-hover:opacity-100 lg:group-focus-within:visible lg:group-focus-within:opacity-100 lg:transition-opacity lg:absolute lg:left-0 lg:top-full lg:min-w-[190px] lg:bg-white lg:rounded-xl lg:shadow-lg lg:p-4"
+              >
+                <ul class="list-none">
+                  <li>
+                    <a
+                      href="weekly-challenges.html"
+                      class="flex items-center min-h-[44px] pl-8 pr-4 lg:min-h-0 lg:block lg:px-2 lg:py-2 font-body text-sm text-[#2f3e46] lg:rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap"
+                      >Weekly Challenges</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="life-readiness-quiz.html"
+                      class="flex items-center min-h-[44px] pl-8 pr-4 lg:min-h-0 lg:block lg:px-2 lg:py-2 font-body text-sm text-[#2f3e46] lg:rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap"
+                      >Life Readiness Quiz</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="submit-a-tip.html"
+                      class="flex items-center min-h-[44px] pl-8 pr-4 lg:min-h-0 lg:block lg:px-2 lg:py-2 font-body text-sm text-[#2f3e46] lg:rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap"
+                      >Submit a Tip</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
         </nav>
       </div>
     </header>
@@ -92,53 +260,73 @@
          under the Unsplash License.
          https://unsplash.com/photos/a-notebook-with-a-list-and-a-pen-next-to-a-cup-of-tea-8CL8KDg8oAs -->
     <section class="relative overflow-hidden text-white pt-8 pb-16">
-      <div class="absolute inset-0 bg-[url('../assets/images/weekly-challenges-hero.jpg')] bg-cover bg-center"></div>
-      <div class="absolute inset-0 bg-gradient-to-r from-[#2f3e46] via-[#2f3e46]/85 to-[#2f3e46]/35"></div>
+      <div
+        class="absolute inset-0 bg-[url('../assets/images/weekly-challenges-hero.jpg')] bg-cover bg-center"
+      ></div>
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-[#2f3e46] via-[#2f3e46]/85 to-[#2f3e46]/35"
+      ></div>
       <div class="relative max-w-6xl mx-auto px-4 md:px-6 lg:px-10">
         <nav aria-label="Breadcrumb" class="mb-6">
-          <ol class="flex items-center gap-2 font-body text-xs text-white/70 list-none">
-            <li><a href="../index.html" class="hover:text-[#d97757] hover:opacity-100 transition-colors">Home</a></li>
+          <ol
+            class="flex items-center gap-2 font-body text-xs text-white/70 list-none"
+          >
+            <li>
+              <a
+                href="../index.html"
+                class="hover:text-[#d97757] hover:opacity-100 transition-colors"
+                >Home</a
+              >
+            </li>
             <li aria-hidden="true" class="opacity-50">/</li>
-            <li><a href="../index.html#practice-growth" class="hover:text-[#d97757] hover:opacity-100 transition-colors">Practice &amp; Growth</a></li>
+            <li>
+              <a
+                href="../index.html#practice-growth"
+                class="hover:text-[#d97757] hover:opacity-100 transition-colors"
+                >Practice &amp; Growth</a
+              >
+            </li>
             <li aria-hidden="true" class="opacity-50">/</li>
-            <li aria-current="page" class="text-white font-semibold">Weekly Challenges</li>
+            <li aria-current="page" class="text-white font-semibold">
+              Weekly Challenges
+            </li>
           </ol>
         </nav>
-        <h1 class="font-heading font-bold text-[40px] leading-tight mb-3">Weekly Challenges</h1>
-        <p class="font-body text-base opacity-85 max-w-[540px]">A 7-day challenge table to turn tips into habits, one small task at a time.</p>
+        <h1 class="font-heading font-bold text-[40px] leading-tight mb-3">
+          Weekly Challenges
+        </h1>
+        <p class="font-body text-base opacity-85 max-w-[540px]">
+          A 7-day challenge table to turn tips into habits, one small task at a
+          time.
+        </p>
       </div>
     </section>
 
-    <section class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pt-8">
-      <div class="bg-[#eef2f0] rounded-xl p-5 md:p-6">
-        <p class="font-body font-semibold text-sm text-[#2f3e46] mb-3">On this page</p>
-        <ul class="list-none flex flex-col gap-2">
-          <li class="flex items-center gap-2">
-            <span aria-hidden="true" class="text-[#9caaa6]">&mdash;</span>
-            <a href="#overview" class="font-body text-sm text-[#52796f] hover:text-[#d97757] hover:underline">7 days, one small habit</a>
-          </li>
-          <li class="flex items-center gap-2">
-            <span aria-hidden="true" class="text-[#9caaa6]">&mdash;</span>
-            <a href="#challenges-table" class="font-body text-sm text-[#52796f] hover:text-[#d97757] hover:underline">Challenge table</a>
-          </li>
-        </ul>
-      </div>
+    <section class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pt-14">
+      <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-1.5">
+        7 days, one small habit
+      </h2>
+      <p
+        class="font-body text-base text-[#5b6b70] leading-relaxed max-w-[760px]"
+      >
+        Every challenge is a five-minute task pulled from the rest of the site
+        &mdash; nothing that needs planning ahead. Filter by category or
+        difficulty below, then check off each day as you go.
+      </p>
     </section>
 
-    <section id="overview" class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pt-8">
-      <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-1.5">7 days, one small habit</h2>
-      <p class="font-body text-base text-[#5b6b70] leading-relaxed max-w-[760px]">Every challenge is a five-minute task pulled from the rest of the site &mdash; nothing that needs planning ahead. Filter by category or difficulty below, then check off each day as you go.</p>
-    </section>
-
-    <section id="challenges-table" class="site-features max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pt-12 pb-4">
+    <section
+      class="site-features max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pt-12 pb-4"
+    >
       <div class="grid gap-4">
         <div
           class="block bg-white rounded-2xl shadow-sm p-6 hover:shadow-md hover:-translate-y-0.5 transition-all"
         >
           <h3
             class="block font-heading font-bold text-lg text-[#2f3e46] mb-2.5"
-            >7 Days Challenges</h3
           >
+            7 Days Challenges
+          </h3>
           <!-- <span
             class="block font-body text-base text-[#5b6b70] leading-normal mb-3.5"
             >Simple recipes with time and difficulty, built for busy
@@ -146,8 +334,8 @@
           > -->
           <span
             class="block font-body text-[13.5px] font-semibold text-[#d97757]"
-            >Filter by category and difficulty below. Mark tasks complete to update the
-            progress bar</span
+            >Filter by category and difficulty below. Mark tasks complete to
+            update the progress bar</span
           >
         </div>
       </div>
@@ -160,19 +348,37 @@
       </div>
       <div class="flex flex-wrap gap-4 mb-4">
         <div>
-          <label for="challenge-category-filter" class="block font-body text-[13.5px] font-semibold text-[#2f3e46] mb-1.5">Category</label>
-          <select id="challenge-category-filter" class="form-select border-2 border-[#7c9d96] rounded-lg px-3 py-2 font-body text-[14.5px] text-[#2f3e46] focus:outline-none focus:border-[#52796f]">
+          <label
+            for="challenge-category-filter"
+            class="block font-body text-[13.5px] font-semibold text-[#2f3e46] mb-1.5"
+            >Category</label
+          >
+          <select
+            id="challenge-category-filter"
+            class="form-select border-2 border-[#7c9d96] rounded-lg px-3 py-2 font-body text-[14.5px] text-[#2f3e46] focus:outline-none focus:border-[#52796f]"
+          >
             <option value="all">All categories</option>
           </select>
         </div>
         <div>
-          <label for="challenge-difficulty-filter" class="block font-body text-[13.5px] font-semibold text-[#2f3e46] mb-1.5">Difficulty</label>
-          <select id="challenge-difficulty-filter" class="form-select border-2 border-[#7c9d96] rounded-lg px-3 py-2 font-body text-[14.5px] text-[#2f3e46] focus:outline-none focus:border-[#52796f]">
+          <label
+            for="challenge-difficulty-filter"
+            class="block font-body text-[13.5px] font-semibold text-[#2f3e46] mb-1.5"
+            >Difficulty</label
+          >
+          <select
+            id="challenge-difficulty-filter"
+            class="form-select border-2 border-[#7c9d96] rounded-lg px-3 py-2 font-body text-[14.5px] text-[#2f3e46] focus:outline-none focus:border-[#52796f]"
+          >
             <option value="all">All difficulties</option>
           </select>
         </div>
       </div>
-      <p id="challenge-filter-status" aria-live="polite" class="font-body text-[13px] text-[#5b6b70] mb-3"></p>
+      <p
+        id="challenge-filter-status"
+        aria-live="polite"
+        class="font-body text-[13px] text-[#5b6b70] mb-3"
+      ></p>
       <!-- The Challenges Table -->
       <div
         class="overflow-x-auto rounded-xl border-2 border-[#8BA39E] bg-white"
@@ -194,121 +400,19 @@
           </thead>
 
           <!-- Table Body -->
-          <tbody class="divide-y-2 divide-[#8BA39E] text-sm text-slate-700">
-            <!-- Row 1 -->
-            <tr data-category="Time / Meals" data-difficulty="Easy">
-              <td class="border-r-2 border-[#8BA39E] p-3">1</td>
-              <td class="border-r-2 border-[#8BA39E] p-3">Time / Meals</td>
-              <td class="border-r-2 border-[#8BA39E] p-3 text-left">
-                Plan tomorrow's top 3 tasks
-              </td>
-              <td class="border-r-2 border-[#8BA39E] p-3">Easy</td>
-              <td class="p-3">
-                <button class="font-medium text-[#4D736A] hover:underline">
-                  Mark Complete
-                </button>
-              </td>
-            </tr>
-
-            <!-- Row 2 -->
-            <tr data-category="Time / Meals" data-difficulty="Easy">
-              <td class="border-r-2 border-[#8BA39E] p-3">2</td>
-              <td class="border-r-2 border-[#8BA39E] p-3">Time / Meals</td>
-              <td class="border-r-2 border-[#8BA39E] p-3 text-left">
-                Prepare one simple meal
-              </td>
-              <td class="border-r-2 border-[#8BA39E] p-3">Easy</td>
-              <td class="p-3">
-                <button class="font-medium text-[#4D736A] hover:underline">
-                  Mark Complete
-                </button>
-              </td>
-            </tr>
-
-            <!-- Row 3 -->
-            <tr data-category="Time / Meals" data-difficulty="Easy">
-              <td class="border-r-2 border-[#8BA39E] p-3">3</td>
-              <td class="border-r-2 border-[#8BA39E] p-3">Time / Meals</td>
-              <td class="border-r-2 border-[#8BA39E] p-3 text-left">
-                Organise one desk drawer
-              </td>
-              <td class="border-r-2 border-[#8BA39E] p-3">Easy</td>
-              <td class="p-3">
-                <button class="font-medium text-[#4D736A] hover:underline">
-                  Mark Complete
-                </button>
-              </td>
-            </tr>
-
-            <!-- Row 4 -->
-            <tr data-category="Money / Budget" data-difficulty="Medium">
-              <td class="border-r-2 border-[#8BA39E] p-3">4</td>
-              <td class="border-r-2 border-[#8BA39E] p-3">Money / Budget</td>
-              <td class="border-r-2 border-[#8BA39E] p-3 text-left">
-                Track all expenses for today
-              </td>
-              <td class="border-r-2 border-[#8BA39E] p-3">Medium</td>
-              <td class="p-3">
-                <button
-                  class="font-medium text-[#4D736A] hover:underline challenge-btn"
-                >
-                  Mark Complete
-                </button>
-              </td>
-            </tr>
-
-            <!-- Row 5 -->
-            <tr data-category="Safety / Digital" data-difficulty="Medium">
-              <td class="border-r-2 border-[#8BA39E] p-3">5</td>
-              <td class="border-r-2 border-[#8BA39E] p-3">Safety / Digital</td>
-              <td class="border-r-2 border-[#8BA39E] p-3 text-left">
-                Update passwords for two main accounts
-              </td>
-              <td class="border-r-2 border-[#8BA39E] p-3">Medium</td>
-              <td class="p-3">
-                <button
-                  class="font-medium text-[#4D736A] hover:underline challenge-btn"
-                >
-                  Mark Complete
-                </button>
-              </td>
-            </tr>
-
-            <!-- Row 6 -->
-            <tr data-category="Home / Basics" data-difficulty="Medium">
-              <td class="border-r-2 border-[#8BA39E] p-3">6</td>
-              <td class="border-r-2 border-[#8BA39E] p-3">Home / Basics</td>
-              <td class="border-r-2 border-[#8BA39E] p-3 text-left">
-                Do a load of laundry and fold it immediately
-              </td>
-              <td class="border-r-2 border-[#8BA39E] p-3">Medium</td>
-              <td class="p-3">
-                <button
-                  class="font-medium text-[#4D736A] hover:underline challenge-btn"
-                >
-                  Mark Complete
-                </button>
-              </td>
-            </tr>
-
-            <!-- Row 7 -->
-            <tr data-category="Growth / Wellness" data-difficulty="Hard">
-              <td class="border-r-2 border-[#8BA39E] p-3">7</td>
-              <td class="border-r-2 border-[#8BA39E] p-3">Growth / Wellness</td>
-              <td class="border-r-2 border-[#8BA39E] p-3 text-left">
-                Reflect on weekly achievements and set 1 goal
-              </td>
-              <td class="border-r-2 border-[#8BA39E] p-3">Hard</td>
-              <td class="p-3">
-                <button
-                  class="font-medium text-[#4D736A] hover:underline challenge-btn"
-                >
-                  Mark Complete
-                </button>
-              </td>
-            </tr>
-          </tbody>
+          <tbody
+            id="challenge-table-body"
+            class="divide-y-2 divide-[#8BA39E] text-sm text-slate-700"
+          ></tbody>
         </table>
+      </div>
+      <div class="flex justify-start py-4 mb-4">
+        <button
+          onclick="generateNewWeeklySchedule()"
+          class="bg-[#d97757] hover:bg-[#c66445] text-white font-medium text-sm px-4 py-2 rounded-lg transition-colors flex items-center gap-2 cursor-pointer"
+        >
+          🔄 Shuffle Weekly Challenges
+        </button>
       </div>
       <a
         id="mindsetTips"
@@ -333,68 +437,76 @@
         >
       </a>
     </section>
-  <footer class="bg-[#2f3e46] text-[#faf7f2] pt-14 pb-6">
-    <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr] gap-8 md:gap-10">
-      <div>
-        <div class="font-heading font-bold text-xl mb-3">Level Up Life!</div>
-        <p class="text-sm opacity-70 max-w-[260px] leading-relaxed">
-          A website that aims to teach beginner life skills, let visitors assess
-          their readiness, complete challenges and submit useful tips for other
-          students.
-        </p>
+    <footer class="bg-[#2f3e46] text-[#faf7f2] pt-14 pb-6">
+      <div
+        class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 grid grid-cols-[1.4fr_1fr_1fr] gap-10"
+      >
+        <div>
+          <div class="font-heading font-bold text-xl mb-3">Level Up Life!</div>
+          <p class="text-sm opacity-70 max-w-[260px] leading-relaxed">
+            A website that aims to teach beginner life skills, let visitors
+            assess their readiness, complete challenges and submit useful tips
+            for other students.
+          </p>
+        </div>
+        <div>
+          <h2
+            class="text-xs font-bold uppercase tracking-wider opacity-60 mb-3"
+          >
+            Explore
+          </h2>
+          <ul class="list-none">
+            <li class="py-1">
+              <a
+                href="../index.html#home-skills"
+                class="text-sm opacity-85 hover:opacity-100 hover:text-[#d97757] transition"
+                >Home Skills</a
+              >
+            </li>
+            <li class="py-1">
+              <a
+                href="../index.html#money-time"
+                class="text-sm opacity-85 hover:opacity-100 hover:text-[#d97757] transition"
+                >Money &amp; Time</a
+              >
+            </li>
+            <li class="py-1">
+              <a
+                href="../index.html#people-safety"
+                class="text-sm opacity-85 hover:opacity-100 hover:text-[#d97757] transition"
+                >People &amp; Safety</a
+              >
+            </li>
+            <li class="py-1">
+              <a
+                href="../index.html#practice-growth"
+                class="text-sm opacity-85 hover:opacity-100 hover:text-[#d97757] transition"
+                >Practice &amp; Growth</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h2
+            class="text-xs font-bold uppercase tracking-wider opacity-60 mb-3"
+          >
+            Created By
+          </h2>
+          <ul class="list-none">
+            <li class="text-sm opacity-85 py-1">NGUYEN KHAC MING (P2621030)</li>
+            <li class="text-sm opacity-85 py-1">MYINT MYAT MIN (P2634142)</li>
+            <li class="text-sm opacity-85 py-1">
+              NURHAKIM BIN MONIR (P2237855)
+            </li>
+            <li class="text-sm opacity-85 py-1">
+              DANNALA NIKHILESH KUMAR (P2621379)
+            </li>
+          </ul>
+        </div>
       </div>
-      <div>
-        <h2 class="text-xs font-bold uppercase tracking-wider opacity-60 mb-3">
-          Explore
-        </h2>
-        <ul class="list-none">
-          <li class="py-1">
-            <a
-              href="../index.html#home-skills"
-              class="text-sm opacity-85 hover:opacity-100 hover:text-[#d97757] transition"
-              >Home Skills</a
-            >
-          </li>
-          <li class="py-1">
-            <a
-              href="../index.html#money-time"
-              class="text-sm opacity-85 hover:opacity-100 hover:text-[#d97757] transition"
-              >Money &amp; Time</a
-            >
-          </li>
-          <li class="py-1">
-            <a
-              href="../index.html#people-safety"
-              class="text-sm opacity-85 hover:opacity-100 hover:text-[#d97757] transition"
-              >People &amp; Safety</a
-            >
-          </li>
-          <li class="py-1">
-            <a
-              href="../index.html#practice-growth"
-              class="text-sm opacity-85 hover:opacity-100 hover:text-[#d97757] transition"
-              >Practice &amp; Growth</a
-            >
-          </li>
-        </ul>
+      <div class="max-w-6xl mx-auto mt-9 text-xs opacity-55">
+        &copy; 2026 Level Up Life!
       </div>
-      <div>
-        <h2 class="text-xs font-bold uppercase tracking-wider opacity-60 mb-3">
-          Created By
-        </h2>
-        <ul class="list-none">
-          <li class="text-sm opacity-85 py-1">NGUYEN KHAC MING (P2621030)</li>
-          <li class="text-sm opacity-85 py-1">MYINT MYAT MIN (P2634142)</li>
-          <li class="text-sm opacity-85 py-1">NURHAKIM BIN MONIR (P2237855)</li>
-          <li class="text-sm opacity-85 py-1">
-            DANNALA NIKHILESH KUMAR (P2621379)
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 mt-9 text-xs opacity-55">
-      &copy; 2026 Level Up Life!
-    </div>
-  </footer>
+    </footer>
   </body>
 </html>
