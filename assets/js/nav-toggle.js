@@ -1,51 +1,52 @@
 /*
- * Shared mobile-nav-toggle behavior for the header chrome on all 3 pages
- * (index.html, pages/online-safety.html, pages/emergency-preparedness.html).
+ * Shared nav-toggle behavior for the header chrome, used on every page.
  *
- * (a) This script is not named after a single page because it serves the
- *     shared header chrome that is byte-identical across all 3 pages
- *     (enforced by tools/validate.mjs SITE-04 shared-chrome parity) — the
- *     same shared-asset precedent as assets/js/tailwind-config.js, which
- *     also serves all 3 pages rather than one.
- * (b) It is loaded with `defer`, after each page's own page-behavior
- *     script, so the DOM is already fully parsed by the time this file
- *     runs. That means no load-event listener is needed here — the
- *     deferred load order already guarantees the DOM is ready.
- * (c) Per SITE-03 and the Phase 9 09-UI-SPEC progressive-enhancement note,
- *     the mobile nav toggle is JS-dependent by design: a toggle button has
- *     no native no-JS equivalent (unlike the Phase 8 <details> accordion,
- *     which still works with JS off). This is an accepted, documented
- *     tradeoff for this milestone, not an oversight.
+ * The header uses a single consolidated <nav id="site-nav"> for both
+ * desktop and mobile — there is no separate mobile-only nav DOM. Each
+ * category trigger is one <a data-nav-group> that is a real link (desktop:
+ * navigates on click, dropdown opens on hover via CSS `group-hover`) and
+ * also a disclosure toggle (mobile: click expands/collapses its submenu
+ * instead of navigating, since narrow viewports have no hover). Which
+ * behavior applies is decided at click time via matchMedia, not by two
+ * separate elements, so the markup and category data can't drift out of
+ * sync between breakpoints the way two independent nav blocks could.
+ *
+ * Loaded with `defer`, after each page's own page-behavior script, so the
+ * DOM is already fully parsed by the time this file runs.
  */
 
 const OPEN_LABEL = "Open menu";
 const CLOSE_LABEL = "Close menu";
+const DESKTOP_QUERY = "(min-width: 1024px)";
 
-function setGroupExpanded(button, expanded) {
-  button.setAttribute("aria-expanded", expanded ? "true" : "false");
+function isDesktop() {
+  return window.matchMedia(DESKTOP_QUERY).matches;
+}
 
-  const listId = button.getAttribute("aria-controls");
-  const list = listId ? document.getElementById(listId) : null;
-  if (list) {
-    list.hidden = !expanded;
+function setGroupExpanded(link, expanded) {
+  link.setAttribute("aria-expanded", expanded ? "true" : "false");
+
+  const panelId = link.getAttribute("aria-controls");
+  const panel = panelId ? document.getElementById(panelId) : null;
+  if (panel) {
+    panel.hidden = !expanded;
   }
 
-  const chevron = button.querySelector("[data-nav-chevron]");
+  const chevron = link.querySelector("[data-nav-chevron]");
   if (chevron) {
     chevron.style.transform = expanded ? "rotate(180deg)" : "";
   }
 }
 
 function collapseAllGroups() {
-  const groups = document.querySelectorAll("[data-nav-group]");
-  groups.forEach((button) => {
-    setGroupExpanded(button, false);
+  document.querySelectorAll("[data-nav-group]").forEach((link) => {
+    setGroupExpanded(link, false);
   });
 }
 
 function setPanelOpen(open) {
   const toggle = document.getElementById("nav-toggle");
-  const panel = document.getElementById("mobile-nav");
+  const panel = document.getElementById("site-nav");
   if (!toggle || !panel) {
     return;
   }
@@ -70,7 +71,7 @@ function setPanelOpen(open) {
 
 function initNavToggle() {
   const toggle = document.getElementById("nav-toggle");
-  const panel = document.getElementById("mobile-nav");
+  const panel = document.getElementById("site-nav");
   if (!toggle || !panel) {
     return;
   }
@@ -82,15 +83,21 @@ function initNavToggle() {
   });
 
   panel.addEventListener("click", (event) => {
-    const button = event.target.closest("[data-nav-group]");
-    if (!button || !panel.contains(button)) {
+    const link = event.target.closest("[data-nav-group]");
+    if (!link || !panel.contains(link) || isDesktop()) {
       return;
     }
-    const willExpand = button.getAttribute("aria-expanded") !== "true";
+    event.preventDefault();
+    const willExpand = link.getAttribute("aria-expanded") !== "true";
     collapseAllGroups();
     if (willExpand) {
-      setGroupExpanded(button, true);
+      setGroupExpanded(link, true);
     }
+  });
+
+  window.matchMedia(DESKTOP_QUERY).addEventListener("change", () => {
+    collapseAllGroups();
+    setPanelOpen(false);
   });
 }
 
