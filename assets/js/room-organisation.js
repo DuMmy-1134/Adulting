@@ -118,13 +118,10 @@ function markZoneComplete(e) {
     localStorage.setItem('completedZones', JSON.stringify(completedZones));
   }
   
-  updateProgress();
+  updateZoneProgress();
 }
 
-// Note: this declaration is shadowed by the quiz's updateProgress() further down this
-// file — both are top-level function declarations sharing the same name, so the later
-// one wins and this version never actually runs.
-function updateProgress() {
+function updateZoneProgress() {
   if (!progressMessage) return;
   
   const completedZones = JSON.parse(localStorage.getItem('completedZones')) || [];
@@ -147,7 +144,7 @@ function updateProgress() {
 function resetAllZones() {
   localStorage.removeItem('completedZones');
   renderZones();
-  updateProgress();
+  updateZoneProgress();
   loadCompletedZones();
 }
 
@@ -171,7 +168,7 @@ if (resetZonesBtn) {
 document.addEventListener('DOMContentLoaded', function() {
   renderZones();
   loadCompletedZones();
-  updateProgress();
+  updateZoneProgress();
 });
 
 const QUIZ_QUESTIONS = [
@@ -257,10 +254,10 @@ function renderQuestion() {
     optionsDiv.appendChild(label);
   });
   
-  updateProgress();
+  updateQuizProgress();
 }
 
-function updateProgress() {
+function updateQuizProgress() {
   const totalQuestions = QUIZ_QUESTIONS.length;
   const percentage = (currentQuestion / totalQuestions) * 100;
   document.getElementById('progress-bar-fill').style.width = percentage + '%';
