@@ -9,7 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="../assets/js/tailwind-config.js"></script>
     <script src="../assets/js/nav-toggle.js" defer></script>
-    <script src="../assets/js/RoomOrganisation.js" defer></script>
+    <script src="../assets/js/room-organisation.js" defer></script>
   </head>
   <body class="bg-[#f5f3f0] font-body text-[#2f3e46] antialiased">
     <header class="sticky top-0 z-50 bg-white shadow-sm will-change-transform">
@@ -22,8 +22,8 @@
               <div class="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity absolute left-0 top-full min-w-[190px] bg-white rounded-xl shadow-lg p-4">
                 <ul class="list-none">
                   <li><a href="quick-meal.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Quick Meals</a></li>
-                  <li><a href="LaundryBasics.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Laundry Basics</a></li>
-                  <li><a href="RoomOrganisation.html" aria-current="page" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Room Organization</a></li>
+                  <li><a href="laundry-basics.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Laundry Basics</a></li>
+                  <li><a href="room-organisation.html" aria-current="page" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Room Organization</a></li>
                 </ul>
               </div>
             </li>
@@ -40,7 +40,7 @@
               <a href="../index.html#people-safety" class="font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">People &amp; Safety <span aria-hidden="true">▾</span></a>
               <div class="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity absolute left-0 top-full min-w-[190px] bg-white rounded-xl shadow-lg p-4">
                 <ul class="list-none">
-                  <li><a href="CommunicationSkills.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Communication Skills</a></li>
+                  <li><a href="communications-skills.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Communication Skills</a></li>
                   <li><a href="online-safety.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Online Safety</a></li>
                   <li><a href="emergency-preparedness.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Emergency Preparedness</a></li>
                 </ul>
@@ -99,7 +99,7 @@
               <span data-nav-chevron aria-hidden="true" class="transition-transform">▾</span>
             </button>
             <ul id="mobile-nav-people-safety" hidden class="list-none">
-              <li><a href="CommunicationSkills.html" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Communication Skills</a></li>
+              <li><a href="communications-skills.html" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Communication Skills</a></li>
               <li><a href="online-safety.html" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Online Safety</a></li>
               <li><a href="emergency-preparedness.html" class="flex items-center min-h-[44px] pl-8 pr-4 font-body text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757]">Emergency Preparedness</a></li>
             </ul>
@@ -163,6 +163,24 @@
   <button id="reset-zones-btn" class="mt-6 w-full bg-[#d97757] text-white font-semibold py-3 rounded-lg hover:bg-[#c4624d] transition-all">
     Reset Progress
   </button>
+</div>
+
+<div class="max-w-2xl mx-auto mt-16 mb-16">
+  <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-6">Room Organization Assessment Quiz</h2>
+  <p class="font-body text-[13.5px] text-[#5b6b70] mb-8">Answer a few questions to get personalized organization recommendations for your room!</p>
+  
+  <div id="quiz-container" class="bg-white rounded-2xl shadow-sm p-8">
+    <div id="quiz-progress"></div>
+    <div id="quiz-question"></div>
+    <div id="quiz-options"></div>
+    <button id="next-question-btn" disabled class="w-full bg-[#52796f] text-white font-semibold py-3 rounded-lg hover:bg-[#3d5a56] transition-all mt-6">
+      Next Question
+    </button>
+  </div>
+  
+  <div id="quiz-results" class="hidden bg-white rounded-2xl shadow-sm p-8">
+    <div id="results-content"></div>
+  </div>
 </div>
 
     <footer class="bg-[#2f3e46] text-[#faf7f2] px-4 md:px-6 lg:px-10 pt-14 pb-6">

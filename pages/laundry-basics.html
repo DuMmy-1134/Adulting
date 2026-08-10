@@ -9,7 +9,7 @@
   <script src="../assets/js/tailwind-config.js" defer></script>
   <script src="../assets/js/nav-toggle.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
-  <script src="../assets/js/LaundryBasics.js" defer></script>
+  <script src="../assets/js/laundry-basics.js" defer></script>
 </head>
 <body class="bg-[#faf7f2] font-body text-[#2f3e46] antialiased">
   <!-- Navigation -->
@@ -23,8 +23,8 @@
             <div class="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity absolute left-0 top-full min-w-[190px] bg-white rounded-xl shadow-lg p-4">
               <ul class="list-none">
                 <li><a href="quick-meal.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Quick Meals</a></li>
-                <li><a href="LaundryBasics.html" aria-current="page" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Laundry Basics</a></li>
-                <li><a href="RoomOrganisation.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Room Organization</a></li>
+                <li><a href="laundry-basics.html" aria-current="page" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Laundry Basics</a></li>
+                <li><a href="room-organisation.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Room Organization</a></li>
               </ul>
             </div>
           </li>
@@ -41,7 +41,7 @@
             <a href="../index.html#people-safety" class="font-body font-semibold text-sm text-[#2f3e46] hover:text-[#d97757] focus-visible:text-[#d97757] cursor-pointer">People &amp; Safety <span aria-hidden="true">▾</span></a>
             <div class="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity absolute left-0 top-full min-w-[190px] bg-white rounded-xl shadow-lg p-4">
               <ul class="list-none">
-                <li><a href="CommunicationSkills.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Communication Skills</a></li>
+                <li><a href="communications-skills.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Communication Skills</a></li>
                 <li><a href="online-safety.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Online Safety</a></li>
                 <li><a href="emergency-preparedness.html" class="block px-2 py-2 text-sm text-[#2f3e46] rounded-md hover:bg-[#f6f2ea] hover:text-[#d97757] whitespace-nowrap">Emergency Preparedness</a></li>
               </ul>
@@ -141,8 +141,7 @@
         </div>
       </div>
     </section>
-  </main>
-
+  <!--cards-->
   <div class="max-w-2xl mx-auto mt-16">
       <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-6">Step-by-Step Accordion</h2>
       <p class="text-lg text-[#2f3e46] mb-8">Drag and arrange the steps in the correct order, then click "Check Answer" to verify!</p>
@@ -176,21 +175,56 @@
       </div>
     </div>
 
-  <!-- Footer -->
-  <footer class="bg-[#2f3e46] text-[#faf7f2] px-4 md:px-6 lg:px-10 pt-14 pb-6 mt-12">
-    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
-      <div>
-        <div class="font-heading font-bold text-xl mb-3">Level Up Life!</div>
-        <p class="text-sm opacity-70 max-w-[260px] leading-relaxed">A website that aims to teach beginner life skills, let visitors assess their readiness, complete challenges and submit useful tips for other students.</p>
-      </div>
+    <div class="max-w-4xl mx-auto mt-16">
+  <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-6">Fabric Care Guide Matcher</h2>
+  <p class="text-lg text-[#2f3e46] mb-6">Select the garments you own to get personalized care instructions</p>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-8">
+    <div id="garment-checkboxes" class="md:col-span-2 lg:col-span-3">
+      <!-- Checkboxes will be rendered here -->
+    </div>
+  </div>
+  
+  <button id="clear-all-btn" class="mb-8 bg-[#d97757] text-white font-semibold py-2 px-6 rounded-lg hover:bg-[#c4624d] transition-all">
+    Clear All Selections
+  </button>
+  
+  <div id="selected-count"></div>
+  
+  <div id="care-cards-container" class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+    <!-- Care instruction cards will be rendered here -->
+  </div>
+</div>
 
-      <div class="border-t border-gray-700 pt-8 text-center text-gray-500 text-sm">
-        <p>&copy; 2026 Level Up Life. All rights reserved.</p>
+<!-- Footer -->
+  <footer class="bg-[#2f3e46] text-[#faf7f2] w-full pt-14 pb-6">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+        <div>
+          <div class="font-heading font-bold text-xl mb-3">Level Up Life!</div>
+          <p class="text-sm opacity-70 max-w-[260px] leading-relaxed">A website that aims to teach beginner life skills, let visitors assess their readiness, complete challenges and submit useful tips for other students.</p>
+        </div>
+        <div>
+          <h2 class="text-xs font-bold uppercase tracking-wider opacity-60 mb-3">Explore</h2>
+          <ul class="list-none">
+            <li class="py-1"><a href="../index.html#home-skills" class="text-sm opacity-85 hover:opacity-100 hover:text-[#d97757] transition">Home Skills</a></li>
+            <li class="py-1"><a href="../index.html#money-time" class="text-sm opacity-85 hover:opacity-100 hover:text-[#d97757] transition">Money &amp; Time</a></li>
+            <li class="py-1"><a href="../index.html#people-safety" class="text-sm opacity-85 hover:opacity-100 hover:text-[#d97757] transition">People &amp; Safety</a></li>
+            <li class="py-1"><a href="../index.html#practice-growth" class="text-sm opacity-85 hover:opacity-100 hover:text-[#d97757] transition">Practice &amp; Growth</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="text-xs font-bold uppercase tracking-wider opacity-60 mb-3">Created By</h2>
+          <ul class="list-none">
+            <li class="text-sm opacity-85 py-1">NGUYEN KHAC MING (P2621030)</li>
+            <li class="text-sm opacity-85 py-1">MYINT MYAT MIN (P2634142)</li>
+            <li class="text-sm opacity-85 py-1">NURHAKIM BIN MONIR (P2237855)</li>
+            <li class="text-sm opacity-85 py-1">DANNALA NIKHILESH KUMAR (P2621379)</li>
+          </ul>
+        </div>
       </div>
+      <div class="mt-9 text-xs opacity-70">&copy; 2026 Level Up Life!</div>
     </div>
   </footer>
-
-  <!-- Scripts -->
-  <script src="../assets/js/nav-toggle.js" defer></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-// RoomOrganisationZones.js
+
 
 const ROOM_ZONES = [
   {
@@ -192,4 +192,229 @@ document.addEventListener('DOMContentLoaded', function() {
   renderZones();
   loadCompletedZones();
   updateProgress();
+});
+
+// quiz
+
+const QUIZ_QUESTIONS = [
+  {
+    id: 1,
+    question: "How much clutter do you currently have in your room?",
+    options: [
+      { value: "minimal", text: "Minimal - mostly organized" },
+      { value: "moderate", text: "Moderate - some clutter" },
+      { value: "heavy", text: "Heavy - very cluttered" }
+    ]
+  },
+  {
+    id: 2,
+    question: "What's your main organization challenge?",
+    options: [
+      { value: "storage", text: "Lack of storage space" },
+      { value: "sorting", text: "Can't sort items properly" },
+      { value: "maintenance", text: "Keeping it organized" }
+    ]
+  },
+  {
+    id: 3,
+    question: "How much time can you dedicate to organizing?",
+    options: [
+      { value: "quick", text: "Quick sessions (15-30 mins)" },
+      { value: "moderate", text: "Moderate (1-2 hours)" },
+      { value: "dedicated", text: "Full day project" }
+    ]
+  },
+  {
+    id: 4,
+    question: "What's your room size?",
+    options: [
+      { value: "small", text: "Small (single bed room)" },
+      { value: "medium", text: "Medium (double bed room)" },
+      { value: "large", text: "Large (spacious)" }
+    ]
+  },
+  {
+    id: 5,
+    question: "Do you prefer minimalist or maximalist approach?",
+    options: [
+      { value: "minimalist", text: "Minimalist - keep only essentials" },
+      { value: "balanced", text: "Balanced - organized but with items" },
+      { value: "maximalist", text: "Maximalist - keep everything organized" }
+    ]
+  }
+];
+
+const RECOMMENDATIONS = {
+  minimal_storage_quick_small_minimalist: {
+    method: "Minimal Shelving Method",
+    description: "Focus on vertical storage with slim shelves. Keep only essential items visible.",
+    tips: [
+      "Use over-the-door organizers",
+      "Install floating shelves to maximize wall space",
+      "Use drawer dividers for small items",
+      "Invest in multi-functional furniture"
+    ]
+  },
+  minimal_storage_quick_small_balanced: {
+    method: "Compact Zone Method",
+    description: "Create small organized zones for different categories.",
+    tips: [
+      "Designate specific zones on shelves",
+      "Use labeled boxes for quick identification",
+      "Keep frequently used items at eye level",
+      "Use under-bed storage for seasonal items"
+    ]
+  },
+  moderate_sorting_moderate_medium_balanced: {
+    method: "Category-Based Organization",
+    description: "Sort items by category and assign each a home.",
+    tips: [
+      "Group similar items together",
+      "Use color-coded labels",
+      "Create a 'donation' corner",
+      "Review system monthly"
+    ]
+  },
+  heavy_maintenance_dedicated_large_minimalist: {
+    method: "KonMari Decluttering Method",
+    description: "Keep only items that spark joy. Dedicated deep organization.",
+    tips: [
+      "Sort by category, not location",
+      "Keep items that spark joy",
+      "Fold items vertically for visibility",
+      "Store like items together",
+      "Use beautiful storage containers"
+    ]
+  }
+};
+
+let quizAnswers = {};
+let currentQuestion = 1;
+
+const quizContainer = document.getElementById('quiz-container');
+const questionDiv = document.getElementById('quiz-question');
+const optionsDiv = document.getElementById('quiz-options');
+const progressDiv = document.getElementById('quiz-progress');
+const nextBtn = document.getElementById('next-question-btn');
+const resultsDiv = document.getElementById('quiz-results');
+
+function renderQuestion() {
+  const question = QUIZ_QUESTIONS[currentQuestion - 1];
+  if (!question) return;
+  
+  questionDiv.innerHTML = `<h3 class="font-heading font-bold text-lg text-[#2f3e46] mb-4">${question.question}</h3>`;
+  
+  optionsDiv.innerHTML = '';
+  question.options.forEach(option => {
+    const label = document.createElement('label');
+    label.className = 'flex items-center gap-3 p-3 bg-[#f5f3f0] rounded-lg hover:bg-[#eef3f1] cursor-pointer transition-all mb-3';
+    
+    const radio = document.createElement('input');
+    radio.type = 'radio';
+    radio.name = `q${question.id}`;
+    radio.value = option.value;
+    radio.className = 'w-4 h-4 cursor-pointer';
+    radio.addEventListener('change', function() {
+      quizAnswers[`q${question.id}`] = this.value;
+      nextBtn.disabled = false;
+    });
+    
+    const text = document.createElement('span');
+    text.className = 'font-body text-[13.5px] text-[#2f3e46]';
+    text.textContent = option.text;
+    
+    label.appendChild(radio);
+    label.appendChild(text);
+    optionsDiv.appendChild(label);
+  });
+  
+  updateProgress();
+}
+
+function updateProgress() {
+  const totalQuestions = QUIZ_QUESTIONS.length;
+  const percentage = (currentQuestion / totalQuestions) * 100;
+  progressDiv.innerHTML = `<div class="w-full bg-[#f0ece3] rounded-full h-2 mb-4"><div class="bg-[#52796f] h-2 rounded-full" style="width: ${percentage}%"></div></div><p class="text-center font-body text-[13.5px] text-[#5b6b70]">Question ${currentQuestion} of ${totalQuestions}</p>`;
+}
+
+function nextQuestion() {
+  if (!quizAnswers[`q${currentQuestion}`]) {
+    alert('Please select an option before continuing');
+    return;
+  }
+  
+  if (currentQuestion < QUIZ_QUESTIONS.length) {
+    currentQuestion++;
+    renderQuestion();
+    nextBtn.disabled = true;
+  } else {
+    showResults();
+  }
+}
+
+function showResults() {
+  const answers = Object.values(quizAnswers).join('_');
+  const recommendation = findBestMatch(answers);
+  
+  quizContainer.classList.add('hidden');
+  resultsDiv.classList.remove('hidden');
+  
+  const resultsContent = document.getElementById('results-content');
+  resultsContent.innerHTML = `
+    <h2 class="font-heading font-bold text-2xl text-[#52796f] mb-4">Your Personalized Recommendation</h2>
+    
+    <div class="bg-[#eef3f1] rounded-2xl p-6 mb-6 border-2 border-[#52796f]">
+      <h3 class="font-heading font-bold text-xl text-[#2f3e46] mb-2">${recommendation.method}</h3>
+      <p class="font-body text-[13.5px] text-[#5b6b70] mb-4">${recommendation.description}</p>
+      
+      <h4 class="font-heading font-bold text-[#2f3e46] mb-3">Recommended Tips:</h4>
+      <ul class="list-disc list-inside space-y-2">
+        ${recommendation.tips.map(tip => `<li class="font-body text-[13.5px] text-[#5b6b70]">${tip}</li>`).join('')}
+      </ul>
+    </div>
+    
+    <button id="restart-quiz-btn" class="w-full bg-[#d97757] text-white font-semibold py-3 rounded-lg hover:bg-[#c4624d] transition-all">
+      Retake Quiz
+    </button>
+  `;
+  
+  document.getElementById('restart-quiz-btn').addEventListener('click', restartQuiz);
+}
+
+function findBestMatch(answers) {
+  for (const [key, value] of Object.entries(RECOMMENDATIONS)) {
+    if (key.split('_').every(part => answers.includes(part))) {
+      return value;
+    }
+  }
+  
+  // Default recommendation if no exact match
+  return {
+    method: "Balanced Organization Method",
+    description: "A flexible approach combining best practices from multiple methods.",
+    tips: [
+      "Start small with one zone",
+      "Use clear labeling for all storage",
+      "Keep similar items together",
+      "Review and adjust monthly",
+      "Don't rush the process"
+    ]
+  };
+}
+
+function restartQuiz() {
+  quizAnswers = {};
+  currentQuestion = 1;
+  resultsDiv.classList.add('hidden');
+  quizContainer.classList.remove('hidden');
+  nextBtn.disabled = true;
+  renderQuestion();
+}
+
+if (nextBtn) {
+  nextBtn.addEventListener('click', nextQuestion);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  renderQuestion();
 });
