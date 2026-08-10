@@ -215,6 +215,77 @@
       </div>
     </section>
     </main>
+
+<div class="max-w-3xl mx-auto mt-16 mb-16">
+  <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-6">Communication Scenario Simulator</h2>
+  <p class="font-body text-[13.5px] text-[#5b6b70] mb-8">Read each scenario and choose your response. Learn from real-world communication situations and test your skills!</p>
+  
+  <!-- Scenario Container -->
+  <div id="scenario-container" class="bg-white rounded-2xl shadow-sm p-8">
+    <!-- Progress Bar -->
+    <div class="mb-6">
+      <div class="w-full bg-[#f0ece3] rounded-full h-2 mb-2">
+        <div id="progress-bar" class="bg-[#52796f] h-2 rounded-full transition-all" style="width: 20%"></div>
+      </div>
+      <p id="progress-text" class="text-center font-body text-[13.5px] text-[#5b6b70]">Scenario 1 of 5</p>
+    </div>
+    
+    <!-- Question -->
+    <h3 id="scenario-title" class="font-heading font-bold text-lg text-[#2f3e46] mb-4"></h3>
+    <p id="scenario-situation" class="font-body text-[13.5px] text-[#5b6b70] mb-6 p-4 bg-[#f5f3f0] rounded-lg"></p>
+    
+    <p class="font-body text-[13.5px] text-[#2f3e46] font-semibold mb-4">Choose your response:</p>
+    
+    <!-- Options -->
+    <div id="scenario-options" class="mb-6"></div>
+    
+    <!-- Feedback (Hidden Initially) -->
+    <div id="scenario-feedback" class="mb-6" style="display: none;">
+      <div class="bg-white rounded-2xl p-6 border-2 border-[#52796f]">
+        <h3 id="scenario-feedback-title" class="font-heading font-bold text-lg text-[#2f3e46] mb-2"></h3>
+        <p id="scenario-feedback-text" class="font-body text-[13.5px] text-[#5b6b70] mb-4"></p>
+        <div class="bg-[#eef3f1] rounded-lg p-3">
+          <p class="font-body text-[13.5px] text-[#52796f]"><strong>Your Score:</strong> <span id="scenario-score">0</span>/10</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Next Button -->
+    <button id="next-scenario-btn" disabled class="w-full bg-[#52796f] text-white font-semibold py-3 rounded-lg hover:bg-[#3d5a56] transition-all">
+      Next Scenario
+    </button>
+  </div>
+  
+  <!-- Results Container (Hidden Initially) -->
+  <div id="scenario-results" class="bg-white rounded-2xl shadow-sm p-8" style="display: none;">
+    <h2 class="font-heading font-bold text-2xl text-[#52796f] mb-6">Your Results</h2>
+    
+    <div class="bg-[#eef3f1] rounded-2xl p-6 mb-6 border-2 border-[#52796f]">
+      <div class="text-center mb-4">
+        <div class="text-5xl font-bold text-[#52796f] mb-2"><span id="total-score">0</span>/<span id="max-score">50</span></div>
+        <div class="text-xl font-semibold text-[#2f3e46] mb-2"><span id="percentage">0</span>%</div>
+        <div class="w-full bg-[#f0ece3] rounded-full h-3">
+          <div id="result-progress-bar" class="bg-[#52796f] h-3 rounded-full transition-all" style="width: 0%"></div>
+        </div>
+      </div>
+      <p id="result-message" class="font-body text-[13.5px] text-[#5b6b70] text-center mt-4"></p>
+    </div>
+    
+    <h3 class="font-heading font-bold text-lg text-[#2f3e46] mb-4">Key Takeaways:</h3>
+    <ul class="list-disc list-inside space-y-2 font-body text-[13.5px] text-[#5b6b70] mb-6">
+      <li>Use "I" statements to express your feelings</li>
+      <li>Listen actively before responding</li>
+      <li>Respect boundaries while setting your own</li>
+      <li>Apologize genuinely when you're wrong</li>
+      <li>Ask for help respectfully and clearly</li>
+    </ul>
+    
+    <button id="restart-scenarios-btn" class="w-full bg-[#d97757] text-white font-semibold py-3 rounded-lg hover:bg-[#c4624d] transition-all">
+      Retake Scenarios
+    </button>
+  </div>
+</div>
+
     <footer class="bg-[#2f3e46] text-[#faf7f2] pt-14 pb-6">
       <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
         <div>
