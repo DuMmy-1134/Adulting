@@ -263,7 +263,9 @@ function renderScenario() {
   
   scenario.options.forEach(option => {
     const button = document.createElement('button');
-    button.className = 'scenario-option-btn';
+    button.type = 'button';
+    button.className =
+      'scenario-option-btn block w-full text-left font-body text-sm text-[#2f3e46] bg-white border-2 border-[#7c9d96] rounded-lg px-4 py-3 hover:bg-[#eef3f1] hover:border-[#52796f] transition-colors';
     button.textContent = option.text;
     button.addEventListener('click', () => selectOption(option));
     optionsDiv.appendChild(button);
