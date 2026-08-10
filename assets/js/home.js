@@ -1,23 +1,6 @@
-/*
- * Page-behavior script for index.html (the Home page).
- *
- * Convention for this project's content scripts (Phases 6-8 follow this):
- * - One script per page, named after the page it serves - this file,
- *   home.js, serves index.html only.
- * - Loaded with `defer` after the two Tailwind script tags, so it runs
- *   once the DOM is fully parsed and never blocks page rendering.
- * - Page content data lives in a module-level `const` array of plain
- *   objects at the top of the file, kept separate from DOM logic.
- * - The DOM is reached only through ids and data-* hooks authored in the
- *   page markup, never by walking tags or reading Tailwind classes, so
- *   restyling the page cannot break this script's behavior.
- * - All injected copy is assigned with textContent, so page text can
- *   never be interpreted as markup.
- *
- * No persistence: filter state and the featured-challenge pick live in
- * memory only and reset on every page load. This project stores nothing
- * in the browser.
- */
+// DOM lookups use ids/data-* attributes only (never tag names or Tailwind
+// classes) so restyling this page can't silently break this script, and all
+// copy is injected via textContent so it can never be parsed as markup.
 
 const CHALLENGES = [
   {
@@ -91,8 +74,12 @@ const CHALLENGES = [
 const FILTER_ACTIVE_CLASSES = ["bg-[#52796f]", "text-white"];
 const FILTER_INACTIVE_CLASSES = ["bg-white", "text-[#52796f]", "hover:bg-[#eef3f1]"];
 
+// Kept in memory only (no localStorage) - the featured challenge resets to
+// a fresh random pick on every page load rather than persisting.
 let currentChallengeIndex = -1;
 
+// Excludes the currently-shown challenge so "Show another" always changes
+// the banner; falls back to the full list if excluding would empty the pool.
 function pickChallengeIndex(excludeIndex) {
   const candidates = CHALLENGES
     .map((_, index) => index)
@@ -124,6 +111,8 @@ function renderFeaturedChallenge(excludeIndex) {
 function initFeaturedChallenge() {
   renderFeaturedChallenge(currentChallengeIndex);
 
+  // Set via JS, not the HTML attribute, so screen readers announce the
+  // swapped challenge text on click without re-announcing on initial render.
   const body = document.getElementById("featured-challenge-body");
   if (body) {
     body.setAttribute("aria-live", "polite");
@@ -161,6 +150,8 @@ function applyCategoryFilter(filterValue) {
     }
   });
 
+  // Visually the hidden/shown cards already communicate the filter result;
+  // this sr-only status text gives screen-reader users the same information.
   const statusEl = document.getElementById("filter-status");
   if (!statusEl) {
     return;
@@ -195,4 +186,6 @@ function initHomePage() {
   initCategoryFilters();
 }
 
+// Safe to call immediately: this script is loaded with `defer`, so the DOM
+// is already fully parsed by the time this runs.
 initHomePage();

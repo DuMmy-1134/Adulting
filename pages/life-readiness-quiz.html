@@ -16,7 +16,7 @@
     <script src="../assets/js/nav-toggle.js" defer></script>
   </head>
   <body class="bg-[#faf7f2] font-body text-[#2f3e46] antialiased">
-    <!-- HEADER -->
+    <!-- Header / nav -->
     <header class="sticky top-0 z-50 bg-white shadow-sm will-change-transform">
       <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 py-4 flex flex-wrap items-center justify-between">
         <a href="../index.html" class="font-heading font-bold text-xl text-[#52796f]">Level Up Life!</a>
@@ -81,9 +81,10 @@
         </nav>
       </div>
     </header>
+    <!-- /header -->
 
     <main>
-      <!-- HERO -->
+      <!-- Hero -->
       <!-- Hero background photo: "A hand marks off items on a
            checklist" by Jakub Żerdzicki on Unsplash, free to use under
            the Unsplash License.
@@ -118,16 +119,11 @@
         </div>
       </section>
 
-      <!-- QUIZ SECTION -->
-      <!-- Everything the visitor answers lives inside this one wrapper so
-           JavaScript can hide the whole thing in one line once they are
-           done, and show the results section in its place. -->
+      <!-- Quiz section -->
       <section id="quiz-section" class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pt-8 pb-16">
         <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-1.5">Take the quiz</h2>
         <p class="font-body text-base text-[#5b6b70] leading-relaxed mb-6 max-w-[760px]">Work through each question below at your own pace - the progress bar updates as you go, and your results appear the moment you submit.</p>
 
-        <!-- Progress bar: filled in and updated entirely by JavaScript,
-             it starts empty because nothing has been answered yet. -->
         <div class="mb-6">
           <div class="flex justify-between items-center mb-2">
             <span class="font-body text-sm font-semibold text-[#52796f]">Your progress</span>
@@ -138,17 +134,13 @@
           </div>
         </div>
 
-        <!-- Left empty on purpose: JavaScript picks a random set of
-             questions from a much bigger question bank and builds one
-             .quiz-question block per pick, so the questions (and how
-             many of each category) change on every visit and retake. -->
         <div id="quiz-questions"></div>
 
         <p id="quiz-validation-message" class="form-error-text hidden mb-4">Please answer every question before viewing your results.</p>
         <button type="button" id="quiz-submit-btn" class="inline-block bg-[#d97757] text-white font-body font-semibold text-base rounded-lg px-8 py-4 hover:bg-[#c2673f] transition-colors">See My Results</button>
       </section>
 
-      <!-- RESULTS SECTION (hidden until quiz is done) -->
+      <!-- Results section (hidden until the quiz is submitted) -->
       <section id="quiz-results" class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pt-4 pb-16 hidden">
         <div class="bg-[#52796f] text-white rounded-[20px] px-10 py-8 mb-7">
           <p class="text-xs font-bold uppercase tracking-widest opacity-75">Your result</p>
@@ -168,8 +160,6 @@
 
         <div class="bg-white rounded-2xl shadow-sm p-6 mb-7">
           <h3 class="font-heading font-bold text-lg text-[#2f3e46] mb-4">Your scores by category</h3>
-          <!-- The <tbody> starts empty on purpose - JavaScript builds one
-               <tr> per category once it has actually calculated a score. -->
           <table class="planner-table">
             <thead>
               <tr class="bg-[#52796f] text-white">
@@ -183,19 +173,16 @@
 
         <div class="bg-white rounded-2xl shadow-sm p-6 mb-7">
           <h3 class="font-heading font-bold text-lg text-[#2f3e46] mb-2">What to try next</h3>
-          <!-- Usually one lowest-scoring category, but if two or more
-               categories are tied for the lowest score, JavaScript adds
-               one block per tied category here instead of just picking
-               the first one. -->
           <p id="quiz-advice-intro" class="font-body text-base text-[#5b6b70] leading-relaxed mb-4"></p>
           <div id="quiz-advice-list" class="flex flex-col gap-4"></div>
         </div>
 
         <button type="button" id="quiz-retake-btn" class="inline-block border-2 border-[#52796f] text-[#52796f] font-body font-semibold text-base rounded-lg px-7 py-[14px] hover:bg-[#eef3f1] transition-colors">Retake the Quiz</button>
       </section>
+      <!-- /quiz-results -->
     </main>
 
-    <!-- FOOTER -->
+    <!-- Footer -->
     <footer class="bg-[#2f3e46] text-[#faf7f2] pt-14 pb-6">
       <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr] gap-8 md:gap-10">
         <div>

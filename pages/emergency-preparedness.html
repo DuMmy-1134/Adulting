@@ -15,6 +15,7 @@
     <script src="../assets/js/emergency-preparedness.js" defer></script>
   </head>
   <body class="bg-[#faf7f2] font-body text-[#2f3e46] antialiased">
+    <!-- Site header and primary navigation -->
     <header class="sticky top-0 z-50 bg-white shadow-sm will-change-transform">
       <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 py-4 flex flex-wrap items-center justify-between">
         <a href="../index.html" class="font-heading font-bold text-xl text-[#52796f]">Level Up Life!</a>
@@ -126,6 +127,11 @@
         </div>
       </section>
 
+      <!-- Preparedness checklist. Each item is a visually-hidden real
+           <input type="checkbox"> paired with a styled sibling <span>
+           (not CSS peer-checked:) so emergency-preparedness.js can drive
+           both the checked visual and localStorage persistence from one
+           change listener. -->
       <section id="checklist" class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pt-8">
         <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-4">Preparedness checklist</h2>
         <div class="bg-white rounded-2xl shadow-sm px-6">
@@ -174,6 +180,7 @@
         </div>
         <p id="prep-progress-message" class="mt-4 font-body text-sm text-[#5b6b70]"></p>
       </section>
+      <!-- /checklist -->
 
       <section id="scenarios" class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pt-12">
         <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-4">Common student incident scenarios</h2>
@@ -217,6 +224,7 @@
         </div>
       </section>
 
+      <!-- Action guides: native <details>/<summary> accordions, no JS required -->
       <section id="action-guides-section" class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pt-12 pb-16">
         <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-4">Expandable action guides</h2>
         <div id="action-guides" class="flex flex-col gap-2">
@@ -247,6 +255,7 @@
         </div>
       </section>
     </main>
+    <!-- Footer -->
     <footer class="bg-[#2f3e46] text-[#faf7f2] pt-14 pb-6">
       <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
         <div>
