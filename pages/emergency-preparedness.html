@@ -12,6 +12,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="../assets/js/tailwind-config.js"></script>
     <script src="../assets/js/nav-toggle.js" defer></script>
+    <script src="../assets/js/emergency-preparedness.js" defer></script>
   </head>
   <body class="bg-[#faf7f2] font-body text-[#2f3e46] antialiased">
     <header class="sticky top-0 z-50 bg-white shadow-sm will-change-transform">
@@ -106,19 +107,19 @@
           <p class="font-body font-semibold text-sm text-[#2f3e46] mb-3">On this page</p>
           <ul class="list-none flex flex-col gap-2">
             <li class="flex items-center gap-2">
-              <span aria-hidden="true" class="text-[#9caaa6]">&mdash;</span>
+              <span aria-hidden="true" class="text-[#9caaa6]">-</span>
               <a href="#checklist" class="font-body text-sm text-[#52796f] hover:text-[#d97757] hover:underline">Preparedness checklist</a>
             </li>
             <li class="flex items-center gap-2">
-              <span aria-hidden="true" class="text-[#9caaa6]">&mdash;</span>
+              <span aria-hidden="true" class="text-[#9caaa6]">-</span>
               <a href="#scenarios" class="font-body text-sm text-[#52796f] hover:text-[#d97757] hover:underline">Common student incident scenarios</a>
             </li>
             <li class="flex items-center gap-2">
-              <span aria-hidden="true" class="text-[#9caaa6]">&mdash;</span>
+              <span aria-hidden="true" class="text-[#9caaa6]">-</span>
               <a href="#must-have-items" class="font-body text-sm text-[#52796f] hover:text-[#d97757] hover:underline">Must-have vs. suggested items</a>
             </li>
             <li class="flex items-center gap-2">
-              <span aria-hidden="true" class="text-[#9caaa6]">&mdash;</span>
+              <span aria-hidden="true" class="text-[#9caaa6]">-</span>
               <a href="#action-guides-section" class="font-body text-sm text-[#52796f] hover:text-[#d97757] hover:underline">Expandable action guides</a>
             </li>
           </ul>
@@ -128,31 +129,50 @@
       <section id="checklist" class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pt-8">
         <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-4">Preparedness checklist</h2>
         <div class="bg-white rounded-2xl shadow-sm px-6">
-          <div class="flex items-center gap-3.5 py-3.5 border-b border-[#f0ece3]">
-            <div class="w-5 h-5 rounded-md border-2 border-[#7c9d96] shrink-0" aria-hidden="true"></div>
-            <p class="font-body text-base text-[#2f3e46]">Save campus security &amp; a trusted contact in your phone</p>
+          <div class="flex items-center py-3.5 border-b border-[#f0ece3]">
+            <label class="flex items-center gap-3.5 w-full cursor-pointer">
+              <input type="checkbox" data-prep-check="0" class="peer sr-only" />
+              <span data-prep-check-box class="w-5 h-5 rounded-md border-2 border-[#7c9d96] shrink-0 flex items-center justify-center text-xs font-bold text-white transition-colors peer-focus-visible:ring-2 peer-focus-visible:ring-[#52796f] peer-focus-visible:ring-offset-2"></span>
+              <span class="font-body text-base text-[#2f3e46]">Save campus security &amp; a trusted contact in your phone</span>
+            </label>
           </div>
-          <div class="flex items-center gap-3.5 py-3.5 border-b border-[#f0ece3]">
-            <div class="w-5 h-5 rounded-md border-2 border-[#7c9d96] shrink-0" aria-hidden="true"></div>
-            <p class="font-body text-base text-[#2f3e46]">Know two exits from your hostel or room</p>
+          <div class="flex items-center py-3.5 border-b border-[#f0ece3]">
+            <label class="flex items-center gap-3.5 w-full cursor-pointer">
+              <input type="checkbox" data-prep-check="1" class="peer sr-only" />
+              <span data-prep-check-box class="w-5 h-5 rounded-md border-2 border-[#7c9d96] shrink-0 flex items-center justify-center text-xs font-bold text-white transition-colors peer-focus-visible:ring-2 peer-focus-visible:ring-[#52796f] peer-focus-visible:ring-offset-2"></span>
+              <span class="font-body text-base text-[#2f3e46]">Know two exits from your hostel or room</span>
+            </label>
           </div>
-          <div class="flex items-center gap-3.5 py-3.5 border-b border-[#f0ece3]">
-            <div class="w-5 h-5 rounded-md border-2 border-[#7c9d96] shrink-0" aria-hidden="true"></div>
-            <p class="font-body text-base text-[#2f3e46]">Keep a small cash stash separate from your wallet</p>
+          <div class="flex items-center py-3.5 border-b border-[#f0ece3]">
+            <label class="flex items-center gap-3.5 w-full cursor-pointer">
+              <input type="checkbox" data-prep-check="2" class="peer sr-only" />
+              <span data-prep-check-box class="w-5 h-5 rounded-md border-2 border-[#7c9d96] shrink-0 flex items-center justify-center text-xs font-bold text-white transition-colors peer-focus-visible:ring-2 peer-focus-visible:ring-[#52796f] peer-focus-visible:ring-offset-2"></span>
+              <span class="font-body text-base text-[#2f3e46]">Keep a small cash stash separate from your wallet</span>
+            </label>
           </div>
-          <div class="flex items-center gap-3.5 py-3.5 border-b border-[#f0ece3]">
-            <div class="w-5 h-5 rounded-md border-2 border-[#7c9d96] shrink-0" aria-hidden="true"></div>
-            <p class="font-body text-base text-[#2f3e46]">Screenshot your ID and insurance card</p>
+          <div class="flex items-center py-3.5 border-b border-[#f0ece3]">
+            <label class="flex items-center gap-3.5 w-full cursor-pointer">
+              <input type="checkbox" data-prep-check="3" class="peer sr-only" />
+              <span data-prep-check-box class="w-5 h-5 rounded-md border-2 border-[#7c9d96] shrink-0 flex items-center justify-center text-xs font-bold text-white transition-colors peer-focus-visible:ring-2 peer-focus-visible:ring-[#52796f] peer-focus-visible:ring-offset-2"></span>
+              <span class="font-body text-base text-[#2f3e46]">Screenshot your ID and insurance card</span>
+            </label>
           </div>
-          <div class="flex items-center gap-3.5 py-3.5 border-b border-[#f0ece3]">
-            <div class="w-5 h-5 rounded-md border-2 border-[#7c9d96] shrink-0" aria-hidden="true"></div>
-            <p class="font-body text-base text-[#2f3e46]">Know your building&rsquo;s fire assembly point</p>
+          <div class="flex items-center py-3.5 border-b border-[#f0ece3]">
+            <label class="flex items-center gap-3.5 w-full cursor-pointer">
+              <input type="checkbox" data-prep-check="4" class="peer sr-only" />
+              <span data-prep-check-box class="w-5 h-5 rounded-md border-2 border-[#7c9d96] shrink-0 flex items-center justify-center text-xs font-bold text-white transition-colors peer-focus-visible:ring-2 peer-focus-visible:ring-[#52796f] peer-focus-visible:ring-offset-2"></span>
+              <span class="font-body text-base text-[#2f3e46]">Know your building&rsquo;s fire assembly point</span>
+            </label>
           </div>
-          <div class="flex items-center gap-3.5 py-3.5">
-            <div class="w-5 h-5 rounded-md border-2 border-[#7c9d96] shrink-0" aria-hidden="true"></div>
-            <p class="font-body text-base text-[#2f3e46]">Keep a basic first-aid kit within reach</p>
+          <div class="flex items-center py-3.5">
+            <label class="flex items-center gap-3.5 w-full cursor-pointer">
+              <input type="checkbox" data-prep-check="5" class="peer sr-only" />
+              <span data-prep-check-box class="w-5 h-5 rounded-md border-2 border-[#7c9d96] shrink-0 flex items-center justify-center text-xs font-bold text-white transition-colors peer-focus-visible:ring-2 peer-focus-visible:ring-[#52796f] peer-focus-visible:ring-offset-2"></span>
+              <span class="font-body text-base text-[#2f3e46]">Keep a basic first-aid kit within reach</span>
+            </label>
           </div>
         </div>
+        <p id="prep-progress-message" class="mt-4 font-body text-sm text-[#5b6b70]"></p>
       </section>
 
       <section id="scenarios" class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pt-12">

@@ -30,64 +30,56 @@ const GARMENTS = [
     name: "Cotton T-Shirts",
     temperature: "Warm (40°C)",
     cycle: "Normal",
-    drying: "Tumble dry or line dry",
-    icon: "👕"
+    drying: "Tumble dry or line dry"
   },
   {
     id: 2,
     name: "Denim Jeans",
     temperature: "Cold (30°C)",
     cycle: "Delicate",
-    drying: "Line dry only",
-    icon: "👖"
+    drying: "Line dry only"
   },
   {
     id: 3,
     name: "Wool Sweaters",
     temperature: "Cold (20°C)",
     cycle: "Wool/Hand wash",
-    drying: "Lay flat to dry",
-    icon: "🧶"
+    drying: "Lay flat to dry"
   },
   {
     id: 4,
     name: "Silk Blouses",
     temperature: "Cold (20°C)",
     cycle: "Hand wash/Delicate",
-    drying: "Drip dry, no wringing",
-    icon: "👗"
+    drying: "Drip dry, no wringing"
   },
   {
     id: 5,
     name: "Underwear & Socks",
     temperature: "Warm (40°C)",
     cycle: "Normal",
-    drying: "Tumble dry",
-    icon: "🧦"
+    drying: "Tumble dry"
   },
   {
     id: 6,
     name: "Bed Sheets",
     temperature: "Hot (60°C)",
     cycle: "Normal",
-    drying: "Tumble dry",
-    icon: "🛏️"
+    drying: "Tumble dry"
   },
   {
     id: 7,
     name: "Athletic Wear",
     temperature: "Cold (30°C)",
     cycle: "Delicate",
-    drying: "Air dry",
-    icon: "🏃"
+    drying: "Air dry"
   },
   {
     id: 8,
     name: "Jackets",
     temperature: "Cold (30°C)",
     cycle: "Gentle",
-    drying: "Air dry, hang up",
-    icon: "🧥"
+    drying: "Air dry, hang up"
   }
 ];
 
@@ -113,7 +105,7 @@ function renderGarmentCheckboxes() {
     
     const textSpan = document.createElement('span');
     textSpan.className = 'font-body text-sm text-[#2f3e46]';
-    textSpan.textContent = `${garment.icon} ${garment.name}`;
+    textSpan.textContent = garment.name;
     
     label.appendChild(checkbox);
     label.appendChild(textSpan);
@@ -131,7 +123,7 @@ function updateCareCards() {
   careCardsContainer.innerHTML = '';
   
   if (selectedIds.length === 0) {
-    careCardsContainer.innerHTML = '<p class="text-center text-[#5b6b70] font-body text-sm">Select garments to see care instructions</p>';
+    careCardsContainer.innerHTML = '<p class="col-span-full text-center text-[#5b6b70] font-body text-sm">Select garments to see care instructions</p>';
     updateSelectedCount(0);
     return;
   }
@@ -148,7 +140,7 @@ function updateCareCards() {
     
     const title = document.createElement('h3');
     title.className = 'font-heading font-bold text-lg text-[#2f3e46]';
-    title.textContent = `${garment.icon} ${garment.name}`;
+    title.textContent = garment.name;
     
     const removeBtn = document.createElement('button');
     removeBtn.className = 'text-[#d97757] hover:text-[#c2673f] font-bold text-lg cursor-pointer';
@@ -165,9 +157,9 @@ function updateCareCards() {
     const instructionsDiv = document.createElement('div');
     instructionsDiv.className = 'space-y-3';
     
-    const tempDiv = createInstructionRow('🌡️ Temperature:', garment.temperature);
-    const cycleDiv = createInstructionRow('🔄 Cycle:', garment.cycle);
-    const dryingDiv = createInstructionRow('💨 Drying:', garment.drying);
+    const tempDiv = createInstructionRow('Temperature:', garment.temperature);
+    const cycleDiv = createInstructionRow('Cycle:', garment.cycle);
+    const dryingDiv = createInstructionRow('Drying:', garment.drying);
     
     instructionsDiv.appendChild(tempDiv);
     instructionsDiv.appendChild(cycleDiv);

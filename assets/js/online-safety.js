@@ -26,6 +26,47 @@ const ALL_FILL_CLASSES = ["bg-[#f0ece3]", "bg-[#b3261e]", "bg-[#d97757]", "bg-[#
 
 let currentCardIndex = 0;
 
+// A short list of the most commonly leaked/guessed passwords. Checked
+// as a substring match (case-insensitive) so variants like "Password1"
+// or "iloveyou99" still get caught, not just exact matches.
+const COMMON_WEAK_PASSWORDS = [
+  "password", "123456", "12345678", "qwerty", "letmein", "admin",
+  "welcome", "monkey", "dragon", "football", "iloveyou", "master",
+  "superman", "trustno1", "baseball",
+];
+
+// Length and character-class variety alone can't tell "strong" apart
+// from something like "aaaaaaaaaaaaaaaa" or "abcdefgh12345678" - both
+// are 16+ characters with decent-looking variety, but neither is hard
+// to guess. This catches the three most common low-entropy patterns
+// so they're always scored weak, regardless of length.
+function hasLowEntropyPattern(password) {
+  const lower = password.toLowerCase();
+
+  // The same character repeated 4+ times in a row (e.g. "aaaa", "1111").
+  if (/(.)\1{3,}/.test(password)) {
+    return true;
+  }
+
+  // A well-known weak password, used as-is or as part of the string.
+  if (COMMON_WEAK_PASSWORDS.some((weak) => lower.includes(weak))) {
+    return true;
+  }
+
+  // Four or more sequential ascending characters (e.g. "abcd", "5678").
+  for (let i = 0; i < lower.length - 3; i++) {
+    const a = lower.charCodeAt(i);
+    const b = lower.charCodeAt(i + 1);
+    const c = lower.charCodeAt(i + 2);
+    const d = lower.charCodeAt(i + 3);
+    if (b === a + 1 && c === b + 1 && d === c + 1) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
 function scorePassword(password) {
   if (password.length === 0) {
     return null;
@@ -34,28 +75,35 @@ function scorePassword(password) {
   const length = password.length;
   const classes = [/[a-z]/, /[A-Z]/, /[0-9]/, /[^A-Za-z0-9]/].filter((pattern) => pattern.test(password)).length;
 
-  // Length is what actually protects against brute-forcing, so it's
-  // checked first and can't be overridden by character-class variety -
-  // this is what previously let a 4-character password like "Aa1!" score
-  // as "Strong" just because it mixed letters, a digit and a symbol.
-  // A password under 8 characters is always weak, no matter what it
-  // contains. Between 8 and 11 characters, it's still weak unless it
-  // mixes at least two character types.
-  if (length < 8) {
-    return "weak";
-  }
-  if (length < 12 && classes <= 1) {
+  // A predictable pattern - repeated characters, a well-known weak
+  // password, or a run of sequential characters - is weak no matter how
+  // long it is, so this is checked before length gets a say.
+  if (hasLowEntropyPattern(password)) {
     return "weak";
   }
 
-  // A very long password (16+) is hard to brute-force even with low
+  // Length is what actually protects against brute-forcing, so it's
+  // checked next and can't be overridden by character-class variety -
+  // this is what previously let a 4-character password like "Aa1!" score
+  // as "Strong" just because it mixed letters, a digit and a symbol.
+  // A password under 10 characters is always weak, no matter what it
+  // contains. Between 10 and 13 characters, it's still weak unless it
+  // mixes at least two character types.
+  if (length < 10) {
+    return "weak";
+  }
+  if (length < 14 && classes <= 1) {
+    return "weak";
+  }
+
+  // A very long password (20+) is hard to brute-force even with low
   // variety - e.g. a multi-word passphrase - so it counts as strong on
-  // length alone. Otherwise, strong requires both real length (12+) and
+  // length alone. Otherwise, strong requires both real length (14+) and
   // real variety (3+ character types).
-  if (length >= 16) {
+  if (length >= 20) {
     return "strong";
   }
-  if (length >= 12 && classes >= 3) {
+  if (length >= 14 && classes >= 3) {
     return "strong";
   }
 
@@ -133,6 +181,7 @@ function initCarousel() {
 }
 
 const SAFETY_CHECKLIST_STORAGE_KEY = "ltl-online-safety-checklist";
+const safetyProgressMessage = document.getElementById("safety-progress-message");
 
 function getCheckedSafetyItems() {
   try {
@@ -151,6 +200,20 @@ function setCheckboxVisual(checkbox) {
   box.classList.toggle("bg-[#52796f]", checkbox.checked);
   box.classList.toggle("border-[#52796f]", checkbox.checked);
   box.textContent = checkbox.checked ? "✓" : "";
+}
+
+function updateSafetyProgress(total) {
+  if (!safetyProgressMessage) {
+    return;
+  }
+  const completed = getCheckedSafetyItems().length;
+  if (completed === 0) {
+    safetyProgressMessage.textContent = "Check off each item as you get it done.";
+  } else if (completed === total) {
+    safetyProgressMessage.textContent = `You're covered - all ${total} items done.`;
+  } else {
+    safetyProgressMessage.textContent = `${completed} of ${total} done.`;
+  }
 }
 
 function initSafetyChecklist() {
@@ -175,8 +238,11 @@ function initSafetyChecklist() {
         : current.filter((item) => item !== key);
 
       localStorage.setItem(SAFETY_CHECKLIST_STORAGE_KEY, JSON.stringify(next));
+      updateSafetyProgress(checkboxes.length);
     });
   });
+
+  updateSafetyProgress(checkboxes.length);
 }
 
 initPasswordStrengthChecker();

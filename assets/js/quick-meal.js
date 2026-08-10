@@ -18,7 +18,7 @@ let quickMeals = [
     ],
     recipe: [
       "Stir together the oats, milk, yogurt, chia seeds, and maple syrup in a jar or bowl until combined.",
-      "Refrigerate for at least 2 hours &mdash; leave it overnight (8 hours) for the creamiest texture.",
+      "Refrigerate for at least 2 hours - leave it overnight (8 hours) for the creamiest texture.",
       "Add your favorite toppings and serve.",
     ],
     source: "https://downshiftology.com/recipes/overnight-oats/",
@@ -184,7 +184,7 @@ let quickMeals = [
       "The night before: mix the rice flour and tapioca flour into the cooled chicken stock until there are no lumps.",
       "Bring water to a boil in a saucepan, add the grated radish, and cook until translucent (a few minutes), then drain.",
       "Heat 1 tbsp oil in a non-stick wok, add the 2 tsp minced garlic, and once just golden, quickly stir in the rice-flour batter.",
-      "Add the drained radish and stir &mdash; the batter should be quite thick, so keep cooking and stirring on low heat until it thickens.",
+      "Add the drained radish and stir - the batter should be quite thick, so keep cooking and stirring on low heat until it thickens.",
       "Pour into a cake tin, place on a rack in a steamer, and steam covered for 1 hour over medium-low heat until the top is set.",
       "Let the steamed cake cool, then refrigerate overnight.",
       "The next day: cut the steamed cake into medium dice, and beat the eggs with a pinch of salt and pepper.",
@@ -257,12 +257,12 @@ let quickMeals = [
     ],
     recipe: [
       "Mix the dark soy, light soy, oyster sauce, and kecap manis together to make the sauce.",
-      "Warm the packet of noodles in the microwave for 1 1/2&ndash;2 minutes until pliable, then carefully separate them &mdash; don't handle them while cold, they'll break.",
+      "Warm the packet of noodles in the microwave for 1 1/2&ndash;2 minutes until pliable, then carefully separate them - don't handle them while cold, they'll break.",
       "Heat 1 tbsp oil in a large non-stick skillet over high heat; cook the shrimp for about 1 1/2 minutes until just done, then remove to a bowl.",
       "Add the Chinese sausage and fish cake and cook for 1 minute until the sausage caramelises, then add to the bowl.",
       "Add another 1 tbsp oil, then the egg; cook into a thick omelette, chop it up roughly, and add to the bowl.",
       "Add the bean sprouts and cook for about 1 minute until just starting to wilt, then add to the bowl.",
-      "Add the lard; once it starts to smoke, add the garlic, then immediately the noodles &mdash; gently fold 4 times to coat with oil.",
+      "Add the lard; once it starts to smoke, add the garlic, then immediately the noodles - gently fold 4 times to coat with oil.",
       "Tip the other ingredients back in along with the garlic chives, fold gently twice, then pour over the sauce.",
       "Gently toss 4&ndash;6 times to disperse the sauce, pausing between tosses to let the noodles caramelise a little at the edges.",
       "Remove from the heat and serve immediately.",
@@ -376,7 +376,7 @@ function renderPagination() {
       class="pagination-btn min-w-9 h-9 px-3 rounded-full font-body text-sm font-semibold transition-colors ${
         active
           ? "bg-[#52796f] text-white"
-          : "bg-white text-[#2f3e46] border border-[#f0ece3] hover:border-[#7c9d96] hover:text-[#52796f] disabled:opacity-40 disabled:hover:border-[#f0ece3] disabled:hover:text-[#2f3e46]"
+          : "bg-white text-[#2f3e46] border-2 border-[#f0ece3] hover:border-[#7c9d96] hover:text-[#52796f] disabled:opacity-40 disabled:hover:border-[#f0ece3] disabled:hover:text-[#2f3e46]"
       }"
     >${label}</button>`;
 
