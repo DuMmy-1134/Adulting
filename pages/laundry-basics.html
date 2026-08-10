@@ -11,7 +11,7 @@
   <script src="../assets/js/laundry-basics.js" defer></script>
 </head>
 <body class="bg-[#faf7f2] font-body text-[#2f3e46] antialiased">
-  <!-- Header & Nav -->
+  <!-- Navigation -->
     <header class="sticky top-0 z-50 bg-white shadow-sm will-change-transform">
       <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 py-4 flex flex-wrap items-center justify-between">
         <a href="../index.html" class="font-heading font-bold text-xl text-[#52796f]">Level Up Life!</a>
@@ -131,6 +131,7 @@
     <section id="fundamentals" class="mb-12">
       <h2 class="font-heading text-2xl font-bold text-[#2f3e46] mb-4">Laundry Fundamentals</h2>
       <div class="flex flex-col gap-2">
+        <!-- Card 1 -->
         <details class="group bg-white rounded-2xl shadow-sm p-5">
           <summary class="list-none flex justify-between items-center gap-4 cursor-pointer font-body font-semibold text-base text-[#2f3e46]">
             <span>Sorting Your Clothes</span>
@@ -149,6 +150,7 @@
           </div>
         </details>
 
+        <!-- Card 2 -->
         <details class="group bg-white rounded-2xl shadow-sm p-5">
           <summary class="list-none flex justify-between items-center gap-4 cursor-pointer font-body font-semibold text-base text-[#2f3e46]">
             <span>Washing Settings Guide</span>
@@ -195,6 +197,7 @@
       </div>
 
       <div class="flex flex-col gap-2">
+        <!-- Card 1 -->
         <details class="group bg-white rounded-2xl shadow-sm p-5">
           <summary class="list-none flex justify-between items-center gap-4 cursor-pointer font-body font-semibold text-base text-[#2f3e46]">
             <span>Understanding Care Labels</span>
@@ -214,6 +217,7 @@
           </div>
         </details>
 
+        <!-- Card 2 -->
         <details class="group bg-white rounded-2xl shadow-sm p-5">
           <summary class="list-none flex justify-between items-center gap-4 cursor-pointer font-body font-semibold text-base text-[#2f3e46]">
             <span>Bleach &amp; Chemical Guide</span>
@@ -238,6 +242,7 @@
     <section id="drying-care" class="mb-12">
       <h2 class="font-heading text-2xl font-bold text-[#2f3e46] mb-4">Drying &amp; Care Habits</h2>
       <div class="flex flex-col gap-2">
+        <!-- Card 1 -->
         <details class="group bg-white rounded-2xl shadow-sm p-5">
           <summary class="list-none flex justify-between items-center gap-4 cursor-pointer font-body font-semibold text-base text-[#2f3e46]">
             <span>Machine vs. Hand Drying</span>
@@ -255,6 +260,7 @@
           </div>
         </details>
 
+        <!-- Card 2 -->
         <details class="group bg-white rounded-2xl shadow-sm p-5">
           <summary class="list-none flex justify-between items-center gap-4 cursor-pointer font-body font-semibold text-base text-[#2f3e46]">
             <span>Preventing Wrinkles</span>
@@ -273,6 +279,7 @@
           </div>
         </details>
 
+        <!-- Card 3 -->
         <details class="group bg-white rounded-2xl shadow-sm p-5">
           <summary class="list-none flex justify-between items-center gap-4 cursor-pointer font-body font-semibold text-base text-[#2f3e46]">
             <span>Extending Garment Life</span>
@@ -299,18 +306,21 @@
       <p class="font-body text-base text-[#5b6b70] leading-relaxed mb-6">Select the garments you own to get personalized care instructions.</p>
 
       <div class="p-6 bg-white rounded-2xl shadow-sm border border-[#f0ece3]">
+        <!-- Garment Checkboxes -->
         <div id="garment-checkboxes" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-8"></div>
 
+        <!-- Clear All Button -->
         <button id="clear-all-btn" class="mb-8 bg-[#d97757] hover:bg-[#c2673f] text-white font-semibold text-sm px-6 py-2.5 rounded-lg transition-colors cursor-pointer">
           Clear All Selections
         </button>
 
+        <!-- Selected Count -->
         <div id="selected-count"></div>
 
+        <!-- Care Instruction Cards -->
         <div id="care-cards-container" class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8"></div>
       </div>
     </section>
-    <!-- /main -->
   </main>
 
   <!-- Footer -->
@@ -342,5 +352,6 @@
     <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 mt-9 text-xs opacity-70">&copy; 2026 Level Up Life!</div>
   </footer>
 
+  <!-- Scripts -->
 </body>
 </html>

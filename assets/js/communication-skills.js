@@ -1,8 +1,20 @@
-// Behavior for pages/communication-skills.html. Loaded with `defer`, so the
-// DOM is already parsed by the time this runs. Elements are looked up only
-// by id (never by tag or Tailwind class, so restyling the page can't break
-// this script), and injected copy is always set via textContent so it can
-// never be interpreted as markup.
+/*
+ * Page-behavior script for pages/communication-skills.html (the
+ * Communication Skills page).
+ *
+ * Convention for this project's content scripts (Phases 6-8 follow this):
+ * - One script per page, named after the page it serves - this file,
+ *   communication-skills.js, serves pages/communication-skills.html only.
+ * - Loaded with `defer` after the two Tailwind script tags, so it runs
+ *   once the DOM is fully parsed and never blocks page rendering.
+ * - Page content data lives in a module-level `const` array of plain
+ *   objects at the top of the file, kept separate from DOM logic.
+ * - The DOM is reached only through ids authored in the page markup,
+ *   never by walking tags or reading Tailwind classes, so restyling the
+ *   page cannot break this script's behavior.
+ * - All injected copy is assigned with textContent, so page text can
+ *   never be interpreted as markup.
+ */
 
 const SCENARIOS = [
   {
@@ -37,8 +49,9 @@ const SCENARIOS = [
   },
 ];
 
-// Reuses the filter-pill-btn active/inactive class pattern from
-// submit-a-tip.js for the same single-select interaction.
+// Pill active/inactive classes match the filter-pill-btn pattern in
+// submit-a-tip.js, reused here for the same "select one of several
+// options" interaction.
 const ACTIVE_PILL_CLASSES = ["bg-[#52796f]", "border-[#52796f]", "text-white"];
 const INACTIVE_PILL_CLASSES = ["bg-white", "border-[#7c9d96]", "text-[#2f3e46]", "hover:bg-[#eef3f1]"];
 
@@ -106,10 +119,8 @@ function initExampleResponses() {
 
 initExampleResponses();
 
-// Second, independent feature on this page: the scenario simulator below.
-// Its state (SIMULATOR_SCENARIOS, currentScenario, totalScore) and DOM ids
-// are kept separate from the "Try it" pills above so the two scenario-based
-// UIs don't collide.
+// CommunicationSkillsScenarios.js
+
 const SIMULATOR_SCENARIOS = [
   {
     id: 1,
@@ -238,8 +249,6 @@ const SIMULATOR_SCENARIOS = [
   }
 ];
 
-// 1-based to match the "Scenario X of N" display; renderScenario() below
-// subtracts 1 to index into the SIMULATOR_SCENARIOS array.
 let currentScenario = 1;
 let totalScore = 0;
 
