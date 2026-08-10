@@ -121,7 +121,7 @@ initExampleResponses();
 
 // CommunicationSkillsScenarios.js
 
-const SCENARIOS = [
+const SIMULATOR_SCENARIOS = [
   {
     id: 1,
     title: "Scenario 1: Disagreeing with a Friend",
@@ -253,7 +253,7 @@ let currentScenario = 1;
 let totalScore = 0;
 
 function renderScenario() {
-  const scenario = SCENARIOS[currentScenario - 1];
+  const scenario = SIMULATOR_SCENARIOS[currentScenario - 1];
   
   document.getElementById('scenario-title').textContent = scenario.title;
   document.getElementById('scenario-situation').textContent = scenario.situation;
@@ -285,19 +285,19 @@ function selectOption(option) {
   const nextBtn = document.getElementById('next-scenario-btn');
   nextBtn.disabled = false;
   
-  if (currentScenario === SCENARIOS.length) {
+  if (currentScenario === SIMULATOR_SCENARIOS.length) {
     nextBtn.textContent = 'See Results';
   }
 }
 
 function updateProgress() {
-  const percentage = (currentScenario / SCENARIOS.length) * 100;
+  const percentage = (currentScenario / SIMULATOR_SCENARIOS.length) * 100;
   document.getElementById('progress-bar').style.width = percentage + '%';
-  document.getElementById('progress-text').textContent = `Scenario ${currentScenario} of ${SCENARIOS.length}`;
+  document.getElementById('progress-text').textContent = `Scenario ${currentScenario} of ${SIMULATOR_SCENARIOS.length}`;
 }
 
 function nextScenario() {
-  if (currentScenario < SCENARIOS.length) {
+  if (currentScenario < SIMULATOR_SCENARIOS.length) {
     currentScenario++;
     document.getElementById('scenario-feedback').style.display = 'none';
     renderScenario();
@@ -307,7 +307,7 @@ function nextScenario() {
 }
 
 function showResults() {
-  const maxScore = SCENARIOS.length * 10;
+  const maxScore = SIMULATOR_SCENARIOS.length * 10;
   const percentage = (totalScore / maxScore) * 100;
   
   document.getElementById('scenario-container').style.display = 'none';
@@ -349,8 +349,4 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('next-scenario-btn').addEventListener('click', nextScenario);
   document.getElementById('restart-scenarios-btn').addEventListener('click', restartScenarios);
   renderScenario();
-<<<<<<< Updated upstream
 });
-=======
-});
->>>>>>> Stashed changes
