@@ -8,7 +8,6 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="../assets/js/tailwind-config.js" defer></script>
   <script src="../assets/js/nav-toggle.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
   <script src="../assets/js/laundry-basics.js" defer></script>
 </head>
 <body class="bg-[#faf7f2] font-body text-[#2f3e46] antialiased">
@@ -122,7 +121,7 @@
           </li>
           <li class="flex items-center gap-2">
             <span aria-hidden="true" class="text-[#9caaa6]">&mdash;</span>
-            <a href="#step-by-step" class="font-body text-sm text-[#52796f] hover:text-[#d97757] hover:underline">Step-by-Step Accordion</a>
+            <a href="#fabric-care-guide" class="font-body text-sm text-[#52796f] hover:text-[#d97757] hover:underline">Fabric Care Guide Matcher</a>
           </li>
         </ul>
       </div>
@@ -240,7 +239,7 @@
     </section>
 
     <!-- Section 3: Drying &amp; Maintenance -->
-    <section id="drying-care">
+    <section id="drying-care" class="mb-12">
       <h2 class="font-heading text-2xl font-bold text-[#2f3e46] mb-6">Drying &amp; Care Habits</h2>
       <div class="flex flex-col gap-2">
         <!-- Card 1 -->
@@ -300,60 +299,27 @@
         </details>
       </div>
     </section>
+
+    <!-- Section 4: Fabric Care Guide Matcher -->
+    <section id="fabric-care-guide">
+      <h2 class="font-heading text-2xl font-bold text-[#2f3e46] mb-6">Fabric Care Guide Matcher</h2>
+      <p class="font-body text-base text-[#5b6b70] leading-relaxed mb-6">Select the garments you own to get personalized care instructions</p>
+
+      <!-- Garment Checkboxes -->
+      <div id="garment-checkboxes" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-8"></div>
+
+      <!-- Clear All Button -->
+      <button id="clear-all-btn" class="mb-8 bg-[#d97757] text-white font-semibold py-2 px-6 rounded-lg hover:bg-[#c2673f] transition-all cursor-pointer">
+        Clear All Selections
+      </button>
+
+      <!-- Selected Count -->
+      <div id="selected-count"></div>
+
+      <!-- Care Instruction Cards -->
+      <div id="care-cards-container" class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8"></div>
+    </section>
   </main>
-
-  <div id="step-by-step" class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10">
-      <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-6">Step-by-Step Accordion</h2>
-      <p class="text-lg text-[#2f3e46] mb-8">Drag and arrange the steps in the correct order, then click "Check Answer" to verify!</p>
-      
-      <div class="bg-white rounded-2xl shadow-sm p-6">
-        <ul id="sortable-steps" class="space-y-3 list-none">
-          <li class="step-item bg-[#f5f3f0] p-4 rounded-lg cursor-move border-2 border-[#7c9d96] hover:shadow-md transition-all" data-step="3">
-            <span class="font-bold text-[#2f3e46]">Load the washer</span>
-          </li>
-          <li class="step-item bg-[#f5f3f0] p-4 rounded-lg cursor-move border-2 border-[#7c9d96] hover:shadow-md transition-all" data-step="1">
-            <span class="font-bold text-[#2f3e46]">Sort clothes by color</span>
-          </li>
-          <li class="step-item bg-[#f5f3f0] p-4 rounded-lg cursor-move border-2 border-[#7c9d96] hover:shadow-md transition-all" data-step="4">
-            <span class="font-bold text-[#2f3e46]">Choose settings and start</span>
-          </li>
-          <li class="step-item bg-[#f5f3f0] p-4 rounded-lg cursor-move border-2 border-[#7c9d96] hover:shadow-md transition-all" data-step="2">
-            <span class="font-bold text-[#2f3e46]">Check care labels</span>
-          </li>
-        </ul>
-
-        <div id="steps-feedback"></div>
-
-        <div class="flex gap-4 mt-6">
-          <button id="check-steps-btn" class="flex-1 bg-[#52796f] text-white font-semibold py-3 rounded-lg hover:bg-[#3d5a56] transition-all">
-            Check Answer
-          </button>
-          <button id="reset-steps-btn" class="flex-1 bg-[#d97757] text-white font-semibold py-3 rounded-lg hover:bg-[#c2673f] transition-all">
-            Reset
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Fabric Care Guide Section -->
-<div class="max-w-4xl mx-auto px-4 md:px-6 lg:px-10 mt-12 mb-16">
-  <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-6">Fabric Care Guide Matcher</h2>
-  <p class="text-lg text-[#2f3e46] mb-6">Select the garments you own to get personalized care instructions</p>
-  
-  <!-- Garment Checkboxes -->
-  <div id="garment-checkboxes" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-8"></div>
-  
-  <!-- Clear All Button -->
-  <button id="clear-all-btn" class="mb-8 bg-[#d97757] text-white font-semibold py-2 px-6 rounded-lg hover:bg-[#c4624d] transition-all cursor-pointer">
-    Clear All Selections
-  </button>
-  
-  <!-- Selected Count -->
-  <div id="selected-count"></div>
-  
-  <!-- Care Instruction Cards -->
-  <div id="care-cards-container" class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8"></div>
-</div>
 
   <!-- Footer -->
   <footer class="bg-[#2f3e46] text-[#faf7f2] pt-14 pb-6">
