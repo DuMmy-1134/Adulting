@@ -183,3 +183,133 @@ document.addEventListener('DOMContentLoaded', function() {
   loadCompletedZones();
   updateProgress();
 });
+
+// RoomOrganisationQuiz.js
+
+const QUIZ_QUESTIONS = [
+  {
+    id: 1,
+    question: "How much clutter do you currently have in your room?",
+    options: [
+      { value: "minimal", text: "Minimal - mostly organized" },
+      { value: "moderate", text: "Moderate - some clutter" },
+      { value: "heavy", text: "Heavy - very cluttered" }
+    ]
+  },
+  {
+    id: 2,
+    question: "What's your main organization challenge?",
+    options: [
+      { value: "storage", text: "Lack of storage space" },
+      { value: "sorting", text: "Can't sort items properly" },
+      { value: "maintenance", text: "Keeping it organized" }
+    ]
+  },
+  {
+    id: 3,
+    question: "How much time can you dedicate to organizing?",
+    options: [
+      { value: "quick", text: "Quick sessions (15-30 mins)" },
+      { value: "moderate", text: "Moderate (1-2 hours)" },
+      { value: "dedicated", text: "Full day project" }
+    ]
+  },
+  {
+    id: 4,
+    question: "What's your room size?",
+    options: [
+      { value: "small", text: "Small (single bed room)" },
+      { value: "medium", text: "Medium (double bed room)" },
+      { value: "large", text: "Large (spacious)" }
+    ]
+  },
+  {
+    id: 5,
+    question: "Do you prefer minimalist or maximalist approach?",
+    options: [
+      { value: "minimalist", text: "Minimalist - keep only essentials" },
+      { value: "balanced", text: "Balanced - organized but with items" },
+      { value: "maximalist", text: "Maximalist - keep everything organized" }
+    ]
+  }
+];
+
+let quizAnswers = {};
+let currentQuestion = 1;
+
+function renderQuestion() {
+  const question = QUIZ_QUESTIONS[currentQuestion - 1];
+  if (!question) return;
+  
+  document.getElementById('quiz-question-text').textContent = question.question;
+  
+  const optionsDiv = document.getElementById('quiz-options');
+  optionsDiv.innerHTML = '';
+  
+  question.options.forEach(option => {
+    const label = document.createElement('label');
+    label.className = 'flex items-center gap-3 p-3 bg-[#f5f3f0] rounded-lg hover:bg-[#eef3f1] cursor-pointer transition-all mb-3';
+    
+    const radio = document.createElement('input');
+    radio.type = 'radio';
+    radio.name = `q${question.id}`;
+    radio.value = option.value;
+    radio.className = 'w-4 h-4 cursor-pointer';
+    radio.addEventListener('change', function() {
+      quizAnswers[`q${question.id}`] = this.value;
+      document.getElementById('next-question-btn').disabled = false;
+    });
+    
+    const text = document.createElement('span');
+    text.className = 'font-body text-[13.5px] text-[#2f3e46]';
+    text.textContent = option.text;
+    
+    label.appendChild(radio);
+    label.appendChild(text);
+    optionsDiv.appendChild(label);
+  });
+  
+  updateProgress();
+}
+
+function updateProgress() {
+  const totalQuestions = QUIZ_QUESTIONS.length;
+  const percentage = (currentQuestion / totalQuestions) * 100;
+  document.getElementById('progress-bar-fill').style.width = percentage + '%';
+  document.getElementById('progress-text').textContent = `Question ${currentQuestion} of ${totalQuestions}`;
+}
+
+function nextQuestion() {
+  if (!quizAnswers[`q${currentQuestion}`]) {
+    alert('Please select an option before continuing');
+    return;
+  }
+  
+  if (currentQuestion < QUIZ_QUESTIONS.length) {
+    currentQuestion++;
+    renderQuestion();
+    document.getElementById('next-question-btn').disabled = true;
+  } else {
+    showResults();
+  }
+}
+
+function showResults() {
+  document.getElementById('quiz-container').classList.add('hidden');
+  document.getElementById('quiz-results').classList.remove('hidden');
+}
+
+function restartQuiz() {
+  quizAnswers = {};
+  currentQuestion = 1;
+  document.getElementById('quiz-results').classList.add('hidden');
+  document.getElementById('quiz-container').classList.remove('hidden');
+  document.getElementById('next-question-btn').disabled = true;
+  renderQuestion();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('next-question-btn').addEventListener('click', nextQuestion);
+  document.getElementById('restart-quiz-btn').addEventListener('click', restartQuiz);
+  renderQuestion();
+});
