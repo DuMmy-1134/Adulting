@@ -1,6 +1,4 @@
-// Array of Challenge Objects
 const challengePool = [
-  // Time / Meals
   {
     category: "Time / Meals",
     challenge: "Plan tomorrow's top 3 priority tasks",
@@ -27,7 +25,6 @@ const challengePool = [
     difficulty: "Medium",
   },
 
-  // Money / Budget
   {
     category: "Money / Budget",
     challenge: "Track all expenses for today in an app or notebook",
@@ -49,7 +46,6 @@ const challengePool = [
     difficulty: "Hard",
   },
 
-  // Home / Basics
   {
     category: "Home / Basics",
     challenge: "Organise one desk drawer or study space",
@@ -71,7 +67,6 @@ const challengePool = [
     difficulty: "Easy",
   },
 
-  // Safety / Digital
   {
     category: "Safety / Digital",
     challenge: "Update passwords for two main accounts",
@@ -93,7 +88,6 @@ const challengePool = [
     difficulty: "Medium",
   },
 
-  // Growth / Wellness
   {
     category: "Growth / Wellness",
     challenge: "Reflect on weekly achievements and set 1 goal",
@@ -116,7 +110,6 @@ const challengePool = [
   },
 ];
 
-// Helper: Toggle Completion & Update Progress
 function toggleComplete(btn) {
   const row = btn.closest("tr");
   const isCompleted = btn.classList.toggle("is-completed");
@@ -136,7 +129,6 @@ function toggleComplete(btn) {
   updateProgress();
 }
 
-// Helper: Update Progress Bar
 function updateProgress() {
   const progressDiv = document.querySelector(".progress");
   const rows = document.querySelectorAll("#challenge-table-body tr");
@@ -153,7 +145,10 @@ function updateProgress() {
   progressDiv.textContent = `Progress: ${completedCount}/${totalTasks} (${percentage}%)`;
 }
 
-// Apply Filters
+// Category and difficulty combine with AND (both must match), and each
+// dropdown updates its own filter independently instead of replacing the
+// other - a deliberate difference from Quick Meal's near-identical pill
+// dropdowns, where picking one filter replaces whichever was active.
 function applyFilters() {
   const categoryBtn = document.getElementById("challenge-category-filter");
   const difficultyBtn = document.getElementById(
@@ -185,9 +180,8 @@ function applyFilters() {
   }
 }
 
-// Tracks every dropdown created by buildFilterDropdown so a click on one
-// filter button can close the others, and so an outside click can close
-// whichever one is open.
+// Tracks every dropdown so clicking one button (or outside all of them)
+// can close whichever other dropdown is open.
 const allFilterDropdowns = [];
 
 function closeAllFilterDropdowns() {
@@ -197,6 +191,13 @@ function closeAllFilterDropdowns() {
   });
 }
 
+/**
+ * Builds and wires up one filter pill's dropdown panel (used for both the
+ * category and difficulty filters).
+ * @param {HTMLButtonElement} button - the pill button that toggles this dropdown.
+ * @param {string[]} options - the distinct values to list as choices.
+ * @param {string} allLabel - label for the "no filter" / reset option.
+ */
 function buildFilterDropdown(button, options, allLabel) {
   const defaultLabel = button.querySelector(".filter-btn-label").textContent;
 
@@ -243,7 +244,6 @@ function buildFilterDropdown(button, options, allLabel) {
 // Clicking anywhere outside an open dropdown closes it.
 document.addEventListener("click", closeAllFilterDropdowns);
 
-// Populate Filter Options Dynamically
 function setupFilterDropdowns() {
   const categoryBtn = document.getElementById("challenge-category-filter");
   const difficultyBtn = document.getElementById(
@@ -261,13 +261,12 @@ function setupFilterDropdowns() {
   buildFilterDropdown(difficultyBtn, difficulties, "All difficulties");
 }
 
-// Generate New Schedule
 function generateNewWeeklySchedule() {
   const tableBody = document.getElementById("challenge-table-body");
   if (!tableBody) return;
 
-  // Shuffle and pick top 7
   const shuffled = [...challengePool].sort(() => 0.5 - Math.random());
+  // 7 - one challenge per day of the week.
   const selectedChallenges = shuffled.slice(0, 7);
 
   tableBody.innerHTML = "";
@@ -276,7 +275,7 @@ function generateNewWeeklySchedule() {
     const row = document.createElement("tr");
     row.className = "border-b border-[#8BA39E]/30 text-center";
 
-    // Attach dataset attributes required for filtering
+    // Read by applyFilters() to decide which rows match the active filters.
     row.dataset.category = item.category;
     row.dataset.difficulty = item.difficulty;
 
@@ -300,13 +299,12 @@ function generateNewWeeklySchedule() {
   updateProgress();
 }
 
-// DOM Initialization
 document.addEventListener("DOMContentLoaded", () => {
   setupFilterDropdowns();
   generateNewWeeklySchedule();
 
-  // One click listener on the table body (event delegation) instead of an
-  // inline onclick per row, since rows are regenerated on every reshuffle.
+  // Event delegation instead of an inline onclick per row, since rows are
+  // regenerated on every reshuffle.
   const tableBody = document.getElementById("challenge-table-body");
   if (tableBody) {
     tableBody.addEventListener("click", (event) => {

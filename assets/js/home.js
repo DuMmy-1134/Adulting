@@ -1,23 +1,5 @@
-/*
- * Page-behavior script for index.html (the Home page).
- *
- * Convention for this project's content scripts (Phases 6-8 follow this):
- * - One script per page, named after the page it serves - this file,
- *   home.js, serves index.html only.
- * - Loaded with `defer` after the two Tailwind script tags, so it runs
- *   once the DOM is fully parsed and never blocks page rendering.
- * - Page content data lives in a module-level `const` array of plain
- *   objects at the top of the file, kept separate from DOM logic.
- * - The DOM is reached only through ids and data-* hooks authored in the
- *   page markup, never by walking tags or reading Tailwind classes, so
- *   restyling the page cannot break this script's behavior.
- * - All injected copy is assigned with textContent, so page text can
- *   never be interpreted as markup.
- *
- * No persistence: filter state and the featured-challenge pick live in
- * memory only and reset on every page load. This project stores nothing
- * in the browser.
- */
+// Home-page-only script (paired with index.html). No persistence by
+// design: filter state and the featured-challenge pick reset on every load.
 
 const CHALLENGES = [
   {
@@ -91,8 +73,10 @@ const CHALLENGES = [
 const FILTER_ACTIVE_CLASSES = ["bg-[#52796f]", "text-white"];
 const FILTER_INACTIVE_CLASSES = ["bg-white", "text-[#52796f]", "hover:bg-[#eef3f1]"];
 
-let currentChallengeIndex = -1;
+let currentChallengeIndex = -1; // -1 = none shown yet, so nothing to exclude
 
+// Avoids repeating the current challenge; falls back to the full list if
+// excluding it would leave no candidates (e.g. a single-challenge array).
 function pickChallengeIndex(excludeIndex) {
   const candidates = CHALLENGES
     .map((_, index) => index)
@@ -115,6 +99,8 @@ function renderFeaturedChallenge(excludeIndex) {
   currentChallengeIndex = index;
   const challenge = CHALLENGES[index];
 
+  // textContent (not innerHTML) keeps injected copy safe even if a
+  // challenge string ever contained markup-like characters.
   titleEl.textContent = challenge.title;
   textEl.textContent = challenge.text;
   ctaEl.textContent = challenge.ctaLabel;
@@ -124,6 +110,8 @@ function renderFeaturedChallenge(excludeIndex) {
 function initFeaturedChallenge() {
   renderFeaturedChallenge(currentChallengeIndex);
 
+  // Announce updates to screen readers since the banner content changes
+  // without a page reload.
   const body = document.getElementById("featured-challenge-body");
   if (body) {
     body.setAttribute("aria-live", "polite");
@@ -161,6 +149,8 @@ function applyCategoryFilter(filterValue) {
     }
   });
 
+  // filter-status is visually hidden (sr-only) but has role="status", so
+  // updating its text announces the result count to screen reader users.
   const statusEl = document.getElementById("filter-status");
   if (!statusEl) {
     return;
@@ -195,4 +185,7 @@ function initHomePage() {
   initCategoryFilters();
 }
 
+// Safe to call directly (no DOMContentLoaded listener needed): the
+// `defer` attribute on this script's <script> tag guarantees the DOM is
+// already parsed by the time this runs.
 initHomePage();

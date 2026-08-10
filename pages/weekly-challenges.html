@@ -16,6 +16,7 @@
     <script src="../assets/js/nav-toggle.js" defer></script>
   </head>
   <body class="bg-[#faf7f2] font-body text-[#2f3e46] antialiased">
+    <!-- Header / nav -->
     <header class="sticky top-0 z-50 bg-white shadow-sm will-change-transform">
       <div
         class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 py-4 flex flex-wrap items-center justify-between"
@@ -225,6 +226,7 @@
         </nav>
       </div>
     </header>
+    <!-- Hero -->
     <!-- Hero background photo: "A notebook with a list and a pen next
          to a cup of tea" by My Profit Tutor on Unsplash, free to use
          under the Unsplash License.
@@ -298,6 +300,7 @@
       </div>
     </section>
 
+    <!-- 7 days challenge intro -->
     <section id="seven-days-challenge" class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pt-8">
       <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-1.5">
         7 days, one small habit
@@ -323,11 +326,6 @@
           >
             7 Days Challenges
           </h3>
-          <!-- <span
-            class="block font-body text-base text-[#5b6b70] leading-normal mb-3.5"
-            >Simple recipes with time and difficulty, built for busy
-            weeknights.</span
-          > -->
           <span
             class="block font-body text-sm font-semibold text-[#d97757]"
             >Filter by category and difficulty below. Mark tasks complete to
@@ -342,6 +340,7 @@
           Progress
         </div>
       </div>
+      <!-- Category / difficulty filters -->
       <div class="functions-group flex flex-wrap items-center gap-3 mb-4">
         <div class="relative">
           <button
@@ -377,12 +376,11 @@
         aria-live="polite"
         class="font-body text-sm text-[#5b6b70] mb-3"
       ></p>
-      <!-- The Challenges Table -->
+      <!-- Challenges table -->
       <div
         class="overflow-x-auto rounded-xl border-2 border-[#8BA39E] bg-white"
       >
         <table class="w-full text-center border-collapse">
-          <!-- Table Header -->
           <thead>
             <tr
               class="border-b-2 border-[#8BA39E] text-sm font-bold text-slate-700"
@@ -397,13 +395,13 @@
             </tr>
           </thead>
 
-          <!-- Table Body -->
           <tbody
             id="challenge-table-body"
             class="divide-y-2 divide-[#8BA39E] text-sm text-slate-700"
           ></tbody>
         </table>
       </div>
+      <!-- /challenges-table -->
       <div class="flex justify-start py-4 mb-4">
         <button
           onclick="generateNewWeeklySchedule()"
@@ -412,6 +410,7 @@
           🔄 Shuffle Weekly Challenges
         </button>
       </div>
+      <!-- Mindset tips accordion -->
       <div id="mindset-tips" class="mt-10">
         <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-4">Mindset Tips</h2>
         <div class="flex flex-col gap-2">
@@ -442,6 +441,7 @@
         </div>
       </div>
     </section>
+    <!-- Footer -->
     <footer class="bg-[#2f3e46] text-[#faf7f2] pt-14 pb-6">
       <div
         class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 grid grid-cols-[1.4fr_1fr_1fr] gap-10"

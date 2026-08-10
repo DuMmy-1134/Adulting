@@ -1,5 +1,3 @@
-// RoomOrganisationZones.js
-
 const ROOM_ZONES = [
   {
     id: 1,
@@ -47,7 +45,6 @@ const zonesContainer = document.getElementById('zones-container');
 const progressMessage = document.getElementById('progress-message');
 const resetZonesBtn = document.getElementById('reset-zones-btn');
 
-// Render zones with accordion
 function renderZones() {
   if (!zonesContainer) return;
 
@@ -58,7 +55,6 @@ function renderZones() {
     zoneItem.className = 'group bg-white rounded-2xl shadow-sm p-5';
     zoneItem.setAttribute('data-zone-id', zone.id);
 
-    // Zone header
     const summary = document.createElement('summary');
     summary.className = 'list-none flex justify-between items-center gap-4 cursor-pointer font-body font-semibold text-base text-[#2f3e46]';
 
@@ -78,11 +74,9 @@ function renderZones() {
     minus.textContent = '–';
     summary.appendChild(minus);
 
-    // Zone content
     const content = document.createElement('div');
     content.className = 'mt-2.5 flex flex-col gap-3';
 
-    // Steps list
     const stepsList = document.createElement('ol');
     stepsList.className = 'list-decimal list-inside space-y-2 font-body text-base text-[#5b6b70]';
 
@@ -94,7 +88,6 @@ function renderZones() {
 
     content.appendChild(stepsList);
 
-    // Complete button
     const completeBtn = document.createElement('button');
     completeBtn.className = 'w-full bg-[#52796f] text-white font-semibold py-2 rounded-lg hover:bg-[#3d5a56] transition-all complete-zone-btn';
     completeBtn.setAttribute('data-zone-id', zone.id);
@@ -110,7 +103,6 @@ function renderZones() {
   });
 }
 
-// Mark zone as complete
 function markZoneComplete(e) {
   const btn = e.currentTarget;
   const zoneId = btn.getAttribute('data-zone-id');
@@ -119,7 +111,7 @@ function markZoneComplete(e) {
   btn.className = 'w-full bg-[#eef3f1] text-[#2f3e46] font-semibold py-2 rounded-lg border-2 border-[#52796f]';
   btn.disabled = true;
   
-  // Save to localStorage
+  // Persist so progress survives a reload; guard against double-recording the same zone.
   let completedZones = JSON.parse(localStorage.getItem('completedZones')) || [];
   if (!completedZones.includes(zoneId)) {
     completedZones.push(zoneId);
@@ -129,7 +121,9 @@ function markZoneComplete(e) {
   updateProgress();
 }
 
-// Update progress
+// Note: this declaration is shadowed by the quiz's updateProgress() further down this
+// file — both are top-level function declarations sharing the same name, so the later
+// one wins and this version never actually runs.
 function updateProgress() {
   if (!progressMessage) return;
   
@@ -150,7 +144,6 @@ function updateProgress() {
   }
 }
 
-// Reset all zones
 function resetAllZones() {
   localStorage.removeItem('completedZones');
   renderZones();
@@ -158,7 +151,6 @@ function resetAllZones() {
   loadCompletedZones();
 }
 
-// Load completed zones from localStorage
 function loadCompletedZones() {
   const completedZones = JSON.parse(localStorage.getItem('completedZones')) || [];
   
@@ -172,19 +164,15 @@ function loadCompletedZones() {
   });
 }
 
-// Event listeners
 if (resetZonesBtn) {
   resetZonesBtn.addEventListener('click', resetAllZones);
 }
 
-// Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
   renderZones();
   loadCompletedZones();
   updateProgress();
 });
-
-// RoomOrganisationQuiz.js
 
 const QUIZ_QUESTIONS = [
   {

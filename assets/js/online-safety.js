@@ -1,23 +1,3 @@
-/*
- * Page-behavior script for pages/online-safety.html (the Online Safety page).
- *
- * Convention for this project's content scripts (Phases 6-8 follow this):
- * - One script per page, named after the page it serves - this file,
- *   online-safety.js, serves pages/online-safety.html only.
- * - Loaded with `defer` after the two Tailwind script tags, so it runs
- *   once the DOM is fully parsed and never blocks page rendering.
- * - Page content data lives in a module-level `const` array of plain
- *   objects at the top of the file, kept separate from DOM logic.
- * - The DOM is reached only through ids and data-* hooks authored in the
- *   page markup, never by walking tags or reading Tailwind classes, so
- *   restyling the page cannot break this script's behavior.
- * - All injected copy is assigned with textContent, so page text can
- *   never be interpreted as markup.
- * - The test password this script reads is never sent over the network,
- *   stored, or logged - it exists only in memory for the duration of the
- *   keystroke that produced it.
- */
-
 const STRENGTH_WIDTH_CLASSES = { weak: "w-[33%]", medium: "w-[66%]", strong: "w-full" };
 const STRENGTH_FILL_CLASSES = { weak: "bg-[#b3261e]", medium: "bg-[#d97757]", strong: "bg-[#52796f]" };
 const STRENGTH_LABEL_TEXT = { weak: "Weak", medium: "Medium", strong: "Strong" };
@@ -67,6 +47,10 @@ function hasLowEntropyPattern(password) {
   return false;
 }
 
+/**
+ * @param {string} password
+ * @returns {"weak"|"medium"|"strong"|null} null when the input is empty.
+ */
 function scorePassword(password) {
   if (password.length === 0) {
     return null;
@@ -137,6 +121,8 @@ function initPasswordStrengthChecker() {
 
   renderStrength(null);
 
+  // Scored entirely in memory on each keystroke; the typed value is never
+  // sent over the network, persisted, or logged.
   inputEl.addEventListener("input", () => {
     renderStrength(scorePassword(inputEl.value));
   });
@@ -171,6 +157,8 @@ function initCarousel() {
 
   showCard(0);
 
+  // Adds cards.length before the modulo so wrapping from the first card
+  // doesn't produce a negative index.
   prevButton.addEventListener("click", () => {
     showCard((currentCardIndex - 1 + cards.length) % cards.length);
   });
@@ -180,10 +168,13 @@ function initCarousel() {
   });
 }
 
+// Storage key is page-specific so this checklist's state never collides
+// with emergency-preparedness.js's separate checklist entry.
 const SAFETY_CHECKLIST_STORAGE_KEY = "ltl-online-safety-checklist";
 const safetyProgressMessage = document.getElementById("safety-progress-message");
 
 function getCheckedSafetyItems() {
+  // Falls back to an empty list if storage is empty or holds invalid JSON.
   try {
     const stored = JSON.parse(localStorage.getItem(SAFETY_CHECKLIST_STORAGE_KEY));
     return Array.isArray(stored) ? stored : [];
@@ -245,6 +236,8 @@ function initSafetyChecklist() {
   updateSafetyProgress(checkboxes.length);
 }
 
+// Safe to call immediately: this script is loaded with `defer`, so the
+// DOM is already fully parsed by the time this file runs.
 initPasswordStrengthChecker();
 initCarousel();
 initSafetyChecklist();

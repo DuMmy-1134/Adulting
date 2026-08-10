@@ -17,6 +17,7 @@
     <script src="../assets/js/quick-meal.js" defer></script>
   </head>
   <body class="bg-[#faf7f2] font-body text-[#2f3e46] antialiased">
+    <!-- Site header / primary navigation -->
     <header class="sticky top-0 z-50 bg-white shadow-sm will-change-transform">
       <div
         class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 py-4 flex flex-wrap items-center justify-between"
@@ -299,6 +300,7 @@
       </div>
     </section>
 
+    <!-- Browse / filter meals section -->
     <section
       id="browse-meals"
       class="site-features max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pt-8 pb-12"
@@ -386,6 +388,7 @@
         aria-label="Meal pages"
         class="flex items-center justify-center flex-wrap gap-2 mt-10"
       ></nav>
+      <!-- Recipe detail panel, populated on card click -->
       <div
         id="recipe-display"
         class="hidden opacity-0 transition-opacity duration-500 ease-in-out mt-12 p-8 bg-white rounded-2xl border border-slate-100"
@@ -398,23 +401,17 @@
           </h2>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="ingredients-list">
-              <!-- Ingredients go here -->
-            </div>
-            <div class="instructions-list">
-              <!-- Instructions go here -->
-            </div>
+            <div class="ingredients-list"></div>
+            <div class="instructions-list"></div>
           </div>
 
-          <div class="recipe-video mt-6">
-            <!-- Video goes here -->
-          </div>
+          <div class="recipe-video mt-6"></div>
         </div>
       </div>
     </section>
     
     </div>
-    <!-- Add Recipe Modal / Section -->
+    <!-- Add-your-own-recipe form section -->
     <section id="add-your-own-quick-meal" class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 mb-16">
       <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-4">
         Add your own recipe
@@ -558,6 +555,7 @@
       </form>
       </div>
     </section>
+    <!-- Site footer -->
     <footer class="bg-[#2f3e46] text-[#faf7f2] pt-14 pb-6">
       <div
         class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10"

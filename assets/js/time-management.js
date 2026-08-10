@@ -1,20 +1,10 @@
 /*
-  time-management.js
-  -----------------------------------------------------------------------
-  Powers 3 separate features on time-management.html:
-    1. The weekly planner calendar (add / tick off / delete tasks).
-    2. The Eisenhower priority matrix (add a task into one of 4 boxes).
-    3. The focus timer (a simple Pomodoro-style countdown).
-
-  All 3 features save their data with localStorage, which is a small
-  built-in browser "notebook" that keeps information even after the
-  visitor closes the tab or restarts their computer. There is no
-  server/database here so it lets the planner feel "saved" between visits.
+  Powers 3 features on time-management.html: the weekly planner, the
+  Eisenhower priority matrix, and the focus timer. All 3 persist their
+  data to localStorage since this site has no backend to save to.
 */
 
-/* 
-   1. WEEKLY TIMETABLE
-    */
+/* 1. Weekly timetable */
 
 const plannerForm = document.getElementById("planner-form");
 const plannerTaskInput = document.getElementById("planner-task-input");
@@ -28,25 +18,19 @@ const plannerClearBtn = document.getElementById("planner-clear");
 const plannerStatus = document.getElementById("planner-status");
 const plannerTbody = document.getElementById("planner-tbody");
 
-// The timetable covers 8:00 AM up to (but not including) 10:00 PM, in
-// 1-hour rows - 14 rows in total, the same kind of range a real class
-// timetable would use.
+// Hour range shown by the timetable: 7 = 7:00 AM, 23 = 11:00 PM (see formatHourLabel).
 const PLANNER_START_HOUR = 7;
 const PLANNER_END_HOUR = 23;
 
-// The 7 day columns, in display order, matching the <th> order in the HTML.
+// Display order of the 7 day columns, matching the <th> order in the HTML.
 const PLANNER_DAYS = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
 
-// The key used to store the timetable's tasks inside localStorage. Using
-// a prefix like "ltl-" (Level Up Life) avoids clashing with other tools
-// that might store their own data under a plain name like "tasks".
+// Prefixed with "ltl-" (Level Up Life) so this doesn't clash with another
+// tool storing its own data under a plain key like "tasks".
 const PLANNER_STORAGE_KEY = "ltl-weekly-timetable-tasks";
 
-// Same 4 categories used on the Life Readiness Quiz and Submit a Tip
-// pages, so a task's colour means the same thing everywhere on the
-// site. blockClass picks one of the 4 solid ".block-*" colours defined
-// in styles.css, the same way a real timetable colours each class block
-// by subject.
+// Same 4 categories used on the Life Readiness Quiz and Submit a Tip pages,
+// so a task's colour means the same thing everywhere on the site.
 const PLANNER_CATEGORIES = {
   "home-skills": { label: "Home Skills", blockClass: "block-home-skills" },
   "money-time": { label: "Money & Time", blockClass: "block-money-time" },
@@ -54,15 +38,11 @@ const PLANNER_CATEGORIES = {
   "practice-growth": { label: "Practice & Growth", blockClass: "block-practice-growth" },
 };
 
-// Every task the visitor has added lives in this one array in memory
-// while the page is open. Each task looks like:
+// Each task in this array looks like:
 // { id: 1699999999999, text: "ST0501 lecture", day: "mon",
 //   startHour: 9, duration: 2, category: "money-time", done: false }
 let plannerTasks = [];
 
-// --- Small time-formatting helpers ---
-
-// Turns a 24-hour number like 13 into a 12-hour clock label like "1:00 PM".
 function formatHourLabel(hour) {
   const period = hour < 12 ? "AM" : "PM";
   let displayHour = hour % 12;
@@ -72,12 +52,9 @@ function formatHourLabel(hour) {
   return displayHour + ":00 " + period;
 }
 
-// Builds the "8:00 AM – 10:00 AM" style caption shown inside a task block.
 function formatHourRange(startHour, duration) {
   return formatHourLabel(startHour) + " – " + formatHourLabel(startHour + duration);
 }
-
-// ---- Loading / saving ----
 
 function loadPlannerTasks() {
   const savedJson = localStorage.getItem(PLANNER_STORAGE_KEY);
@@ -88,19 +65,11 @@ function savePlannerTasks() {
   localStorage.setItem(PLANNER_STORAGE_KEY, JSON.stringify(plannerTasks));
 }
 
-// ---- Clash checking ----
-
-// Two time ranges overlap unless one of them finishes at or before the
-// other one starts. This is the standard way to check whether 2 time
-// ranges clash, the same idea a real class-timetable system uses to stop
-// you enrolling in 2 clashing classes.
+// Two ranges overlap unless one finishes at or before the other starts.
 function rangesOverlap(startA, endA, startB, endB) {
   return startA < endB && startB < endA;
 }
 
-// Checks the proposed day/start/duration against every task already on
-// the timetable for that same day. Returns true if it would clash with
-// an existing task.
 function hasClash(day, startHour, duration) {
   const proposedEnd = startHour + duration;
   return plannerTasks.some((task) => {
@@ -111,11 +80,8 @@ function hasClash(day, startHour, duration) {
   });
 }
 
-// ---- Building the Start Time dropdown ----
-
-// Fills the Start Time <select> with one option per hour of the
-// timetable, so it always matches PLANNER_START_HOUR/PLANNER_END_HOUR
-// above instead of being typed out by hand in the HTML.
+// Builds the Start Time <select> from PLANNER_START_HOUR/PLANNER_END_HOUR
+// instead of hardcoding the option list in the HTML.
 function populateStartTimeOptions() {
   for (let hour = PLANNER_START_HOUR; hour <= PLANNER_END_HOUR; hour++) {
     const option = document.createElement("option");
@@ -125,11 +91,9 @@ function populateStartTimeOptions() {
   }
 }
 
-// Whenever the chosen start time changes, some Duration options might no
-// longer fit before the timetable's last row (e.g. picking 9:00 PM
-// leaves room for only a 1-hour task). This disables (greys out) any
-// Duration option that would run past the end of the timetable, instead
-// of silently letting the visitor create a task that runs off the edge.
+// Disables any Duration option that would run past the end of the
+// timetable for the currently chosen start time, instead of silently
+// letting a task be created that runs off the edge.
 function updateAvailableDurations() {
   const startHour = Number(plannerStartSelect.value);
   const hoursLeft = PLANNER_END_HOUR - startHour;
@@ -146,16 +110,11 @@ function updateAvailableDurations() {
   }
 }
 
-// ---- Rendering ----
-
-// Builds one solid-colour task block, complete with its own tick
-// checkbox, the time range it covers, and a delete (x) button.
 function createPlannerTaskBlock(task) {
   const categoryInfo = PLANNER_CATEGORIES[task.category];
 
   const block = document.createElement("div");
-  // planner-task supplies the shared block layout (it fills the whole
-  // cell/rowspan); the category's blockClass supplies its solid colour.
+  // "planner-task" is the shared layout class; blockClass supplies the category colour.
   block.className = "planner-task " + categoryInfo.blockClass + (task.done ? " done" : "");
   block.dataset.taskId = task.id;
 
@@ -182,9 +141,7 @@ function createPlannerTaskBlock(task) {
   checkbox.type = "checkbox";
   checkbox.checked = task.done;
   checkbox.setAttribute("aria-label", "Mark task done");
-  // Ticking the box flips this one task's "done" state, re-saves, and
-  // re-renders so the strike-through style (see .done in styles.css)
-  // shows up immediately.
+  // Re-render so the .done strike-through style (styles.css) applies immediately.
   checkbox.addEventListener("change", () => {
     task.done = checkbox.checked;
     savePlannerTasks();
@@ -198,8 +155,6 @@ function createPlannerTaskBlock(task) {
   deleteBtn.setAttribute("aria-label", "Delete task");
   deleteBtn.textContent = "×";
   deleteBtn.addEventListener("click", () => {
-    // Keep every task EXCEPT the one whose id matches this block's task,
-    // which removes just this one task from the array.
     plannerTasks = plannerTasks.filter((t) => t.id !== task.id);
     savePlannerTasks();
     renderPlannerTimetable();
@@ -214,9 +169,8 @@ function createPlannerTaskBlock(task) {
   return block;
 }
 
-// Clicking an empty slot is a shortcut: it pre-fills the Day/Start Time
-// dropdowns above with that exact slot, instead of making the visitor
-// hunt through the dropdowns themselves.
+// Pre-fills the Day/Start Time dropdowns with the clicked slot, as a shortcut
+// to hunting through them manually.
 function handleEmptySlotClick(day, hour) {
   plannerDaySelect.value = day;
   plannerStartSelect.value = String(hour);
@@ -224,17 +178,15 @@ function handleEmptySlotClick(day, hour) {
   plannerTaskInput.focus();
 }
 
-// Rebuilds the ENTIRE <tbody>, one hour at a time, from scratch. This is
-// simpler and much less error-prone than trying to patch individual
-// cells, because which cells even exist changes depending on how many
-// multi-hour tasks are currently on the timetable (a 2-hour task means
-// one fewer <td> gets drawn on the row underneath it).
+// Rebuilds the entire <tbody> from scratch on every change, rather than
+// patching individual cells, because which cells exist depends on how
+// many multi-hour tasks are on the timetable (a 2-hour task means one
+// fewer <td> on the row underneath it).
 function renderPlannerTimetable() {
   plannerTbody.innerHTML = "";
 
-  // Tracks, for each day, how many more rows still need to be SKIPPED
-  // because an earlier row's task is still "covering" them with its
-  // rowspan. Starts at 0 for every day (nothing covered yet).
+  // For each day, how many upcoming rows are already covered by an earlier
+  // task's rowspan and should not get their own <td>.
   const rowsToSkip = {};
   PLANNER_DAYS.forEach((day) => {
     rowsToSkip[day] = 0;
@@ -249,9 +201,7 @@ function renderPlannerTimetable() {
     row.appendChild(hourLabelCell);
 
     PLANNER_DAYS.forEach((day) => {
-      // This day's column still has rows left to skip from an earlier
-      // multi-hour task, so don't draw a <td> here at all - the table's
-      // own rowspan is already covering this row for that column.
+      // Skip drawing a <td> here - an earlier task's rowspan already covers it.
       if (rowsToSkip[day] > 0) {
         rowsToSkip[day] -= 1;
         return;
@@ -263,12 +213,12 @@ function renderPlannerTimetable() {
       cell.className = "planner-slot";
 
       if (taskHere) {
-        // Clamp so a task can never claim rows past the last hour of
-        // the timetable, even if old/bad data somehow suggested it should.
+        // Clamp so a task can never claim rows past the last hour of the
+        // timetable, even if stale/bad stored data suggested it should.
         const rowspan = Math.min(taskHere.duration, PLANNER_END_HOUR - hour);
         cell.rowSpan = rowspan;
         cell.appendChild(createPlannerTaskBlock(taskHere));
-        rowsToSkip[day] = rowspan - 1; // Skip the rows this task already covers.
+        rowsToSkip[day] = rowspan - 1;
       } else {
         cell.addEventListener("click", () => handleEmptySlotClick(day, hour));
       }
@@ -280,21 +230,19 @@ function renderPlannerTimetable() {
   }
 }
 
-// ---- Adding a task ----
-
 if (plannerForm) {
   plannerStartSelect.addEventListener("change", updateAvailableDurations);
 
   plannerForm.addEventListener("submit", (event) => {
-    event.preventDefault(); // Stop the page from reloading.
+    event.preventDefault();
 
     const taskText = plannerTaskInput.value.trim();
     const day = plannerDaySelect.value;
     const startHour = Number(plannerStartSelect.value);
     const duration = Number(plannerDurationSelect.value);
 
-    // Run both checks so an empty task AND a clash can each show their
-    // own specific message instead of one hiding the other.
+    // Both checks run regardless, so an empty task and a clash can each
+    // show their own message instead of one masking the other.
     const taskIsEmpty = taskText === "";
     const taskClashes = !taskIsEmpty && hasClash(day, startHour, duration);
 
@@ -311,9 +259,7 @@ if (plannerForm) {
     }
 
     plannerTasks.push({
-      // Date.now() gives the current time in milliseconds, which is
-      // unique enough to use as a simple id for telling tasks apart.
-      id: Date.now(),
+      id: Date.now(), // Milliseconds timestamp, unique enough to use as a simple task id.
       text: taskText,
       day: day,
       startHour: startHour,
@@ -326,14 +272,12 @@ if (plannerForm) {
     renderPlannerTimetable();
     showPlannerStatus("Task added to your timetable.");
 
-    // Only clear the task text - leave Day/Start Time/Duration/Category
-    // as they are, so adding several tasks in a row is quick.
+    // Only the task text is cleared - leaving the other fields as they are
+    // makes adding several tasks in a row quicker.
     plannerTaskInput.value = "";
     plannerTaskInput.focus();
   });
 }
-
-// ---- Clearing the whole week ----
 
 if (plannerClearBtn) {
   plannerClearBtn.addEventListener("click", () => {
@@ -344,18 +288,13 @@ if (plannerClearBtn) {
   });
 }
 
-// Shows a short confirmation message next to the buttons, then makes it
-// disappear again after 2.5 seconds using setTimeout (a timer that runs
-// a function once, after the given number of milliseconds).
 function showPlannerStatus(message) {
   plannerStatus.textContent = message;
   setTimeout(() => {
     plannerStatus.textContent = "";
-  }, 2500);
+  }, 2500); // Confirmation message visible for 2.5 seconds.
 }
 
-// Set everything up as soon as this script runs: build the Start Time
-// dropdown, load any previously saved tasks, and draw the timetable.
 if (plannerTbody) {
   populateStartTimeOptions();
   updateAvailableDurations();
@@ -363,18 +302,15 @@ if (plannerTbody) {
   renderPlannerTimetable();
 }
 
-/* 
-   2. EISENHOWER PRIORITY MATRIX
-    */
+/* 2. Eisenhower priority matrix */
 
 const priorityForm = document.getElementById("priority-form");
 const priorityInput = document.getElementById("priority-input");
 const priorityQuadrantSelect = document.getElementById("priority-quadrant");
 const priorityError = document.getElementById("priority-error");
 
-// Maps the <select> option values to the <ul> element that should
-// receive a new task. Keeping this in one object makes it easy to add
-// a 5th quadrant later without touching the rest of the logic.
+// Maps <select> option values to the <ul> that should receive a new task,
+// so a 5th quadrant could be added here without touching the rest of the logic.
 const quadrantLists = {
   do: document.getElementById("quadrant-do"),
   schedule: document.getElementById("quadrant-schedule"),
@@ -384,8 +320,6 @@ const quadrantLists = {
 
 const PRIORITY_STORAGE_KEY = "ltl-priority-tasks";
 
-// Builds one <li> for a task, complete with its own delete ("x") button,
-// and returns it so the caller can decide which list to put it in.
 function createPriorityListItem(taskText) {
   const li = document.createElement("li");
   li.className = "flex items-center justify-between gap-2 bg-[#eef3f1] rounded-md px-3 py-2";
@@ -399,8 +333,7 @@ function createPriorityListItem(taskText) {
   deleteBtn.className = "icon-btn text-[#d97757] font-bold";
   deleteBtn.setAttribute("aria-label", "Delete task");
   deleteBtn.textContent = "×";
-  // Clicking the x removes just this one <li> from the page, then
-  // re-saves the matrix so the deletion "sticks" after a refresh.
+  // Re-save after removing so the deletion persists across a refresh.
   deleteBtn.addEventListener("click", () => {
     li.remove();
     savePriorityMatrixToStorage();
@@ -411,16 +344,13 @@ function createPriorityListItem(taskText) {
   return li;
 }
 
-// Walks every quadrant's <ul>, collects the task text left inside it,
-// and saves the whole matrix as one object, e.g.
+// Saves the whole matrix as one object keyed by quadrant, e.g.
 // { do: ["Finish CA2"], schedule: [], delegate: [], delete: ["Tidy desk"] }
 function savePriorityMatrixToStorage() {
   const matrixData = {};
 
   Object.keys(quadrantLists).forEach((quadrantKey) => {
     const listElement = quadrantLists[quadrantKey];
-    // Array.from() converts the list of <li> elements (a NodeList) into
-    // a real array so we can use .map() on it.
     const tasks = Array.from(listElement.querySelectorAll("span")).map((span) => span.textContent);
     matrixData[quadrantKey] = tasks;
   });
@@ -428,7 +358,6 @@ function savePriorityMatrixToStorage() {
   localStorage.setItem(PRIORITY_STORAGE_KEY, JSON.stringify(matrixData));
 }
 
-// Restores the matrix from localStorage when the page is opened again.
 function loadPriorityMatrixFromStorage() {
   const savedJson = localStorage.getItem(PRIORITY_STORAGE_KEY);
   if (!savedJson) {
@@ -450,26 +379,20 @@ function loadPriorityMatrixFromStorage() {
 if (priorityForm) {
   loadPriorityMatrixFromStorage();
 
-  // "submit" fires when the button is pressed OR when Enter is pressed
-  // while inside the text field - using the form's submit event instead
-  // of just a button click covers both cases automatically.
+  // Listening for "submit" (not a button click) covers both clicking Add
+  // and pressing Enter in the text field.
   priorityForm.addEventListener("submit", (event) => {
-    // Forms normally reload the page when submitted; preventDefault()
-    // stops that so we can handle everything with JavaScript instead.
     event.preventDefault();
 
     const taskText = priorityInput.value.trim();
 
-    // Validation: a task must not be empty. If it is, show the error
-    // message and highlight the field instead of silently doing nothing.
     if (taskText === "") {
       priorityError.classList.remove("hidden");
       priorityInput.classList.add("has-error");
       priorityInput.focus();
-      return; // Stop here - do not add an empty task.
+      return;
     }
 
-    // Input was valid: clear any previous error state first.
     priorityError.classList.add("hidden");
     priorityInput.classList.remove("has-error");
 
@@ -479,15 +402,12 @@ if (priorityForm) {
 
     savePriorityMatrixToStorage();
 
-    // Reset the form so the visitor can immediately type their next task.
     priorityForm.reset();
     priorityInput.focus();
   });
 }
 
-/* 
-   3. FOCUS TIMER (Pomodoro-style countdown)
-    */
+/* 3. Focus timer (Pomodoro-style countdown) */
 
 const timerDisplay = document.getElementById("timer-display");
 const timerToggleBtn = document.getElementById("timer-toggle");
@@ -496,21 +416,15 @@ const timerLengthSelect = document.getElementById("timer-length");
 const timerStatus = document.getElementById("timer-status");
 
 if (timerDisplay) {
-  // secondsRemaining counts down to 0. It starts at 25 minutes worth of
-  // seconds because the <select> defaults to its first option, "25".
   let secondsRemaining = Number(timerLengthSelect.value) * 60;
 
-  // intervalId stores the ID returned by setInterval so we can later
-  // stop it with clearInterval. It is null whenever the timer is not
-  // currently running.
+  // null whenever the timer is not currently running; otherwise the
+  // setInterval id, needed to stop it with clearInterval.
   let intervalId = null;
 
-  // Turns a raw number of seconds into a "MM:SS" string, e.g. 65 -> "01:05".
   function formatTime(totalSeconds) {
     const minutes = Math.floor(totalSeconds / 60);
     const seconds = totalSeconds % 60;
-    // padStart(2, "0") adds a leading zero so we always get 2 digits,
-    // e.g. "5" becomes "05".
     return String(minutes).padStart(2, "0") + ":" + String(seconds).padStart(2, "0");
   }
 
@@ -518,22 +432,18 @@ if (timerDisplay) {
     timerDisplay.textContent = formatTime(secondsRemaining);
   }
 
-  // Called once per second while the timer is running.
+  // Runs once per second while the timer is active.
   function tickTimer() {
     secondsRemaining -= 1;
     renderTimer();
 
     if (secondsRemaining <= 0) {
-      // Time's up: stop the interval so tickTimer() is not called again,
-      // and reset the button/state back to "not running".
       stopTimer();
       timerStatus.textContent = "Time's up! Take a short break before your next session.";
     }
   }
 
   function startTimer() {
-    // setInterval repeatedly calls tickTimer every 1000 milliseconds
-    // (1 second) until we stop it with clearInterval.
     intervalId = setInterval(tickTimer, 1000);
     timerToggleBtn.textContent = "Pause";
     timerStatus.textContent = "Focus time - stay on one task until this rings.";
@@ -545,8 +455,8 @@ if (timerDisplay) {
     timerToggleBtn.textContent = "Start";
   }
 
-  // Start/Pause is a single button that checks whether a timer is
-  // currently running (intervalId is not null) to decide what to do.
+  // One button serves as both Start and Pause, branching on whether
+  // intervalId is currently set.
   timerToggleBtn.addEventListener("click", () => {
     if (intervalId === null) {
       startTimer();
@@ -556,8 +466,6 @@ if (timerDisplay) {
     }
   });
 
-  // Reset always stops any running timer and puts the countdown back to
-  // whatever length is currently selected in the dropdown.
   timerResetBtn.addEventListener("click", () => {
     stopTimer();
     secondsRemaining = Number(timerLengthSelect.value) * 60;
@@ -565,8 +473,8 @@ if (timerDisplay) {
     timerStatus.textContent = "";
   });
 
-  // If the visitor changes the length while the timer is paused/stopped,
-  // update the countdown immediately to match the new choice.
+  // Only update immediately if not running, so changing the dropdown
+  // doesn't disrupt an in-progress countdown.
   timerLengthSelect.addEventListener("change", () => {
     if (intervalId === null) {
       secondsRemaining = Number(timerLengthSelect.value) * 60;
@@ -574,5 +482,5 @@ if (timerDisplay) {
     }
   });
 
-  renderTimer(); // Show "25:00" (or whichever length is selected) immediately on page load.
+  renderTimer(); // Show the initial time immediately on page load.
 }

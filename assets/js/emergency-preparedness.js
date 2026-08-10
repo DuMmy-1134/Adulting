@@ -1,12 +1,10 @@
-// EmergencyPreparednessChecklist.js
-// Same sr-only checkbox + localStorage pattern as online-safety.js's
-// "Safe actions checklist", scoped to this page's own storage key and
-// data attribute so the two checklists never collide.
-
+// Storage key is page-specific so this checklist's state never collides
+// with online-safety.js's separate "Safe actions checklist" entry.
 const PREP_CHECKLIST_STORAGE_KEY = "ltl-emergency-preparedness-checklist";
 const prepProgressMessage = document.getElementById("prep-progress-message");
 
 function getCheckedPrepItems() {
+  // Falls back to an empty list if storage is empty or holds invalid JSON.
   try {
     const stored = JSON.parse(localStorage.getItem(PREP_CHECKLIST_STORAGE_KEY));
     return Array.isArray(stored) ? stored : [];
@@ -68,4 +66,6 @@ function initPrepChecklist() {
   updatePrepProgress(checkboxes.length);
 }
 
+// Safe to call immediately: this script is loaded with `defer`, so the
+// DOM is already fully parsed by the time this file runs.
 initPrepChecklist();
