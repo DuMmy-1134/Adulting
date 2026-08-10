@@ -261,7 +261,7 @@ function renderQuestion() {
     });
     
     const text = document.createElement('span');
-    text.className = 'font-body text-[13.5px] text-[#2f3e46]';
+    text.className = 'font-body text-sm text-[#2f3e46]';
     text.textContent = option.text;
     
     label.appendChild(radio);
