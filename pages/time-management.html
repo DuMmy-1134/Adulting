@@ -8,11 +8,6 @@
       name="description"
       content="Plan your week with an editable planner, sort tasks by priority with the Eisenhower matrix, and try focused study techniques including a Pomodoro timer."
     />
-    <!-- Fonts + Tailwind Play CDN, same pattern used by index.html,
-         online-safety.html, emergency-preparedness.html and
-         quick-meal.html, plus this page's own custom CSS for the bits
-         Tailwind utilities can't already do (form fields, planner
-         table, mobile nav). -->
     <link rel="stylesheet" href="../assets/css/fonts.css" />
     <link rel="stylesheet" href="../assets/css/styles.css" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -21,7 +16,7 @@
     <script src="../assets/js/nav-toggle.js" defer></script>
   </head>
   <body class="bg-[#faf7f2] font-body text-[#2f3e46] antialiased">
-    <!-- HEADER -->
+    <!-- Header / primary nav -->
     <header class="sticky top-0 z-50 bg-white shadow-sm will-change-transform">
       <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 py-4 flex flex-wrap items-center justify-between">
         <a href="../index.html" class="font-heading font-bold text-xl text-[#52796f]">Level Up Life!</a>
@@ -88,7 +83,7 @@
     </header>
 
     <main>
-      <!-- HERO -->
+      <!-- Hero -->
       <!-- Hero background photo: "Open monthly planner on wooden desk"
            by Eric Rothermel on Unsplash, free to use under the
            Unsplash License.
@@ -139,7 +134,6 @@
         </div>
       </section>
 
-      <!-- WHY TIME MANAGEMENT MATTERS -->
       <section id="why-time-management" class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pt-8">
         <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-1.5">Why time management matters</h2>
         <p class="font-body text-base text-[#5b6b70] leading-relaxed mb-5 max-w-[760px]">It&rsquo;s easy to assume time management is just about squeezing more into your day. It&rsquo;s really about spending your limited hours - between lectures, assignments, a part-time job and everything else - on what actually matters, with fewer last-minute scrambles along the way.</p>
@@ -166,14 +160,12 @@
         <p class="font-body text-base text-[#5b6b70] leading-relaxed max-w-[760px]">The tools below won&rsquo;t manage your time for you - but they&rsquo;ll make it a lot easier to see where it&rsquo;s actually going.</p>
       </section>
 
-      <!-- WEEKLY TIMETABLE (HTML TABLE) -->
+      <!-- Weekly timetable -->
       <section id="plan-your-week" class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pt-12">
         <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-1.5">Plan your week</h2>
         <p class="font-body text-base text-[#5b6b70] leading-relaxed mb-5 max-w-[760px]">A real hour-by-hour timetable, just like the one on your student portal. Add a task with a start time and a duration (or click straight into an empty slot) and it fills that exact block. Clashing times are caught automatically, so nothing overlaps by accident.</p>
 
-        <!-- novalidate: we show our own error messages instead of the
-             browser's default pop-up bubble, same pattern as the other
-             forms on this page. -->
+        <!-- novalidate: custom inline error messages replace the browser's default validation popup. -->
         <form id="planner-form" novalidate class="bg-white rounded-2xl shadow-sm p-6 mb-5 flex flex-wrap items-end gap-4">
           <div class="flex-1">
             <label for="planner-task-input" class="block font-body text-sm font-semibold text-[#2f3e46] mb-1.5">Task</label>
@@ -194,9 +186,7 @@
           </div>
           <div>
             <label for="planner-start-select" class="block font-body text-sm font-semibold text-[#2f3e46] mb-1.5">Start time</label>
-            <!-- Filled in by JavaScript with one option per hour of the
-                 timetable (8:00 AM to 9:00 PM), so the list always matches
-                 whatever hour range the timetable itself uses. -->
+            <!-- Options populated by JS to match the timetable's hour range (see time-management.js). -->
             <select id="planner-start-select" class="form-select"></select>
           </div>
           <div>
@@ -217,13 +207,11 @@
             </select>
           </div>
           <button type="submit" class="inline-block bg-[#d97757] text-white font-body font-semibold text-base rounded-lg px-7 py-4 hover:bg-[#c2673f] transition-colors">Add to Timetable</button>
-          <!-- Shown only when the requested time clashes with a task
-               that's already on the timetable for that day. -->
+          <!-- Hidden by default; JS shows this only when the new time clashes with an existing task. -->
           <p id="planner-clash-error" class="form-error-text hidden w-full">This clashes with a task already on your timetable for that day. Pick a different start time or duration.</p>
         </form>
 
-        <!-- Colour legend so the category colours used on the timetable
-             blocks are easy to read at a glance. -->
+        <!-- Colour legend -->
         <div class="flex flex-wrap gap-5 mb-5">
           <span class="flex items-center gap-1.5 font-body text-xs text-[#5b6b70]"><span class="legend-dot bg-[#7c9d96]"></span>Home Skills</span>
           <span class="flex items-center gap-1.5 font-body text-xs text-[#5b6b70]"><span class="legend-dot bg-[#52796f]"></span>Money &amp; Time</span>
@@ -232,18 +220,9 @@
         </div>
 
         <div class="bg-white rounded-2xl shadow-sm p-6">
-          <!-- A real HTML <table> is used here (not just styled <div>s)
-               because this data genuinely is tabular: 7 days across the
-               top, one row per hour down the side, exactly like a
-               school timetable. The <tbody> starts empty on purpose -
-               JavaScript builds all 14 hour rows itself every time a
-               task is added, ticked off or deleted, using a real
-               rowspan on the <td> whenever a task is longer than 1
-               hour, so a 2-hour task visually takes up 2 rows in one
-               block, the same way a 2-hour class would on a printed
-               timetable. The header row uses position:sticky (in
-               styles.css) so it stays visible while this section
-               scrolls. -->
+          <!-- A real <table> is used because this is genuinely tabular data (7 days x hourly
+               rows), like a school timetable. JS rebuilds <tbody> on every change, using
+               rowspan so multi-hour tasks visually span multiple rows. -->
           <div class="planner-scroll">
             <table class="planner-table">
               <thead>
@@ -264,21 +243,19 @@
 
           <div class="flex items-center gap-4 mt-4">
             <button type="button" id="planner-clear" class="inline-block border-2 border-[#52796f] text-[#52796f] font-body font-semibold text-base rounded-lg px-7 py-[14px] hover:bg-[#eef3f1] transition-colors">Clear Week</button>
-            <!-- Empty by default; JS fills this in for a moment after an
-                 action (add/tick/delete/clear), then clears it again. -->
+            <!-- Empty by default; JS briefly fills this after an action, then clears it. -->
             <span id="planner-status" class="font-body text-sm text-[#52796f] font-semibold"></span>
           </div>
         </div>
+        <!-- /weekly-timetable -->
       </section>
 
-      <!-- PRIORITY MATRIX -->
+      <!-- Priority matrix -->
       <section id="set-your-priorities" class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pt-12">
         <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-1.5">Set your priorities</h2>
         <p class="font-body text-base text-[#5b6b70] leading-relaxed mb-5 max-w-[760px]">Not everything on your to-do list deserves the same amount of panic. Add a task below, choose which box it belongs in, and see your week sorted by what&rsquo;s actually urgent versus what just feels urgent.</p>
 
-        <!-- novalidate turns off the browser's own pop-up validation
-             bubbles so we can show our own error message instead, fully
-             styled to match the rest of the site. -->
+        <!-- novalidate: custom inline error message instead of the browser popup. -->
         <form id="priority-form" novalidate class="bg-white rounded-2xl shadow-sm p-6 mb-7 flex flex-wrap items-end gap-4">
           <div class="flex-1">
             <label for="priority-input" class="block font-body text-sm font-semibold text-[#2f3e46] mb-1.5">Task</label>
@@ -325,7 +302,7 @@
         </div>
       </section>
 
-      <!-- FOCUSED STUDY TECHNIQUES -->
+      <!-- Focused study techniques -->
       <section id="focused-study" class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pt-12">
         <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-4">Focused study techniques</h2>
         <div class="flex flex-col gap-2">
@@ -414,7 +391,7 @@
         </div>
       </section>
 
-      <!-- FOCUS TIMER -->
+      <!-- Focus timer -->
       <section id="focus-timer" class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pt-12 pb-16">
         <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-1.5">Try a focus timer</h2>
         <p class="font-body text-base text-[#5b6b70] mb-4">Pick a length, hit start, and work on one task until it rings.</p>
@@ -440,7 +417,7 @@
       </section>
     </main>
 
-    <!-- FOOTER -->
+    <!-- Footer -->
     <footer class="bg-[#2f3e46] text-[#faf7f2] pt-14 pb-6">
       <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr] gap-8 md:gap-10">
         <div>

@@ -12,6 +12,7 @@
     <script src="../assets/js/room-organisation.js" defer></script>
   </head>
   <body class="bg-[#faf7f2] font-body text-[#2f3e46] antialiased">
+    <!-- Site header and navigation -->
     <header class="sticky top-0 z-50 bg-white shadow-sm will-change-transform">
       <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 py-4 flex flex-wrap items-center justify-between">
         <a href="../index.html" class="font-heading font-bold text-xl text-[#52796f]">Level Up Life!</a>
@@ -76,6 +77,7 @@
         </nav>
       </div>
     </header>
+    <!-- Hero section -->
     <!-- Hero background photo: "White and blue shirts hanging on white
          wooden cabinet" by A65 Design on Unsplash, free to use under
          the Unsplash License.
@@ -114,6 +116,7 @@
       </div>
     </section>
 
+    <!-- Section: Getting Started (module cards) -->
     <section id="getting-started" class="site-features max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pt-8">
       <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-1.5">Getting started</h2>
       <p class="font-body text-base text-[#5b6b70] leading-relaxed mb-5 max-w-[760px]">A few short modules take you from a cluttered room to an organized one - split it into zones, decide what to keep, store what&rsquo;s left, then keep it that way.</p>
@@ -185,10 +188,10 @@
       </div>
     </section>
 
+<!-- Section: Organise by Zone (zone list rendered dynamically by JS) -->
 <section id="organise-by-zone" class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pt-12">
   <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-4">Organise by Zone</h2>
   <div id="zones-container" class="flex flex-col gap-2">
-    <!-- Zones will be rendered here by JS -->
   </div>
   <div id="progress-message"></div>
   <button id="reset-zones-btn" class="mt-6 w-full bg-[#d97757] text-white font-semibold py-3 rounded-lg hover:bg-[#c2673f] transition-all">
@@ -196,14 +199,12 @@
   </button>
 </section>
 
-<!-- Quiz Section -->
+<!-- Section: Room Organization Assessment Quiz -->
 <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 mt-12 mb-16">
   <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-1.5">Room Organization Assessment Quiz</h2>
   <p class="font-body text-sm text-[#5b6b70] mb-8">Answer a few questions to get personalized organization recommendations for your room!</p>
-  
-  <!-- Quiz Container -->
+
   <div id="quiz-container" class="bg-white rounded-2xl shadow-sm p-8">
-    <!-- Progress -->
     <div class="mb-6">
       <div class="flex justify-between items-center mb-2">
         <span class="font-body text-sm font-semibold text-[#52796f]">Your progress</span>
@@ -213,20 +214,16 @@
         <div id="progress-bar-fill" class="bg-[#52796f] h-full rounded-full transition-all" style="width: 20%"></div>
       </div>
     </div>
-    
-    <!-- Question -->
+
     <h3 id="quiz-question-text" class="font-heading font-bold text-lg text-[#2f3e46] mb-6"></h3>
-    
-    <!-- Options -->
+
     <div id="quiz-options" class="mb-6"></div>
-    
-    <!-- Next Button -->
+
     <button id="next-question-btn" disabled class="w-full bg-[#52796f] text-white font-semibold py-3 rounded-lg hover:bg-[#3d5a56] transition-all cursor-pointer">
       Next Question
     </button>
   </div>
-  
-  <!-- Results Container -->
+
   <div id="quiz-results" class="hidden bg-white rounded-2xl shadow-sm p-8">
     <h2 class="font-heading font-bold text-2xl text-[#52796f] mb-4">Your Results</h2>
     
@@ -249,7 +246,9 @@
     </button>
   </div>
 </div>
+<!-- /quiz section -->
 
+    <!-- Footer -->
     <footer class="bg-[#2f3e46] text-[#faf7f2] pt-14 pb-6">
       <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
         <div>

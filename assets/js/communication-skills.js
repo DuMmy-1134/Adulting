@@ -1,19 +1,8 @@
 /*
- * Page-behavior script for pages/communication-skills.html (the
- * Communication Skills page).
- *
- * Convention for this project's content scripts (Phases 6-8 follow this):
- * - One script per page, named after the page it serves - this file,
- *   communication-skills.js, serves pages/communication-skills.html only.
- * - Loaded with `defer` after the two Tailwind script tags, so it runs
- *   once the DOM is fully parsed and never blocks page rendering.
- * - Page content data lives in a module-level `const` array of plain
- *   objects at the top of the file, kept separate from DOM logic.
- * - The DOM is reached only through ids authored in the page markup,
- *   never by walking tags or reading Tailwind classes, so restyling the
- *   page cannot break this script's behavior.
- * - All injected copy is assigned with textContent, so page text can
- *   never be interpreted as markup.
+ * Behavior for pages/communication-skills.html. Elements are looked up by
+ * id only, never by tag or Tailwind class, so restyling the page cannot
+ * break this script. All injected copy is assigned with textContent so it
+ * can never be interpreted as markup.
  */
 
 const SCENARIOS = [
@@ -49,9 +38,7 @@ const SCENARIOS = [
   },
 ];
 
-// Pill active/inactive classes match the filter-pill-btn pattern in
-// submit-a-tip.js, reused here for the same "select one of several
-// options" interaction.
+// Matches the filter-pill-btn active/inactive pattern in submit-a-tip.js.
 const ACTIVE_PILL_CLASSES = ["bg-[#52796f]", "border-[#52796f]", "text-white"];
 const INACTIVE_PILL_CLASSES = ["bg-white", "border-[#7c9d96]", "text-[#2f3e46]", "hover:bg-[#eef3f1]"];
 
@@ -119,8 +106,9 @@ function initExampleResponses() {
 
 initExampleResponses();
 
-// CommunicationSkillsScenarios.js
-
+// Second, independent feature: despite the similar naming, this scenario
+// simulator is unrelated to the SCENARIOS pill picker above. It renders
+// its own quiz-style flow into #scenario-container / #scenario-results.
 const SIMULATOR_SCENARIOS = [
   {
     id: 1,
@@ -253,6 +241,7 @@ let currentScenario = 1;
 let totalScore = 0;
 
 function renderScenario() {
+  // currentScenario is 1-indexed for display, so subtract 1 for the array.
   const scenario = SIMULATOR_SCENARIOS[currentScenario - 1];
   
   document.getElementById('scenario-title').textContent = scenario.title;

@@ -1,4 +1,3 @@
-// Budget Goals Expandable Cards
 const budgetGoals = document.getElementById("budget-goals");
 const expandableBudgetCard = document.getElementById(
   "budget-expandable-content",
@@ -7,8 +6,9 @@ budgetGoals.addEventListener("click", () => {
   expandableBudgetCard.classList.toggle("hidden");
 });
 
-// Saving Habits Expandable Functions
 const savingHabits = document.getElementById("saving-habits");
+// Single delegated listener: habit cards are toggled dynamically, so
+// listening on the container avoids binding a handler to each card.
 savingHabits.addEventListener("click", (e) => {
   const clickedHabit = e.target.closest(".habit");
   if (!clickedHabit) return;
@@ -16,51 +16,45 @@ savingHabits.addEventListener("click", (e) => {
   expandableHabit.classList.toggle("hidden");
 });
 
-// Budget Calculator
-// Input Elements
 const allowanceInput = document.getElementById("monthly-allowance");
 const expensesInput = document.getElementById("monthly-expenses");
 const savedInput = document.getElementById("amount-saved");
 const targetInput = document.getElementById("savings-target");
 
-// Table Text Output Elements
 const summaryAllowance = document.getElementById("summary-allowance");
 const summaryExpenses = document.getElementById("summary-expenses");
 const summarySaved = document.getElementById("summary-saved");
 const summaryTarget = document.getElementById("summary-target");
 
-// Percentage Output Elements
 const pctSpent = document.getElementById("pct-spent");
 const pctSaved = document.getElementById("pct-saved");
 const pctSavedOfTarget = document.getElementById("pct-saved-of-target");
 const pctNeededTarget = document.getElementById("pct-needed-target");
 
-// Main calculation function
 function updateSummaryTable() {
   const allowance = parseFloat(allowanceInput.value) || 0;
   const expenses = parseFloat(expensesInput.value) || 0;
   const saved = parseFloat(savedInput.value) || 0;
   const target = parseFloat(targetInput.value) || 0;
 
-  // 1. Update amounts
+  // S$ (Singapore dollar) matches the site's locale; form inputs keep the generic $ prefix.
   summaryAllowance.textContent = `S$${allowance.toLocaleString()}`;
   summaryExpenses.textContent = `S$${expenses.toLocaleString()}`;
   summarySaved.textContent = `S$${saved.toLocaleString()}`;
   summaryTarget.textContent = `S$${target.toLocaleString()}`;
 
-  // 2. Percentage Spent (% of Allowance)
+  // Guard against dividing by zero before an allowance is entered.
   const spentPercentage =
     allowance > 0 ? ((expenses / allowance) * 100).toFixed(1) : 0;
   pctSpent.textContent = `${spentPercentage}%`;
 
-  // 3. Percentage Saved (% of Allowance)
   const savedPercentage =
     allowance > 0 ? ((saved / allowance) * 100).toFixed(1) : 0;
   pctSaved.textContent = `${savedPercentage}%`;
 
-  // 4. Progress toward target & Percentage Needed to reach target
   if (target > 0) {
     const currentProgressPct = ((saved / target) * 100).toFixed(1);
+    // Clamp at 0 so saving past the target doesn't show a negative "needed" percentage.
     const neededPct = Math.max(0, 100 - currentProgressPct).toFixed(1);
 
     pctSavedOfTarget.textContent = `${currentProgressPct}% reached`;

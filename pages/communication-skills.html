@@ -12,6 +12,7 @@
     <script src="../assets/js/nav-toggle.js" defer></script>
   </head>
   <body class="bg-[#faf7f2] font-body text-[#2f3e46] antialiased">
+    <!-- Header / primary nav -->
     <header class="sticky top-0 z-50 bg-white shadow-sm will-change-transform">
       <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 py-4 flex flex-wrap items-center justify-between">
         <a href="../index.html" class="font-heading font-bold text-xl text-[#52796f]">Level Up Life!</a>
@@ -79,6 +80,7 @@
     <!-- Hero background photo: "Women and man talking outside the building"
          by Alexis Brown on Unsplash, free to use under the Unsplash License.
          https://unsplash.com/photos/women-and-man-talking-outside-the-building--Xv7k95vOFA -->
+    <!-- Hero -->
     <section class="relative overflow-hidden text-white pt-8 pb-16">
       <div class="absolute inset-0 bg-[url('../assets/images/communication-skills-hero.jpg')] bg-cover [background-position:center_40%]"></div>
       <div class="absolute inset-0 bg-gradient-to-r from-[#2f3e46] via-[#2f3e46]/85 to-[#2f3e46]/35"></div>
@@ -113,6 +115,7 @@
         </ul>
       </div>
     </section>
+    <!-- Toolkit: communication skill accordions -->
     <section id="toolkit" class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pt-8">
       <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-1.5">Your communication toolkit</h2>
       <p class="font-body text-base text-[#5b6b70] leading-relaxed mb-5 max-w-[760px]">Good communication isn&rsquo;t about big speeches - it&rsquo;s a handful of small habits you can practice in everyday conversations. Pick a skill below and work through the tips inside.</p>
@@ -202,6 +205,7 @@
       </div>
     </section>
 
+    <!-- Try it: scenario picker -->
     <section id="try-it" class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pt-12 pb-16">
       <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-1.5">Try it: example responses</h2>
       <p class="font-body text-base text-[#5b6b70] leading-relaxed mb-5 max-w-[760px]">Pick a situation below to see a ready-to-adapt example response - to profs, friends, or a group chat.</p>
@@ -216,13 +220,12 @@
     </section>
     </main>
 
+    <!-- Simulator: interactive scenario quiz -->
     <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 mb-16">
   <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-1.5">Communication Scenario Simulator</h2>
   <p class="font-body text-sm text-[#5b6b70] mb-8">Read each scenario and choose your response. Learn from real-world communication situations and test your skills!</p>
-  
-  <!-- Scenario Container -->
+
   <div id="scenario-container" class="bg-white rounded-2xl shadow-sm p-8">
-    <!-- Progress Bar -->
     <div class="mb-6">
       <div class="flex justify-between items-center mb-2">
         <span class="font-body text-sm font-semibold text-[#52796f]">Your progress</span>
@@ -232,17 +235,14 @@
         <div id="progress-bar" class="bg-[#52796f] h-full rounded-full transition-all" style="width: 20%"></div>
       </div>
     </div>
-    
-    <!-- Question -->
+
     <h3 id="scenario-title" class="font-heading font-bold text-lg text-[#2f3e46] mb-4"></h3>
     <p id="scenario-situation" class="font-body text-sm text-[#5b6b70] mb-6 p-4 bg-[#f5f3f0] rounded-lg"></p>
-    
+
     <p class="font-body text-sm text-[#2f3e46] font-semibold mb-4">Choose your response:</p>
-    
-    <!-- Options -->
+
     <div id="scenario-options" class="flex flex-col gap-2 mb-6"></div>
-    
-    <!-- Feedback (Hidden Initially) -->
+
     <div id="scenario-feedback" class="mb-6" style="display: none;">
       <div class="bg-white rounded-2xl p-6 border-2 border-[#52796f]">
         <h3 id="scenario-feedback-title" class="font-heading font-bold text-lg text-[#2f3e46] mb-2"></h3>
@@ -252,14 +252,12 @@
         </div>
       </div>
     </div>
-    
-    <!-- Next Button -->
+
     <button id="next-scenario-btn" disabled class="w-full bg-[#52796f] text-white font-semibold py-3 rounded-lg hover:bg-[#3d5a56] transition-all">
       Next Scenario
     </button>
   </div>
-  
-  <!-- Results Container (Hidden Initially) -->
+
   <div id="scenario-results" class="bg-white rounded-2xl shadow-sm p-8" style="display: none;">
     <h2 class="font-heading font-bold text-2xl text-[#52796f] mb-4">Your Results</h2>
     
@@ -288,7 +286,9 @@
     </button>
   </div>
 </div>
+<!-- /simulator -->
 
+    <!-- Footer -->
     <footer class="bg-[#2f3e46] text-[#faf7f2] pt-14 pb-6">
       <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
         <div>

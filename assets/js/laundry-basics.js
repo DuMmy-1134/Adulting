@@ -22,8 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// LaundryFabricCareGuide.js
-
 const GARMENTS = [
   {
     id: 1,
@@ -118,6 +116,7 @@ function updateCareCards() {
   if (!careCardsContainer) return;
   
   const checkboxes = document.querySelectorAll('#garment-checkboxes input[type="checkbox"]:checked');
+  // Checkbox values are strings; parse back to numbers to match GARMENTS[].id.
   const selectedIds = Array.from(checkboxes).map(cb => parseInt(cb.value));
   
   careCardsContainer.innerHTML = '';
@@ -210,6 +209,7 @@ function clearAllSelections() {
   updateCareCards();
 }
 
+// Persist selections in localStorage so they survive a page refresh.
 function saveSelectedGarments(selectedIds) {
   localStorage.setItem('selectedGarments', JSON.stringify(selectedIds));
 }
@@ -232,6 +232,7 @@ if (clearAllBtn) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+  // Checkboxes must exist in the DOM before loadSavedGarments() can check them.
   renderGarmentCheckboxes();
   loadSavedGarments();
 });

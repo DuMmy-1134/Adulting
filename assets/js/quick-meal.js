@@ -346,8 +346,8 @@ function mealCardHtml(meal) {
         `;
 }
 
-// Renders just the current page's slice of activeMeals, plus the
-// pagination bar underneath it.
+// Also re-renders the pagination bar, since the visible page count
+// depends on the current slice of activeMeals.
 function renderPage() {
   const start = (currentPage - 1) * MEALS_PER_PAGE;
   const pageMeals = activeMeals.slice(start, start + MEALS_PER_PAGE);
@@ -359,6 +359,7 @@ function renderPage() {
   renderPagination();
 }
 
+// Hides the pagination bar entirely when everything fits on one page.
 function renderPagination() {
   if (!paginationNav) return;
 
@@ -401,6 +402,8 @@ function renderMeals(mealsToRender) {
   renderPage();
 }
 
+// Guards against a stale pagination click if activeMeals shrank (e.g.
+// from a new search) since the button was rendered.
 paginationNav?.addEventListener("click", (e) => {
   const btn = e.target.closest("[data-page]");
   if (!btn || btn.disabled) return;
@@ -419,7 +422,8 @@ renderMeals(quickMeals);
 const mealGrid = document.getElementById("mealDiv");
 const recipeDisplay = document.getElementById("recipe-display");
 
-// function make the selected text to white
+// Child elements carry their own Tailwind text-color utility classes, so
+// an inline override is needed to actually turn them white when active.
 function setCardActive(card, active) {
   card.classList.toggle("bg-[#df936d]", active);
   card.querySelectorAll("span, h3").forEach((s) => {
@@ -429,6 +433,8 @@ function setCardActive(card, active) {
   });
 }
 
+// Clicking the active card again deselects it and hides the recipe;
+// clicking any other card selects it and shows that recipe instead.
 mealGrid.addEventListener("click", (e) => {
   const clickedCard = e.target.closest(".meal-card");
   if (clickedCard == undefined) return;
@@ -436,17 +442,13 @@ mealGrid.addEventListener("click", (e) => {
 
   const isAlreadyActive = clickedCard.classList.contains("bg-[#df936d]");
 
-  // 1. Reset card highlights
   document.querySelectorAll(".meal-card").forEach((card) => {
     setCardActive(card, false);
   });
 
-  // 2. If clicking an unselected card, update the display div
   if (!isAlreadyActive) {
-    // Highlight the selected card
     setCardActive(clickedCard, true);
 
-    // Look up the full meal object using the id stored on the card
     const meal = quickMeals.find((m) => m.id === clickedCard.dataset.id);
     const recipeTitle = recipeDisplay.querySelector(".recipe-title");
     const ingredientsList = recipeDisplay.querySelector(".ingredients-list");
@@ -491,24 +493,22 @@ mealGrid.addEventListener("click", (e) => {
         : "";
     }
 
-    // Reveal container with fade-in
     recipeDisplay.classList.remove("hidden");
-    // setTimeout ensures browser registers removal of 'hidden' before transitioning opacity
+    // Deferred a tick so the browser registers the 'hidden' class removal
+    // before the opacity transition starts, otherwise it wouldn't animate.
     setTimeout(() => {
       recipeDisplay.classList.remove("opacity-0");
       recipeDisplay.classList.add("opacity-100");
     }, 10);
 
-    // Smoothly scroll down to the recipe display section
     recipeDisplay.scrollIntoView({ behavior: "smooth", block: "start" });
   } else {
-    // 3. If clicking the already-active card again, fade out and hide
     recipeDisplay.classList.remove("opacity-100");
     recipeDisplay.classList.add("opacity-0");
 
     setTimeout(() => {
       recipeDisplay.classList.add("hidden");
-    }, 500); // matches duration-500
+    }, 500); // matches the 'duration-500' transition class above
   }
 });
 
@@ -523,13 +523,14 @@ searchInput.addEventListener("input", () => {
   renderMeals(filteredMeals);
 });
 
+// Relies on filter-btn / reset-btn appearing in this exact order in the
+// markup: Time, Difficulty, Meal Type, Reset.
 const [timeBtn, difficultyBtn, mealTypeBtn, reset] = document.querySelectorAll(
   ".functions-group .filter-btn, .functions-group .reset-btn",
 );
 
-// Tracks every dropdown created by setupFilterDropdown so a click on one
-// filter button can close the others, and so an outside click can close
-// whichever one is open.
+// Tracks every dropdown created by setupFilterDropdown so opening one can
+// close the others, and an outside click can close whichever is open.
 const allDropdowns = [];
 
 function closeAllDropdowns() {
@@ -539,10 +540,17 @@ function closeAllDropdowns() {
   });
 }
 
+/**
+ * Wires a filter button to a dropdown listing every distinct value of
+ * `key` found across quickMeals; picking one re-filters the meal list.
+ * @param {HTMLElement} button - the filter trigger button.
+ * @param {string} key - property on each meal object to filter by.
+ * @param {(value: any) => string} [formatOption] - optional formatter for
+ *   how each option is displayed; defaults to the raw value.
+ */
 function setupFilterDropdown(button, key, formatOption) {
   const defaultLabel = button.querySelector(".filter-btn-label").textContent;
 
-  // Set is used to Remove the duplicates
   const options = [...new Set(quickMeals.map((meal) => meal[key]))];
 
   // Sort numerically when every option is a number (e.g. time in
@@ -592,10 +600,11 @@ function setupFilterDropdown(button, key, formatOption) {
   });
 }
 
-// Clicking anywhere outside an open dropdown closes it.
+// Button clicks call stopPropagation so opening a dropdown doesn't
+// immediately close it here; every other click bubbles up and closes
+// whichever dropdown is currently open.
 document.addEventListener("click", closeAllDropdowns);
 
-// Reset the filtered meals and filter button labels back to defaults.
 reset.addEventListener("click", () => {
   closeAllDropdowns();
   document.querySelectorAll(".filter-btn-label").forEach((label) => {
@@ -604,13 +613,10 @@ reset.addEventListener("click", () => {
   renderMeals(quickMeals);
 });
 
-// Filter Buttons
 setupFilterDropdown(timeBtn, "estimatedTimeMinutes", (mins) => `${mins} min`);
 setupFilterDropdown(difficultyBtn, "difficulty");
 setupFilterDropdown(mealTypeBtn, "mealType");
 
-// Quick Meals Add in
-// Helper: Extract YouTube ID from full URL or standalone ID
 function extractYouTubeId(urlOrId) {
   if (!urlOrId) return "";
   const trimmed = urlOrId.trim();
@@ -621,21 +627,20 @@ function extractYouTubeId(urlOrId) {
   return match ? match[1] : trimmed.length === 11 ? trimmed : "";
 }
 
-// Form Event Listener for Adding New Recipes
 const addRecipeForm = document.getElementById("add-recipe-form");
 
 if (addRecipeForm) {
   addRecipeForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    // 1. Process Ingredients (split by comma, filter empty strings, trim whitespace)
     const rawIngredients = document.getElementById("recipe-ingredients").value;
     const ingredientsArray = rawIngredients
       .split(",")
       .map((item) => item.trim())
       .filter((item) => item.length > 0);
 
-    // 2. Process Instructions (split by period '.', filter empty strings, trim whitespace)
+    // Split on '.' rather than newlines, matching the textarea's
+    // "Separated by periods" placeholder guidance.
     const rawInstructions = document.getElementById(
       "recipe-instructions",
     ).value;
@@ -644,11 +649,9 @@ if (addRecipeForm) {
       .map((step) => step.trim())
       .filter((step) => step.length > 0);
 
-    // 3. Process YouTube Video ID
     const rawYoutube = document.getElementById("youtube-link").value;
     const youtubeId = extractYouTubeId(rawYoutube);
 
-    // 4. Build Object with matching keys
     const newMeal = {
       id: `meal-${Date.now()}`,
       name: document.getElementById("recipe-name").value.trim(),
@@ -664,11 +667,9 @@ if (addRecipeForm) {
       youtubeId: youtubeId,
     };
 
-    // 5. Add to quickMeals array and re-render grid & pagination
-    quickMeals.unshift(newMeal); // Adds new meal to the beginning of the array
+    quickMeals.unshift(newMeal);
     renderMeals(quickMeals);
 
-    // 6. Reset form
     addRecipeForm.reset();
   });
 }

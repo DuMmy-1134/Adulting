@@ -1,32 +1,10 @@
-/* =======================================================================
-   Level Up Life! - shared plain-CSS file for the Money Basics, Weekly
-   Challenges, Time Management, Life Readiness Quiz, Submit a Tip and
-   Quick Meal pages.
-
-   These pages now load Tailwind from the Play CDN
-   (https://cdn.tailwindcss.com) plus assets/js/tailwind-config.js for the
-   "heading"/"body" font families, the same pattern already used by
-   index.html, online-safety.html and emergency-preparedness.html.
-   Because of that, this file no longer needs to contain a pre-built copy
-   of Tailwind's reset and utility classes - the CDN script generates
-   every utility (including arbitrary values like bg-[#52796f]) on the
-   fly, straight from the class names used in the HTML.
-
-   What's left here is only what Tailwind's utilities can't already do:
-   the "heading"/"body" font-family helpers, form fields, the quiz
-   progress bar, the weekly planner table and Quick Meal's filter-open
-   state. Every page here also loads assets/css/fonts.css separately for
-   the actual @font-face declarations - not repeated in this file, to
-   avoid declaring the same fonts twice. Every rule still reuses the same
-   colour palette, spacing and radius values used elsewhere on the
-   site so it all looks like one website:
-     Primary (Muted Teal)  #7c9d96
-     Secondary (Deep Teal) #52796f
-     Accent (Burnt Peach)  #d97757
-     Background (Parchment) #faf7f2
-     Text (Charcoal Blue)  #2f3e46
-
-   ======================================================================= */
+/* Level Up Life! shared styles for the Money Basics, Weekly Challenges, Time
+   Management, Life Readiness Quiz, Submit a Tip and Quick Meal pages. Only
+   what Tailwind's Play CDN utilities can't already provide: font-family
+   helpers, form fields, the quiz progress bar, the planner table and the
+   filter dropdown state. @font-face rules live separately in fonts.css.
+   Recurring palette: Primary teal #7c9d96, Secondary teal #52796f,
+   Accent peach #d97757, Charcoal text #2f3e46, Parchment bg #faf7f2. */
 
 .font-body {
   font-family: "Nunito Sans", system-ui, sans-serif;
@@ -36,48 +14,36 @@
   font-family: Fraunces, Georgia, serif;
 }
 
-/* -----------------------------------------------------------------------
-   Form fields (text inputs, dropdowns, textareas)
-   Used on: Submit a Tip form, Life Readiness Quiz "add task" mini form.
------------------------------------------------------------------------ */
+/* ---- Form fields (Submit a Tip form, quiz "add task" mini form) ---- */
 
 .form-input,
 .form-select,
 .form-textarea {
-  /* display:block + width:100% makes every field take the full width of
-     whatever container it sits in, so fields line up neatly in a form. */
   display: block;
   width: 100%;
   padding: 0.75rem 1rem;
-  /* 2px border using the Primary colour, same idea as border-2 elsewhere. */
-  border: 2px solid #7c9d96;
-  border-radius: 0.5rem; /* matches rounded-lg already used for buttons */
+  border: 2px solid #7c9d96; /* border-2 equivalent, Primary teal */
+  border-radius: 0.5rem; /* matches rounded-lg used for buttons */
   font-family: "Nunito Sans", sans-serif;
-  font-size: 14px; /* matches text-sm, the site's small-UI-text size */
+  font-size: 14px; /* matches text-sm */
   color: #2f3e46;
   background-color: #ffffff;
-  /* Only the border colour animates, and it uses the same speed/easing
-     Tailwind's .transition-colors class already uses, so the "feel" of
-     hovering/focusing a field matches hovering a button or card link. */
-  transition: border-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border-color 150ms cubic-bezier(0.4, 0, 0.2, 1); /* same timing as Tailwind's transition-colors */
 }
 
 .form-textarea {
-  resize: vertical; /* lets the visitor drag the box taller, not wider */
+  resize: vertical;
   min-height: 120px;
 }
 
-/* Keeps the focus-timer's length dropdown from stretching to the full
-   width of its flex container. Used instead of an inline style="" so
-   every bit of visual styling still lives in this external file. */
+/* Caps width so the focus-timer's length dropdown doesn't stretch to fill
+   its flex row; kept here instead of an inline style to keep all visual
+   styling in one file. */
 .timer-length-select {
   max-width: 220px;
 }
 
-/* :focus fires while the field is actively selected/typed in. Removing
-   the browser's default blue outline and swapping the border to the
-   Secondary colour keeps the "focus ring" on-brand instead of a random
-   blue rectangle that clashes with the rest of the page. */
+/* On-brand focus ring: swaps the browser's default blue outline for Secondary teal */
 .form-input:focus,
 .form-select:focus,
 .form-textarea:focus {
@@ -85,37 +51,28 @@
   border-color: #52796f;
 }
 
-/* Added by JavaScript onto a field that failed validation. Re-uses the
-   Accent colour (already used for buttons/highlights) instead of
-   introducing a brand new "warning red" that wouldn't match anything
-   else on the site. */
+/* Invalid-field state, added by JS; reuses Accent rather than a new "warning red" */
 .form-input.has-error,
 .form-select.has-error,
 .form-textarea.has-error {
   border-color: #d97757;
 }
 
-/* Small red-ish (Accent-coloured) helper text shown under an invalid
-   field, e.g. "Please enter at least 20 characters." */
 .form-error-text {
   display: block;
   margin-top: 0.375rem;
   font-family: "Nunito Sans", sans-serif;
-  font-size: 12px; /* matches text-xs, the site's smallest text size */
+  font-size: 12px; /* matches text-xs */
   color: #d97757;
 }
 
-/* Native radio buttons/checkboxes (Life Readiness Quiz answers). Setting
-   accent-color re-colours the little dot/tick browsers draw natively,
-   without needing to rebuild the whole control from scratch in CSS. */
+/* accent-color recolors native radio/checkbox controls without rebuilding them */
 input[type="radio"],
 input[type="checkbox"] {
   accent-color: #52796f;
 }
 
-/* Small, border-less button used for icon-only actions such as the "x"
-   delete button on a priority task, so it doesn't look like a normal
-   grey system button. */
+/* Border-less icon-only button, e.g. the "x" delete on a priority task */
 .icon-btn {
   background: none;
   border: none;
@@ -125,30 +82,26 @@ input[type="checkbox"] {
   font-family: "Nunito Sans", sans-serif;
 }
 
-/* -----------------------------------------------------------------------
-   Quiz progress bar (Life Readiness Quiz)
------------------------------------------------------------------------ */
+/* ---- Quiz progress bar (Life Readiness Quiz) ---- */
 
 .progress-track {
   width: 100%;
   height: 10px;
-  background-color: #eef3f1; /* same light teal tint used for hover states */
-  border-radius: 999px; /* fully rounded ends, like a pill */
+  background-color: #eef3f1; /* light teal tint, same as hover states */
+  border-radius: 999px; /* pill shape */
   overflow: hidden; /* clips the fill bar's corners to match the track */
 }
 
 .progress-fill {
   height: 100%;
-  width: 0%; /* JavaScript updates this width as questions get answered */
+  width: 0%; /* JS updates this as questions get answered */
   background-color: #52796f;
   border-radius: 999px;
   transition: width 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Quiz answer card. A transparent 2px border is set here so that when
-   JavaScript later adds .selected (which turns the border teal) the
-   card doesn't grow/shift by 2px - the space for the border already
-   existed, just invisible. */
+/* Transparent 2px border reserves the space JS's .selected border fills in,
+   so selecting an answer doesn't shift the card by 2px. */
 .quiz-option {
   border: 2px solid transparent;
   transition: border-color 150ms cubic-bezier(0.4, 0, 0.2, 1), background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -159,17 +112,11 @@ input[type="checkbox"] {
   background-color: #eef3f1;
 }
 
-/* -----------------------------------------------------------------------
-   Weekly TIMETABLE (Time Management)
-   Redesigned to look and behave like a real school timetable: fixed
-   hourly rows, a coloured block per task that can span several hours
-   using the table's native rowspan, and a sticky header so the days
-   stay visible while scrolling down through the hours.
------------------------------------------------------------------------ */
+/* ---- Weekly timetable (Time Management) ----
+   Fixed hourly rows, a coloured block per task spanning hours via the
+   table's native rowspan, and a sticky day header. */
 
-/* Wraps the <table> in a fixed-height, scrollable box. Without this, a
-   14-row hourly timetable would make the whole page very tall - this
-   keeps it to a sensible height while still showing every hour. */
+/* Fixed-height scroll box so a 14-row hourly table doesn't blow out page height */
 .planner-scroll {
   max-height: 30rem;
   overflow-y: auto;
@@ -180,9 +127,7 @@ input[type="checkbox"] {
 
 .planner-table {
   width: 100%;
-  /* border-collapse merges each cell's border with its neighbour's
-     instead of doubling up into thick lines between cells. */
-  border-collapse: collapse;
+  border-collapse: collapse; /* merges cell borders instead of doubling them */
 }
 
 .planner-table th,
@@ -192,12 +137,8 @@ input[type="checkbox"] {
   vertical-align: top;
 }
 
-/* position:sticky keeps the header row pinned to the top of
-   .planner-scroll as the visitor scrolls through the hours, exactly
-   like a spreadsheet's frozen header row. top:0 means "stick as soon as
-   it would reach the top of its scrolling container"; z-index makes
-   sure it stays drawn on top of the timetable body scrolling underneath
-   it instead of tasks poking through. */
+/* Sticky header row stays pinned above the scrolling hours, like a frozen
+   spreadsheet row; z-index keeps it drawn above tasks scrolling underneath. */
 .planner-table thead th {
   position: sticky;
   top: 0;
@@ -205,17 +146,13 @@ input[type="checkbox"] {
   padding: 0.625rem 0.75rem;
 }
 
-/* The hour label column down the left (e.g. "8:00 AM"). */
 .planner-hour-label {
   padding: 0.5rem 0.75rem;
   white-space: nowrap;
 }
 
-/* Every hour x day box in the grid, whether empty or holding a task.
-   height:60px gives every hour row a consistent, real-timetable-style
-   height; a multi-hour task's rowspan then naturally becomes a
-   multiple of this height (2 hours = 120px, 3 hours = 180px, etc). A
-   soft background tint on :hover hints that empty boxes are clickable. */
+/* 60px keeps every hour row a consistent height, so a task's rowspan lines
+   up cleanly (2h = 120px, 3h = 180px, etc). */
 .planner-slot {
   height: 60px;
   padding: 0;
@@ -227,17 +164,9 @@ input[type="checkbox"] {
   background-color: #faf7f2;
 }
 
-/* One task block, filling its entire table cell (including across
-   however many hours its rowspan covers) - the same visual idea as a
-   coloured class block on a printed timetable. Colour itself comes
-   from the 4 .block-* classes below, one of which JavaScript adds
-   alongside this class. */
-/* justify-content:space-between means "put the first child at the top
-   and the last child at the bottom, sharing out any extra room between
-   them." That's what makes a 1-hour block feel snug and a 3-hour block
-   keep its task name pinned to the top with the checkbox/delete row
-   anchored to the bottom, instead of everything drifting to the middle
-   of a tall block. */
+/* space-between keeps a task's name pinned to the top and its
+   checkbox/delete row anchored to the bottom, however tall the block gets
+   via rowspan, instead of both drifting to the middle. */
 .planner-task {
   height: 100%;
   display: flex;
@@ -248,15 +177,12 @@ input[type="checkbox"] {
   color: #ffffff;
 }
 
-/* Marked done via the checkbox inside a task block. */
 .planner-task.done .planner-task-text {
   text-decoration: line-through;
   opacity: 0.75;
 }
 
-/* Solid category colour per block - the same 4 brand colours used for
-   the legend dots above the timetable, so a block's colour always means
-   the same thing everywhere on the site. */
+/* Category colours match the legend dots above the timetable */
 .block-home-skills {
   background-color: #7c9d96;
 }
@@ -273,23 +199,17 @@ input[type="checkbox"] {
   background-color: #d97757;
 }
 
-/* The small "8:00 AM – 10:00 AM" caption inside a task block. Slightly
-   transparent white so the bolder task name above it is still clearly
-   the most important line of text. */
+/* Slightly transparent so the bolder task name above stays the primary line */
 .planner-task-time {
   color: rgb(255 255 255 / 0.85);
 }
 
-/* The top group (task name + time range) inside a task block. Wrapping
-   these two lines in their own element means the block only has 2
-   direct flex children - the text group and the controls row - which
-   is what .planner-task's justify-content:space-between actually pushes
-   apart. */
+/* Groups name+time into a single flex child so .planner-task's
+   space-between only has two rows (this + controls) to push apart. */
 .planner-task-info {
   min-width: 0;
 }
 
-/* The row holding the checkbox + delete button inside a task block. */
 .planner-task-controls {
   display: flex;
   align-items: center;
@@ -297,32 +217,25 @@ input[type="checkbox"] {
   gap: 0.5rem;
 }
 
-/* Keeps a long task name from wrapping and breaking the chip's layout;
-   it will show "…" instead once the text runs out of room. */
+/* Ellipsis on overflow instead of wrapping, so a long task name doesn't break the chip layout */
 .truncate {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-/* Lets a flex item shrink smaller than its own content would normally
-   allow. Needed for .truncate to actually work inside a flex row -
-   without this, the browser refuses to shrink the box and the "…" never
-   appears. */
+/* Needed alongside .truncate inside a flex row - flex children refuse to
+   shrink below their content size by default, which would stop the "…" from ever showing. */
 .min-w-0 {
   min-width: 0;
 }
 
-/* flex: 1 1 0% - the item grows/shrinks to fill leftover space in its
-   flex row. Used on the "Task" field wrapper in the priority-matrix and
-   planner forms so the text input stretches across the remaining width
-   instead of staying at its smallest possible size. */
+/* Tailwind's flex-1 utility, reimplemented here for the priority-matrix and
+   planner form's task-name input so it stretches to fill the remaining row width. */
 .flex-1 {
   flex: 1 1 0%;
 }
 
-/* The small coloured circle used in the category legend above the
-   calendar. */
 .legend-dot {
   display: inline-block;
   width: 10px;
@@ -330,9 +243,7 @@ input[type="checkbox"] {
   border-radius: 50%;
 }
 
-/* -----------------------------------------------------------------------
-   Quick Meal filter dropdown (Quick Meal, Weekly Challenges)
------------------------------------------------------------------------ */
+/* ---- Filter dropdown (Quick Meal, Weekly Challenges) ---- */
 
 .filter-btn.is-open {
   border-color: #7c9d96;

@@ -1,18 +1,7 @@
 /*
-  submit-a-tip.js
-  -----------------------------------------------------------------------
-  Powers submit-a-tip.html:
-    - Validates the tip form (category chosen, title and tip long enough)
-      and shows our own error messages instead of the browser's default.
-    - A live character counter under the tip textarea.
-    - On a valid submit, builds a new tip card with document.createElement
-      and puts it at the top of the Community Tips list.
-    - Saves submitted tips in localStorage so they are still there the
-      next time this browser opens the page (this is a front-end-only
-      project with no real server, so localStorage is what simulates
-      "sharing" tips between visits).
-    - Category filter pills that show/hide cards without reloading the
-      page.
+  This is a front-end-only project with no real server, so localStorage
+  stands in for one: submitted tips persist per-browser and simulate
+  "sharing" tips between visits.
 */
 
 // ---- Element references ----
@@ -33,9 +22,8 @@ const tipFilters = document.getElementById("tip-filters");
 const TIPS_STORAGE_KEY = "ltl-community-tips";
 const MAX_TIP_LENGTH = 300;
 
-// Category display names and the colour each one's badge should use.
-// Re-uses colours already defined for the rest of the site (Primary,
-// Secondary, Text and Accent) so no brand-new colours are introduced.
+// Re-uses the site's existing Primary/Secondary/Text/Accent colours for
+// each badge instead of introducing new ones.
 const CATEGORY_INFO = {
   "home-skills": { label: "Home Skills", badgeClass: "bg-[#7c9d96]" },
   "money-time": { label: "Money & Time", badgeClass: "bg-[#52796f]" },
@@ -43,10 +31,8 @@ const CATEGORY_INFO = {
   "practice-growth": { label: "Practice & Growth", badgeClass: "bg-[#d97757]" },
 };
 
-// A handful of starter tips so the page doesn't look empty on a brand
-// new browser that hasn't submitted anything yet. These are NOT saved
-// to localStorage - they are always shown in addition to whatever the
-// visitor has submitted.
+// Starter tips so the page isn't empty on a fresh browser. Not persisted
+// to localStorage - always shown in addition to whatever a visitor submits.
 const SEED_TIPS = [
   {
     category: "home-skills",
@@ -78,13 +64,10 @@ const SEED_TIPS = [
   },
 ];
 
-// Which filter pill is currently selected. Starts on "all".
 let activeFilter = "all";
 
 // ---- Loading / saving submitted tips ----
 
-// Reads whatever the visitor has submitted before on this browser.
-// Returns an empty array if nothing has been saved yet.
 function loadStoredTips() {
   const savedJson = localStorage.getItem(TIPS_STORAGE_KEY);
   return savedJson ? JSON.parse(savedJson) : [];
@@ -96,12 +79,15 @@ function saveStoredTips(tipsArray) {
 
 // ---- Building and rendering tip cards ----
 
-// Takes one tip object and returns a fully-built <div> card element,
-// ready to be inserted into the page.
+/**
+ * @param {{category: string, title: string, text: string, name: string, date: string}} tip
+ * @returns {HTMLDivElement}
+ */
 function createTipCard(tip) {
   const card = document.createElement("div");
-  // data-category is what the filter buttons check against later.
   card.className = "tip-card block bg-white rounded-2xl shadow-sm p-6";
+  // Mirrors each filter pill's data-filter value, so a pill's selection
+  // maps directly onto the tips it should show.
   card.dataset.category = tip.category;
 
   const badge = document.createElement("span");
@@ -128,14 +114,14 @@ function createTipCard(tip) {
   return card;
 }
 
-// Clears the grid and rebuilds it from scratch: newest submitted tips
-// first, then the starter tips, skipping anything that doesn't match
-// the currently active filter.
 function renderTips() {
+  // The grid starts empty in the markup; every card (seed and submitted)
+  // is built and inserted here.
   tipsGrid.innerHTML = "";
 
   const storedTips = loadStoredTips();
-  // Newest-submitted-first, then the seed tips underneath them.
+  // storedTips is unshifted onto (newest first), so concatenating here
+  // keeps a visitor's own tips ahead of the starter tips.
   const allTips = storedTips.concat(SEED_TIPS);
 
   const tipsToShow = allTips.filter((tip) => activeFilter === "all" || tip.category === activeFilter);
@@ -155,9 +141,8 @@ function renderTips() {
 
 // ---- Filter pills ----
 
-// Two fixed sets of classes: one look for the pill that is currently
-// selected, another for every pill that isn't. Swapping between these
-// two sets is all classList.add()/remove() needs to do.
+// Fixed active/inactive class sets swapped via classList.add()/remove(),
+// so pill styling logic lives in one place.
 const ACTIVE_PILL_CLASSES = ["bg-[#52796f]", "border-[#52796f]", "text-white"];
 const INACTIVE_PILL_CLASSES = ["bg-white", "border-[#7c9d96]", "text-[#2f3e46]", "hover:bg-[#eef3f1]"];
 
@@ -171,13 +156,15 @@ function setPillActive(pillButton, isActive) {
   }
 }
 
-// Style every pill correctly on page load ("All Tips" starts active).
+// "All Tips" is active by default, so style every pill accordingly on load.
 document.querySelectorAll(".filter-pill-btn").forEach((pillButton) => {
   setPillActive(pillButton, pillButton.dataset.filter === activeFilter);
 });
 
 // One click listener on the whole pill container (event delegation)
-// instead of one listener per button.
+// instead of one per button. Each pill's data-filter is compared directly
+// against a tip's category (see renderTips), which is also mirrored onto
+// its card's data-category.
 tipFilters.addEventListener("click", (event) => {
   const clickedPill = event.target.closest(".filter-pill-btn");
   if (!clickedPill) {
@@ -195,6 +182,8 @@ tipFilters.addEventListener("click", (event) => {
 
 // ---- Live character counter ----
 
+// Recalculated on every keystroke (not just on submit) so the counter
+// below the textarea always reflects the current length.
 tipBodyTextarea.addEventListener("input", () => {
   const currentLength = tipBodyTextarea.value.length;
   tipBodyCounter.textContent = currentLength + " / " + MAX_TIP_LENGTH + " characters";
@@ -202,17 +191,17 @@ tipBodyTextarea.addEventListener("input", () => {
 
 // ---- Form validation and submission ----
 
-// Small helper: shows/hides one field's error message and toggles the
-// red-ish "has-error" border, so the same 4 lines aren't repeated for
-// every single field below.
+// Shows/hides one field's error message and toggles its "has-error"
+// border, so this isn't repeated for every field below.
 function setFieldError(inputElement, errorElement, hasError) {
   errorElement.classList.toggle("hidden", !hasError);
   inputElement.classList.toggle("has-error", hasError);
 }
 
 tipForm.addEventListener("submit", (event) => {
-  // Stop the browser's normal "reload the page and send the form to a
-  // server" behaviour - this is a client-side-only demo.
+  // The form has novalidate in the markup, and preventDefault stops the
+  // browser's own reload/native-bubble behaviour, so every message below
+  // is our own styled text instead of the browser's default validation UI.
   event.preventDefault();
 
   const category = tipCategorySelect.value;
@@ -233,8 +222,8 @@ tipForm.addEventListener("submit", (event) => {
     return; // At least one field failed - stop here, errors are now visible.
   }
 
-  // Build the new tip object. If the name field was left blank, fall
-  // back to "Anonymous" instead of showing an empty name on the card.
+  // Falls back to "Anonymous" if the name field was left blank, instead
+  // of showing an empty name on the card.
   const newTip = {
     category: category,
     title: title,
@@ -243,23 +232,19 @@ tipForm.addEventListener("submit", (event) => {
     date: new Date().toLocaleDateString("en-SG", { day: "numeric", month: "short", year: "numeric" }),
   };
 
-  // Add the new tip to the front of the saved list (so it shows up
-  // first) and write the updated list back to localStorage.
+  // unshift (not push) so the new tip appears first in Community Tips.
   const storedTips = loadStoredTips();
   storedTips.unshift(newTip);
   saveStoredTips(storedTips);
 
-  // Switch the filter back to "All Tips" so the visitor is guaranteed
-  // to see the tip they just posted, even if they had a category filter
-  // selected before submitting.
+  // Reset to "All Tips" so the visitor is guaranteed to see the tip they
+  // just posted, even if a category filter was active before submitting.
   activeFilter = "all";
   document.querySelectorAll(".filter-pill-btn").forEach((pillButton) => {
     setPillActive(pillButton, pillButton.dataset.filter === "all");
   });
   renderTips();
 
-  // Reset the form back to empty, clear the character counter and any
-  // error states, then show a success message that fades away on its own.
   tipForm.reset();
   tipBodyCounter.textContent = "0 / " + MAX_TIP_LENGTH + " characters";
   setFieldError(tipCategorySelect, tipCategoryError, false);
@@ -268,7 +253,7 @@ tipForm.addEventListener("submit", (event) => {
 
   tipSuccessMessage.classList.remove("hidden");
   setTimeout(() => {
-    tipSuccessMessage.classList.add("hidden");
+    tipSuccessMessage.classList.add("hidden"); // Hide again after 4s.
   }, 4000);
 });
 

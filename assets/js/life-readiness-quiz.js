@@ -1,32 +1,15 @@
 /*
-  life-readiness-quiz.js
-  -----------------------------------------------------------------------
-  Runs the Life Readiness Quiz on life-readiness-quiz.html:
-    - Picks a random set of questions from a larger question bank (see
-      QUESTION_BANK below) every time the page loads or the quiz is
-      retaken, so the quiz looks different each attempt.
-    - Updates a progress bar as questions get answered.
-    - Validates that every question shown is answered before showing
-      results.
-    - Adds up the points per category and shows a personalised result,
-      a score-by-category table (built with JavaScript), and one piece
-      of advice pointing at the category the visitor scored lowest on.
+  Runs the Life Readiness Quiz: builds a randomised set of questions from
+  QUESTION_BANK, tracks progress, validates answers, then scores them by
+  category and shows a personalised result with targeted advice.
 */
 
-// -------------------------------------------------------------------
-// Question bank: far more questions exist here than are ever shown at
-// once. Each category has 8 candidate questions; every time the quiz
-// is built, TOTAL_QUESTIONS of them are picked at random, spread
-// equally across the 4 categories (16 / 4 = 4 questions each), and the
-// rest stay hidden in the bank for next time. Hidden questions are
-// never added to the page, so they never factor into the progress bar,
-// the score, or the result bands below - every calculation only ever
-// looks at the questions actually shown. Options are always ordered
-// low-readiness to high-readiness - the option's position (1st, 2nd,
-// 3rd) becomes its point value, exactly like the original hand-written
-// questions did with data-points.
-// -------------------------------------------------------------------
-
+// Only a random subset of this bank is ever shown: TOTAL_QUESTIONS
+// questions are picked per attempt, split evenly across categories, so
+// hidden questions never factor into the progress bar, score, or result
+// bands. Each question's options are ordered low-readiness to
+// high-readiness, so an option's position (1st/2nd/3rd) doubles as its
+// point value.
 const TOTAL_QUESTIONS = 16;
 
 const QUESTION_BANK = {
@@ -296,12 +279,9 @@ const QUESTION_BANK = {
   ],
 };
 
-// One entry per category: a friendly display name, the advice text shown
-// if that category turns out to be the visitor's weakest, and a link to
-// somewhere on the site that helps with it. Home Skills and Practice &
-// Growth link to their section on the home page (using the id="..."
-// anchors that already exist there); Money & Time and People & Safety
-// link straight to the matching module pages since those already exist.
+// Home Skills and Practice & Growth link to their section anchor on the
+// home page; Money & Time and People & Safety link straight to their own
+// module pages, since those already exist as standalone pages.
 const CATEGORY_INFO = {
   "home-skills": {
     label: "Home Skills",
@@ -325,12 +305,11 @@ const CATEGORY_INFO = {
   },
 };
 
-// Bands describing the overall result. Written against the original
-// 8-question quiz (24 points max: 13, 19 and 24 are roughly 54%, 79%
-// and 100% of that). getResultBand() below scales those same
-// percentages to however many points the current, randomised quiz is
-// actually worth, so the bands stay meaningful no matter how many
-// questions ended up on the page.
+// Cutoffs are written against the original 8-question quiz (24 points
+// max), where 13, 19 and 24 points are roughly 54%, 79% and 100%.
+// getResultBand() scales those same percentages to whatever the current,
+// randomised quiz is actually worth, so the bands stay meaningful
+// regardless of how many questions ended up on the page.
 const RESULT_BANDS = [
   {
     title: "Just Getting Started",
@@ -346,6 +325,8 @@ const RESULT_BANDS = [
   },
 ];
 
+// Reapplies the ~54% / ~79% cutoffs from the comment above to this
+// quiz's actual point total, rather than hardcoding fixed scores.
 function getResultBand(totalScore, totalMax) {
   const lowCutoff = Math.round(totalMax * (13 / 24));
   const midCutoff = Math.round(totalMax * (19 / 24));
@@ -353,10 +334,6 @@ function getResultBand(totalScore, totalMax) {
   if (totalScore <= midCutoff) return RESULT_BANDS[1];
   return RESULT_BANDS[2];
 }
-
-// -------------------------------------------------------------------
-// Element references that don't change once the page has loaded.
-// -------------------------------------------------------------------
 
 const quizQuestionsContainer = document.getElementById("quiz-questions");
 const quizProgressFill = document.getElementById("quiz-progress-fill");
@@ -373,15 +350,11 @@ const quizResultsTableBody = document.getElementById("quiz-results-table-body");
 const quizAdviceIntro = document.getElementById("quiz-advice-intro");
 const quizAdviceList = document.getElementById("quiz-advice-list");
 
-// Re-assigned every time the quiz is (re)built - see renderQuizQuestions().
+// Reassigned each time the quiz is (re)built; see renderQuizQuestions().
 let quizQuestions = [];
 
-// -------------------------------------------------------------------
-// Randomising and building the quiz
-// -------------------------------------------------------------------
-
-// Fisher-Yates shuffle. Returns a new shuffled array instead of mutating
-// the one passed in, so QUESTION_BANK itself is never touched.
+// Fisher-Yates shuffle; returns a new array instead of mutating the one
+// passed in, so QUESTION_BANK itself is never touched.
 function shuffleArray(items) {
   const shuffled = items.slice();
   for (let i = shuffled.length - 1; i > 0; i--) {
@@ -391,11 +364,14 @@ function shuffleArray(items) {
   return shuffled;
 }
 
-// Splits TOTAL_QUESTIONS evenly across the categories in QUESTION_BANK
-// (16 questions / 4 categories = 4 each). Written generically - if
-// TOTAL_QUESTIONS or the number of categories ever changed to values
-// that don't divide evenly, the leftover questions would be handed out
-// to a random subset of categories instead of always the same one.
+/**
+ * Splits TOTAL_QUESTIONS evenly across the given categories. Written
+ * generically so that if TOTAL_QUESTIONS or the category count ever
+ * changed to values that don't divide evenly, the leftover questions go
+ * to a random subset of categories instead of always the same one.
+ * @param {string[]} categories - keys from QUESTION_BANK
+ * @returns {Object<string, number>} question count to pick per category
+ */
 function pickQuestionCountsByCategory(categories) {
   const baseCount = Math.floor(TOTAL_QUESTIONS / categories.length);
   const extraCount = TOTAL_QUESTIONS % categories.length;
@@ -408,10 +384,9 @@ function pickQuestionCountsByCategory(categories) {
   return counts;
 }
 
-// Picks the random questions for one attempt of the quiz - exactly
-// TOTAL_QUESTIONS of them, pulled from QUESTION_BANK using the counts
-// above - then shuffles the combined list so the categories are
-// interleaved instead of appearing in four separate blocks.
+// Picks TOTAL_QUESTIONS questions using the counts above, then shuffles
+// the combined list so categories are interleaved instead of appearing
+// in four separate blocks.
 function pickQuizQuestions() {
   const categories = Object.keys(QUESTION_BANK);
   const countsByCategory = pickQuestionCountsByCategory(categories);
@@ -427,8 +402,8 @@ function pickQuizQuestions() {
   return shuffleArray(picked);
 }
 
-// Builds the actual .quiz-question DOM, using the exact same classes as
-// the original hand-written HTML so it looks identical on the page.
+// Reuses the same classes as the original hand-written markup so the
+// generated questions look identical to it.
 function renderQuizQuestions() {
   const selected = pickQuizQuestions();
   quizQuestionsContainer.innerHTML = "";
@@ -476,13 +451,7 @@ function renderQuizQuestions() {
   quizQuestions = document.querySelectorAll(".quiz-question");
 }
 
-// -------------------------------------------------------------------
-// Progress bar: recalculates every time ANY radio button changes.
-// -------------------------------------------------------------------
-
 function updateQuizProgress() {
-  // "input[type=radio]:checked" selects every radio input on the whole
-  // page that is currently selected - one per answered question.
   const answeredCount = document.querySelectorAll('.quiz-question input[type="radio"]:checked').length;
   const totalQuestions = quizQuestions.length;
   const percent = totalQuestions === 0 ? 0 : Math.round((answeredCount / totalQuestions) * 100);
@@ -491,41 +460,31 @@ function updateQuizProgress() {
   quizProgressText.textContent = answeredCount + " of " + totalQuestions + " answered";
 }
 
-// Listens for a "change" event anywhere inside the quiz section. This is
-// called "event delegation" - instead of adding a listener to every
-// individual radio button, we add ONE listener on their shared parent
-// and let the event bubble up to it. Less code, and it still works even
-// though the questions themselves are rebuilt from scratch on every
-// load and retake.
+// Uses event delegation (one listener on the shared parent) instead of
+// one per radio button, so it still works after the questions are
+// rebuilt from scratch on every load and retake.
 quizSection.addEventListener("change", (event) => {
   if (event.target.matches('input[type="radio"]')) {
     updateQuizProgress();
 
-    // Also visually mark the chosen answer card. First remove "selected"
-    // from every option in this question (in case a different option was
-    // chosen before), then add it to the one that was just picked.
+    // Clear "selected" from every option in this question before adding
+    // it to the one just picked, in case a different option was chosen
+    // first.
     const questionBlock = event.target.closest(".quiz-question");
     questionBlock.querySelectorAll(".quiz-option").forEach((option) => option.classList.remove("selected"));
     event.target.closest(".quiz-option").classList.add("selected");
   }
 });
 
-// -------------------------------------------------------------------
-// "See My Results" button: validate, then calculate and display results.
-// -------------------------------------------------------------------
-
 quizSubmitBtn.addEventListener("click", () => {
-  // some() checks each question and stops as soon as it finds one with
-  // no checked radio inside it, returning true if any are unanswered.
   const hasUnansweredQuestion = Array.from(quizQuestions).some((question) => {
     return question.querySelector('input[type="radio"]:checked') === null;
   });
 
   if (hasUnansweredQuestion) {
     quizValidationMessage.classList.remove("hidden");
-    // Bring the visitor's attention back up to the questions instead of
-    // leaving them stuck looking at an error message with no clue where
-    // the unanswered question actually is.
+    // Scroll back up so the visitor can see which question they missed,
+    // instead of being stuck looking at the error text alone.
     quizSection.scrollIntoView({ behavior: "smooth" });
     return;
   }
@@ -535,9 +494,9 @@ quizSubmitBtn.addEventListener("click", () => {
 });
 
 function showQuizResults() {
-  // categoryScores/categoryMax end up looking like:
-  // { "home-skills": 9, "money-time": 7, "people-safety": 11, "practice-growth": 6 }
-  // { "home-skills": 12, "money-time": 12, "people-safety": 12, "practice-growth": 12 }
+  // categoryMax is tallied per category (not assumed to be a fixed 12)
+  // so scoring still works correctly if TOTAL_QUESTIONS or the category
+  // count ever changes to values that don't split evenly.
   const categoryScores = {};
   const categoryMax = {};
   Object.keys(CATEGORY_INFO).forEach((categoryKey) => {
@@ -550,8 +509,8 @@ function showQuizResults() {
   quizQuestions.forEach((question) => {
     const category = question.dataset.category;
     const checkedInput = question.querySelector('input[type="radio"]:checked');
-    // Attributes read from HTML are always text, so Number() converts
-    // the "1"/"2"/"3" string into an actual number we can add up.
+    // dataset values are always strings, so Number() converts the
+    // "1"/"2"/"3" into a number that can be added up.
     const points = Number(checkedInput.dataset.points);
 
     categoryScores[category] += points;
@@ -565,27 +524,23 @@ function showQuizResults() {
   renderCategoryTable(categoryScores, categoryMax);
   renderAdvice(categoryScores);
 
-  // Swap which section is visible: hide the questions, reveal the
-  // results, and scroll up so the visitor sees their result immediately
-  // instead of landing in the middle of the page.
+  // Scrolls to the top of the results so the visitor sees them
+  // immediately, instead of landing wherever the page happened to be.
   quizSection.classList.add("hidden");
   quizResultsSection.classList.remove("hidden");
   quizResultsSection.scrollIntoView({ behavior: "smooth" });
 }
 
-// Picks the matching band based on the total score (scaled to however
-// many points this particular quiz was worth) and writes its
-// title/summary into the page.
 function renderResultBand(totalScore, totalMax) {
   const band = getResultBand(totalScore, totalMax);
   quizResultTitle.textContent = band.title + " (" + totalScore + "/" + totalMax + ")";
   quizResultSummary.textContent = band.summary;
 }
 
-// Builds one <tr> per category and inserts them all into the results
-// table's <tbody>, which started completely empty in the HTML.
+// Inserts one <tr> per category into the results table's <tbody>, which
+// starts empty in the HTML.
 function renderCategoryTable(categoryScores, categoryMax) {
-  // Clear out any rows from a previous attempt (e.g. after "Retake").
+  // Clear rows from a previous attempt (e.g. after "Retake").
   quizResultsTableBody.innerHTML = "";
 
   Object.keys(CATEGORY_INFO).forEach((categoryKey) => {
@@ -605,11 +560,9 @@ function renderCategoryTable(categoryScores, categoryMax) {
   });
 }
 
-// Finds every category tied for the lowest score - not just the first
-// one - and shows advice and a link for each of them. Most attempts
-// only have one weakest category, but if two or more categories come
-// out equally low, all of them get a block instead of silently
-// dropping the rest.
+// Finds every category tied for the lowest score (not just the first),
+// so if two or more categories end up equally low, each one gets its
+// own advice block instead of the rest being silently dropped.
 function renderAdvice(categoryScores) {
   const lowestScore = Math.min(...Object.values(categoryScores));
   const weakestCategories = Object.keys(categoryScores).filter(
@@ -627,9 +580,8 @@ function renderAdvice(categoryScores) {
     const info = CATEGORY_INFO[categoryKey];
 
     const block = document.createElement("div");
-    // Every block after the first gets a top border to visually separate
-    // it from the one before, instead of the advice blocks running
-    // straight into each other with no divider.
+    // Top border on every block after the first, so multiple tied
+    // categories are visually separated instead of running together.
     block.className = index === 0 ? "" : "pt-4 border-t border-[#f0ece3]";
 
     const heading = document.createElement("p");
@@ -652,11 +604,6 @@ function renderAdvice(categoryScores) {
   });
 }
 
-// -------------------------------------------------------------------
-// "Retake the Quiz" button: builds a fresh, freshly-shuffled set of
-// questions and starts over.
-// -------------------------------------------------------------------
-
 quizRetakeBtn.addEventListener("click", () => {
   renderQuizQuestions();
   updateQuizProgress();
@@ -665,8 +612,7 @@ quizRetakeBtn.addEventListener("click", () => {
   quizSection.scrollIntoView({ behavior: "smooth" });
 });
 
-// Build the first random set of questions and show the correct starting
-// progress the moment the page loads, rather than waiting for the first
-// change event.
+// Renders the initial progress immediately, rather than waiting for the
+// first change event.
 renderQuizQuestions();
 updateQuizProgress();

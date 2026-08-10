@@ -11,7 +11,7 @@
   <script src="../assets/js/laundry-basics.js" defer></script>
 </head>
 <body class="bg-[#faf7f2] font-body text-[#2f3e46] antialiased">
-  <!-- Navigation -->
+  <!-- Site header and navigation -->
     <header class="sticky top-0 z-50 bg-white shadow-sm will-change-transform">
       <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 py-4 flex flex-wrap items-center justify-between">
         <a href="../index.html" class="font-heading font-bold text-xl text-[#52796f]">Level Up Life!</a>
@@ -77,7 +77,7 @@
       </div>
     </header>
 
-  <!-- Hero -->
+  <!-- Hero section -->
   <!-- Hero background photo: "A woman holding a basket in front of a
        washing machine" by Lola Azizada on Unsplash, free to use under
        the Unsplash License.
@@ -100,7 +100,7 @@
     </div>
   </section>
 
-  <!-- Main Content -->
+  <!-- Main content -->
   <main class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 py-12">
 
     <div class="mb-8">
@@ -127,11 +127,10 @@
       </div>
     </div>
 
-    <!-- Section 1: Laundry Fundamentals -->
+    <!-- Section: Laundry Fundamentals -->
     <section id="fundamentals" class="mb-12">
       <h2 class="font-heading text-2xl font-bold text-[#2f3e46] mb-4">Laundry Fundamentals</h2>
       <div class="flex flex-col gap-2">
-        <!-- Card 1 -->
         <details class="group bg-white rounded-2xl shadow-sm p-5">
           <summary class="list-none flex justify-between items-center gap-4 cursor-pointer font-body font-semibold text-base text-[#2f3e46]">
             <span>Sorting Your Clothes</span>
@@ -150,7 +149,6 @@
           </div>
         </details>
 
-        <!-- Card 2 -->
         <details class="group bg-white rounded-2xl shadow-sm p-5">
           <summary class="list-none flex justify-between items-center gap-4 cursor-pointer font-body font-semibold text-base text-[#2f3e46]">
             <span>Washing Settings Guide</span>
@@ -171,7 +169,7 @@
       </div>
     </section>
 
-    <!-- Section 2: Laundry Symbols -->
+    <!-- Section: Laundry Symbols Explained -->
     <section id="symbols" class="mb-12">
       <h2 class="font-heading text-2xl font-bold text-[#2f3e46] mb-4">Laundry Symbols Explained</h2>
 
@@ -197,7 +195,6 @@
       </div>
 
       <div class="flex flex-col gap-2">
-        <!-- Card 1 -->
         <details class="group bg-white rounded-2xl shadow-sm p-5">
           <summary class="list-none flex justify-between items-center gap-4 cursor-pointer font-body font-semibold text-base text-[#2f3e46]">
             <span>Understanding Care Labels</span>
@@ -217,7 +214,6 @@
           </div>
         </details>
 
-        <!-- Card 2 -->
         <details class="group bg-white rounded-2xl shadow-sm p-5">
           <summary class="list-none flex justify-between items-center gap-4 cursor-pointer font-body font-semibold text-base text-[#2f3e46]">
             <span>Bleach &amp; Chemical Guide</span>
@@ -238,11 +234,10 @@
       </div>
     </section>
 
-    <!-- Section 3: Drying &amp; Maintenance -->
+    <!-- Section: Drying & Care Habits -->
     <section id="drying-care" class="mb-12">
       <h2 class="font-heading text-2xl font-bold text-[#2f3e46] mb-4">Drying &amp; Care Habits</h2>
       <div class="flex flex-col gap-2">
-        <!-- Card 1 -->
         <details class="group bg-white rounded-2xl shadow-sm p-5">
           <summary class="list-none flex justify-between items-center gap-4 cursor-pointer font-body font-semibold text-base text-[#2f3e46]">
             <span>Machine vs. Hand Drying</span>
@@ -260,7 +255,6 @@
           </div>
         </details>
 
-        <!-- Card 2 -->
         <details class="group bg-white rounded-2xl shadow-sm p-5">
           <summary class="list-none flex justify-between items-center gap-4 cursor-pointer font-body font-semibold text-base text-[#2f3e46]">
             <span>Preventing Wrinkles</span>
@@ -279,7 +273,6 @@
           </div>
         </details>
 
-        <!-- Card 3 -->
         <details class="group bg-white rounded-2xl shadow-sm p-5">
           <summary class="list-none flex justify-between items-center gap-4 cursor-pointer font-body font-semibold text-base text-[#2f3e46]">
             <span>Extending Garment Life</span>
@@ -300,27 +293,24 @@
       </div>
     </section>
 
-    <!-- Section 4: Fabric Care Guide Matcher -->
+    <!-- Section: Fabric Care Guide Matcher -->
     <section id="fabric-care-guide" class="mb-4">
       <h2 class="font-heading text-2xl font-bold text-[#2f3e46] mb-1.5">Fabric Care Guide Matcher</h2>
       <p class="font-body text-base text-[#5b6b70] leading-relaxed mb-6">Select the garments you own to get personalized care instructions.</p>
 
       <div class="p-6 bg-white rounded-2xl shadow-sm border border-[#f0ece3]">
-        <!-- Garment Checkboxes -->
         <div id="garment-checkboxes" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-8"></div>
 
-        <!-- Clear All Button -->
         <button id="clear-all-btn" class="mb-8 bg-[#d97757] hover:bg-[#c2673f] text-white font-semibold text-sm px-6 py-2.5 rounded-lg transition-colors cursor-pointer">
           Clear All Selections
         </button>
 
-        <!-- Selected Count -->
         <div id="selected-count"></div>
 
-        <!-- Care Instruction Cards -->
         <div id="care-cards-container" class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8"></div>
       </div>
     </section>
+    <!-- /main -->
   </main>
 
   <!-- Footer -->
@@ -352,6 +342,5 @@
     <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 mt-9 text-xs opacity-70">&copy; 2026 Level Up Life!</div>
   </footer>
 
-  <!-- Scripts -->
 </body>
 </html>
