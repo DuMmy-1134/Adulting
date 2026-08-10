@@ -196,6 +196,57 @@
   </button>
 </section>
 
+<!-- Quiz Section -->
+<div class="max-w-2xl mx-auto mt-16 mb-16">
+  <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-6">Room Organization Assessment Quiz</h2>
+  <p class="font-body text-[13.5px] text-[#5b6b70] mb-8">Answer a few questions to get personalized organization recommendations for your room!</p>
+  
+  <!-- Quiz Container -->
+  <div id="quiz-container" class="bg-white rounded-2xl shadow-sm p-8">
+    <!-- Progress -->
+    <div class="mb-6">
+      <div class="w-full bg-[#f0ece3] rounded-full h-2 mb-2">
+        <div id="progress-bar-fill" class="bg-[#52796f] h-2 rounded-full transition-all" style="width: 20%"></div>
+      </div>
+      <p id="progress-text" class="text-center font-body text-[13.5px] text-[#5b6b70]">Question 1 of 5</p>
+    </div>
+    
+    <!-- Question -->
+    <h3 id="quiz-question-text" class="font-heading font-bold text-lg text-[#2f3e46] mb-6"></h3>
+    
+    <!-- Options -->
+    <div id="quiz-options" class="mb-6"></div>
+    
+    <!-- Next Button -->
+    <button id="next-question-btn" disabled class="w-full bg-[#52796f] text-white font-semibold py-3 rounded-lg hover:bg-[#3d5a56] transition-all cursor-pointer">
+      Next Question
+    </button>
+  </div>
+  
+  <!-- Results Container -->
+  <div id="quiz-results" class="hidden bg-white rounded-2xl shadow-sm p-8">
+    <h2 class="font-heading font-bold text-2xl text-[#52796f] mb-6">Your Results</h2>
+    
+    <div class="bg-[#eef3f1] rounded-2xl p-6 mb-6 border-2 border-[#52796f]">
+      <h3 id="result-title" class="font-heading font-bold text-xl text-[#2f3e46] mb-2"></h3>
+      <p id="result-description" class="font-body text-[13.5px] text-[#5b6b70] mb-4"></p>
+      
+      <h4 class="font-heading font-bold text-[#2f3e46] mb-3">Recommended Tips:</h4>
+      <ul class="list-disc list-inside space-y-2 font-body text-[13.5px] text-[#5b6b70]">
+        <li>Start small with one zone</li>
+        <li>Use clear labeling for all storage</li>
+        <li>Keep similar items together</li>
+        <li>Review and adjust monthly</li>
+        <li>Don't rush the process</li>
+      </ul>
+    </div>
+    
+    <button id="restart-quiz-btn" class="w-full bg-[#d97757] text-white font-semibold py-3 rounded-lg hover:bg-[#c4624d] transition-all cursor-pointer">
+      Retake Quiz
+    </button>
+  </div>
+</div>
+
     <footer class="bg-[#2f3e46] text-[#faf7f2] pt-14 pb-6">
       <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
         <div>
