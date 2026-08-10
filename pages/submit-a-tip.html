@@ -101,7 +101,7 @@
               <li aria-current="page" class="text-white font-semibold">Submit a Tip</li>
             </ol>
           </nav>
-          <h1 class="font-heading font-bold text-[40px] leading-tight mb-3">Submit a Tip</h1>
+          <h1 class="font-heading font-bold text-4xl leading-tight mb-3">Submit a Tip</h1>
           <p class="font-body text-base opacity-85 max-w-[540px]">Got a life hack that actually works? Share it below and it&rsquo;ll appear instantly in the Community Tips list for other students to read.</p>
         </div>
       </section>
@@ -133,11 +133,11 @@
         <form id="tip-form" novalidate class="bg-white rounded-2xl shadow-sm p-8 mb-14">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
             <div>
-              <label for="tip-name" class="block font-body text-[13.5px] font-semibold text-[#2f3e46] mb-1.5">Your name (optional)</label>
+              <label for="tip-name" class="block font-body text-sm font-semibold text-[#2f3e46] mb-1.5">Your name (optional)</label>
               <input type="text" id="tip-name" class="form-input" placeholder="e.g. Alex" />
             </div>
             <div>
-              <label for="tip-category" class="block font-body text-[13.5px] font-semibold text-[#2f3e46] mb-1.5">Category</label>
+              <label for="tip-category" class="block font-body text-sm font-semibold text-[#2f3e46] mb-1.5">Category</label>
               <select id="tip-category" class="form-select">
                 <option value="">Choose a category&hellip;</option>
                 <option value="home-skills">Home Skills</option>
@@ -150,13 +150,13 @@
           </div>
 
           <div class="mb-5">
-            <label for="tip-title" class="block font-body text-[13.5px] font-semibold text-[#2f3e46] mb-1.5">Tip title</label>
+            <label for="tip-title" class="block font-body text-sm font-semibold text-[#2f3e46] mb-1.5">Tip title</label>
             <input type="text" id="tip-title" class="form-input" placeholder="e.g. Fold laundry the moment it's dry" />
             <p id="tip-title-error" class="form-error-text hidden">Please enter a title of at least 4 characters.</p>
           </div>
 
           <div class="mb-5">
-            <label for="tip-body" class="block font-body text-[13.5px] font-semibold text-[#2f3e46] mb-1.5">Your tip</label>
+            <label for="tip-body" class="block font-body text-sm font-semibold text-[#2f3e46] mb-1.5">Your tip</label>
             <textarea id="tip-body" class="form-textarea" maxlength="300" placeholder="Explain your tip in a sentence or two..."></textarea>
             <div class="flex justify-between items-center mt-2">
               <p id="tip-body-error" class="form-error-text hidden">Please write at least 20 characters.</p>
@@ -165,8 +165,8 @@
             </div>
           </div>
 
-          <button type="submit" class="inline-block bg-[#d97757] text-white font-body font-semibold text-[15px] rounded-lg px-8 py-4 hover:bg-[#c2673f] transition-colors">Share This Tip</button>
-          <p id="tip-success-message" class="font-body text-[13.5px] font-semibold text-[#52796f] mt-3 hidden">Thanks &mdash; your tip has been shared with other students below!</p>
+          <button type="submit" class="inline-block bg-[#d97757] text-white font-body font-semibold text-base rounded-lg px-8 py-4 hover:bg-[#c2673f] transition-colors">Share This Tip</button>
+          <p id="tip-success-message" class="font-body text-sm font-semibold text-[#52796f] mt-3 hidden">Thanks &mdash; your tip has been shared with other students below!</p>
         </form>
       </section>
 
@@ -177,11 +177,11 @@
         <!-- Filter pills. data-filter matches the data-category value
              used on each tip card so JavaScript can compare them. -->
         <div class="flex flex-wrap gap-2 mb-7" id="tip-filters">
-          <button type="button" class="filter-pill-btn inline-block px-6 py-1.5 rounded-full border-2 text-[13.5px] font-semibold transition-colors" data-filter="all">All Tips</button>
-          <button type="button" class="filter-pill-btn inline-block px-6 py-1.5 rounded-full border-2 text-[13.5px] font-semibold transition-colors" data-filter="home-skills">Home Skills</button>
-          <button type="button" class="filter-pill-btn inline-block px-6 py-1.5 rounded-full border-2 text-[13.5px] font-semibold transition-colors" data-filter="money-time">Money &amp; Time</button>
-          <button type="button" class="filter-pill-btn inline-block px-6 py-1.5 rounded-full border-2 text-[13.5px] font-semibold transition-colors" data-filter="people-safety">People &amp; Safety</button>
-          <button type="button" class="filter-pill-btn inline-block px-6 py-1.5 rounded-full border-2 text-[13.5px] font-semibold transition-colors" data-filter="practice-growth">Practice &amp; Growth</button>
+          <button type="button" class="filter-pill-btn inline-block px-6 py-1.5 rounded-full border-2 text-sm font-semibold transition-colors" data-filter="all">All Tips</button>
+          <button type="button" class="filter-pill-btn inline-block px-6 py-1.5 rounded-full border-2 text-sm font-semibold transition-colors" data-filter="home-skills">Home Skills</button>
+          <button type="button" class="filter-pill-btn inline-block px-6 py-1.5 rounded-full border-2 text-sm font-semibold transition-colors" data-filter="money-time">Money &amp; Time</button>
+          <button type="button" class="filter-pill-btn inline-block px-6 py-1.5 rounded-full border-2 text-sm font-semibold transition-colors" data-filter="people-safety">People &amp; Safety</button>
+          <button type="button" class="filter-pill-btn inline-block px-6 py-1.5 rounded-full border-2 text-sm font-semibold transition-colors" data-filter="practice-growth">Practice &amp; Growth</button>
         </div>
 
         <!-- Left empty on purpose: every tip card (starter tips and any

@@ -101,7 +101,7 @@
               <li aria-current="page" class="text-white font-semibold">Life Readiness Quiz</li>
             </ol>
           </nav>
-          <h1 class="font-heading font-bold text-[40px] leading-tight mb-3">Life Readiness Quiz</h1>
+          <h1 class="font-heading font-bold text-4xl leading-tight mb-3">Life Readiness Quiz</h1>
           <p class="font-body text-base opacity-85 max-w-[540px]">A quick quiz across home skills, money &amp; time, people &amp; safety, and personal growth. Questions are pulled from a bigger pool and shuffled, so no two attempts look quite the same. Answer honestly &mdash; there are no wrong answers, only a starting point.</p>
         </div>
       </section>
@@ -130,8 +130,8 @@
              it starts empty because nothing has been answered yet. -->
         <div class="mb-6">
           <div class="flex justify-between items-center mb-2">
-            <span class="font-body text-[13.5px] font-semibold text-[#52796f]">Your progress</span>
-            <span id="quiz-progress-text" class="font-body text-[13.5px] text-[#5b6b70]">0 of 0 answered</span>
+            <span class="font-body text-sm font-semibold text-[#52796f]">Your progress</span>
+            <span id="quiz-progress-text" class="font-body text-sm text-[#5b6b70]">0 of 0 answered</span>
           </div>
           <div class="progress-track">
             <div id="quiz-progress-fill" class="progress-fill"></div>
@@ -145,14 +145,14 @@
         <div id="quiz-questions"></div>
 
         <p id="quiz-validation-message" class="form-error-text hidden mb-4">Please answer every question before viewing your results.</p>
-        <button type="button" id="quiz-submit-btn" class="inline-block bg-[#d97757] text-white font-body font-semibold text-[15px] rounded-lg px-8 py-4 hover:bg-[#c2673f] transition-colors">See My Results</button>
+        <button type="button" id="quiz-submit-btn" class="inline-block bg-[#d97757] text-white font-body font-semibold text-base rounded-lg px-8 py-4 hover:bg-[#c2673f] transition-colors">See My Results</button>
       </section>
 
       <!-- RESULTS SECTION (hidden until quiz is done) -->
       <section id="quiz-results" class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pt-4 pb-16 hidden">
         <div class="bg-[#52796f] text-white rounded-[20px] px-10 py-8 mb-7">
           <p class="text-xs font-bold uppercase tracking-widest opacity-75">Your result</p>
-          <h2 id="quiz-result-title" class="font-heading font-bold text-[28px] mt-2.5"></h2>
+          <h2 id="quiz-result-title" class="font-heading font-bold text-3xl mt-2.5"></h2>
           <p id="quiz-result-summary" class="text-base opacity-90 mt-2 max-w-[760px] leading-relaxed"></p>
         </div>
 
@@ -173,8 +173,8 @@
           <table class="planner-table">
             <thead>
               <tr class="bg-[#52796f] text-white">
-                <th class="font-heading text-[13.5px]">Category</th>
-                <th class="font-heading text-[13.5px]">Your score</th>
+                <th class="font-heading text-sm">Category</th>
+                <th class="font-heading text-sm">Your score</th>
               </tr>
             </thead>
             <tbody id="quiz-results-table-body"></tbody>
@@ -191,7 +191,7 @@
           <div id="quiz-advice-list" class="flex flex-col gap-4"></div>
         </div>
 
-        <button type="button" id="quiz-retake-btn" class="inline-block border-2 border-[#52796f] text-[#52796f] font-body font-semibold text-[15px] rounded-lg px-7 py-[14px] hover:bg-[#eef3f1] transition-colors">Retake the Quiz</button>
+        <button type="button" id="quiz-retake-btn" class="inline-block border-2 border-[#52796f] text-[#52796f] font-body font-semibold text-base rounded-lg px-7 py-[14px] hover:bg-[#eef3f1] transition-colors">Retake the Quiz</button>
       </section>
     </main>
 

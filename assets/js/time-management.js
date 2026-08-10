@@ -391,7 +391,7 @@ function createPriorityListItem(taskText) {
   li.className = "flex items-center justify-between gap-2 bg-[#eef3f1] rounded-md px-3 py-2";
 
   const span = document.createElement("span");
-  span.className = "font-body text-[13.5px] text-[#2f3e46]";
+  span.className = "font-body text-sm text-[#2f3e46]";
   span.textContent = taskText;
 
   const deleteBtn = document.createElement("button");

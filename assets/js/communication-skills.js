@@ -75,7 +75,7 @@ function renderScenarioPills() {
     const pill = document.createElement("button");
     pill.type = "button";
     pill.className =
-      "scenario-pill-btn inline-block px-4 py-2 rounded-full border-2 text-[13.5px] font-semibold text-left transition-colors";
+      "scenario-pill-btn inline-block px-4 py-2 rounded-full border-2 text-sm font-semibold text-left transition-colors";
     pill.dataset.scenarioIndex = String(index);
     pill.textContent = scenario.label;
     setPillActive(pill, false);

@@ -97,7 +97,7 @@
               <li aria-current="page" class="text-white font-semibold">Online Safety</li>
             </ol>
           </nav>
-          <h1 class="font-heading font-bold text-[40px] leading-tight mb-3">Online Safety</h1>
+          <h1 class="font-heading font-bold text-4xl leading-tight mb-3">Online Safety</h1>
           <p class="font-body text-base opacity-85 max-w-[540px]">Passwords, scams, and privacy &mdash; the stuff that keeps your accounts (and wallet) safe.</p>
         </div>
       </section>
@@ -165,13 +165,13 @@
         <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-3.5">Try it yourself</h2>
         <p class="font-body text-base text-[#5b6b70] leading-relaxed mb-4 max-w-[760px]">See how the password rules above play out. Type a password below for instant feedback &mdash; nothing you type here is saved or sent anywhere.</p>
         <div class="max-w-[420px]">
-          <label for="password-strength-input" class="block font-body font-semibold text-[13.5px] text-[#2f3e46] mb-2">Test a password</label>
-          <input type="password" id="password-strength-input" name="password-strength-input" autocomplete="new-password" spellcheck="false" placeholder="Type a password to test" class="w-full font-body text-[14.5px] text-[#2f3e46] bg-white border-2 border-[#7c9d96] rounded-lg px-4 py-2.5 focus:outline-none focus:border-[#52796f]">
+          <label for="password-strength-input" class="block font-body font-semibold text-sm text-[#2f3e46] mb-2">Test a password</label>
+          <input type="password" id="password-strength-input" name="password-strength-input" autocomplete="new-password" spellcheck="false" placeholder="Type a password to test" class="w-full font-body text-sm text-[#2f3e46] bg-white border-2 border-[#7c9d96] rounded-lg px-4 py-2.5 focus:outline-none focus:border-[#52796f]">
           <div class="mt-3 flex items-center gap-3">
             <div id="password-strength-track" class="flex-1 h-2 rounded-full bg-[#f0ece3] overflow-hidden">
               <div id="password-strength-fill" class="h-full rounded-full bg-[#f0ece3] transition-all duration-200 ease-out w-0"></div>
             </div>
-            <p id="password-strength-label" class="font-body font-semibold text-[13px] text-[#5b6b70] w-16 shrink-0" aria-live="polite"></p>
+            <p id="password-strength-label" class="font-body font-semibold text-sm text-[#5b6b70] w-16 shrink-0" aria-live="polite"></p>
           </div>
         </div>
       </section>
@@ -180,26 +180,26 @@
         <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-5">Common scam patterns</h2>
         <div id="scam-carousel" class="flex flex-col gap-4">
           <div class="bg-white rounded-2xl shadow-sm p-6" data-scam-card>
-            <h3 class="font-body font-bold text-[14.5px] text-[#2f3e46] mb-1.5">Phishing emails</h3>
+            <h3 class="font-body font-bold text-sm text-[#2f3e46] mb-1.5">Phishing emails</h3>
             <p class="font-body text-base text-[#5b6b70] leading-normal">Urgent messages asking you to click a link and &lsquo;verify&rsquo; your account.</p>
           </div>
           <div class="bg-white rounded-2xl shadow-sm p-6" data-scam-card>
-            <h3 class="font-body font-bold text-[14.5px] text-[#2f3e46] mb-1.5">Fake job or scholarship offers</h3>
+            <h3 class="font-body font-bold text-sm text-[#2f3e46] mb-1.5">Fake job or scholarship offers</h3>
             <p class="font-body text-base text-[#5b6b70] leading-normal">Offers that ask for money upfront before you have even started.</p>
           </div>
           <div class="bg-white rounded-2xl shadow-sm p-6" data-scam-card>
-            <h3 class="font-body font-bold text-[14.5px] text-[#2f3e46] mb-1.5">Too-good-to-be-true deals</h3>
+            <h3 class="font-body font-bold text-sm text-[#2f3e46] mb-1.5">Too-good-to-be-true deals</h3>
             <p class="font-body text-base text-[#5b6b70] leading-normal">Prices so low they are designed to make you act before you think.</p>
           </div>
           <div class="bg-white rounded-2xl shadow-sm p-6" data-scam-card>
-            <h3 class="font-body font-bold text-[14.5px] text-[#2f3e46] mb-1.5">Impersonation calls</h3>
+            <h3 class="font-body font-bold text-sm text-[#2f3e46] mb-1.5">Impersonation calls</h3>
             <p class="font-body text-base text-[#5b6b70] leading-normal">Callers pretending to be your school, bank, or even a friend in trouble.</p>
           </div>
         </div>
         <div class="flex items-center justify-center gap-4 mt-5">
-          <button type="button" id="scam-carousel-prev" aria-label="Previous scam pattern" class="font-body font-semibold text-[13.5px] text-[#52796f] border-2 border-[#52796f] rounded-lg px-5 py-2 hover:bg-[#eef3f1] transition-colors">Prev</button>
-          <span id="scam-carousel-status" aria-live="polite" class="font-body text-[13px] text-[#5b6b70] w-14 text-center">1 / 4</span>
-          <button type="button" id="scam-carousel-next" aria-label="Next scam pattern" class="font-body font-semibold text-[13.5px] text-[#52796f] border-2 border-[#52796f] rounded-lg px-5 py-2 hover:bg-[#eef3f1] transition-colors">Next</button>
+          <button type="button" id="scam-carousel-prev" aria-label="Previous scam pattern" class="font-body font-semibold text-sm text-[#52796f] border-2 border-[#52796f] rounded-lg px-5 py-2 hover:bg-[#eef3f1] transition-colors">Prev</button>
+          <span id="scam-carousel-status" aria-live="polite" class="font-body text-sm text-[#5b6b70] w-14 text-center">1 / 4</span>
+          <button type="button" id="scam-carousel-next" aria-label="Next scam pattern" class="font-body font-semibold text-sm text-[#52796f] border-2 border-[#52796f] rounded-lg px-5 py-2 hover:bg-[#eef3f1] transition-colors">Next</button>
         </div>
       </section>
 
