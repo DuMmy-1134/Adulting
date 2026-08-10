@@ -117,6 +117,10 @@
           <ul class="list-none flex flex-col gap-2">
             <li class="flex items-center gap-2">
               <span aria-hidden="true" class="text-[#9caaa6]">&mdash;</span>
+              <a href="#why-time-management" class="font-body text-sm text-[#52796f] hover:text-[#d97757] hover:underline">Why time management matters</a>
+            </li>
+            <li class="flex items-center gap-2">
+              <span aria-hidden="true" class="text-[#9caaa6]">&mdash;</span>
               <a href="#plan-your-week" class="font-body text-sm text-[#52796f] hover:text-[#d97757] hover:underline">Plan your week</a>
             </li>
             <li class="flex items-center gap-2">
@@ -135,8 +139,35 @@
         </div>
       </section>
 
+      <!-- WHY TIME MANAGEMENT MATTERS -->
+      <section id="why-time-management" class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pt-14">
+        <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-1.5">Why time management matters</h2>
+        <p class="font-body text-base text-[#5b6b70] leading-relaxed mb-5 max-w-[760px]">It&rsquo;s easy to assume time management is just about squeezing more into your day. It&rsquo;s really about spending your limited hours &mdash; between lectures, assignments, a part-time job and everything else &mdash; on what actually matters, with fewer last-minute scrambles along the way.</p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
+          <div class="bg-white rounded-2xl shadow-sm p-6">
+            <h3 class="font-heading font-bold text-lg text-[#2f3e46] mb-2">Less stress, more control</h3>
+            <p class="font-body text-base text-[#5b6b70] leading-relaxed">Knowing what&rsquo;s coming and when means fewer nights spent scrambling before a deadline, and fewer &ldquo;wait, that&rsquo;s due today?&rdquo; moments.</p>
+          </div>
+          <div class="bg-white rounded-2xl shadow-sm p-6">
+            <h3 class="font-heading font-bold text-lg text-[#2f3e46] mb-2">Room for what you actually want</h3>
+            <p class="font-body text-base text-[#5b6b70] leading-relaxed">Every hour you don&rsquo;t lose to disorganisation is an hour you get back &mdash; for sleep, friends, or whatever you&rsquo;d rather be doing.</p>
+          </div>
+          <div class="bg-white rounded-2xl shadow-sm p-6">
+            <h3 class="font-heading font-bold text-lg text-[#2f3e46] mb-2">Better work, not just more of it</h3>
+            <p class="font-body text-base text-[#5b6b70] leading-relaxed">Rushed work is rarely your best work. Planning ahead leaves room to actually check things over, instead of submitting your first draft as your final one.</p>
+          </div>
+          <div class="bg-white rounded-2xl shadow-sm p-6">
+            <h3 class="font-heading font-bold text-lg text-[#2f3e46] mb-2">A skill that outlasts uni</h3>
+            <p class="font-body text-base text-[#5b6b70] leading-relaxed">Deadlines don&rsquo;t stop after graduation. The habits you build juggling classes and assignments now are the same ones that carry you through a job and a budget later.</p>
+          </div>
+        </div>
+
+        <p class="font-body text-base text-[#5b6b70] leading-relaxed max-w-[760px]">The tools below won&rsquo;t manage your time for you &mdash; but they&rsquo;ll make it a lot easier to see where it&rsquo;s actually going.</p>
+      </section>
+
       <!-- WEEKLY TIMETABLE (HTML TABLE) -->
-      <section id="plan-your-week" class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pt-8">
+      <section id="plan-your-week" class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pt-14">
         <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-1.5">Plan your week</h2>
         <p class="font-body text-base text-[#5b6b70] leading-relaxed mb-5 max-w-[760px]">A real hour-by-hour timetable, just like the one on your student portal. Add a task with a start time and a duration (or click straight into an empty slot) and it fills that exact block. Clashing times are caught automatically, so nothing overlaps by accident.</p>
 
@@ -268,19 +299,27 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div class="bg-white rounded-2xl shadow-sm p-6">
-            <h3 class="font-body font-bold text-[14.5px] text-[#52796f] mb-3">Do first &mdash; Urgent &amp; Important</h3>
+            <h3 class="font-heading font-bold text-lg text-[#52796f] mb-2">Do first &mdash; Urgent &amp; Important</h3>
+            <p class="font-body text-sm text-[#5b6b70] leading-relaxed mb-1">Has a real deadline and real consequences if it slips. If you ignore it, something breaks.</p>
+            <p class="font-body text-sm text-[#9caaa6] mb-3">e.g. An assignment due tomorrow, a group meeting you can&rsquo;t miss.</p>
             <ul id="quadrant-do" class="list-none flex flex-col gap-2"></ul>
           </div>
           <div class="bg-white rounded-2xl shadow-sm p-6">
-            <h3 class="font-body font-bold text-[14.5px] text-[#52796f] mb-3">Schedule &mdash; Not Urgent, but Important</h3>
+            <h3 class="font-heading font-bold text-lg text-[#52796f] mb-2">Schedule &mdash; Not Urgent, but Important</h3>
+            <p class="font-body text-sm text-[#5b6b70] leading-relaxed mb-1">Matters for where you&rsquo;re headed, but nothing bad happens if it waits until later this week.</p>
+            <p class="font-body text-sm text-[#9caaa6] mb-3">e.g. Studying ahead for an exam, planning next month&rsquo;s budget.</p>
             <ul id="quadrant-schedule" class="list-none flex flex-col gap-2"></ul>
           </div>
           <div class="bg-white rounded-2xl shadow-sm p-6">
-            <h3 class="font-body font-bold text-[14.5px] text-[#d97757] mb-3">Delegate &mdash; Urgent, but Not Important</h3>
+            <h3 class="font-heading font-bold text-lg text-[#d97757] mb-2">Delegate &mdash; Urgent, but Not Important</h3>
+            <p class="font-body text-sm text-[#5b6b70] leading-relaxed mb-1">Needs to happen soon, but doesn&rsquo;t need to be you specifically doing it. Hand it off if you can.</p>
+            <p class="font-body text-sm text-[#9caaa6] mb-3">e.g. Replying to a group chat about logistics, picking something up for a friend.</p>
             <ul id="quadrant-delegate" class="list-none flex flex-col gap-2"></ul>
           </div>
           <div class="bg-white rounded-2xl shadow-sm p-6">
-            <h3 class="font-body font-bold text-[14.5px] text-[#d97757] mb-3">Eliminate &mdash; Not Urgent &amp; Not Important</h3>
+            <h3 class="font-heading font-bold text-lg text-[#d97757] mb-2">Eliminate &mdash; Not Urgent &amp; Not Important</h3>
+            <p class="font-body text-sm text-[#5b6b70] leading-relaxed mb-1">Doesn&rsquo;t move anything forward and nothing depends on it. Safe to drop or postpone indefinitely.</p>
+            <p class="font-body text-sm text-[#9caaa6] mb-3">e.g. Mindless scrolling, rewatching a show you&rsquo;ve already seen twice.</p>
             <ul id="quadrant-delete" class="list-none flex flex-col gap-2"></ul>
           </div>
         </div>
@@ -378,7 +417,7 @@
       <!-- FOCUS TIMER -->
       <section id="focus-timer" class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pt-12 pb-16">
         <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-1.5">Try a focus timer</h2>
-        <p class="font-body text-sm text-[#5b6b70] mb-4">Pick a length, hit start, and work on one task until it rings.</p>
+        <p class="font-body text-base text-[#5b6b70] mb-4">Pick a length, hit start, and work on one task until it rings.</p>
 
         <div class="bg-[#52796f] text-white rounded-[20px] px-10 py-8 flex items-center justify-between gap-6">
           <div>

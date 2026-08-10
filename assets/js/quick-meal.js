@@ -464,13 +464,13 @@ mealGrid.addEventListener("click", (e) => {
 
       ingredientsList.innerHTML = `
         <h3 class="font-heading font-bold text-lg text-[#2f3e46] mb-3">Ingredients</h3>
-        <ul class="list-disc list-inside space-y-1 text-[#5b6b70] text-sm">
+        <ul class="list-disc list-inside space-y-1 text-[#5b6b70] text-base">
           ${meal.ingredients.map((item) => `<li>${item}</li>`).join("")}
         </ul>`;
 
       instructionsList.innerHTML = `
         <h3 class="font-heading font-bold text-lg text-[#2f3e46] mb-3">Instructions</h3>
-        <ol class="list-decimal list-inside space-y-2 text-[#5b6b70] text-sm">
+        <ol class="list-decimal list-inside space-y-2 text-[#5b6b70] text-base">
           ${meal.recipe.map((step) => `<li>${step}</li>`).join("")}
         </ol>`;
 

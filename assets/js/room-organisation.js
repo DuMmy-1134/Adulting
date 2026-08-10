@@ -84,7 +84,7 @@ function renderZones() {
 
     // Steps list
     const stepsList = document.createElement('ol');
-    stepsList.className = 'list-decimal list-inside space-y-2 font-body text-sm text-[#5b6b70]';
+    stepsList.className = 'list-decimal list-inside space-y-2 font-body text-base text-[#5b6b70]';
 
     zone.tips.forEach(tip => {
       const li = document.createElement('li');

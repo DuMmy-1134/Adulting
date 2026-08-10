@@ -442,7 +442,7 @@ function renderQuizQuestions() {
     questionBlock.dataset.category = question.category;
 
     const prompt = document.createElement("p");
-    prompt.className = "font-body font-semibold text-[14.5px] text-[#2f3e46] mb-3";
+    prompt.className = "font-body font-semibold text-base text-[#2f3e46] mb-3";
     prompt.textContent = questionNumber + ". " + question.text;
     questionBlock.appendChild(prompt);
 
@@ -461,7 +461,7 @@ function renderQuizQuestions() {
       input.dataset.points = String(optionIndex + 1);
 
       const span = document.createElement("span");
-      span.className = "font-body text-[13.5px] text-[#2f3e46]";
+      span.className = "font-body text-base text-[#2f3e46]";
       span.textContent = optionText;
 
       label.appendChild(input);
@@ -592,11 +592,11 @@ function renderCategoryTable(categoryScores, categoryMax) {
     const row = document.createElement("tr");
 
     const labelCell = document.createElement("td");
-    labelCell.className = "font-body text-[13.5px] text-[#2f3e46]";
+    labelCell.className = "font-body text-base text-[#2f3e46]";
     labelCell.textContent = CATEGORY_INFO[categoryKey].label;
 
     const scoreCell = document.createElement("td");
-    scoreCell.className = "font-body text-[13.5px] text-[#2f3e46] font-semibold";
+    scoreCell.className = "font-body text-base text-[#2f3e46] font-semibold";
     scoreCell.textContent = categoryScores[categoryKey] + " / " + categoryMax[categoryKey];
 
     row.appendChild(labelCell);
