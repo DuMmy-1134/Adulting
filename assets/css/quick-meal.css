@@ -1,8 +1,0 @@
-.filter-btn.is-open {
-  border-color: #7c9d96;
-  color: #52796f;
-}
-
-.filter-btn.is-open .filter-chevron {
-  transform: rotate(180deg);
-}

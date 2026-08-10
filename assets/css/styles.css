@@ -1,20 +1,23 @@
 /* =======================================================================
    Level Up Life! - shared plain-CSS file for the Money Basics, Weekly
-   Challenges, Time Management, Life Readiness Quiz and Submit a Tip pages.
+   Challenges, Time Management, Life Readiness Quiz, Submit a Tip and
+   Quick Meal pages.
 
-   These 5 pages now load Tailwind from the Play CDN
+   These pages now load Tailwind from the Play CDN
    (https://cdn.tailwindcss.com) plus assets/js/tailwind-config.js for the
    "heading"/"body" font families, the same pattern already used by
-   index.html, online-safety.html, emergency-preparedness.html and
-   quick-meal.html. Because of that, this file no longer needs to contain
-   a pre-built copy of Tailwind's reset and utility classes - the CDN
-   script generates every utility (including arbitrary values like
-   bg-[#52796f]) on the fly, straight from the class names used in the
-   HTML.
+   index.html, online-safety.html and emergency-preparedness.html.
+   Because of that, this file no longer needs to contain a pre-built copy
+   of Tailwind's reset and utility classes - the CDN script generates
+   every utility (including arbitrary values like bg-[#52796f]) on the
+   fly, straight from the class names used in the HTML.
 
    What's left here is only what Tailwind's utilities can't already do:
-   the self-hosted @font-face rules, form fields, the quiz progress bar,
-   and the weekly planner table. Every rule still reuses the same
+   the "heading"/"body" font-family helpers, form fields, the quiz
+   progress bar, the weekly planner table and Quick Meal's filter-open
+   state. Every page here also loads assets/css/fonts.css separately for
+   the actual @font-face declarations - not repeated in this file, to
+   avoid declaring the same fonts twice. Every rule still reuses the same
    colour palette, spacing and radius values used elsewhere on the
    site so it all looks like one website:
      Primary (Muted Teal)  #7c9d96
@@ -24,54 +27,6 @@
      Text (Charcoal Blue)  #2f3e46
 
    ======================================================================= */
-
-@font-face {
-  font-family: "Fraunces";
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("../fonts/fraunces-latin-500-normal.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Fraunces";
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url("../fonts/fraunces-latin-600-normal.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Fraunces";
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url("../fonts/fraunces-latin-700-normal.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Nunito Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("../fonts/nunito-sans-latin-400-normal.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Nunito Sans";
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("../fonts/nunito-sans-latin-500-normal.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Nunito Sans";
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url("../fonts/nunito-sans-latin-600-normal.woff2") format("woff2");
-}
 
 .font-body {
   font-family: "Nunito Sans", system-ui, sans-serif;
@@ -373,4 +328,17 @@ input[type="checkbox"] {
   width: 10px;
   height: 10px;
   border-radius: 50%;
+}
+
+/* -----------------------------------------------------------------------
+   Quick Meal filter dropdown (Quick Meal, Weekly Challenges)
+----------------------------------------------------------------------- */
+
+.filter-btn.is-open {
+  border-color: #7c9d96;
+  color: #52796f;
+}
+
+.filter-btn.is-open .filter-chevron {
+  transform: rotate(180deg);
 }
