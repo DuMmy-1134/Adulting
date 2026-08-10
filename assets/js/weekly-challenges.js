@@ -155,17 +155,17 @@ function updateProgress() {
 
 // Apply Filters
 function applyFilters() {
-  const categorySelect = document.getElementById("challenge-category-filter");
-  const difficultySelect = document.getElementById(
+  const categoryBtn = document.getElementById("challenge-category-filter");
+  const difficultyBtn = document.getElementById(
     "challenge-difficulty-filter",
   );
   const filterStatus = document.getElementById("challenge-filter-status");
   const rows = document.querySelectorAll("#challenge-table-body tr");
 
-  if (!categorySelect || !difficultySelect) return;
+  if (!categoryBtn || !difficultyBtn) return;
 
-  const selectedCategory = categorySelect.value;
-  const selectedDifficulty = difficultySelect.value;
+  const selectedCategory = categoryBtn.dataset.value;
+  const selectedDifficulty = difficultyBtn.dataset.value;
   let visibleCount = 0;
 
   rows.forEach((row) => {
@@ -185,37 +185,80 @@ function applyFilters() {
   }
 }
 
+// Tracks every dropdown created by buildFilterDropdown so a click on one
+// filter button can close the others, and so an outside click can close
+// whichever one is open.
+const allFilterDropdowns = [];
+
+function closeAllFilterDropdowns() {
+  allFilterDropdowns.forEach(({ button, dropdown }) => {
+    dropdown.classList.add("hidden");
+    button.classList.remove("is-open");
+  });
+}
+
+function buildFilterDropdown(button, options, allLabel) {
+  const defaultLabel = button.querySelector(".filter-btn-label").textContent;
+
+  const dropdown = document.createElement("div");
+  dropdown.className =
+    "absolute left-0 min-w-full bg-white rounded-xl shadow-md mt-2 py-2 z-10 hidden";
+  dropdown.innerHTML = [
+    `<div class="filter-option px-4 py-1.5 text-sm text-[#2f3e46] whitespace-nowrap cursor-pointer hover:bg-[#faf7f2]" data-value="all">${allLabel}</div>`,
+    ...options.map(
+      (option) =>
+        `<div class="filter-option px-4 py-1.5 text-sm text-[#2f3e46] whitespace-nowrap cursor-pointer hover:bg-[#faf7f2]" data-value="${option}">${option}</div>`,
+    ),
+  ].join("");
+
+  button.parentElement.style.position = "relative";
+  button.parentElement.appendChild(dropdown);
+  allFilterDropdowns.push({ button, dropdown });
+
+  button.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const isOpen = !dropdown.classList.contains("hidden");
+    closeAllFilterDropdowns();
+    if (!isOpen) {
+      dropdown.classList.remove("hidden");
+      button.classList.add("is-open");
+    }
+  });
+
+  dropdown.addEventListener("click", (e) => {
+    const chosen = e.target.closest(".filter-option");
+    if (!chosen) return;
+
+    button.dataset.value = chosen.dataset.value;
+    button.querySelector(".filter-btn-label").textContent =
+      chosen.dataset.value === "all"
+        ? defaultLabel
+        : `${defaultLabel}: ${chosen.textContent}`;
+
+    closeAllFilterDropdowns();
+    applyFilters();
+  });
+}
+
+// Clicking anywhere outside an open dropdown closes it.
+document.addEventListener("click", closeAllFilterDropdowns);
+
 // Populate Filter Options Dynamically
 function setupFilterDropdowns() {
-  const categorySelect = document.getElementById("challenge-category-filter");
-  const difficultySelect = document.getElementById(
+  const categoryBtn = document.getElementById("challenge-category-filter");
+  const difficultyBtn = document.getElementById(
     "challenge-difficulty-filter",
   );
 
-  if (!categorySelect || !difficultySelect) return;
+  if (!categoryBtn || !difficultyBtn) return;
 
   const categories = [...new Set(challengePool.map((item) => item.category))];
   const difficulties = [
     ...new Set(challengePool.map((item) => item.difficulty)),
   ];
 
-  // Reset options keeping only 'all'
-  categorySelect.innerHTML = '<option value="all">All categories</option>';
-  difficultySelect.innerHTML = '<option value="all">All difficulties</option>';
-
-  categories.forEach((cat) => {
-    const opt = document.createElement("option");
-    opt.value = cat;
-    opt.textContent = cat;
-    categorySelect.appendChild(opt);
-  });
-
-  difficulties.forEach((diff) => {
-    const opt = document.createElement("option");
-    opt.value = diff;
-    opt.textContent = diff;
-    difficultySelect.appendChild(opt);
-  });
+  buildFilterDropdown(categoryBtn, categories, "All categories");
+  buildFilterDropdown(difficultyBtn, difficulties, "All difficulties");
 }
 
 // Generate New Schedule
@@ -262,16 +305,6 @@ document.addEventListener("DOMContentLoaded", () => {
   setupFilterDropdowns();
   generateNewWeeklySchedule();
 
-  const categorySelect = document.getElementById("challenge-category-filter");
-  const difficultySelect = document.getElementById(
-    "challenge-difficulty-filter",
-  );
-
-  if (categorySelect && difficultySelect) {
-    categorySelect.addEventListener("change", applyFilters);
-    difficultySelect.addEventListener("change", applyFilters);
-  }
-
   // One click listener on the table body (event delegation) instead of an
   // inline onclick per row, since rows are regenerated on every reshuffle.
   const tableBody = document.getElementById("challenge-table-body");
@@ -280,16 +313,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const btn = event.target.closest(".toggle-complete-btn");
       if (!btn) return;
       toggleComplete(btn);
-    });
-  }
-
-  // Mindset Tip Expandable Widget
-  const mindsetTips = document.getElementById("mindsetTips");
-  const expandableTip = document.querySelector(".tip");
-
-  if (mindsetTips && expandableTip) {
-    mindsetTips.addEventListener("click", () => {
-      expandableTip.classList.toggle("hidden");
     });
   }
 });
