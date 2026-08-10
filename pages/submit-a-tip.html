@@ -127,9 +127,6 @@
         <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-1.5">Share your tip</h2>
         <p class="font-body text-base text-[#5b6b70] leading-relaxed mb-5 max-w-[760px]">Fill in the form below. Your name is optional - leave it blank to post as Anonymous.</p>
 
-        <!-- novalidate: we handle every validation message ourselves in
-             JavaScript so it matches the rest of the site's styling
-             instead of the browser's default pop-up bubbles. -->
         <form id="tip-form" novalidate class="bg-white rounded-2xl shadow-sm p-8 mb-12">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
             <div>
@@ -160,7 +157,6 @@
             <textarea id="tip-body" class="form-textarea" maxlength="300" placeholder="Explain your tip in a sentence or two..."></textarea>
             <div class="flex justify-between items-center mt-2">
               <p id="tip-body-error" class="form-error-text hidden">Please write at least 20 characters.</p>
-              <!-- Updated live by JS on every keystroke; starts at 0. -->
               <p id="tip-body-counter" class="font-body text-xs text-[#5b6b70]">0 / 300 characters</p>
             </div>
           </div>
@@ -170,12 +166,10 @@
         </form>
       </section>
 
-      <!-- COMMUNITY TIPS -->
+      <!-- COMMUNITY TIPS: cards populated by JS -->
       <section id="community-tips" class="max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pb-16">
         <h2 class="font-heading font-bold text-2xl text-[#2f3e46] mb-4">Community tips</h2>
 
-        <!-- Filter pills. data-filter matches the data-category value
-             used on each tip card so JavaScript can compare them. -->
         <div class="flex flex-wrap gap-2 mb-7" id="tip-filters">
           <button type="button" class="filter-pill-btn inline-block px-6 py-1.5 rounded-full border-2 text-sm font-semibold transition-colors" data-filter="all">All Tips</button>
           <button type="button" class="filter-pill-btn inline-block px-6 py-1.5 rounded-full border-2 text-sm font-semibold transition-colors" data-filter="home-skills">Home Skills</button>
@@ -184,8 +178,6 @@
           <button type="button" class="filter-pill-btn inline-block px-6 py-1.5 rounded-full border-2 text-sm font-semibold transition-colors" data-filter="practice-growth">Practice &amp; Growth</button>
         </div>
 
-        <!-- Left empty on purpose: every tip card (starter tips and any
-             new ones a visitor submits) is created by JavaScript. -->
         <div id="tips-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[18px]"></div>
       </section>
     </main>
