@@ -349,8 +349,4 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('next-scenario-btn').addEventListener('click', nextScenario);
   document.getElementById('restart-scenarios-btn').addEventListener('click', restartScenarios);
   renderScenario();
-<<<<<<< Updated upstream
 });
-=======
-});
->>>>>>> Stashed changes
