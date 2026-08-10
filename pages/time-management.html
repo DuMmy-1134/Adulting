@@ -106,7 +106,7 @@
               <li aria-current="page" class="text-white font-semibold">Time Management</li>
             </ol>
           </nav>
-          <h1 class="font-heading font-bold text-[40px] leading-tight mb-3">Time Management</h1>
+          <h1 class="font-heading font-bold text-4xl leading-tight mb-3">Time Management</h1>
           <p class="font-body text-base opacity-85 max-w-[540px]">Between lectures, group projects and everything else, time doesn&rsquo;t manage itself. Plan your week, sort out what actually matters, and try a focus timer below.</p>
         </div>
       </section>
@@ -176,12 +176,12 @@
              forms on this page. -->
         <form id="planner-form" novalidate class="bg-white rounded-2xl shadow-sm p-6 mb-5 flex flex-wrap items-end gap-4">
           <div class="flex-1">
-            <label for="planner-task-input" class="block font-body text-[13.5px] font-semibold text-[#2f3e46] mb-1.5">Task</label>
+            <label for="planner-task-input" class="block font-body text-sm font-semibold text-[#2f3e46] mb-1.5">Task</label>
             <input type="text" id="planner-task-input" name="planner-task-input" class="form-input" placeholder="e.g. ST0501 lecture" />
             <p id="planner-task-error" class="form-error-text hidden">Please type a task before adding it.</p>
           </div>
           <div>
-            <label for="planner-day-select" class="block font-body text-[13.5px] font-semibold text-[#2f3e46] mb-1.5">Day</label>
+            <label for="planner-day-select" class="block font-body text-sm font-semibold text-[#2f3e46] mb-1.5">Day</label>
             <select id="planner-day-select" class="form-select">
               <option value="mon">Monday</option>
               <option value="tue">Tuesday</option>
@@ -193,14 +193,14 @@
             </select>
           </div>
           <div>
-            <label for="planner-start-select" class="block font-body text-[13.5px] font-semibold text-[#2f3e46] mb-1.5">Start time</label>
+            <label for="planner-start-select" class="block font-body text-sm font-semibold text-[#2f3e46] mb-1.5">Start time</label>
             <!-- Filled in by JavaScript with one option per hour of the
                  timetable (8:00 AM to 9:00 PM), so the list always matches
                  whatever hour range the timetable itself uses. -->
             <select id="planner-start-select" class="form-select"></select>
           </div>
           <div>
-            <label for="planner-duration-select" class="block font-body text-[13.5px] font-semibold text-[#2f3e46] mb-1.5">Duration</label>
+            <label for="planner-duration-select" class="block font-body text-sm font-semibold text-[#2f3e46] mb-1.5">Duration</label>
             <select id="planner-duration-select" class="form-select">
               <option value="1">1 hour</option>
               <option value="2">2 hours</option>
@@ -208,7 +208,7 @@
             </select>
           </div>
           <div>
-            <label for="planner-category-select" class="block font-body text-[13.5px] font-semibold text-[#2f3e46] mb-1.5">Category</label>
+            <label for="planner-category-select" class="block font-body text-sm font-semibold text-[#2f3e46] mb-1.5">Category</label>
             <select id="planner-category-select" class="form-select">
               <option value="home-skills">Home Skills</option>
               <option value="money-time" selected>Money &amp; Time</option>
@@ -216,7 +216,7 @@
               <option value="practice-growth">Practice &amp; Growth</option>
             </select>
           </div>
-          <button type="submit" class="inline-block bg-[#d97757] text-white font-body font-semibold text-[15px] rounded-lg px-7 py-4 hover:bg-[#c2673f] transition-colors">Add to Timetable</button>
+          <button type="submit" class="inline-block bg-[#d97757] text-white font-body font-semibold text-base rounded-lg px-7 py-4 hover:bg-[#c2673f] transition-colors">Add to Timetable</button>
           <!-- Shown only when the requested time clashes with a task
                that's already on the timetable for that day. -->
           <p id="planner-clash-error" class="form-error-text hidden w-full">This clashes with a task already on your timetable for that day. Pick a different start time or duration.</p>
@@ -263,10 +263,10 @@
           </div>
 
           <div class="flex items-center gap-4 mt-4">
-            <button type="button" id="planner-clear" class="inline-block border-2 border-[#52796f] text-[#52796f] font-body font-semibold text-[15px] rounded-lg px-7 py-[14px] hover:bg-[#eef3f1] transition-colors">Clear Week</button>
+            <button type="button" id="planner-clear" class="inline-block border-2 border-[#52796f] text-[#52796f] font-body font-semibold text-base rounded-lg px-7 py-[14px] hover:bg-[#eef3f1] transition-colors">Clear Week</button>
             <!-- Empty by default; JS fills this in for a moment after an
                  action (add/tick/delete/clear), then clears it again. -->
-            <span id="planner-status" class="font-body text-[13.5px] text-[#52796f] font-semibold"></span>
+            <span id="planner-status" class="font-body text-sm text-[#52796f] font-semibold"></span>
           </div>
         </div>
       </section>
@@ -281,12 +281,12 @@
              styled to match the rest of the site. -->
         <form id="priority-form" novalidate class="bg-white rounded-2xl shadow-sm p-6 mb-7 flex flex-wrap items-end gap-4">
           <div class="flex-1">
-            <label for="priority-input" class="block font-body text-[13.5px] font-semibold text-[#2f3e46] mb-1.5">Task</label>
+            <label for="priority-input" class="block font-body text-sm font-semibold text-[#2f3e46] mb-1.5">Task</label>
             <input type="text" id="priority-input" name="priority-input" class="form-input" placeholder="e.g. Finish ST0501 CA2 pages" />
             <p id="priority-error" class="form-error-text hidden">Please type a task before adding it.</p>
           </div>
           <div>
-            <label for="priority-quadrant" class="block font-body text-[13.5px] font-semibold text-[#2f3e46] mb-1.5">Quadrant</label>
+            <label for="priority-quadrant" class="block font-body text-sm font-semibold text-[#2f3e46] mb-1.5">Quadrant</label>
             <select id="priority-quadrant" name="priority-quadrant" class="form-select">
               <option value="do">Urgent &amp; Important</option>
               <option value="schedule">Not Urgent &amp; Important</option>
@@ -294,7 +294,7 @@
               <option value="delete">Not Urgent &amp; Not Important</option>
             </select>
           </div>
-          <button type="submit" class="inline-block bg-[#d97757] text-white font-body font-semibold text-[15px] rounded-lg px-7 py-4 hover:bg-[#c2673f] transition-colors">Add Task</button>
+          <button type="submit" class="inline-block bg-[#d97757] text-white font-body font-semibold text-base rounded-lg px-7 py-4 hover:bg-[#c2673f] transition-colors">Add Task</button>
         </form>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -338,7 +338,7 @@
             <div class="mt-2.5 flex flex-col gap-3">
               <p class="font-body text-base text-[#5b6b70] leading-relaxed"><span class="font-semibold text-[#2f3e46]">What it is:</span> Developed by Francesco Cirillo in the late 1980s, named after the tomato-shaped kitchen timer he used as a student. You work in short, fixed bursts with a timer, then take a short break, and after a few bursts you take a longer break. Try it with the timer further down this page.</p>
               <div>
-                <p class="font-body text-[13.5px] font-semibold text-[#2f3e46] mb-1.5">How to do it:</p>
+                <p class="font-body text-sm font-semibold text-[#2f3e46] mb-1.5">How to do it:</p>
                 <ol class="list-decimal pl-5 flex flex-col gap-1 font-body text-base text-[#5b6b70] leading-relaxed">
                   <li>Pick one task.</li>
                   <li>Set a timer for 25 minutes and work on only that task until it rings.</li>
@@ -359,7 +359,7 @@
             <div class="mt-2.5 flex flex-col gap-3">
               <p class="font-body text-base text-[#5b6b70] leading-relaxed"><span class="font-semibold text-[#2f3e46]">What it is:</span> Giving a task a fixed, pre-decided block of time on your calendar or planner, and stopping (or deliberately deciding to extend) when that block ends &mdash; rather than working on something until it &ldquo;feels&rdquo; done.</p>
               <div>
-                <p class="font-body text-[13.5px] font-semibold text-[#2f3e46] mb-1.5">How to do it:</p>
+                <p class="font-body text-sm font-semibold text-[#2f3e46] mb-1.5">How to do it:</p>
                 <ol class="list-decimal pl-5 flex flex-col gap-1 font-body text-base text-[#5b6b70] leading-relaxed">
                   <li>List what you need to do for the day or week.</li>
                   <li>Estimate a realistic amount of time for each item and put it directly onto your planner at a specific time, not just as a to-do item.</li>
@@ -380,7 +380,7 @@
             <div class="mt-2.5 flex flex-col gap-3">
               <p class="font-body text-base text-[#5b6b70] leading-relaxed"><span class="font-semibold text-[#2f3e46]">What it is:</span> If a task will take less than 2 minutes to do, do it immediately instead of writing it down to do later. It comes from David Allen&rsquo;s &ldquo;Getting Things Done&rdquo; method.</p>
               <div>
-                <p class="font-body text-[13.5px] font-semibold text-[#2f3e46] mb-1.5">How to do it:</p>
+                <p class="font-body text-sm font-semibold text-[#2f3e46] mb-1.5">How to do it:</p>
                 <ol class="list-decimal pl-5 flex flex-col gap-1 font-body text-base text-[#5b6b70] leading-relaxed">
                   <li>When a small task comes up (replying to a message, filing one document, packing your bag for tomorrow), ask: would this take less than 2 minutes?</li>
                   <li>If yes, do it right now, on the spot.</li>
@@ -400,7 +400,7 @@
             <div class="mt-2.5 flex flex-col gap-3">
               <p class="font-body text-base text-[#5b6b70] leading-relaxed"><span class="font-semibold text-[#2f3e46]">What it is:</span> Do your single biggest, hardest, or most-avoided task of the day first, before anything else. The name comes from a line attributed to Mark Twain &mdash; &ldquo;If it&rsquo;s your job to eat a frog, it&rsquo;s best to do it first thing in the morning&rdquo; &mdash; popularised as a productivity method by Brian Tracy&rsquo;s book Eat That Frog!</p>
               <div>
-                <p class="font-body text-[13.5px] font-semibold text-[#2f3e46] mb-1.5">How to do it:</p>
+                <p class="font-body text-sm font-semibold text-[#2f3e46] mb-1.5">How to do it:</p>
                 <ol class="list-decimal pl-5 flex flex-col gap-1 font-body text-base text-[#5b6b70] leading-relaxed">
                   <li>The night before (or first thing in the morning), decide what your one &ldquo;frog&rdquo; is &mdash; the task you&rsquo;re most likely to put off.</li>
                   <li>Do that task before checking messages, email, or anything easy and satisfying.</li>
@@ -430,7 +430,7 @@
             <p id="timer-status" class="text-sm opacity-85 mt-2.5 max-w-[480px] leading-relaxed"></p>
           </div>
           <div class="text-center shrink-0">
-            <p id="timer-display" class="font-heading font-bold text-[40px] leading-tight">25:00</p>
+            <p id="timer-display" class="font-heading font-bold text-4xl leading-tight">25:00</p>
             <div class="flex gap-2.5 mt-2.5">
               <button type="button" id="timer-toggle" class="inline-block bg-white text-[#52796f] font-body font-semibold text-sm rounded-lg px-7 py-[13px] whitespace-nowrap hover:bg-[#eef3f1] transition-colors">Start</button>
               <button type="button" id="timer-reset" class="inline-block border-2 border-white text-white font-body font-semibold text-sm rounded-lg px-7 py-[11px] whitespace-nowrap hover:bg-[#eef3f1] hover:text-[#52796f] transition-colors">Reset</button>

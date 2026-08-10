@@ -142,7 +142,7 @@ function renderTips() {
 
   if (tipsToShow.length === 0) {
     const emptyMessage = document.createElement("p");
-    emptyMessage.className = "font-body text-[14.5px] text-[#5b6b70]";
+    emptyMessage.className = "font-body text-sm text-[#5b6b70]";
     emptyMessage.textContent = "No tips in this category yet - be the first to add one above!";
     tipsGrid.appendChild(emptyMessage);
     return;

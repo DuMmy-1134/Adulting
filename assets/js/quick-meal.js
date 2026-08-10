@@ -323,7 +323,7 @@ function mealCardHtml(meal) {
           class="meal-card flex flex-col h-full bg-white rounded-2xl shadow-sm p-6 hover:shadow-md hover:-translate-y-0.5 transition-all"
         >
           <span
-            class="block text-[11.5px] font-bold tracking-[0.06em] text-[#7c9d96] mb-2 uppercase"
+            class="block text-xs font-bold tracking-[0.06em] text-[#7c9d96] mb-2 uppercase"
             >${meal["mealType"]}</span
           >
           <h3
@@ -339,7 +339,7 @@ function mealCardHtml(meal) {
             >Time: ${meal["timeNote"] || `${meal["estimatedTimeMinutes"]} min`}</span
           >
           <span
-            class="block font-body text-[13.5px] font-semibold text-[#d97757] mt-auto"
+            class="block font-body text-sm font-semibold text-[#d97757] mt-auto"
             >Click to Select &rarr;</span
           >
         </a>

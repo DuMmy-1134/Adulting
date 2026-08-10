@@ -633,7 +633,7 @@ function renderAdvice(categoryScores) {
     block.className = index === 0 ? "" : "pt-4 border-t border-[#f0ece3]";
 
     const heading = document.createElement("p");
-    heading.className = "font-body text-[14.5px] font-semibold text-[#2f3e46] mb-1";
+    heading.className = "font-body text-sm font-semibold text-[#2f3e46] mb-1";
     heading.textContent = info.label;
 
     const text = document.createElement("p");
@@ -641,7 +641,7 @@ function renderAdvice(categoryScores) {
     text.textContent = info.advice;
 
     const link = document.createElement("a");
-    link.className = "font-body text-[13.5px] font-semibold text-[#d97757]";
+    link.className = "font-body text-sm font-semibold text-[#d97757]";
     link.href = info.link;
     link.textContent = "Explore " + info.label + " →";
 
