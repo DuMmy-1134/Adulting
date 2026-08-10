@@ -159,7 +159,7 @@ function renderTips() {
 // selected, another for every pill that isn't. Swapping between these
 // two sets is all classList.add()/remove() needs to do.
 const ACTIVE_PILL_CLASSES = ["bg-[#52796f]", "border-[#52796f]", "text-white"];
-const INACTIVE_PILL_CLASSES = ["border-[#7c9d96]", "text-[#2f3e46]", "hover:bg-[#eef3f1]"];
+const INACTIVE_PILL_CLASSES = ["bg-white", "border-[#7c9d96]", "text-[#2f3e46]", "hover:bg-[#eef3f1]"];
 
 function setPillActive(pillButton, isActive) {
   if (isActive) {
