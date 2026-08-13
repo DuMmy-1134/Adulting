@@ -656,11 +656,11 @@ if (addRecipeForm) {
       estimatedTimeMinutes: Number(
         document.getElementById("estimated-time").value,
       ),
-      timeNote: document.getElementById("time-note").value.trim() || undefined,
+
       difficulty: document.getElementById("recipe-difficulty").value,
       ingredients: ingredientsArray,
       recipe: recipeArray,
-      source: document.getElementById("recipe-source").value.trim() || "",
+      // source: document.getElementById("recipe-source").value.trim() || "",
       youtubeId: youtubeId,
     };
 
